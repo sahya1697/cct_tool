@@ -1,0 +1,9 @@
+int bad_scope(int v){int r=0;switch(v){{case 0:r=10;break;}default:r=1;break;}return r;}
+int missing_break(int v){int r=0;switch(v){case 0:r=1;case 1:r=2;break;default:r=3;break;}return r;}
+int default_not_last(int v){int r=0;switch(v){default:r=9;break;case 0:r=1;break;}return r;}
+int switch_bool(int v){switch(v>0){case 0:return 0;case 1:return 1;default:return 2;}}
+int only_default(int v){switch(v){default:v++;break;}return v;}
+
+int main(void){
+    bad_scope(0); missing_break(0); default_not_last(0); switch_bool(-3); only_default(7); return 0;
+}

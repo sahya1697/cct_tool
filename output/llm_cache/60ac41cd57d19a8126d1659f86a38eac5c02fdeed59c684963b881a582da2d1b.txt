@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The sizeof operator is not used on the given code, so the rule is not applicable."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to function declarations, not function definitions, and the given code is a function definition."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function parameter 'i' is not a pointer, but an integer, so the rule does not apply."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The code has an explicit return statement with an expression, satisfying the rule."
+}

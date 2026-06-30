@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The union DataStore has a single declaration and does not declare the same type more than once."
+}

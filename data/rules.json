@@ -1,0 +1,1471 @@
+{
+    "total_rules": 142,
+    "rules": [
+        {
+            "rule_id": "1.1",
+            "rule": "All code shall conform to ISO/IEC 9899:1990 \"Programming languages - C\", amended and corrected by ISO/IEC 9899/COR1:1995, ISO/IEC 9899/AMD1:1995, and ISO/IEC 9899/COR2:1996.",
+            "rule_category": "required",
+            "chapter": "6.1",
+            "rule_type": "Environment",
+            "reference": [
+                "MISRA Guidelines Table 3",
+                "IEC 61508 Part 7: Table C.1"
+            ],
+            "amplification": "\"Programming languages - C\", amended and corrected by\nISO/IEC 9899/COR1:1995, ISO/IEC 9899/AMD1:1995, and\nISO/IEC 9899/COR2:1996.\nThese guidelines are based on ISO/IEC 9899:1990  amended and corrected by ISO/IEC 9899/\nCOR1:1995 , ISO/IEC 9899/AMD1:1995 , and ISO/IEC 9899/COR2:1996 . No claim is\nmade as to their suitability with respect to the ISO/IEC 9899:1999  version of the standard. Any\nreference in this document to \"Standard C\" refers to the older ISO/IEC 9899:1990  standard.\nIt is recognised that it will be necessary to raise deviations (as described in section 4.3.2) to permit\ncertain language extensions, for example to support hardware specific features.\nDeviations are required if the environmental limits as specified in ISO/IEC 9899:1990 5.2.4\nare exceeded, other than as allowed by Rule 5.1."
+        },
+        {
+            "rule_id": "1.2",
+            "rule": "No reliance shall be placed on undefined or unspecified behaviour.",
+            "rule_category": "required",
+            "chapter": "6.1",
+            "rule_type": "Environment",
+            "reference": [],
+            "amplification": "behaviour.\nThis rule requires that any reliance on undefined and unspecified behaviour, which is not specifically\naddressed by other rules, shall be avoided. Where a specific behaviour is explicitly covered in\nanother rule, only that specific rule needs to be deviated if required. See ISO/IEC 9899:1990\nAppendix G  for a complete list of these issues."
+        },
+        {
+            "rule_id": "1.3",
+            "rule": "Multiple compilers and/or languages shall only be used if there is a common defined interface standard for object code to which the languages/compilers/assemblers conform.",
+            "rule_category": "required",
+            "chapter": "6.1",
+            "rule_type": "Environment",
+            "reference": [
+                "Unspecified 11"
+            ],
+            "amplification": "is a common defined interface standard for object code to which\nthe languages/compilers/assemblers conform.\nIf a module is to be implemented in a language other than C, or compiled on a different C compiler,\nthen it is essential to ensure that the module will integrate correctly with other modules. Some\naspects of the behaviour of the C language are dependent on the compiler, and therefore these must\nbe understood for the compiler being used. Examples of issues that need to be understood are:\nstack usage, parameter passing and the way in which data values are stored (lengths, alignments,\naliasing, overlays, etc.)\n20\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 2\n6. Rules (continued)"
+        },
+        {
+            "rule_id": "1.4",
+            "rule": "The compiler/linker shall be checked to ensure that 31 character significance and case sensitivity are supported for external identifiers.",
+            "rule_category": "required",
+            "chapter": "6.1",
+            "rule_type": "Environment",
+            "reference": [
+                "Undefined 7",
+                "Implementation 5, 6"
+            ],
+            "amplification": "significance and case sensitivity are supported for external\nidentifiers.\nThe ISO standard requires external identifiers to be distinct in the first 6 characters. However\ncompliance with this severe and unhelpful restriction is considered an unnecessary limitation\nsince most compilers/linkers allow at least 31 character significance (as for internal identifiers).\nThe compiler/linker must be checked to establish this behaviour. If the compiler/linker is not\ncapable of meeting this limit, then use the limit of the compiler."
+        },
+        {
+            "rule_id": "1.5",
+            "rule": "Floating-point implementations should comply with a defined floating-point standard.",
+            "rule_category": "advisory",
+            "chapter": "6.1",
+            "rule_type": "Environment",
+            "reference": [],
+            "amplification": "floating-point standard.\nFloating-point arithmetic has a range of problems associated with it. Some (but not all) of the\nproblems can be overcome by using an implementation that conforms to a recognised standard.\nAn example of an appropriate standard is ANSI/IEEE Std 754 .\nThe definition of the floating-point types, in accordance with Rule 6.3, provides an opportunity for\nnoting the floating-point standard in use, for example:\n/* IEEE 754 single-precision floating-point */\ntypedef float float32_t;\nLanguage extensions\n6.2"
+        },
+        {
+            "rule_id": "2.1",
+            "rule": "Assembly language shall be encapsulated and isolated.",
+            "rule_category": "required",
+            "chapter": "6.2",
+            "rule_type": "Language extensions",
+            "reference": [
+                "Unspecified 11"
+            ],
+            "amplification": "Where assembly language instructions are required it is recommended that they be encapsulated\nand isolated in either (a) assembler functions, (b) C functions or (c) macros.\nFor reasons of efficiency it is sometimes necessary to embed simple assembly language instructions\nin-line, for example to enable and disable interrupts. If it is necessary to do this for any reason,\nthen it is recommended that it be achieved by using macros.\nNote that the use of in-line assembly language is an extension to standard C, and therefore also\nrequires a deviation against Rule 1.1.\n#define NOP asm(\"   NOP\")"
+        },
+        {
+            "rule_id": "2.2",
+            "rule": "Source code shall only use /* … */ style comments.",
+            "rule_category": "required",
+            "chapter": "6.2",
+            "rule_type": "Language extensions",
+            "reference": [],
+            "amplification": "This excludes the use of // C99 style comments and C++ style comments, since these are not\npermitted in C90. Many compilers support the // style of comments as an extension to C90. The\nuse of // in preprocessor directives (e.g. #define) can vary. Also the mixing of /* … */ and //\nis not consistent. This is more than a style issue, since different (pre C99) compilers may behave\ndifferently.\n21\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 3\n6. Rules (continued)"
+        },
+        {
+            "rule_id": "2.3",
+            "rule": "The character sequence /* shall not be used within a comment.",
+            "rule_category": "required",
+            "chapter": "6.2",
+            "rule_type": "Language extensions",
+            "reference": [],
+            "amplification": "C does not support the nesting of comments even though some compilers support this as a language\nextension. A comment begins with /* and continues until the first */ is encountered. Any /*\noccurring inside a comment is a violation of this rule. Consider the following code fragment:\n/* some comment, end comment marker accidentally omitted\n<<New Page>>\nPerform_Critical_Safety_Function(X);\n/* this comment is not compliant */\nIn reviewing the page containing the call to the function, the assumption is that it is executed code.\nBecause of the accidental omission of the end comment marker, the call to the safety critical\nfunction will not be executed."
+        },
+        {
+            "rule_id": "2.4",
+            "rule": "Sections of code should not be \"commented out\".",
+            "rule_category": "advisory",
+            "chapter": "6.2",
+            "rule_type": "Language extensions",
+            "reference": [],
+            "amplification": "Where it is required for sections of source code not to be compiled then this should be achieved by\nuse of conditional compilation (e.g. #if or #ifdef constructs with a comment). Using start and end\ncomment markers for this purpose is dangerous because C does not support nested comments, and\nany comments already existing in the section of code would change the effect.\nDocumentation\n6.3"
+        },
+        {
+            "rule_id": "3.1",
+            "rule": "All usage of implementation-defined behaviour shall be documented.",
+            "rule_category": "required",
+            "chapter": "6.3",
+            "rule_type": "Documentation",
+            "reference": [],
+            "amplification": "documented.\nThis rule requires that any reliance on implementation-defined behaviour, which is not specifically\naddressed by other rules, shall be documented, for example by reference to compiler documentation.\nWhere a specific behaviour is explicitly covered in another rule, only that specific rule needs to be\ndeviated if required. See ISO/IEC 9899:1990 Appendix G  for a complete list of these issues."
+        },
+        {
+            "rule_id": "3.2",
+            "rule": "The character set and the corresponding encoding shall be documented.",
+            "rule_category": "required",
+            "chapter": "6.3",
+            "rule_type": "Documentation",
+            "reference": [],
+            "amplification": "documented.\nFor example, ISO 10646  defines an international standard for mapping character sets to\nnumeric values. For portability, \"character-constants\" and \"string-literals\" should only contain\ncharacters that map to a documented subset. The source code is written in one or more character\nsets. Optionally, the program can execute in a second or multiple character sets. All the source and\nexecution character sets shall be documented.\n22\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 4\n6. Rules (continued)"
+        },
+        {
+            "rule_id": "3.3",
+            "rule": "The implementation of integer division in the chosen compiler should be determined, documented and taken into account.",
+            "rule_category": "advisory",
+            "chapter": "6.3",
+            "rule_type": "Documentation",
+            "reference": [
+                "Implementation 18"
+            ],
+            "amplification": "should be determined, documented and taken into account.\nPotentially an ISO compliant compiler can do one of two things when dividing two signed integers,\none of which is positive and one negative. Firstly it may round up, with a negative remainder\n(e.g. -5/3 = -1 remainder -2), or secondly it may round down with a positive remainder\n(e.g. -5/3 = -2 remainder +1).\nIt is important to determine which of these is implemented by the compiler and to document it for\nprogrammers, especially if it is the second (perhaps less intuitive) implementation."
+        },
+        {
+            "rule_id": "3.4",
+            "rule": "All uses of the #pragma directive shall be documented and explained.",
+            "rule_category": "required",
+            "chapter": "6.3",
+            "rule_type": "Documentation",
+            "reference": [
+                "Implementation 40"
+            ],
+            "amplification": "explained.\nThis rule places a requirement on the user of this document to produce a list of any pragmas\nthey choose to use in an application. The meaning of each pragma shall be documented. There\nshall be sufficient supporting description to demonstrate that the behaviour of the pragma, and its\nimplications for the application, have been fully understood.\nAny use of pragmas should be minimised, localised and encapsulated within dedicated functions\nwherever possible."
+        },
+        {
+            "rule_id": "3.5",
+            "rule": "If it is being relied upon, the implementation defined behaviour and packing of bitfields shall be documented.",
+            "rule_category": "required",
+            "chapter": "6.3",
+            "rule_type": "Documentation",
+            "reference": [
+                "Unspecified 10",
+                "Implementation 30, 31"
+            ],
+            "amplification": "and packing of bitfields shall be documented.\nThis is a particular problem where bit fields are used because of the poorly defined aspects of bit\nfields described under Rules 6.4 and 6.5. The \"bit field\" facility in C is one of the most poorly\ndefined parts of the language. There are two main uses to which bit fields could be put:\nTo access the individual bits, or groups of bits, in larger data types (in conjunction with\n•\nunions). This use is not permitted (see Rule 18.4).\nTo allow flags or other short-length data to be packed to save storage space.\n•\nThe packing together of short-length data to economise on storage is the only acceptable use of bit\nfields envisaged in this document. Provided the elements of the structure are only ever accessed\nby their name, the programmer needs to make no assumptions about the way that the bit fields are\nstored within the structure.\nIt is recommended that structures be declared specifically to hold the sets of bit fields, and do\nnot include any other data within the same structure. Note that Rule 6.3 need not be followed in\ndefining bit-fields, since their lengths are specified in the structure.\nIf the compiler has a switch to force bit fields to follow a particular layout then this could assist\nin such a justification.\n23\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 5\n6. Rules (continued)\nFor example the following is acceptable:\nstruct message               /* Struct is for bit-fields only */\n{\nsigned   int little: 4;   /* Note: use of basic types is required */\nunsigned int x_set:  1;\nunsigned int y_set:  1;\n} message_chunk;\nIf using bit fields, be aware of the potential pitfalls and areas of implementation-defined (i.e. non-\nportable) behaviour. In particular the programmer should be aware of the following:\nThe alignment of the bit fields in the storage unit is implementation-defined, that is\n•\nwhether they are allocated from the high end or low end of the storage unit (usually a\nbyte).\nWhether or not a bit field can overlap a storage unit boundary is also implementation-\n•\ndefined (e.g. if a 6-bit field and a 4-bit field are declared in that order, whether the 4 bit\nfield will start a new byte or whether it will be 2 bits in one byte and 2 bits in the next)."
+        },
+        {
+            "rule_id": "3.6",
+            "rule": "All libraries used in production code shall be written to comply with the provisions of this document, and shall have been subject to appropriate validation.",
+            "rule_category": "required",
+            "chapter": "6.3",
+            "rule_type": "Documentation",
+            "reference": [
+                "IEC 61508 Part 3"
+            ],
+            "amplification": "with the provisions of this document, and shall have been subject\nto appropriate validation.\nThis rule refers to any libraries used in the production code, which therefore may include standard\nlibraries supplied with the compiler, other third-party libraries, or libraries designed in-house.\nThis is recommended by IEC 61508 Part 3.\nCharacter sets\n6.4"
+        },
+        {
+            "rule_id": "4.1",
+            "rule": "Only those escape sequences that are defined in the ISO C standard shall be used.",
+            "rule_category": "required",
+            "chapter": "6.4",
+            "rule_type": "Character sets",
+            "reference": [
+                "Undefined 11",
+                "Implementation 11",
+                "3-6"
+            ],
+            "amplification": "standard shall be used.\nOnly \"simple-escape-sequences\" in ISO/IEC 9899:1990  Section 6.1.3.4 and \\0 are permitted\nescape sequences.\nAll \"hexadecimal-escape-sequences\" are prohibited.\nThe \"octal-escape-sequences\" other than \\0 are also prohibited under Rule 7.1."
+        },
+        {
+            "rule_id": "4.2",
+            "rule": "Trigraphs shall not be used.",
+            "rule_category": "required",
+            "chapter": "6.4",
+            "rule_type": "Character sets",
+            "reference": [],
+            "amplification": "Trigraphs are denoted by a sequence of 2 question marks followed by a specified third character\n(e.g. ??- represents a \"~\" (tilde) character and ??) represents a \"]\"). They can cause accidental\nconfusion with other uses of two question marks. For example the string\n\"(Date should be in the form ??-??-??)\"\nwould not behave as expected, actually being interpreted by the compiler as\n\"(Date should be in the form ~~]\"\n24\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 6\n6. Rules (continued)\nIdentifiers\n6.5"
+        },
+        {
+            "rule_id": "5.1",
+            "rule": "Identifiers (internal and external) shall not rely on the significance of more than 31 characters.",
+            "rule_category": "required",
+            "chapter": "6.5",
+            "rule_type": "Identifiers",
+            "reference": [
+                "Undefined 7",
+                "Implementation 5, 6"
+            ],
+            "amplification": "significance of more than 31 characters.\nThe ISO standard requires internal identifiers to be distinct in the first 31 characters to guarantee\ncode portability. This limitation shall not be exceeded, even if the compiler supports it. This rule\nshall apply across all name spaces. Macro names are also included and the 31 character limit\napplies before and after substitution.\nThe ISO standard requires external identifiers to be distinct in the first 6 characters, regardless\nof case, to guarantee optimal portability. However this limitation is particularly severe and is\nconsidered unnecessary. The intent of this rule is to sanction a relaxation of the ISO requirement\nto a degree commensurate with modern environments and it shall be confirmed that 31 character/\ncase significance is supported by the implementation.\nNote that there is a related issue with using identifier names that differ by only one or a few\ncharacters, especially if the identifier names are long. The problem is heightened if the differences\nare in easily mis-read characters like 1 (one) and l (lower case L), 0 and O, 2 and Z, 5 and S, or n\nand h. It is recommended to ensure that identifier names are always easily visually distinguishable.\nSpecific guidelines on this issue could be placed in the style guidelines (see section 4.2.2)."
+        },
+        {
+            "rule_id": "5.2",
+            "rule": "Identifiers in an inner scope shall not use the same name as an identifier in an outer scope, and therefore hide that identifier.",
+            "rule_category": "required",
+            "chapter": "6.5",
+            "rule_type": "Identifiers",
+            "reference": [],
+            "amplification": "identifier in an outer scope, and therefore hide that identifier.\nThe terms outer and inner scope are defined as follows. Identifiers that have file scope can be\nconsidered as having the outermost scope. Identifiers that have block scope have a more inner\nscope. Successive, nested blocks, introduce more inner scopes. The rule is only to disallow the\ncase where a second inner definition hides an outer definition. If the second definition does not\nhide the first definition, then this rule is not violated.\nHiding identifiers with an identifier of the same name in a nested scope leads to code that is very\nconfusing. For example:\nint16_t i;\n{\nint16_t i;   /* This is a different variable                    */\n/* This is not compliant                           */\ni = 3;       /* It could be confusing as to which i this refers */\n}\n25\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 7\n6. Rules (continued)"
+        },
+        {
+            "rule_id": "5.3",
+            "rule": "A typedef name shall be a unique identifier.",
+            "rule_category": "required",
+            "chapter": "6.5",
+            "rule_type": "Identifiers",
+            "reference": [],
+            "amplification": "No typedef name shall be reused either as a typedef name or for any other purpose.\nFor example:\n{\ntypedef unsigned char uint8_t;\n}\n{\ntypedef unsigned char uint8_t; /* Not compliant - redefinition */\n}\n{\nunsigned char uint8_t;     /* Not compliant - reuse of uint8_t */\n}\ntypedef names shall not be reused anywhere within a program. The same typedef shall not be\nduplicated anywhere in the source code files even if the declarations are identical. Where the type\ndefinition is made in a header file, and that header file is included in multiple source files, this rule\nis not violated."
+        },
+        {
+            "rule_id": "5.4",
+            "rule": "A tag name shall be a unique identifier.",
+            "rule_category": "required",
+            "chapter": "6.5",
+            "rule_type": "Identifiers",
+            "reference": [],
+            "amplification": "No tag name shall be reused either to define a different tag or for any other purpose within the\nprogram. ISO/IEC 9899:1990  does not define the behaviour when an aggregate declaration\nuses a tag in different forms of type specifier (struct or union). Either all uses of the tag should be\nin structure type specifiers, or all uses should be in union type specifiers, For example:\nstruct stag { uint16_t a; uint16_t b; };\nstruct stag a1 = { 0, 0 };      /* Compliant - compatible with above  */\nunion stag  a2 = { 0, 0 };      /* Not compliant - not compatible with\nprevious declarations              */\nvoid foo(void)\n{\nstruct stag { uint16_t a; }; /* Not compliant - tag stag redefined */\n}\nThe same tag definition shall not be duplicated anywhere in the source code files even if the\ndefinitions are identical. Where the tag definition is made in a header file, and that header file is\nincluded in multiple source files, this rule is not violated."
+        },
+        {
+            "rule_id": "5.5",
+            "rule": "No object or function identifier with static storage duration should be reused.",
+            "rule_category": "advisory",
+            "chapter": "6.5",
+            "rule_type": "Identifiers",
+            "reference": [],
+            "amplification": "should be reused.\nRegardless of scope, no identifier with static storage duration should be re-used across any source\nfiles in the system. This includes objects or functions with external linkage and any objects or\nfunctions with the static storage class specifier.\nWhile the compiler can understand this and is in no way confused, the possibility exists for the\nuser to incorrectly associate unrelated variables with the same name.\nOne example of this confusion is having an identifier name with internal linkage in one file and\nthe same identifier name with external linkage in another file.\n26\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 8\n6. Rules (continued)"
+        },
+        {
+            "rule_id": "5.6",
+            "rule": "No identifier in one name space should have the same spelling as an identifier in another name space, with the exception of structure member and union member names.",
+            "rule_category": "advisory",
+            "chapter": "6.5",
+            "rule_type": "Identifiers",
+            "reference": [
+                "N_DEVICES",
+                "N_TASKS"
+            ],
+            "amplification": "as an identifier in another name space, with the exception of\nstructure member and union member names.\nName space and scope are different. This rule is not concerned with scope. For example, ISO C\nallows the same identifier (vector) for both a tag and a typedef at the same scope.\ntypedef struct vector { uint16_t x ; uint16_t y; uint16_t z; } vector;\n/* Rule violation ^^                                             ^^ */\nISO C defines a number of different name spaces (see ISO/IEC 9899:1990 6.1.2.3 ). It is\ntechnically possible to use the same name in separate name spaces to represent completely different\nitems. However this practice is deprecated because of the confusion it can cause, and so names\nshould not be reused, even in separate name spaces.\nThe example below illustrates a violation of this rule in which value is inadvertently used instead\nof record.value:\nstruct { int16_t key; int16_t value; } record;\nint16_t value;  /* Rule violation - second use of value */\nrecord.key = 1;\nvalue = 0;      /* should have been record.value */\nBy contrast, the example below does not violate the rule because two member names are less\nlikely to be confused:\nstruct device_q { struct device_q *next;   /* ... */ }\ndevices;\nstruct task_q { struct task_q *next;      /* ... */ }\ntasks;\ndevices.next = &devices;\ntasks.next   = &tasks;"
+        },
+        {
+            "rule_id": "5.7",
+            "rule": "No identifier name should be reused.",
+            "rule_category": "advisory",
+            "chapter": "6.5",
+            "rule_type": "Identifiers",
+            "reference": [],
+            "amplification": "Regardless of scope, no identifier should be re-used across any files in the system. This rule\nincorporates the provisions of Rules 5.2, 5.3, 5.4, 5.5 and 5.6.\nstruct air_speed\n{\nuint16_t speed;   /* knots */\n} * x;\nstruct gnd_speed\n{\nuint16_t speed;   /* mph                                         */\n/* Not Compliant - speed is in different units */\n} * y;\nx->speed = y->speed;\nWhere an identifier name is used in a header file, and that header file is included in multiple\nsource files, this rule is not violated. The use of a rigorous naming convention can support the\nimplementation of this rule.\n27\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 9\n6. Rules (continued)\nTypes\n6.6"
+        },
+        {
+            "rule_id": "6.1",
+            "rule": "The plain char type shall be used only for the storage and use of character values.",
+            "rule_category": "required",
+            "chapter": "6.6",
+            "rule_type": "Types",
+            "reference": [
+                "Implementation 14"
+            ],
+            "amplification": "character values."
+        },
+        {
+            "rule_id": "6.2",
+            "rule": "signed and unsigned char type shall be used only for the storage and use of numeric values.",
+            "rule_category": "required",
+            "chapter": "6.6",
+            "rule_type": "Types",
+            "reference": [],
+            "amplification": "and use of numeric values.\nThere are three distinct char types, (plain) char, signed char and unsigned char. signed char and\nunsigned char shall be used for numeric data and plain char shall be used for character data. The\nsignedness of the plain char type is implementation defined and should not be relied upon.\nCharacter values/data are character constants or string literals such as 'A', '5', '\\n', \"a\".\nNumeric values/data are numbers such as 0, 5, 23, \\x10, -3.\nCharacter sets map text characters onto numeric values. Character values are the \"text\".\nThe permissible operators on plain char types are the simple assignment operator (=), equality\noperators (==, !=) and explicit casts to integral types. Additionally, the second and third operands\nof the ternary conditional operator may both be of plain char type."
+        },
+        {
+            "rule_id": "6.3",
+            "rule": "typedefs that indicate size and signedness should be used in place of the basic numerical types.",
+            "rule_category": "advisory",
+            "chapter": "6.6",
+            "rule_type": "Types",
+            "reference": [],
+            "amplification": "of the basic numerical types.\nThe basic numerical types of signed and unsigned variants of char, int, short, long and float,\ndouble should not be used, but specific-length typedefs should be used. Rule 6.3 helps to clarify\nthe size of the storage, but does not guarantee portability because of the asymmetric behaviour of\nintegral promotion. See discussion of integral promotion - section 6.10. It is still important to\nunderstand the integer size of the implementation.\nProgrammers should be aware of the actual implementation of the typedefs under these definitions.\nFor example, the ISO (POSIX) typedefs as shown below are recommended and are used for all basic\nnumerical and character types in this document. For a 32-bit integer machine, these are as follows:\ntypedef          char   char_t;\ntypedef signed   char   int8_t;\ntypedef signed   short  int16_t;\ntypedef signed   int    int32_t;\ntypedef signed   long   int64_t;\ntypedef unsigned char   uint8_t;\ntypedef unsigned short  uint16_t;\ntypedef unsigned int    uint32_t;\ntypedef unsigned long   uint64_t;\ntypedef          float  float32_t;\ntypedef          double float64_t;\ntypedef long     double float128_t;\ntypedefs are not considered necessary in the specification of bit-field types.\n28\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 10\n6. Rules (continued)"
+        },
+        {
+            "rule_id": "6.4",
+            "rule": "Bit fields shall only be defined to be of type unsigned int or signed int.",
+            "rule_category": "required",
+            "chapter": "6.6",
+            "rule_type": "Types",
+            "reference": [
+                "Undefined 38",
+                "Implementation 29"
+            ],
+            "amplification": "int.\nUsing int is implementation defined because bit fields of type int can be either signed or unsigned. The\nuse of enum, short or char types for bit fields is not allowed because the behaviour is undefined."
+        },
+        {
+            "rule_id": "6.5",
+            "rule": "Bit fields of signed type shall be at least 2 bits long.",
+            "rule_category": "required",
+            "chapter": "6.6",
+            "rule_type": "Types",
+            "reference": [],
+            "amplification": "A signed bit field of 1 bit length is not useful.\nConstants\n6.7"
+        },
+        {
+            "rule_id": "7.1",
+            "rule": "Octal constants (other than zero) and octal escape sequences shall not be used.",
+            "rule_category": "required",
+            "chapter": "6.7",
+            "rule_type": "Constants",
+            "reference": [
+                "Koenig 9"
+            ],
+            "amplification": "shall not be used.\nAny integer constant beginning with a \"0\" (zero) is treated as octal. So there is a danger, for\nexample, with writing fixed length constants. For example, the following array initialisation for\n3-digit bus messages would not do as expected (052 is octal, i.e. 42 decimal):\ncode = 109;   /* equivalent to decimal 109 */\ncode = 100;   /* equivalent to decimal 100 */\ncode = 052;   /* equivalent to decimal 42  */\ncode = 071;   /* equivalent to decimal 57  */\nOctal escape sequences can be problematic because the inadvertent introduction of a decimal\ndigit ends the octal escape and introduces another character. The value of the first expression in\nthe following example is implementation-defined because the character constant consists of two\ncharacters, \"\\10\" and \"9\". The second character constant expression below contains the single\ncharacter \"\\100\". Its value will be implementation-defined if character 64 is not represented in the\nbasic execution character set.\ncode = '\\109';   /* implementation-defined, two character constant */\ncode = '\\100';   /* set to 64, or implementation-defined           */\nIt is better not to use octal constants or escape sequences at all, and to check statically for any\noccurrences. The integer constant zero (written as a single numeric digit), is strictly speaking an\noctal constant, but is a permitted exception to this rule. Additionally \"\\0\" is the only permitted\noctal escape sequence.\nDeclarations and definitions\n6.8"
+        },
+        {
+            "rule_id": "8.1",
+            "rule": "Functions shall have prototype declarations and the prototype shall be visible at both the function definition and call.",
+            "rule_category": "required",
+            "chapter": "6.8",
+            "rule_type": "Declarations and definitions",
+            "reference": [
+                "Undefined 22, 23"
+            ],
+            "amplification": "shall be visible at both the function definition and call.\nThe use of prototypes enables the compiler to check the integrity of function definitions and\ncalls. Without prototypes the compiler is not obliged to pick up certain errors in function calls\n29\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 11\n6. Rules (continued)\n(e.g. different number of arguments from the function body, mismatch in types of arguments\nbetween call and definition). Function interfaces have been shown to be a cause of considerable\nproblems, and therefore this rule is considered very important.\nThe recommended method of implementing function prototypes for external functions is to declare\nthe function (i.e. give the function prototype) in a header file, and then include the header file in\nall those code files that need the prototype (see Rule 8.8).\nThe provision of a prototype for a function with internal linkage is a good programming practice."
+        },
+        {
+            "rule_id": "8.2",
+            "rule": "Whenever an object or function is declared or defined, its type shall be explicitly stated.",
+            "rule_category": "required",
+            "chapter": "6.8",
+            "rule_type": "Declarations and definitions",
+            "reference": [],
+            "amplification": "shall be explicitly stated.\nextern         x;           /* Non-compliant - implicit int type */\nextern int16_t x;           /* Compliant - explicit type         */\nconst          y;           /* Non-compliant - implicit int type */\nconst int16_t  y;           /* Compliant - explicit type         */\nstatic         foo(void);   /* Non-compliant - implicit type     */\nstatic int16_t foo(void);   /* Compliant - explicit type         */"
+        },
+        {
+            "rule_id": "8.3",
+            "rule": "For each function parameter the type given in the declaration and definition shall be identical, and the return types shall also be identical.",
+            "rule_category": "required",
+            "chapter": "6.8",
+            "rule_type": "Declarations and definitions",
+            "reference": [
+                "Undefined 24",
+                "Koenig 59-62"
+            ],
+            "amplification": "and definition shall be identical, and the return types shall also\nbe identical.\nThe types of the parameters and return values in the prototype and the definition must match. This\nrequires identical types including typedef names and qualifiers, and not just identical base types."
+        },
+        {
+            "rule_id": "8.4",
+            "rule": "If objects or functions are declared more than once their types shall be compatible.",
+            "rule_category": "required",
+            "chapter": "6.8",
+            "rule_type": "Declarations and definitions",
+            "reference": [
+                "Undefined 10",
+                ""
+            ],
+            "amplification": "shall be compatible.\nThe definition of compatible types is lengthy and complex (ISO/IEC 9899:1990 , sections 6.1.2.6,\n6.5.2, 6.5.3 and 6.5.4 give full details). Two identical types are compatible but two compatible\ntypes need not be identical. For example, the following pairs of types are compatible:\nsigned int           int\nchar              char\nunsigned short int   unsigned short"
+        },
+        {
+            "rule_id": "8.5",
+            "rule": "There shall be no definitions of objects or functions in a header file.",
+            "rule_category": "required",
+            "chapter": "6.8",
+            "rule_type": "Declarations and definitions",
+            "reference": [],
+            "amplification": "file.\nHeader files should be used to declare objects, functions, typedefs, and macros. Header files shall\nnot contain or produce definitions of objects or functions (or fragment of functions or objects)\nthat occupy storage. This makes it clear that only C files contain executable source code and that\nheader files only contain declarations. A \"header file\" is defined as any file that is included via the\n#include directive, regardless of name or suffix.\n30\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 12\n6. Rules (continued)"
+        },
+        {
+            "rule_id": "8.6",
+            "rule": "Functions shall be declared at file scope.",
+            "rule_category": "required",
+            "chapter": "6.8",
+            "rule_type": "Declarations and definitions",
+            "reference": [
+                "Undefined 36"
+            ],
+            "amplification": "Declaring functions at block scope may be confusing, and can lead to undefined behaviour."
+        },
+        {
+            "rule_id": "8.7",
+            "rule": "Objects shall be defined at block scope if they are only accessed from within a single function.",
+            "rule_category": "required",
+            "chapter": "6.8",
+            "rule_type": "Declarations and definitions",
+            "reference": [],
+            "amplification": "from within a single function.\nThe scope of objects shall be restricted to functions where possible. File scope shall only be used\nwhere objects need to have either internal or external linkage. Where objects are declared at file\nscope Rule 8.10 applies. It is considered good practice to avoid making identifiers global except\nwhere necessary. Whether objects are declared at the outermost or innermost block is largely a\nmatter of style. \"Accessing\" means using the identifier to read from, write to, or take the address\nof the object."
+        },
+        {
+            "rule_id": "8.8",
+            "rule": "An external object or function shall be declared in one and only one file.",
+            "rule_category": "required",
+            "chapter": "6.8",
+            "rule_type": "Declarations and definitions",
+            "reference": [
+                "Koenig 66"
+            ],
+            "amplification": "one file.\nNormally this will mean declaring an external identifier in a header file, that will be included in\nany file where the identifier is defined or used. For example:\nextern int16_t a;\nin featureX.h, then to define a:\n#include <featureX.h>\nint16_t a = 0;\nThere may be one or there may be many header files in a project, but each external object or\nfunction shall only be declared in one header file."
+        },
+        {
+            "rule_id": "8.9",
+            "rule": "An identifier with external linkage shall have exactly one external definition.",
+            "rule_category": "required",
+            "chapter": "6.8",
+            "rule_type": "Declarations and definitions",
+            "reference": [
+                "Undefined 44",
+                "Koenig 55, 63-65"
+            ],
+            "amplification": "definition.\nBehaviour is undefined if an identifier is used for which multiple definitions exist (in different\nfiles) or no definition exists at all. Multiple definitions in different files are not permitted even\nif the definitions are the same, and it is obviously serious if they are different, or initialise the\nidentifier to different values."
+        },
+        {
+            "rule_id": "8.10",
+            "rule": "All declarations and definitions of objects or functions at file scope shall have internal linkage unless external linkage is required.",
+            "rule_category": "required",
+            "chapter": "6.8",
+            "rule_type": "Declarations and definitions",
+            "reference": [
+                "Koenig 56, 57"
+            ],
+            "amplification": "scope shall have internal linkage unless external linkage is\nrequired.\nIf a variable is only to be used by functions within the same file then use static. Similarly if a\nfunction is only called from elsewhere within the same file, use static. Use of the static storage-\nclass specifier will ensure that the identifier is only visible in the file in which it is declared and\navoids any possibility of confusion with an identical identifier in another file or a library.\n31\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 13\n6. Rules (continued)"
+        },
+        {
+            "rule_id": "8.11",
+            "rule": "The static storage class specifier shall be used in definitions and declarations of objects and functions that have internal linkage.",
+            "rule_category": "required",
+            "chapter": "6.8",
+            "rule_type": "Declarations and definitions",
+            "reference": [],
+            "amplification": "declarations of objects and functions that have internal linkage.\nThe static and extern storage class specifiers can be a source of confusion. It is good practice to apply\nthe static keyword consistently to all declarations of objects and functions with internal linkage."
+        },
+        {
+            "rule_id": "8.12",
+            "rule": "When an array is declared with external linkage, its size shall be stated explicitly or defined implicitly by initialisation.",
+            "rule_category": "required",
+            "chapter": "6.8",
+            "rule_type": "Declarations and definitions",
+            "reference": [
+                "",
+                ""
+            ],
+            "amplification": "stated explicitly or defined implicitly by initialisation.\nint array1;                /* Compliant     */\nextern int array2;            /* Not compliant */\nint array2 = { 0, 10, 15 };   /* Compliant     */\nAlthough it is possible to declare an array of incomplete type and access its elements, it is safer to\ndo so when the size of the array may be explicitly determined.\nInitialisation\n6.9"
+        },
+        {
+            "rule_id": "9.1",
+            "rule": "All automatic variables shall have been assigned a value before being used.",
+            "rule_category": "required",
+            "chapter": "6.9",
+            "rule_type": "Initialisation",
+            "reference": [
+                "Undefined 41"
+            ],
+            "amplification": "being used.\nThe intent of this rule is that all variables shall have been written to before they are read. This does\nnot necessarily require initialisation at declaration.\nNote that according to the ISO C standard, variables with static storage duration are automatically\ninitialised to zero by default, unless explicitly initialised. In practice, many embedded environments\ndo not implement this behaviour. Static storage duration is a property of all variables declared\nwith the static storage class specifier, or with external linkage. Variables with automatic storage\nduration are not usually automatically initialised."
+        },
+        {
+            "rule_id": "9.2",
+            "rule": "Braces shall be used to indicate and match the structure in the non-zero initialisation of arrays and structures.",
+            "rule_category": "required",
+            "chapter": "6.9",
+            "rule_type": "Initialisation",
+            "reference": [
+                "Undefined 42"
+            ],
+            "amplification": "non-zero initialisation of arrays and structures.\nISO C requires initialiser lists for arrays, structures and union types to be enclosed in a single pair\nof braces (though the behaviour if this is not done is undefined). The rule given here goes further\nin requiring the use of additional braces to indicate nested structures. This forces the programmer\nto explicitly consider and demonstrate the order in which elements of complex data types are\ninitialised (e.g. multi-dimensional arrays).\nFor example, below are two valid (in ISO C) ways of initialising the elements of a two dimensional\narray, but the first does not adhere to the rule:\nint16_t y = { 1, 2, 3, 4, 5, 6 };              /* not compliant */\nint16_t y = { { 1, 2 }, { 3, 4 }, { 5, 6 } };  /* compliant     */\nA similar principle applies to structures, nested combinations of structures, arrays and other types.\n32\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 14\n6. Rules (continued)\nNote also that all the elements of arrays or structures can be initialised (to zero or NULL) by\ngiving an explicit initialiser for the first element only. If this method of initialisation is chosen then\nthe first element should be initialised to zero (or NULL), and nested braces need not be used.\nThe ISO standard  contains extensive examples of initialisation.\nThe intent of Rule 9.2 is that the non-zero initialisation of arrays and structures shall require an\nexplicit initialiser for each element, e.g.\nint16_t arraya1 = { 1, 2, 3, 0, 0 };\n/* Compliant - non-zero initialisation              */\nint16_t arraya2 = { 0 };\n/* Compliant- zero initialisation                   */\nint16_t arraya3 = { 1, 2, 3 };\n/* Not Compliant - non-zero initialisation          */\nint16_t arraya4 = { 0 };\n/* Compliant - zero initialisation at top-level     */\nint16_t arraya5 = { { 0 }, { 1, 2 }};\n/* Not Compliant - zero initialisation at sub-level */\nZero or NULL initialisation shall only be applied at the top level of the array or structure."
+        },
+        {
+            "rule_id": "9.3",
+            "rule": "In an enumerator list, the \"=\" construct shall not be used to explicitly initialise members other than the first, unless all items are explicitly initialised.",
+            "rule_category": "required",
+            "chapter": "6.9",
+            "rule_type": "Initialisation",
+            "reference": [
+                "u8a",
+                "s16a * 2"
+            ],
+            "amplification": "explicitly initialise members other than the first, unless all items\nare explicitly initialised.\nIf an enumerator list is given with no explicit initialisation of members, then C allocates a sequence\nof integers starting at 0 for the first element and increasing by 1 for each subsequent element.\nAn explicit initialisation of the first element, as permitted by the above rule, forces the allocation\nof integers to start at the given value. When adopting this approach, it is essential to ensure that\nthe initialisation value used is small enough that no subsequent value in the list will exceed the int\nstorage used by enumeration constants.\nExplicit initialisation of all items in the list, which is also permissible, prevents the mixing of\nautomatic and manual allocation, which is error prone. However, it is then the responsibility\nof the programmer to ensure that all values are in the required range, and that values are not\nunintentionally duplicated.\nenum colour { red=3, blue, green, yellow=5 };        /* non compliant */\n/* green and yellow represent the same value - this is duplication */\nenum colour { red=3, blue=4, green=5, yellow=5 };        /* compliant */\n/* green and yellow represent the same value - this is duplication */\nArithmetic type conversions\n6.10\nImplicit and explicit type conversions\n6.10.1\nThe C language allows the programmer considerable freedom and will allow conversions between\ndifferent arithmetic types to be performed automatically. An explicit cast may be introduced for\nfunctional reasons, for example:\n33\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 15\n6. Rules (continued)\nTo change the type in which a subsequent arithmetic operation is performed.\n•\nTo truncate a value deliberately.\n•\nTo make a type conversion explicit in the interests of clarity.\n•\nThe insertion of a cast for purposes of clarification is often helpful, but when taken to excess, the\npractice can lead to unreadable code. As demonstrated below, there are some implicit conversions\nthat can safely be ignored and others that cannot.\nTypes of implicit conversion\n6.10.2\nThere are three particular categories of implicit type conversion that need to be distinguished.\nIntegral promotion conversions\nIntegral promotion describes a process whereby arithmetic operations are always conducted on\ninteger operands of type int or long (signed or unsigned). Operands of any other integer type, (char,\nshort, bit-field and enum) are always converted to type int or unsigned int before an arithmetic\noperation. These types are referred to as small integer types.\nThe rules of integral promotion decree that in most arithmetic operations, an operand of a small\ninteger type be converted to an int if an int is able to represent all values of the original type;\notherwise the value is converted to unsigned int.\nNotice that integral promotion:\nis only applied to small integer types\n•\nis applied to operands of unary, binary and ternary operators\n•\n• is not applied to the operands of the logical operators\n&&, ||, !\nis applied to the control expression of a switch statement.\n•\nIntegral promotion is frequently confused with \"balancing\" of operands (described below). In\nfact, integral promotion takes place in unary operations and it takes place in binary operations\nwhere both operands are of the same type.\nBecause of integral promotion, the result of adding two objects of type unsigned short is always\na value of type signed int or unsigned int; in fact, the addition is performed in that type. It is\ntherefore possible for such an operation to derive a result whose value exceeds the size that could\nbe accommodated in the original type of the operands. For example, if the size of an int is 32 bits,\nit is possible to multiply two objects of type short (16 bits) and derive a 32-bit result with no\ndanger of overflow. On the other hand, if the size of an int is only 16 bits, the product of two 16-bit\nobjects will only yield a 16-bit result and appropriate restrictions must be placed on the size of\nthe operands.\nIntegral promotion also applies to unary operators. For example, the result of applying a bitwise\nnegation operator (~) to an unsigned char operand is typically a negative value of type signed int.\nIntegral promotion is a fundamental inconsistency in the C language whereby the small integer\ntypes behave differently from long and int types. The use of typedefs is a practice that is encouraged\nin MISRA-C. However, because the behaviour of the various integer types is not consistent, it can\n34\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 16\n6. Rules (continued)\nbe unsafe to ignore the underlying base types (see description on following pages) unless some\nrestrictions are placed on the way in which expressions are constructed. It is the intention of the\nfollowing rules that the effects of integral promotion should be neutralised in order to avoid these\nanomalies.\nAssigning conversions\nAssigning conversions occur when:\nThe type of an assignment expression is converted to the type of the assignment object.\n•\nThe type of an initialiser expression is converted to the type of the initialised object.\n•\nThe type of a function call argument is converted to the type of the formal parameter as\n•\ndeclared in the function prototype.\nThe type of the expression used in a return statement is converted to the type of the\n•\nfunction as declared in the function prototype.\n• The type of the constant expression in a\nswitch case label is converted to the promoted\ntype of the controlling expression. This conversion is performed only for the purposes of\ncomparison.\nIn each case, the value of an arithmetic expression is unconditionally converted, where necessary,\nto another type.\nBalancing conversions\nBalancing conversions are described in the ISO C standard under the term \"Usual Arithmetic\nConversions\". This is a set of rules which provides a mechanism to yield a common type when two\noperands of a binary operator are balanced to a common type or the second and third arguments\nof the conditional operator (… ? … : …) are balanced to a common type. Balancing conversions\nalways involve two operands of different type; one and sometimes both operands will be subject\nto an implicit conversion.\nThe balancing rules are complicated by the process of integral promotion (described above) under\nwhich any operand of a small integer type is first promoted to type int or unsigned int. Integral\npromotion happens as part of the usual arithmetic conversions even when two operands are of\nidentical type.\nThe operators explicitly associated with balancing conversions are:\n• Multiplicative\n*, /, %\n• Additive\n+, -\n• Bitwise\n&, ^, |\n• The conditional operator (…\n? … : …)\n• Relational operators\n>, >=, <, <=\n• Equality operators\n==, !=\nMost of these operators yield a result that is the type resulting from the balancing process. Relational\nand equality operators are the exception in that they yield a Boolean value result of type int.\n35\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 17\n6. Rules (continued)\nNotice that the operands of the bitwise shift operators (<< and >>) are not balanced. The type of\nthe result is the promoted type of the first operand; the second operand may be of any signed or\nunsigned integer type.\nDangerous type conversions\n6.10.3\nThere are a number of potential dangers associated with type conversions that it is necessary to\navoid:\n• Loss of value\n: Conversion to a type where the magnitude of the value cannot be\nrepresented.\n• Loss of sign\n: Conversion from a signed type to an unsigned type resulting in loss of sign.\n• Loss of precision\n: Conversion from a floating type to an integer type with consequent loss\nof precision.\nThe only type conversions that can be guaranteed safe for all data values and all possible conforming\nimplementations are:\nConversion of an integral value to a wider type of the same signedness.\n•\nConversion of a floating type to a wider floating type.\n•\nOf course, in practice, if assumptions are about typical type sizes, it is possible to classify other\ntype conversions as safe. In general, MISRA-C:2004 adopts the principle that it is wise to identify\npotentially dangerous type conversions by making the conversion explicit.\nThere are some other dangers in the area of type conversion that also need to be recognised. These\nare issues that arise from areas of misunderstanding and difficulty in the C language rather than\nbecause data values are not preserved.\n• Type widening in integral promotion\n: The type in which integral expressions are\nevaluated depends on the type of the operands after any integral promotion. It is always\npossible to multiply two 8-bit values and access a 16-bit result if the magnitude requires it.\nIt is sometimes, but not always, possible to multiply two 16-bit values and retrieve a 32-bit\nresult. This is a dangerous inconsistency in the C language and in order to avoid confusion\nit is safer never to rely on the widening type afforded by integral promotion. Consider the\nfollowing example:\nuint16_t u16a = 40000;   /* unsigned short / unsigned int ?   */\nuint16_t u16b = 30000;   /* unsigned short / unsigned int ?   */\nuint32_t u32x;           /* unsigned int / unsigned long  ?   */\nu32x = u16a + u16b;      /* u32x = 70000 or 4464 ?            */\nThe expected result is presumably 70000, but the value assigned to u will in practice\ndepend on the implemented size of an int. If the implemented size of an int is 32 bits, the\naddition will occur in 32-bit signed arithmetic and the correct value will be stored. If the\nimplemented size of an int is only 16 bits, the addition will take place in 16-bit unsigned\narithmetic, wraparound will occur and will yield the value 4464 (70000 % 65536).\nWraparound in unsigned arithmetic is well defined and may even be intended; but there is\npotential for confusion.\n36\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 18\n6. Rules (continued)\n• Evaluation type confusion\n: A similar problem arises from a common misconception\namong programmers that the type in which a calculation is conducted is influenced in\nsome way by the type to which the result is assigned or converted. For example, in the\nfollowing code the two 16-bit objects are added together in 16-bit arithmetic (unless\npromoted to 32-bit int by integral promotion), and the result is converted to type uint32_t\non assignment.\nu32x = u16a + u16b;\nIt is not unusual for programmers to be deceived into thinking that the addition is\nperformed in 32-bit arithmetic - because of the type of u32x.\nConfusion of this nature is not confined to integer arithmetic or to implicit conversions.\nThe following examples demonstrate some statements in which the result is well defined\nbut the calculation may not be performed in the type that the programmer assumes.\nu32a = (uint32_t)(u16a * u16b);\nf64a = u16a / u16b;\nf32a = (float32_t)(u16a / u16b);\nf64a = f32a + f32b;\nf64a = (float64_t)(f32a + f32b);\n• Change of signedness in arithmetic operations\n: Integral promotion will often result in\ntwo unsigned operands yielding a result of type (signed) int. For example, the addition\nof two 16-bit unsigned operands will yield a signed 32-bit result if int is 32 bits but an\nunsigned 16-bit result if int is 16 bits.\n• Change of signedness in bitwise operations\n: Integral promotion can have some\nparticularly unfortunate repercussions when bitwise operators are applied to small\nunsigned types. For example a bitwise complement operation on an operand of type\nunsigned char will generally yield a result of type (signed) int with a negative value. The\noperand is promoted to type int before the operation and the extra high order bits are set\nby the complement process. The number of extra bits, if any, is dependent on the size of an\nint and it is hazardous if the complement operation is followed by a right shift.\nIn order to avoid the perils associated with the issues described above, it is important to establish\nsome principles to constrain the way in which expressions are constructed. Firstly definitions of\nsome concepts are given.\nUnderlying type\n6.10.4\nThe type of an expression refers to the type of the value obtained when the expression is evaluated.\nWhen two items of type long are added, the expression has type long. Most arithmetic operators\nderive a result whose type is dependent on the type of the operands. On the other hand, there are\nsome operators that yield a Boolean result of type int regardless of the type of the operands. So,\nfor example, when two items of type long are compared with a relational operator the expression\nhas type int.\nThe term \"underlying type\" is defined as describing the type that would be obtained from evaluating\nan expression if it were not for the effects of integral promotion.\nWhen two operands of type int are added the result is of type int and the expression may be said\nto have type int.\n37\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 19\n6. Rules (continued)\nWhen two operands of type unsigned char are added the result is also (usually) of type int (because\nof integral promotion), but the underlying type of the expression is defined to be unsigned char.\nThe term \"underlying type\" is not known in the C standard or in other texts on the C language but\nis useful in describing some of the following rules. It describes a hypothetical departure from the\nC language in which integral promotion does not exist and the usual arithmetic conversions are\napplied consistently to all integer types. The concept is introduced because the effects of integral\npromotion are subtle and sometimes dangerous. Integral promotion is an unavoidable feature\nof the C language, but the intention of these rules is that the effect of integral promotion\nshould be neutralised by taking no advantage of the widening that occurs with small integer\noperands.\nOf course, the C standard does not explicitly define how small integer types would be balanced\nto a common type in the absence of integral promotion although it does establish the value-\npreserving principles.\nWhen adding operands of type int, the programmer is obliged to ensure that the result of the\noperation will not exceed a value that can be represented in type int. If he fails to do so, overflow\nwill occur and the results are undefined. It is the intention of the approach described here that the\nsame principle should apply when small integer operands are added; the programmer should ensure\nthat the result of adding two unsigned chars is representable in an unsigned char, even though\nintegral promotion could give rise to evaluation in a larger type. In other words the limitations of\nthe underlying type of an expression should be observed rather than the actual type.\nUnderlying type of an integer constant expression\nOne unfortunate aspect of the C language is that it is not possible to define an integer constant with\na char or short type. For example the value \"5\" can be expressed as a literal constant of type int,\nunsigned int, long or unsigned long by the addition of a suitable suffix; but no suffix is available\nto create a representation of the value in the various char or short types. This presents a difficulty\nwhen attempting to maintain type consistency in expressions. If it is desired to assign a value to an\nobject of type unsigned char, then either an implicit type conversion from an integer type must be\ntolerated or a cast must be introduced. Many would argue that to use a cast in such circumstances\nserves only to reduce readability.\nThe same problem exists when constants are required in initialisers, function arguments or\narithmetic expressions. However the problem is largely a philosophical one associated with the\naspiration to observe principles of strong typing.\nOne way of addressing this problem is to imagine that an integer constant, an enumeration constant,\na character constant or an integer constant expression has a type appropriate to its magnitude. This\nobjective can be achieved by extending the concept of underlying type to integer constants and\nimagining that, where possible, the literal constant has been derived by integral promotion from\nan imaginary constant with a smaller underlying type.\nThe underlying type of an integer constant expression is therefore defined as follows:\n1. If the actual type of the expression is\n(signed) int, the underlying type is defined to be the\nsmallest signed integer type which is capable of representing its value.\n2. If the actual type of the expression is\nunsigned int, the underlying type is defined to be the\nsmallest unsigned integer type that is capable of representing its value.\n38\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 20\n6. Rules (continued)\nIn all other circumstances, the underlying type of the expression is defined to be the same as\n3.\nits actual type.\nIn a conventional architecture, the underlying type of an integer constant expression will be\ndetermined according to its magnitude and signedness as follows:\nUnsigned values\n0U\nto\n255U\n8 bit unsigned\n256U\nto\n65535U\n16 bit unsigned\n65536U\nto\n4294967295U\n32 bit unsigned\nSigned values\n-2147483648\nto\n-32769\n32 bit signed\n-32768\nto\n-129\n16 bit signed\n-128\nto\n127\n8 bit signed\n128\nto\n32767\n16 bit signed\n32768\nto\n2147483647\n32 bit signed\nNotice that underlying type is an artificial concept. It does not in any way influence the type of\nevaluation that is actually performed. The concept has been developed simply as a way of defining\na safe framework in which to construct arithmetic expressions.\nNote: while in the ISO C language definition character constants have a type of int, MISRA C\nconsiders the underlying type of a character constant to be plain char.\nComplex expressions\n6.10.5\nThe type conversion rules described in the following paragraphs refer in some places to the notion\nof a \"complex expression\". The term \"complex expression\" is defined to mean any expression\nthat is not:\na constant expression\n•\n• an\nlvalue (i.e. an object)\nthe return value of a function\n•\nThe conversions that may be applied to complex expressions are restricted in order to avoid some\nof the dangers outlined above. Specifically it is required that a sequence of arithmetic operations\nin an expression should be conducted in the same type.\nThe following expressions are complex:\ns8a + s8b\n~u16a\nu16a >> 2\nfoo(2) + u8a\n*ppc + 1\n++u8a\n39\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 21\n6. Rules (continued)\nThe following expressions are not complex, even though some contain complex sub-\nexpressions:\npc\nfoo(u8a + u8b)\n**ppuc\n*(ppc + 1)\npcbuf\nImplicit type conversions\n6.10.6"
+        },
+        {
+            "rule_id": "10.1",
+            "rule": "The value of an expression of integer type shall not be implicitly converted to a different underlying type if: it is not a conversion to a wider integer type of the same (a) signedness, or the expression is complex, or (b) the expression is not constant and is a function argument, or (c) the expression is not constant and is a return expression (d)",
+            "rule_category": "required",
+            "chapter": "6.10",
+            "rule_type": "Integer suffixes",
+            "reference": [],
+            "amplification": "converted to a different underlying type if:\nit is not a conversion to a wider integer type of the same\n(a)\nsignedness, or\nthe expression is complex, or\n(b)\nthe expression is not constant and is a function argument, or\n(c)\nthe expression is not constant and is a return expression\n(d)"
+        },
+        {
+            "rule_id": "10.2",
+            "rule": "The value of an expression of floating type shall not be implicitly converted to a different type if: it is not a conversion to a wider floating type, or (a) the expression is complex, or (b) the expression is a function argument, or (c) the expression is a return expression (d) Notice also that in describing integer conversions, the concern is always with underlying type rather than actual type.",
+            "rule_category": "required",
+            "chapter": "6.10",
+            "rule_type": "Integer suffixes",
+            "reference": [],
+            "amplification": "converted to a different type if:\nit is not a conversion to a wider floating type, or\n(a)\nthe expression is complex, or\n(b)\nthe expression is a function argument, or\n(c)\nthe expression is a return expression\n(d)\nNotice also that in describing integer conversions, the concern is always with underlying type\nrather than actual type.\nThese two rules broadly encapsulate the following principles:\nNo implicit conversions between signed and unsigned types\n•\nNo implicit conversions between integer and floating types\n•\nNo implicit conversions from wider to narrower types\n•\nNo implicit conversions of function arguments\n•\nNo implicit conversions of function return expressions\n•\nNo implicit conversions of complex expressions\n•\nThe intention when restricting implicit conversion of complex expressions is to require that in\na sequence of arithmetic operations within an expression, all operations should be conducted in\nexactly the same arithmetic type. Notice that this does not imply that all operands in an expression\nare of the same type.\nThe expression u32a + u16b + u16c is compliant - both additions will notionally be performed\nin type U32.\nThe expression u16a + u16b + u32c is not compliant - the first addition is notionally performed\nin type U16 and the second in type U32.\n40\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 22\n6. Rules (continued)\nThe word \"notionally\" is used because, in practice, the type in which arithmetic will be conducted\nwill depend on the implemented size of an int. By observing the principle whereby all operations\nare performed in a consistent (underlying) type, it is possible to avoid programmer confusion and\nsome of the dangers associated with integral promotion.\nextern void foo1(uint8_t x);\nint16_t t1(void)\n{\n...\nfoo1(u8a);                                   /* compliant     */\nfoo1(u8a + u8b);                             /* compliant     */\nfoo1(s8a);                                   /* not compliant */\nfoo1(u16a);                                  /* not compliant */\nfoo1(2);                                     /* not compliant */\nfoo1(2U);                                    /* compliant     */\nfoo1((uint8_t)2);                            /* compliant     */\n... s8a + u8a                                /* not compliant */\n... s8a + (int8_t)u8a                        /* compliant     */\ns8b  = u8a;                                  /* not compliant */\n... u8a + 5                                  /* not compliant */\n... u8a + 5U                                 /* compliant     */\n... u8a + (uint8_t)5                         /* compliant     */\nu8a  = u16a;                                 /* not compliant */\nu8a  = (uint8_t)u16a;                        /* compliant     */\nu8a  = 5UL;                                  /* not compliant */\n... u8a + 10UL                               /* compliant     */\nu8a  = 5U;                                   /* compliant     */\n... u8a + 3                                  /* not compliant */\n... u8a >> 3                                 /* compliant     */\n... u8a >> 3U                                /* compliant     */\npca  = \"P\";                                  /* compliant     */\n... s32a + 80000                             /* compliant     */\n... s32a + 80000L                            /* compliant     */\nf32a = f64a;                                 /* not compliant */\nf32a = 2.5;                                  /* not compliant -\nunsuffixed floating\nconstants are of type\ndouble        */\nu8a  = u8b + u8c;                            /* compliant     */\ns16a = u8b + u8b;                            /* not compliant */\ns32a = u8b + u8c;                            /* not compliant */\nf32a = 2.5F;                                 /* compliant     */\nu8a  = f32a;                                 /* not compliant */\ns32a = 1.0;                                  /* not compliant */\ns32a = u8b + u8c;                            /* not compliant */\nf32a = 2.5F;                                 /* compliant     */\nu8a  = f32a;                                 /* not compliant */\ns32a = 1.0;                                  /* not compliant */\nf32a = 1;                                    /* not compliant */\nf32a = s16a;                                 /* not compliant */\n41\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 23\n6. Rules (continued)\n... f32a + 1                                 /* not compliant */\n... f64a * s32a                              /* not compliant */\n...\nreturn (s32a);                               /* not compliant */\n...\nreturn (s16a);                               /* compliant     */\n...\nreturn (20000);                              /* compliant     */\n...\nreturn (20000L);                             /* not compliant */\n...\nreturn (s8a);                                /* not compliant */\n...\nreturn (u16a);                               /* not compliant */\n}\nint16_t foo2(void)\n{\n...\n... (u16a + u16b) + u32a                     /* not compliant */\n... s32a + s8a + s8b                         /* compliant     */\n... s8a + s8b + s32a                         /* not compliant */\nf64a = f32a + f32b;                          /* not compliant */\nf64a = f64b + f32a;                          /* compliant     */\nf64a = s32a / s32b;                          /* not compliant */\nu32a = u16a + u16a;                          /* not compliant */\ns16a = s8a;                                  /* compliant     */\ns16a = s16b + 20000;                         /* compliant     */\ns32a = s16a + 20000;                         /* not compliant */\ns32a = s16a + (int32_t)20000;                /* compliant     */\nu16a = u16b + u8a;                           /* compliant     */\nfoo1(u16a);                                  /* not compliant */\nfoo1(u8a + u8b);                             /* compliant     */\n...\nreturn s16a;                                 /* compliant     */\n...\nreturn s8a;                                  /* not compliant */\n}\nExplicit conversions (casts)\n6.10.7"
+        },
+        {
+            "rule_id": "10.3",
+            "rule": "The value of a complex expression of integer type shall only be cast to a type of the same signedness that is no wider than the underlying type of the expression.",
+            "rule_category": "required",
+            "chapter": "6.10",
+            "rule_type": "Integer suffixes",
+            "reference": [],
+            "amplification": "cast to a type of the same signedness that is no wider than the\nunderlying type of the expression."
+        },
+        {
+            "rule_id": "10.4",
+            "rule": "The value of a complex expression of floating type shall only be cast to a floating type that is narrower or of the same size.",
+            "rule_category": "required",
+            "chapter": "6.10",
+            "rule_type": "Integer suffixes",
+            "reference": [
+                "u16a + u16b"
+            ],
+            "amplification": "cast to a floating type that is narrower or of the same size.\nIf a cast is to be used on any complex expression, the type of cast that may be applied is severely\nrestricted. As explained in section 6.10, conversions on complex expressions are often a source of\nconfusion and it is therefore wise to be cautious. In order to comply with these rules,\nit may be necessary to use a temporary variable and introduce an extra statement.\n42\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 24\n6. Rules (continued)\n... (float32_t)(f64a + f64b)                    /* compliant     */\n... (float64_t)(f32a + f32b)                    /* not compliant */\n... (float64_t)f32a                             /* compliant     */\n... (float64_t)(s32a / s32b)                    /* not compliant */\n... (float64_t)(s32a > s32b)                    /* not compliant */\n... (float64_t)s32a / (float32_t)s32b           /* compliant     */\n... (uint32_t)(u16a + u16b)                     /* not compliant */\n... (uint32_t)u16a + u16b                       /* compliant     */\n... (uint32_t)u16a + (uint32_t)u16b             /* compliant     */\n... (int16_t)(s32a - 12345)                     /* compliant     */\n... (uint8_t)(u16a * u16b)                      /* compliant     */\n... (uint16_t)(u8a * u8b)                       /* not compliant */\n... (int16_t)(s32a * s32b)                      /* compliant     */\n... (int32_t)(s16a * s16b)                      /* not compliant */\n... (uint16_t)(f64a + f64b)                     /* not compliant */\n... (float32_t)(u16a + u16b)                    /* not compliant */\n... (float64_t)foo1(u16a + u16b)                /* compliant     */\n... (int32_t)buf16a                /* compliant     */"
+        },
+        {
+            "rule_id": "10.5",
+            "rule": "If the bitwise operators ~ and << are applied to an operand of underlying type unsigned char or unsigned short, the result shall be immediately cast to the underlying type of the operand.",
+            "rule_category": "required",
+            "chapter": "6.10",
+            "rule_type": "Integer suffixes",
+            "reference": [],
+            "amplification": "underlying type unsigned char or unsigned short, the result shall\nbe immediately cast to the underlying type of the operand.\nWhen these operators (~ and <<) are applied to small integer types (unsigned char or unsigned\nshort), the operations are preceded by integral promotion, and the result may contain high order\nbits which have not been anticipated. For example:\nuint8_t port = 0x5aU;\nuint8_t result_8;\nuint16_t result_16;\nuint16_t mode;\nresult_8 = (~port) >> 4;                             /* not compliant */\n~port is 0xffa5 on a 16-bit machine but 0xffffffa5 on a 32-bit machine. In either case, the value\nof result is 0xfa, but 0x0a may have been expected. This danger is avoided by inclusion of the\ncast as shown below:\nresult_8 = ((uint8_t)(~port)) >> 4 ;                 /* compliant */\nresult_16 = ((uint16_t)(~(uint16_t)port)) >> 4 ;     /* compliant */\nA similar problem exists when the << operator is used on small integer types and high order bits\nare retained. For example:\nresult_16 = ((port << 4) & mode) >> 6;               /* not compliant */\nThe value in result_16 will depend on the implemented size of an int. Addition of a cast avoids\nany ambiguity.\nresult_16 = ((uint16_t)((uint16_t)port << 4) & mode) >> 6;\n/* compliant */\nNo cast is required if the result of the bitwise operation is:\nimmediately assigned to an object of the same underlying type as the operand;\n(a)\nused as a function argument of the same underlying type as the operand;\n(b)\nused as a return expression of a function whose return type is of the same\n(c)\nunderlying type as the operand.\n43\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 25\n6. Rules (continued)\nInteger suffixes\n6.10.8"
+        },
+        {
+            "rule_id": "10.6",
+            "rule": "A \"U\" suffix shall be applied to all constants of unsigned type.",
+            "rule_category": "required",
+            "chapter": "6.10",
+            "rule_type": "Integer suffixes",
+            "reference": [],
+            "amplification": "The type of an integer constant is a potential source of confusion, because it is dependent on a\ncomplex combination of factors including:\nThe magnitude of the constant\n•\n• The\nimplemented sizes of the integer types\nThe presence of any suffixes\n•\nThe number base in which the value is expressed (i.e. decimal, octal or hexadecimal).\n•\nFor example, the integer constant \"40000\" is of type int in a 32-bit environment but of type long\nin a 16-bit environment. The value 0x8000 is of type unsigned int in a 16-bit environment, but of\ntype (signed) int in a 32-bit environment.\nNote the following:\n• Any value with a \"\nU\" suffix is of unsigned type\nAn unsuffixed decimal value less than 2\n•\n31 is of signed type\nBut:\nAn unsuffixed hexadecimal value greater than or equal to 2\n•\n15 may be of signed or unsigned\ntype\nAn unsuffixed decimal value greater than or equal to 2\n•\n31 may be of signed or unsigned type\nSignedness of constants should be explicit. Consistent signedness is an important principle in\nconstructing well formed expressions. If a constant is of an unsigned type, it is helpful to avoid\nambiguity by applying a \"U\" suffix. When applied to larger values, the suffix may be redundant\n(in the sense that it does not influence the type of the constant); however its presence is a valuable\ncontribution towards clarity.\nPointer type conversions\n6.11\nPointer types can be classified as follows:\nPointer to object\n•\nPointer to function\n•\n• Pointer to\nvoid\n• The null pointer constant (the value 0 cast to type\nvoid *)\nConversions involving pointer types require an explicit cast except when:\n• The conversion is between a pointer to object and a pointer to\nvoid and the destination\ntype carries all the type qualifiers of the source type.\n• A null pointer constant (\nvoid *) is converted automatically to a particular pointer type\nwhen it is assigned to or compared for equality with any type of pointer.\nOnly certain types of pointer conversion are defined in C and the behaviour of some\nconversions is implementation defined.\n44\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 26\n6. Rules (continued)"
+        },
+        {
+            "rule_id": "11.1",
+            "rule": "Conversions shall not be performed between a pointer to a function and any type other than an integral type.",
+            "rule_category": "required",
+            "chapter": "6.11",
+            "rule_type": "Pointer type conversions",
+            "reference": [
+                "Undefined 27, 28"
+            ],
+            "amplification": "function and any type other than an integral type.\nConversion of a function pointer to a different type of pointer results in undefined behaviour. This\nmeans that a function pointer can be converted to or from an integral type. No other conversions\ninvolving function pointers are permitted."
+        },
+        {
+            "rule_id": "11.2",
+            "rule": "Conversions shall not be performed between a pointer to object and any type other than an integral type, another pointer to object type or a pointer to void.",
+            "rule_category": "required",
+            "chapter": "6.11",
+            "rule_type": "Pointer type conversions",
+            "reference": [
+                "Undefined 29"
+            ],
+            "amplification": "and any type other than an integral type, another pointer to\nobject type or a pointer to void.\nSuch conversions are undefined. This rule means that an object pointer can be converted to or\nfrom:\nAn integral type;\n(a)\nAnother pointer to object type;\n(b)\n(c)  A pointer to\nvoid.\nNo other conversions involving object pointers are permitted."
+        },
+        {
+            "rule_id": "11.3",
+            "rule": "A cast should not be performed between a pointer type and an integral type.",
+            "rule_category": "advisory",
+            "chapter": "6.11",
+            "rule_type": "Pointer type conversions",
+            "reference": [
+                "Implementation 24"
+            ],
+            "amplification": "integral type.\nThe size of integer that is required when a pointer is converted to an integer is implementation\ndefined. Casting between a pointer and an integer type should be avoided where possible, but may\nbe unavoidable when addressing memory mapped registers or other hardware specific features."
+        },
+        {
+            "rule_id": "11.4",
+            "rule": "A cast should not be performed between a pointer to object type and a different pointer to object type.",
+            "rule_category": "advisory",
+            "chapter": "6.11",
+            "rule_type": "Pointer type conversions",
+            "reference": [],
+            "amplification": "and a different pointer to object type.\nConversions of this type may be invalid if the new pointer type requires a stricter alignment.\nuint8_t  * p1;\nuint32_t * p2;\np2 = (uint32_t *)p1;   /* Incompatible alignment ? */"
+        },
+        {
+            "rule_id": "11.5",
+            "rule": "A cast shall not be performed that removes any const or volatile qualification from the type addressed by a pointer.",
+            "rule_category": "required",
+            "chapter": "6.11",
+            "rule_type": "Pointer type conversions",
+            "reference": [
+                "Undefined 39, 40"
+            ],
+            "amplification": "qualification from the type addressed by a pointer.\nAny attempt to remove the qualification associated with the addressed type by using casting is a\nviolation of the principle of type qualification. Notice that the qualification referred to here is not\nthe same as any qualification that may be applied to the pointer itself.\n45\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 27\n6. Rules (continued)\nuint16_t                    x;\nuint16_t * const            cpi = &x;  /* const pointer               */\nuint16_t * const          * pcpi;      /* pointer to const pointer    */\nconst uint16_t *          * ppci;      /* pointer to pointer to const */\nuint16_t *                * ppi;\nconst uint16_t            * pci;       /* pointer to const            */\nvolatile uint16_t         * pvi;       /* pointer to volatile         */\nuint16_t                  * pi;\n...\npi = cpi;                              /* Compliant - no conversion\nno cast required */\npi = (uint16_t *)pci;                  /* Not compliant               */\npi = (uint16_t *)pvi;                  /* Not compliant               */\nppi = (uint16_t * *)pcpi;              /* Not compliant               */\nppi = (uint16_t * *)ppci;              /* Not compliant               */\nExpressions\n6.12"
+        },
+        {
+            "rule_id": "12.1",
+            "rule": "Limited dependence should be placed on C's operator precedence rules in expressions.",
+            "rule_category": "advisory",
+            "chapter": "6.12",
+            "rule_type": "Expressions",
+            "reference": [],
+            "amplification": "precedence rules in expressions.\nIn addition to the use of parentheses to override default operator precedence, parentheses should\nalso be used to emphasise it. It is easy to make a mistake with the rather complicated precedence\nrules of C, and this approach helps to avoid such errors, and helps to make the code easier to read.\nHowever, do not add too many parentheses so as to clutter the code and make it unreadable.\nThe following guidelines are suggested in deciding when parentheses are required:\nno parentheses are required for the right-hand operand of an assignment operator unless\n•\nthe right-hand side itself contains an assignment expression:\nx = a + b;                           /* acceptable                  */\nx = (a + b);                         /* () not required             */\nno parentheses are required for the operand of a unary operator:\n•\nx = a * -1;                          /* acceptable                  */\nx = a * (-1);                        /* () not required             */\n• otherwise, the operands of binary and ternary operators shall be\ncast-expressions (see\nsection 6.3.4 of ISO/IEC 9899:1990 ) unless all the operators in the expression are the\nsame.\nx = a + b + c;                       /* acceptable, but care needed */\nx = f (a + b, c);                    /* no () required for a + b    */\nx = (a == b) ? a : (a - b);\nif (a && b && c)                     /* acceptable                  */\nx = (a + b) - (c + d);\nx = (a * 3) + c + d;\nx = (uint16_t) a + b;                /* no need for ((uint16_t) a)  */\n46\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 28\n6. Rules (continued)\neven if all operators are the same, parentheses may be used to control the order of\n•\noperation. Some operators (e.g. addition and multiplication) that are associative in\nalgebra are not necessarily associative in C. Similarly, integer operations involving mixed\ntypes (prohibited by several rules) may produce different results because of the integral\npromotions. The following example written for a 16-bit implementation demonstrates\nthat addition is not associative and that it is important to be clear about the structure of an\nexpression:\nuint16_t a = 10U;\nuint16_t b = 65535U;\nuint32_t c = 0U;\nuint32_t d;\nd = (a + b) + c;   /* d is 9; a + b wraps modulo 65536 */\nd = a + (b + c);   /* d is 65545                       */\n/* this example also deviates from several other rules */\nNote that Rule 12.5 is a special case of this rule applicable solely to the logical operators,\n&& and ||."
+        },
+        {
+            "rule_id": "12.2",
+            "rule": "The value of an expression shall be the same under any order of evaluation that the standard permits.",
+            "rule_category": "required",
+            "chapter": "6.12",
+            "rule_type": "Expressions",
+            "reference": [
+                "Unspecified 7-9",
+                "Undefined 18",
+                "i",
+                "i",
+                "i"
+            ],
+            "amplification": "evaluation that the standard permits.\nApart from a few operators (notably the function call operator (), &&, ||, ?: and , (comma))\nthe order in which sub-expressions are evaluated is unspecified and can vary. This means that\nno reliance can be placed on the order of evaluation of sub-expressions, and in particular no\nreliance can be placed on the order in which side effects occur. Those points in the evaluation of\nan expression at which all previous side-effects can be guaranteed to have taken place are called\n\"sequence points\". Sequence points and side effects are described in sections 5.1.2.3, 6.3 and 6.6\nof ISO/IEC 9899:1990 .\nNote that the order of evaluation problem is not solved by the use of parentheses as this is not a\nprecedence issue.\nThe following notes give some guidance on how dependence on order of evaluation may occur,\nand therefore may assist in adopting the rule.\nincrement or decrement operators\n•\nAs an example of what can go wrong, consider\nx = b + i++;\nThis will give different results depending on whether b is evaluated before i++ or vice\nversa. The problem could be avoided by putting the increment operation in a separate\nstatement. The example would then become:\nx = b + i;\ni++;\n47\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 29\n6. Rules (continued)\nfunction arguments\n•\nThe order of evaluation of function arguments is unspecified.\nx = func( i++, i );\nThis will give different results depending on which of the function's two parameters is\nevaluated first.\nfunction pointers\n•\nIf a function is called via a function pointer there shall be no dependence on the order in\nwhich function-designator and function arguments are evaluated.\np->task_start_fn (p++);\nfunction calls\n•\nFunctions may have additional effects when they are called (e.g. modifying some global\ndata). Dependence on order of evaluation could be avoided by invoking the function prior\nto the expression that uses it, making use of a temporary variable for the value.\nFor example\nx = f(a) + g(a);\ncould be written as\nx = f(a);\nx += g(a);\nAs an example of what can go wrong, consider an expression to get two values off a stack,\nsubtract the second from the first, and push the result back on the stack:\npush( pop() - pop() );\nThis will give different results depending on which of the pop() function calls is evaluated\nfirst (because pop() has side-effects).\nnested assignment statements\n•\nAssignments nested within expressions cause additional side effects. The best way to\navoid any chance of this leading to a dependence on order of evaluation is to not embed\nassignments within expressions.\nFor example, the following is not recommended:\nx = y = y = z / 3 ;\nx = y = y++;\naccessing a volatile\n•\nThe volatile type qualifier is provided in C to denote objects whose value can change\nindependently of the execution of the program (for example an input register). If an object\nof volatile qualified type is accessed this may change its value. C compilers will not\noptimise out reads of a volatile. In addition, as far as a C program is concerned, a read of a\nvolatile has a side-effect (changing the value of the volatile).\n48\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 30\n6. Rules (continued)\nIt will usually be necessary to access volatile data as part of an expression, which then\nmeans there may be dependence on order of evaluation. Where possible though, it is\nrecommended that volatiles only be accessed in simple assignment statements, such as the\nfollowing:\nvolatile uint16_t v;\n/* ... */\nx = v;\nThe rule addresses the order of evaluation problem with side effects. Note that there may also be\nan issue with the number of times a sub-expression is evaluated, which is not covered by this rule.\nThis can be a problem with function invocations where the function is implemented as a macro.\nFor example, consider the following function-like macro and its invocation:\n#define MAX(a, b) ( ((a) > (b)) ? (a) : (b) )\n/* ... */\nz = MAX( i++, j );\nThe definition evaluates the first parameter twice if a > b but only once if a ≤ b. The macro\ninvocation may thus increment i either once or twice, depending on the values of i and j.\nIt should be noted that magnitude-dependent effects, such as those due to floating-point rounding,\nare also not addressed by this rule. Although the order in which side-effects occur is undefined, the\nresult of an operation is otherwise well-defined and is controlled by the structure of the expression.\nIn the following example, f1 and f2 are floating-point variables; F3, F4 and F5 denote expressions\nwith floating-point types.\nf1 = F3 + (F4 + F5);\nf2 = (F3 + F4) + F5;\nThe addition operations are, or at least appear to be, performed in the order determined by the\nposition of the parentheses, i.e. firstly F4 is added to F5 then secondly F3 is added to give the value\nof f1. Provided that F3, F4 and F5 contain no side-effects, their values are independent of the order\nin which they are evaluated. However, the values assigned to f1 and f2 are not guaranteed to be\nthe same because floating-point rounding following the addition operations will depend on the\nvalues being added."
+        },
+        {
+            "rule_id": "12.3",
+            "rule": "The sizeof operator shall not be used on expressions that contain side effects.",
+            "rule_category": "required",
+            "chapter": "6.12",
+            "rule_type": "Expressions",
+            "reference": [],
+            "amplification": "side effects.\nA possible programming error in C is to apply the sizeof operator to an expression and expect the\nexpression to be evaluated. However the expression is not evaluated: sizeof only acts on the type\nof the expression. To avoid this error, sizeof shall not be used on expressions that contain side\neffects, as the side effects will not occur. sizeof() shall only be applied to an operand which is a\ntype or an object. This may include volatile objects. For example:\nint32_t i;\nint32_t j;\nj = sizeof(i = 1234);\n/* j is set to the sizeof the type of i which is an int */\n/* i is not set to 1234.                                */\n49\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 31\n6. Rules (continued)"
+        },
+        {
+            "rule_id": "12.4",
+            "rule": "The right-hand operand of a logical && or || operator shall not contain side effects.",
+            "rule_category": "required",
+            "chapter": "6.12",
+            "rule_type": "Expressions",
+            "reference": [],
+            "amplification": "contain side effects.\nThere are some situations in C code where certain parts of expressions may not be evaluated. If\nthese sub-expressions contain side effects then those side effects may or may not occur, depending\non the values of other sub expressions.\nThe operators which can lead to this problem are &&, || and ?:. In the case of the first two (logical\noperators) the evaluation of the right-hand operand is conditional on the value of the left-hand\noperand. In the case of the ?: operator, either the second or third operands are evaluated but not\nboth. The conditional evaluation of the right-hand operand of one of the logical operators can\neasily cause problems if the programmer relies on a side effect occurring. The ?: operator is\nspecifically provided to choose between two sub-expressions, and is therefore less likely to lead\nto mistakes.\nFor example:\nif ( ishigh && ( x == i++ ) )        /* Not compliant                 */\nif ( ishigh && ( x == f(x) ) )       /* Only acceptable if f(x) is\nknown to have no side effects */\nThe operations that cause side effects are described in section 5.1.2.3 of ISO/IEC 9899:1990\nas accessing a volatile object, modifying an object, modifying a file, or calling a function that\ndoes any of those operations, which cause changes in the state of the execution environment of\nthe calling function."
+        },
+        {
+            "rule_id": "12.5",
+            "rule": "The operands of a logical && or || shall be primary‑expressions.",
+            "rule_category": "required",
+            "chapter": "6.12",
+            "rule_type": "Expressions",
+            "reference": [],
+            "amplification": "\"Primary expressions\" are defined in ISO/IEC 9899:1990 , section 6.3.1. Essentially they are\neither a single identifier, or a constant, or a parenthesised expression. The effect of this rule is to\nrequire that if an operand is other than a single identifier or constant then it must be parenthesised.\nParentheses are important in this situation both for readability of code and for ensuring that the\nbehaviour is as the programmer intended. Where an expression consists of either a sequence of\nonly logical && or a sequence of only logical ||, extra parentheses are not required.\nFor example, write:\nif ( ( x == 0 ) && ishigh )              /* make x == 0 primary       */\nif ( x || y || z )                       /* exception allowed,\nif x, y and z are Boolean */\nif ( x || ( y && z ) )                   /* make y && z primary       */\nif ( x && ( !y ) )                       /* make !y primary           */\nif ( ( is_odd (y) ) && x )               /* make call primary         */\nWhere an expression consists of either a sequence of only logical && or a sequence of only logical\n||, extra parentheses are not required.\nif ( ( x > c1) && (y > c2) && (z > c3) )   /* Compliant               */\nif ( ( x > c1) && (y > c2) || (z > c3) )   /* not compliant           */\nif ( ( x > c1) && ((y > c2) || (z > c3)) ) /* Compliant extra () used */\nNote that this rule is a special case of Rule 12.1.\n50\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 32\n6. Rules (continued)"
+        },
+        {
+            "rule_id": "12.6",
+            "rule": "The operands of logical operators (&&, || and !) should be effectively Boolean.",
+            "rule_category": "advisory",
+            "chapter": "6.12",
+            "rule_type": "Expressions",
+            "reference": [
+                "Koenig 48"
+            ],
+            "amplification": "effectively Boolean. Expressions that are effectively Boolean\nshould not be used as operands to operators other than (&&, ||, !,\n=, ==, != and ?:).\nThe logical operators &&, || and ! can be easily confused with the bitwise operators &, | and ~.\nSee \"Boolean Expressions\" in the glossary."
+        },
+        {
+            "rule_id": "12.7",
+            "rule": "Bitwise operators shall not be applied to operands whose underlying type is signed.",
+            "rule_category": "required",
+            "chapter": "6.12",
+            "rule_type": "Expressions",
+            "reference": [
+                "Implementation 17-19"
+            ],
+            "amplification": "underlying type is signed.\nBitwise operations (~, <<, <<=, >>, >>=, &, &=, ^, ^=, | and |=) are not normally meaningful on\nsigned integers. Problems can arise if, for example, a right shift moves the sign bit into the number,\nor a left shift moves a numeric bit into the sign bit.\nSee section 6.10 for a description of underlying type."
+        },
+        {
+            "rule_id": "12.8",
+            "rule": "The right-hand operand of a shift operator shall lie between zero and one less than the width in bits of the underlying type of the left-hand operand.",
+            "rule_category": "required",
+            "chapter": "6.12",
+            "rule_type": "Expressions",
+            "reference": [
+                "Undefined 32"
+            ],
+            "amplification": "and one less than the width in bits of the underlying type of the\nleft-hand operand.\nIf, for example, the left-hand operand of a left-shift or right-shift is a 16-bit integer, then it is\nimportant to ensure that this is shifted only by a number between 0 and 15 inclusive.\nSee section 6.10 for a description of underlying type.\nThere are various ways of ensuring this rule is followed. The simplest is for the right-hand operand\nto be a constant (whose value can then be statically checked). Use of an unsigned integer type\nwill ensure that the operand is non-negative, so then only the upper limit needs to be checked\n(dynamically at run time or by review). Otherwise both limits will need to be checked.\nu8a  = (uint8_t) (u8a << 7);              /* compliant     */\nu8a  = (uint8_t) (u8a << 9);              /* not compliant */\nu16a = (uint16_t)((uint16_t) u8a << 9);   /* compliant     */"
+        },
+        {
+            "rule_id": "12.9",
+            "rule": "The unary minus operator shall not be applied to an expression whose underlying type is unsigned.",
+            "rule_category": "required",
+            "chapter": "6.12",
+            "rule_type": "Expressions",
+            "reference": [],
+            "amplification": "whose underlying type is unsigned.\nApplying the unary minus operator to an expression of type unsigned int or unsigned long generates\na result of type unsigned int or unsigned long respectively and is not a meaningful operation.\nApplying unary minus to an operand of smaller unsigned integer type may generate a meaningful\nsigned result due to integral promotion, but this is not good practice.\nSee section 6.10 for a description of underlying type.\n51\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 33\n6. Rules (continued)"
+        },
+        {
+            "rule_id": "12.10",
+            "rule": "The comma operator shall not be used.",
+            "rule_category": "required",
+            "chapter": "6.12",
+            "rule_type": "Expressions",
+            "reference": [],
+            "amplification": "Use of the comma operator is generally detrimental to the readability of code, and the same effect\ncan be achieved by other means."
+        },
+        {
+            "rule_id": "12.11",
+            "rule": "Evaluation of constant unsigned integer expressions should not lead to wrap-around.",
+            "rule_category": "advisory",
+            "chapter": "6.12",
+            "rule_type": "Expressions",
+            "reference": [],
+            "amplification": "lead to wrap-around.\nBecause unsigned integer expressions do not strictly overflow, but instead wrap around in a\nmodular way, any constant unsigned integer expressions which in effect \"overflow\" will not be\ndetected by the compiler. Although there may be good reasons at run-time to rely on the modular\narithmetic provided by unsigned integer types, the reasons for using it at compile-time to evaluate\na constant expression are less obvious. Any instance of an unsigned integer constant expression\nwrapping around is therefore likely to indicate a programming error.\nThis rule applies equally to all phases of the translation process. Constant expressions that the\ncompiler chooses to evaluate at compile time are evaluated in such a way that the results are\nidentical to those that would be obtained by evaluation on the target with the exception of those\nappearing in conditional preprocessing directives. For such directives, the usual rules of arithmetic\n(see section 6.4 of ISO/IEC 9899:1990 ) apply but the int and unsigned int types behave instead\nas if they were long and unsigned long respectively.\nFor example, on a machine with a 16-bit int type and a 32-bit long type:\n#define START 0x8000\n#define END   0xFFFF\n#define LEN   0x8000\n#if ((START + LEN) > END)\n#error Buffer Overrun\n/* OK because START and LEN are unsigned long            */\n#endif\n#if (((END - START) - LEN) < 0)\n#error Buffer Overrun\n/* Not OK: subtraction result wraps around to 0xFFFFFFFF */\n#endif\n/* contrast the above START + LEN with the following */\nif ((START + LEN) > END)\n{\nerror (\"Buffer overrun\");\n/* Not OK: START + LEN wraps around to 0x0000\ndue to unsigned int arithmetic                         */\n}"
+        },
+        {
+            "rule_id": "12.12",
+            "rule": "The underlying bit representations of floating-point values shall not be used.",
+            "rule_category": "required",
+            "chapter": "6.12",
+            "rule_type": "Expressions",
+            "reference": [
+                "Unspecified 6",
+                "Implementation 20"
+            ],
+            "amplification": "not be used.\nThe storage layout used for floating-point values may vary from one compiler to another, and\ntherefore no floating-point manipulations shall be made which rely directly on the way the\n52\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 34\n6. Rules (continued)\nvalues are stored. The in-built operators and functions, which hide the storage details from the\nprogrammer, should be used."
+        },
+        {
+            "rule_id": "12.13",
+            "rule": "The increment (++) and decrement (--) operators should not be mixed with other operators in an expression.",
+            "rule_category": "advisory",
+            "chapter": "6.12",
+            "rule_type": "Expressions",
+            "reference": [],
+            "amplification": "mixed with other operators in an expression.\nIt is the intention of the rule that when the increment or decrement operator is used, it should be\nthe only side effect in the statement. The use of increment and decrement operators in combination\nwith other arithmetic operators is not recommended because:\nIt can significantly impair the readability of the code.\n•\nIt introduces additional side effects into a statement with the potential for undefined\n•\nbehaviour.\nIt is safer to use these operations in isolation from any other arithmetic operators.\nFor example a statement such as the following is not compliant:\nu8a = ++u8b + u8c--;   /* Not compliant */\nThe following sequence is clearer and therefore safer:\n++u8b;\nu8a = u8b + u8c;\nu8c--;\nControl statement expressions\n6.13"
+        },
+        {
+            "rule_id": "13.1",
+            "rule": "Assignment operators shall not be used in expressions that yield a Boolean value.",
+            "rule_category": "required",
+            "chapter": "6.13",
+            "rule_type": "Control statement expressions",
+            "reference": [
+                "Koenig 6"
+            ],
+            "amplification": "a Boolean value.\nNo assignments are permitted in any expression which is considered to have a Boolean value.\nThis precludes the use of both simple and compound assignment operators in the operands of\na Boolean-valued expression. However, it does not preclude assigning a Boolean value to a\nvariable.\nIf assignments are required in the operands of a Boolean-valued expression then they must be\nperformed separately outside of those operands. This helps to avoid getting \"=\" and \"==\" confused,\nand assists the static detection of mistakes.\nSee \"Boolean Expressions\" in the glossary.\nFor example write:\nx = y;\nif ( x != 0 )\n{\nfoo();\n}\nand not:\nif ( ( x = y ) != 0 )   /* Boolean by context */\n{\nfoo();\n}\n53\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 35\n6. Rules (continued)\nor even worse:\nif ( x = y )\n{\nfoo();\n}"
+        },
+        {
+            "rule_id": "13.2",
+            "rule": "Tests of a value against zero should be made explicit, unless the operand is effectively Boolean.",
+            "rule_category": "advisory",
+            "chapter": "6.13",
+            "rule_type": "Control statement expressions",
+            "reference": [],
+            "amplification": "operand is effectively Boolean.\nWhere a data value is to be tested against zero then the test should be made explicit. The exception\nto this rule is when data represents a Boolean value, even though in C this will in practice be an\ninteger. This rule is in the interests of clarity, and makes clear the distinction between integers and\nlogical values.\nFor example, if x is an integer, then:\nif ( x != 0 )  /* Correct way of testing x is non-zero                */\nif ( y )       /* Not compliant, unless y is effectively Boolean data\n(e.g. a flag)                                       */\nSee \"Boolean Expressions\" in the glossary."
+        },
+        {
+            "rule_id": "13.3",
+            "rule": "Floating-point expressions shall not be tested for equality or inequality.",
+            "rule_category": "required",
+            "chapter": "6.13",
+            "rule_type": "Control statement expressions",
+            "reference": [],
+            "amplification": "inequality.\nThe inherent nature of floating-point types is such that comparisons of equality will often not\nevaluate to true even when they are expected to. In addition, the behaviour of such a comparison\ncannot be predicted before execution, and may well vary from one implementation to another. For\nexample the result of the test in the following code is unpredictable:\nfloat32_t x, y;\n/* some calculations in here       */\nif ( x == y )     /* not compliant */\n{ /* ... */ }\nif ( x == 0.0f)   /* not compliant */\nAn indirect test is equally problematic and is also forbidden by this rule, for example:\nif ( ( x <= y ) && ( x >= y ) )\n{ /* ... */ }\nThe recommended method for achieving deterministic floating-point comparisons is to write\na library that implements the comparison operations. The library should take into account the\nfloating-point granularity (FLT_EPSILON) and the magnitude of the numbers being compared.\nSee also Rule 13.4 and Rule 20.3.\n54\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 36\n6. Rules (continued)"
+        },
+        {
+            "rule_id": "13.4",
+            "rule": "The controlling expression of a for statement shall not contain any objects of floating type.",
+            "rule_category": "required",
+            "chapter": "6.13",
+            "rule_type": "Control statement expressions",
+            "reference": [],
+            "amplification": "any objects of floating type.\nThe controlling expression may include a loop counter, whose value is tested to determine\ntermination of the loop. Floating-point variables shall not be used for this purpose. Rounding\nand truncation errors can be propagated through the iterations of the loop, causing significant\ninaccuracies in the loop variable, and possibly giving unexpected results when the test is performed.\nFor example the number of times the loop is performed may vary from one implementation to\nanother, and may be unpredictable. See also Rule 13.3."
+        },
+        {
+            "rule_id": "13.5",
+            "rule": "The three expressions of a for statement shall be concerned only with loop control.",
+            "rule_category": "required",
+            "chapter": "6.13",
+            "rule_type": "Control statement expressions",
+            "reference": [],
+            "amplification": "with loop control.\nThe three expressions of a for statement shall be used only for these purposes:\nFirst expression\nInitialising the loop counter (i in the following example)\nSecond expression\nShall include testing the loop counter (i), and optionally other\nloop control variables (flag)\nThird expression\nIncrement or decrement of the loop counter (i)\nThe following options are allowed:\nAll three expressions shall be present;\n(a)\nThe second and third expressions shall be present with prior initialisation of the loop\n(b)\ncounter;\nAll three expressions shall be empty for a deliberate infinite loop.\n(c)"
+        },
+        {
+            "rule_id": "13.6",
+            "rule": "Numeric variables being used within a for loop for iteration counting shall not be modified in the body of the loop.",
+            "rule_category": "required",
+            "chapter": "6.13",
+            "rule_type": "Control statement expressions",
+            "reference": [],
+            "amplification": "counting shall not be modified in the body of the loop.\nLoop counters shall not be modified in the body of the loop. However other loop control variables\nrepresenting logical values may be modified in the loop, for example a flag to indicate that\nsomething has been completed, which is then tested in the for statement.\nflag = 1;\nfor ( i = 0; (i < 5) && (flag == 1); i++ )\n{\n/* ... */\nflag = 0;    /* Compliant - allows early termination of loop */\ni = i + 3;   /* Not compliant - altering the loop counter    */\n}"
+        },
+        {
+            "rule_id": "13.7",
+            "rule": "Boolean operations whose results are invariant shall not be permitted.",
+            "rule_category": "required",
+            "chapter": "6.13",
+            "rule_type": "Control statement expressions",
+            "reference": [],
+            "amplification": "permitted.\nIf a Boolean operator yields a result that can be proven to be always \"true\" or always \"false\", it is\nhighly likely that there is a programming error.\n55\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 37\n6. Rules (continued)\nenum ec {RED, BLUE, GREEN} col;\n...\nif (u16a < 0)                  /* Not compliant - u16a is always >= 0 */\n...\nif (u16a <= 0xffff)            /* Not compliant - always true         */\n...\nif (s8a < 130)                 /* Not compliant - always true         */\n...\nif ((s8a < 10) && (s8a > 20))  /* Not compliant - always false        */\n...\nif ((s8a < 10) || (s8a > 5))   /* Not compliant - always true         */\n...\nif (col <= GREEN)              /* Not compliant - always true         */\n...\nif (s8a > 10)\n{\nif (s8a > 5)                /* Not compliant - s8a is not volatile */\n{\n}\n}\nControl flow\n6.14"
+        },
+        {
+            "rule_id": "14.1",
+            "rule": "There shall be no unreachable code.",
+            "rule_category": "required",
+            "chapter": "6.14",
+            "rule_type": "Control flow",
+            "reference": [],
+            "amplification": "This rule refers to code which cannot under any circumstances be reached, and which can be\nidentified as such at compile time. Code that can be reached but may never be executed is excluded\nfrom the rule (e.g. defensive programming code).\nA portion of code is unreachable if there is no control flow path from the relevant entry point to that\ncode. For example, unlabelled code following an unconditional control transfer is unreachable:\nswitch (event)\n{\ncase E_wakeup:\ndo_wakeup();\nbreak;       /* unconditional control transfer   */\ndo_more();   /* Not compliant - unreachable code */\n/* ... */\ndefault:\n/* ... */\nbreak;\n}\nA whole function will be unreachable if there is no means by which it can be called.\nCode that is excluded by pre-processor directives is not present following pre-processing, and is\ntherefore not subject to this rule.\n56\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 38\n6. Rules (continued)"
+        },
+        {
+            "rule_id": "14.2",
+            "rule": "All non-null statements shall either: have at least one side-effect however executed, or (a) cause control flow to change.",
+            "rule_category": "required",
+            "chapter": "6.14",
+            "rule_type": "Control flow",
+            "reference": [],
+            "amplification": "have at least one side-effect however executed, or\n(a)\ncause control flow to change.\n(b)\nAny statement (other than a null statement) which has no side-effect and does not result in a\nchange of control flow will normally indicate a programming error, and therefore a static check\nfor such statements shall be performed. For example, the following statements do not necessarily\nhave side effects when executed:\n/* assume uint16_t x;\nand uint16_t i; */\n...\nx >= 3u;   /* not compliant: x is compared to 3,\nand the answer is discarded */\nNote that \"null statement\" and \"side effect\" are defined in ISO/IEC 9899:1990  sections 6.6.3\nand 5.1.2.3 respectively."
+        },
+        {
+            "rule_id": "14.3",
+            "rule": "Before preprocessing, a null statement shall only occur on a line by itself; it may be followed by a comment provided that the first character following the null statement is a white-space character.",
+            "rule_category": "required",
+            "chapter": "6.14",
+            "rule_type": "Control flow",
+            "reference": [],
+            "amplification": "by itself; it may be followed by a comment provided that the first\ncharacter following the null statement is a white-space character.\nNull statements should not normally be deliberately included, but where they are used they shall\nappear on a line by themselves. White-space characters may precede the null statement to preserve\nindentation. If a comment follows the null statement then at least one white-space character shall\nseparate the null statement from the comment. The use of a white-space character to separate the\nnull statement from any following comment is required because it provides an important visual cue\nto reviewers. Following this rule enables a static checking tool to warn of null statements appearing\non a line with other text, which would normally indicate a programming error. For example:\nwhile ( ( port & 0x80 ) == 0 )\n{\n; /* wait for pin - Compliant */\n/* wait for pin */ ; /* Not compliant, comment before ; */\n;/* wait for pin - Not compliant, no white-space char after ; */\n}"
+        },
+        {
+            "rule_id": "14.4",
+            "rule": "The goto statement shall not be used.",
+            "rule_category": "required",
+            "chapter": "6.14",
+            "rule_type": "Control flow",
+            "reference": [],
+            "amplification": ""
+        },
+        {
+            "rule_id": "14.5",
+            "rule": "The continue statement shall not be used.",
+            "rule_category": "required",
+            "chapter": "6.14",
+            "rule_type": "Control flow",
+            "reference": [],
+            "amplification": ""
+        },
+        {
+            "rule_id": "14.6",
+            "rule": "For any iteration statement there shall be at most one break statement used for loop termination.",
+            "rule_category": "required",
+            "chapter": "6.14",
+            "rule_type": "Control flow",
+            "reference": [],
+            "amplification": "statement used for loop termination.\nThese rules are in the interests of good structured programming. One break statement is allowed\nin a loop since this allows, for example, for dual outcome loops or for optimal coding.\n57\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 39\n6. Rules (continued)"
+        },
+        {
+            "rule_id": "14.7",
+            "rule": "A function shall have a single point of exit at the end of the function.",
+            "rule_category": "required",
+            "chapter": "6.14",
+            "rule_type": "Control flow",
+            "reference": [
+                "IEC 61508 Part 3 Table B.9"
+            ],
+            "amplification": "function.\nThis is required by IEC 61508, under good programming style."
+        },
+        {
+            "rule_id": "14.8",
+            "rule": "The statement forming the body of a switch, while, do … while or for statement shall be a compound statement.",
+            "rule_category": "required",
+            "chapter": "6.14",
+            "rule_type": "Control flow",
+            "reference": [
+                "i"
+            ],
+            "amplification": "for statement shall be a compound statement.\nThe statement that forms the body of a switch statement or a while, do … while or for loop, shall\nbe a compound statement (enclosed within braces), even if that compound statement contains a\nsingle statement.\nFor example:\nfor (i = 0; i < N_ELEMENTS; ++i)\n{\nbuffer = 0;        /* Even a single statement must be in braces */\n}\nwhile ( new_data_available )\nprocess_data ();     /* Incorrectly not enclosed in braces         */\nservice_watchdog (); /* Added later but, despite the appearance\n(from the indent) it is actually not part of\nthe body of the while statement, and is\nexecuted only after the loop has terminated */\nNote that the layout for compound statements and their enclosing braces should be determined\nfrom the style guidelines. The above is just an example."
+        },
+        {
+            "rule_id": "14.9",
+            "rule": "An if (expression) construct shall be followed by a compound statement.",
+            "rule_category": "required",
+            "chapter": "6.14",
+            "rule_type": "Control flow",
+            "reference": [
+                "Koenig 24"
+            ],
+            "amplification": "statement. The else keyword shall be followed by either a\ncompound statement, or another if statement.\nFor example:\nif ( test1 )\n{\nx = 1;              /* Even a single statement must be in braces     */\n}\nelse if ( test2 )    /* No need for braces in else if                 */\n{\nx = 0;              /* Single statement must be in braces            */\n}\nelse\nx = 3;           /* This was (incorrectly) not enclosed in braces */\ny = 2;           /* This line was added later but, despite the\nappearance (from the indent), it is actually\nnot part of the else, and is executed\nunconditionally                               */\nNote that the layout for compound statements and their enclosing braces should be\ndetermined from the style guidelines. The above is just an example.\n58\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 40\n6. Rules (continued)"
+        },
+        {
+            "rule_id": "14.10",
+            "rule": "All if … else if constructs shall be terminated with an else clause.",
+            "rule_category": "required",
+            "chapter": "6.14",
+            "rule_type": "Control flow",
+            "reference": [],
+            "amplification": "This rule applies whenever an if statement is followed by one or more else if statements; the final\nelse if shall be followed by an else statement. In the case of a simple if statement then the else\nstatement need not be included.\nThe requirement for a final else statement is defensive programming. The else statement shall\neither take appropriate action or contain a suitable comment as to why no action is taken. This is\nconsistent with the requirement to have a final default clause in a switch statement (15.3).\nFor example this code is a simple if statement:\nif ( x < 0 )\n{\nlog_error(3);\nx = 0;\n}                 /* else not needed */\nwhereas the following code demonstrates an if, else if construct\nif ( x < 0 )\n{\nlog_error(3);\nx = 0;\n}\nelse if ( y < 0 )\n{\nx = 3;\n}\nelse                 /* this else clause is required, even if the     */\n{                    /* programmer expects this will never be reached */\n/* no change in value of x */\n}\nSwitch statements\n6.15"
+        },
+        {
+            "rule_id": "15.0",
+            "rule": "The MISRA C switch syntax shall be used.",
+            "rule_category": "required",
+            "chapter": "6.15",
+            "rule_type": "Switch statements",
+            "reference": [],
+            "amplification": "The syntax for the switch statement in C is weak, allowing complex, unstructured behaviour.\nThe following text describes the syntax for switch statements as defined by MISRA-C and is\nnormative. This, and the associated rules, enforce a simple and consistent structure on to the\nswitch statement.\nThe following syntax rules are additional to the C standard syntax rules. All syntax rules not\ndefined below are as defined in the C standard.\nswitch-statement :\nswitch ( expression ) { case-label-clause-list default-label-clause}\ncase-label-clause-list:\ncase-label case-clauseopt\ncase-label-clause-list case-label case-clauseopt\ncase-label:\ncase constant-expression :\n59\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 41\n6. Rules (continued)\ncase-clause:\nstatement-listopt break ;\n{ declaration-listopt statement-listopt break ; }\ndefault-label-clause :\ndefault-label default-clause\ndefault-label:\ndefault :\ndefault-clause:\ncase-clause\nand\nstatement :\n/* labelled_statement removed */\ncompound_statement\nexpression_statement\nselection_statement\niteration_statement\n/* jump_statement removed or just restricted to return depending on other rules */\nThe following terms are also used within the text of the rules:\nswitch label\nEither a case label or default label.\ncase clause\nThe code between any two switch labels.\ndefault clause The code between the default label and the end of the switch statement.\nswitch clause Either a case clause or a default clause.\nA switch statement shall only contain switch labels and switch clauses, and no other code.\nAny deviation from this normative text shall be considered a non-compliance if there are no other\nnon-compliances with any other rule in section 15."
+        },
+        {
+            "rule_id": "15.1",
+            "rule": "A switch label shall only be used when the most closely-enclosing compound statement is the body of a switch statement.",
+            "rule_category": "required",
+            "chapter": "6.15",
+            "rule_type": "Switch statements",
+            "reference": [],
+            "amplification": "compound statement is the body of a switch statement.\nThe scope of a case or default label shall be the compound statement, which is the body of a\nswitch statement. All case clauses and the default clause shall be at the same scope."
+        },
+        {
+            "rule_id": "15.2",
+            "rule": "An unconditional break statement shall terminate every non-empty switch clause.",
+            "rule_category": "required",
+            "chapter": "6.15",
+            "rule_type": "Switch statements",
+            "reference": [
+                "Koenig 22-24"
+            ],
+            "amplification": "non-empty switch clause.\nThe last statement in every switch clause shall be a break statement, or if the switch clause\nis a compound statement, then the last statement in the compound statement shall be a break\nstatement."
+        },
+        {
+            "rule_id": "15.3",
+            "rule": "The final clause of a switch statement shall be the default clause.",
+            "rule_category": "required",
+            "chapter": "6.15",
+            "rule_type": "Switch statements",
+            "reference": [],
+            "amplification": "The requirement for a final default clause is defensive programming. This clause shall either take\nappropriate action or contain a suitable comment as to why no action is taken.\n60\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 42\n6. Rules (continued)"
+        },
+        {
+            "rule_id": "15.4",
+            "rule": "A switch expression shall not represent a value that is effectively Boolean.",
+            "rule_category": "required",
+            "chapter": "6.15",
+            "rule_type": "Switch statements",
+            "reference": [],
+            "amplification": "Boolean.\nSee \"Boolean expressions\" in the glossary.\nFor example:\nswitch (x == 0)   /* not compliant - effectively Boolean */\n{\n..."
+        },
+        {
+            "rule_id": "15.5",
+            "rule": "Every switch statement shall have at least one case clause.",
+            "rule_category": "required",
+            "chapter": "6.15",
+            "rule_type": "Switch statements",
+            "reference": [],
+            "amplification": "For example:\nswitch (x)\n{\nuint8_t var;           /* not compliant - decl before 1st case     */\ncase 0:\na = b;\nbreak;                 /* break is required here                   */\ncase 1:                   /* empty clause, break not required         */\ncase 2:\na = c;                 /* executed if x is 1 or 2                  */\nif ( a == b )\n{\ncase 3:             /* Not compliant - case is not allowed here */\n}\nbreak;                 /* break is required here                   */\ncase 4:\na = b;                 /* Not compliant - non empty drop through   */\ncase 5:\na = c;\nbreak;\ndefault:                  /* default clause is required               */\nerrorflag = 1;         /* should be non-empty if possible          */\nbreak;                 /* break is required here, in case a\nfuture modification turns this into a\ncase clause                              */\n}\nFunctions\n6.16"
+        },
+        {
+            "rule_id": "16.1",
+            "rule": "Functions shall not be defined with a variable number of arguments.",
+            "rule_category": "required",
+            "chapter": "6.16",
+            "rule_type": "Functions",
+            "reference": [
+                "Unspecified 15",
+                "Undefined 25, 45, 61, 70-76"
+            ],
+            "amplification": "arguments.\nThere are a lot of potential problems with this feature. Users shall not write additional functions\nthat use a variable number of arguments. This precludes the use of use of stdarg.h, va_arg,\nva_start and va_end.\n61\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 43\n6. Rules (continued)"
+        },
+        {
+            "rule_id": "16.2",
+            "rule": "Functions shall not call themselves, either directly or indirectly.",
+            "rule_category": "required",
+            "chapter": "6.16",
+            "rule_type": "Functions",
+            "reference": [],
+            "amplification": "This means that recursive function calls cannot be used in safety-related systems. Recursion\ncarries with it the danger of exceeding available stack space, which can be a serious error. Unless\nrecursion is very tightly controlled, it is not possible to determine before execution what the\nworst-case stack usage could be."
+        },
+        {
+            "rule_id": "16.3",
+            "rule": "Identifiers shall be given for all of the parameters in a function prototype declaration.",
+            "rule_category": "required",
+            "chapter": "6.16",
+            "rule_type": "Functions",
+            "reference": [],
+            "amplification": "prototype declaration.\nNames shall be given for all the parameters in the function declaration for reasons of compatibility,\nclarity and maintainability."
+        },
+        {
+            "rule_id": "16.4",
+            "rule": "The identifiers used in the declaration and definition of a function shall be identical.",
+            "rule_category": "required",
+            "chapter": "6.16",
+            "rule_type": "Functions",
+            "reference": [],
+            "amplification": "function shall be identical."
+        },
+        {
+            "rule_id": "16.5",
+            "rule": "Functions with no parameters shall be declared and defined with the parameter list void.",
+            "rule_category": "required",
+            "chapter": "6.16",
+            "rule_type": "Functions",
+            "reference": [
+                "Koenig 59-62"
+            ],
+            "amplification": "the parameter list void.\nFunctions shall be declared with a return type (see Rule 8.2), that type being void if the function\ndoes not return any data. Similarly, if the function has no parameters, the parameter list shall\nbe declared as void. Thus for example, a function, myfunc, which neither takes parameters nor\nreturns a value would be declared as:\nvoid myfunc ( void );"
+        },
+        {
+            "rule_id": "16.6",
+            "rule": "The number of arguments passed to a function shall match the number of parameters.",
+            "rule_category": "required",
+            "chapter": "6.16",
+            "rule_type": "Functions",
+            "reference": [
+                "Undefined 22"
+            ],
+            "amplification": "number of parameters.\nThis problem is completely avoided by the use of function prototypes - see Rule 8.1. This rule\nis retained since compilers may not flag this constraint error."
+        },
+        {
+            "rule_id": "16.7",
+            "rule": "A pointer parameter in a function prototype should be declared as pointer to const if the pointer is not used to modify the addressed object.",
+            "rule_category": "advisory",
+            "chapter": "6.16",
+            "rule_type": "Functions",
+            "reference": [],
+            "amplification": "as pointer to const if the pointer is not used to modify the\naddressed object.\nThis rule leads to greater precision in the definition of the function interface. The const qualification\nshould be applied to the object pointed to, not to the pointer, since it is the object itself that is being\nprotected.\nFor example:\n62\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 44\n6. Rules (continued)\nvoid myfunc( int16_t * param1, const int16_t * param2, int16_t * param3)\n/* param1: Addresses an object which is modified - no const\nparam2: Addresses an object which is not modified - const required\nparam3: Addresses an object which is not modified - const missing */\n{\n*param1 = *param2 + *param3;\nreturn;\n}\n/* data at address param3 has not been changed,\nbut this is not const therefore not compliant */"
+        },
+        {
+            "rule_id": "16.8",
+            "rule": "All exit paths from a function with non-void return type shall have an explicit return statement with an expression.",
+            "rule_category": "required",
+            "chapter": "6.16",
+            "rule_type": "Functions",
+            "reference": [
+                "Undefined 43"
+            ],
+            "amplification": "have an explicit return statement with an expression.\nThis expression gives the value that the function returns. The absence of a return with an expression\nleads to undefined behaviour (and the compiler may not give an error)."
+        },
+        {
+            "rule_id": "16.9",
+            "rule": "A function identifier shall only be used with either a preceding &, or with a parenthesised parameter list, which may be empty.",
+            "rule_category": "required",
+            "chapter": "6.16",
+            "rule_type": "Functions",
+            "reference": [
+                "Koenig 24"
+            ],
+            "amplification": "or with a parenthesised parameter list, which may be empty.\nIf the programmer writes:\nif (f)   /* not compliant - gives a constant non-zero value which is\nthe address of f - use either f() or &f                   */\n{\n/* ... */\n}\nthen it is not clear if the intent is to test if the address of the function is not NULL or that a call to\nthe function f() should be made."
+        },
+        {
+            "rule_id": "16.10",
+            "rule": "If a function returns error information, then that error information shall be tested.",
+            "rule_category": "required",
+            "chapter": "6.16",
+            "rule_type": "Functions",
+            "reference": [],
+            "amplification": "information shall be tested.\nA function (whether it is part of the standard library, a third party library or a user defined function)\nmay provide some means of indicating the occurrence of an error. This may be via an error flag, some\nspecial return value or some other means. Whenever such a mechanism is provided by a function\nthe calling program shall check for the indication of an error as soon as the function returns.\nHowever, note that the checking of input values to functions is considered a more robust means\nof error prevention than trying to detect errors after the function has completed (see Rule 20.3).\nNote also that the use of errno (to return error information from functions) is clumsy and should\nbe used with care (see Rule 20.5).\n63\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 45\n6. Rules (continued)\nPointers and arrays\n6.17"
+        },
+        {
+            "rule_id": "17.1",
+            "rule": "Pointer arithmetic shall only be applied to pointers that address an array or array element.",
+            "rule_category": "required",
+            "chapter": "6.17",
+            "rule_type": "Pointers and arrays",
+            "reference": [
+                "Undefined 30"
+            ],
+            "amplification": "an array or array element.\nAddition and subtraction of integers (including increment and decrement) from pointers that do\nnot point to an array or array element results in undefined behaviour."
+        },
+        {
+            "rule_id": "17.2",
+            "rule": "Pointer subtraction shall only be applied to pointers that address elements of the same array.",
+            "rule_category": "required",
+            "chapter": "6.17",
+            "rule_type": "Pointers and arrays",
+            "reference": [
+                "Undefined 31"
+            ],
+            "amplification": "elements of the same array.\nSubtraction of pointers only gives well-defined results if the two pointers point (or at least behave\nas if they point) into the same array object."
+        },
+        {
+            "rule_id": "17.3",
+            "rule": ">, >=, <, <= shall not be applied to pointer types except where they point to the same array.",
+            "rule_category": "required",
+            "chapter": "6.17",
+            "rule_type": "Pointers and arrays",
+            "reference": [
+                "Undefined 33"
+            ],
+            "amplification": "point to the same array.\nAttempting to make comparisons between pointers will produce undefined behaviour if the two\npointers do not point to the same object. Note: it is permissible to address the next element beyond\nthe end of an array, but accessing this element is not allowed."
+        },
+        {
+            "rule_id": "17.4",
+            "rule": "Array indexing shall be the only allowed form of pointer arithmetic.",
+            "rule_category": "required",
+            "chapter": "6.17",
+            "rule_type": "Pointers and arrays",
+            "reference": [
+                "",
+                "index"
+            ],
+            "amplification": "arithmetic.\nArray indexing is the only acceptable form of pointer arithmetic, because it is clearer and hence\nless error prone than pointer manipulation. This rule bans the explicit calculation of pointer values.\nArray indexing shall only be applied to objects defined as an array type. Any explicitly calculated\npointer value has the potential to access unintended or invalid memory addresses. Pointers may\ngo out of bounds of arrays or structures, or may even point to effectively arbitrary locations. See\nalso Rule 21.1.\nvoid my_fn(uint8_t * p1, uint8_t p2)\n{\nuint8_t index = 0U;\nuint8_t * p3;\nuint8_t * p4;\n*p1 = 0U;\np1 ++;          /* not compliant - pointer increment               */\np1 = p1 + 5;    /* not compliant - pointer increment               */\np1 = 0U;     /* not compliant - p1 was not declared as an array */\np3 = &p1;    /* not compliant - p1 was not declared as an array */\np2 = 0U;\nindex ++;\nindex = index + 5U;\np2 = 0U; /* compliant                                       */\np4 = &p2;    /* compliant\n*/\n}\n64\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 46\n6. Rules (continued)\nuint8_t a1;\nuint8_t a2;\nmy_fn(a1, a2);\nmy_fn(&a1, &a2);\nuint8_t a;\nuint8_t * p;\np = a;\n*(p+5) = 0U;       /* not compliant                                   */\np = 0U;         /* not compliant                                   */"
+        },
+        {
+            "rule_id": "17.5",
+            "rule": "The declaration of objects should contain no more than 2 levels of pointer indirection.",
+            "rule_category": "advisory",
+            "chapter": "6.17",
+            "rule_type": "Pointers and arrays",
+            "reference": [
+                "",
+                ""
+            ],
+            "amplification": "of pointer indirection.\nUse of more than 2 levels of indirection can seriously impair the ability to understand the behaviour\nof the code, and should therefore be avoided.\ntypedef int8_t * INTPTR;\nstruct s {\nint8_t *   s1;                             /* compliant     */\nint8_t **  s2;                             /* compliant     */\nint8_t *** s3;                             /* not compliant */\n};\nstruct s *   ps1;                             /* compliant     */\nstruct s **  ps2;                             /* compliant     */\nstruct s *** ps3;                             /* not compliant */\nint8_t **  (  *pfunc1)();                     /* compliant     */\nint8_t **  ( **pfunc2)();                     /* compliant     */\nint8_t **  (***pfunc3)();                     /* not compliant */\nint8_t *** ( **pfunc4)();                     /* not compliant */\nvoid function( int8_t *   par1,\nint8_t **  par2,\nint8_t *** par3,               /* not compliant */\nINTPTR *   par4,\nINTPTR *   const * const par5, /* not compliant */\nint8_t *   par6,\nint8_t **  par7)             /* not compliant */\n{\nint8_t *   ptr1;\nint8_t **  ptr2;\nint8_t *** ptr3;                           /* not compliant */\nINTPTR *   ptr4;\nINTPTR *   const * const ptr5;             /* not compliant */\nint8_t *   ptr6;\nint8_t **  ptr7;\n}\n65\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 47\n6. Rules (continued)\nExplanation of types:\n• par1\nand ptr1 are of type pointer to int8_t.\n• par2\nand ptr2 are of type pointer to pointer to int8_t.\n• par3\nand ptr3 are of type pointer to a pointer to a pointer to int8_t. This is three levels and\nis not compliant.\n• par4\nand ptr4 are expanded to a type of pointer to a pointer to int8_t.\n• par5\nand ptr5 are expanded to a type of const pointer to a const pointer to a pointer to\nint8_t. This is three levels and is not compliant.\n• par6\nis of type pointer to pointer to int8_t because arrays are converted to a pointer to the\ninitial element of the array.\n• ptr6\nis of type pointer to array of int8_t.\n• par7\nis of type pointer to pointer to pointer to int8_t because arrays are converted to a\npointer to the initial element of the array. This is three levels and is not compliant.\n• ptr7\nis of type array of pointer to pointer to int8_t. This is compliant."
+        },
+        {
+            "rule_id": "17.6",
+            "rule": "The address of an object with automatic storage shall not be assigned to another object that may persist after the first object has ceased to exist.",
+            "rule_category": "required",
+            "chapter": "6.17",
+            "rule_type": "Pointers and arrays",
+            "reference": [
+                "Undefined 9, 26"
+            ],
+            "amplification": "assigned to another object that may persist after the first object\nhas ceased to exist.\nIf the address of an automatic object is assigned to another automatic object of larger scope, or to\na static object, or returned from a function then the object containing the address may exist beyond\nthe time when the original object ceases to exist (and its address becomes invalid).\nFor example\nint8_t * foobar(void)\n{\nint8_t local_auto;\nreturn (&local_auto);   /* not compliant */\n}\nStructures and unions\n6.18"
+        },
+        {
+            "rule_id": "18.1",
+            "rule": "All structure and union types shall be complete at the end of a translation unit.",
+            "rule_category": "required",
+            "chapter": "6.18",
+            "rule_type": "Structures and unions",
+            "reference": [
+                "Undefined 35"
+            ],
+            "amplification": "translation unit.\nA complete declaration of the structure or union shall be included within any translation unit that reads\nfrom or writes to that structure. A pointer to an incomplete type is itself complete and is permitted,\nand therefore the use of opaque pointers is permitted. See section 6.1.2.5 of ISO/IEC 9899:1990\nfor a full description of incomplete types.\n66\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 48\n6. Rules (continued)\nstruct tnode * pt;         /* tnode is incomplete at this point */\nstruct tnode\n{\nint count;\nstruct tnode *left;\nstruct tnode * right;\n};                         /* type tnode is now complete        */"
+        },
+        {
+            "rule_id": "18.2",
+            "rule": "An object shall not be assigned to an overlapping object.",
+            "rule_category": "required",
+            "chapter": "6.18",
+            "rule_type": "Structures and unions",
+            "reference": [
+                "Undefined 34, 55"
+            ],
+            "amplification": "The behaviour is undefined when two objects are created which have some overlap in memory\nand one is copied to the other."
+        },
+        {
+            "rule_id": "18.3",
+            "rule": "An area of memory shall not be reused for unrelated purposes.",
+            "rule_category": "required",
+            "chapter": "6.18",
+            "rule_type": "Structures and unions",
+            "reference": [],
+            "amplification": "This rule refers to the technique of using memory to store some data, and then using the same\nmemory to store unrelated data at some other time during the execution of the program. Clearly\nit relies on the two different pieces of data existing at disjoint periods of the program's execution,\nand never being required simultaneously.\nThis practice is not recommended for safety-related systems as it brings with it a number of\ndangers. For example: a program might try to access data of one type from the location when\nactually it is storing a value of the other type (e.g. due to an interrupt). The two types of data\nmay align differently in the storage, and encroach upon other data. Therefore the data may not\nbe correctly initialised every time the usage switches. The practice is particularly dangerous in\nconcurrent systems.\nHowever it is recognised that sometimes such storage sharing may be required for reasons of\nefficiency. Where this is the case it is essential that measures are taken to ensure that the wrong\ntype of data can never be accessed, that data is always properly initialised and that it is not possible\nto access parts of other data (e.g. due to alignment differences). The measures taken shall be\ndocumented and justified in the deviation that is raised against this rule.\nThis might be achieved by the use of unions, or various other means.\nNote that there is no intention in the MISRA-C guidelines to place restrictions on how a compiler\nactually translates source code as the user generally has no effective control over this. So for\nexample, memory allocation within the compiler whether dynamic heap, dynamic stack or static,\nmay vary significantly with only slight code changes even at the same level of optimisation. (Note\nalso that some optimisation may legitimately take place even when the user makes no specific\nrequest for this.)"
+        },
+        {
+            "rule_id": "18.4",
+            "rule": "Unions shall not be used.",
+            "rule_category": "required",
+            "chapter": "6.18",
+            "rule_type": "Structures and unions",
+            "reference": [
+                "Implementation 27"
+            ],
+            "amplification": "Rule 18.3 prohibits the reuse of memory areas for unrelated purposes. However, even when\nmemory is being reused for related purposes, there is still a risk that the data may be misinterpreted.\nTherefore, this rule prohibits the use of unions for any purpose.\n67\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 49\n6. Rules (continued)\nIt is recognised nonetheless that there are situations in which the careful use of unions is desirable in\nconstructing an efficient implementation. In such situations, deviations to this rule are considered\nacceptable provided that all relevant implementation-defined behaviour is documented. This might\nbe achieved in practice by referencing the implementation section of the compiler manuals from\nthe design documentation. The kinds of implementation behaviour that might be relevant are:\npadding - how much padding is inserted at the end of the union\n•\nalignment - how are members of any structures within the union aligned\n•\nendianness - is the most significant byte of a word stored at the lowest or highest\n•\nmemory address\nbit-order - how are bits numbered within bytes and how are bits allocated to bit fields\n•\nThe use of deviations is acceptable for (a) packing and unpacking of data, for example when\nsending and receiving messages, and (b) implementing variant records provided that the variants\nare differentiated by a common field. Variant records without a differentiator are not considered\nsuitable for use in any situation.\nPacking and unpacking data\nIn this example, a union is used to access the bytes of a 32-bit word in order to store bytes received\nover a network most-significant byte first. The assumptions that this particular implementation\nrely on are:\n• the\nuint32_t type occupies 32 bits\n• the\nuint8_t type occupies 8 bits\nthe implementation stores words with the most significant byte at the lowest memory\n•\naddress\nThe code to implement the receipt and packing of the bytes could be:\ntypedef union {\nuint32_t word;\nuint8_t bytes;\n} word_msg_t;\nuint32_t read_word_big_endian (void)\n{\nword_msg_t tmp;\ntmp.bytes = read_byte();\ntmp.bytes = read_byte();\ntmp.bytes = read_byte();\ntmp.bytes = read_byte();\nreturn (tmp.word);\n}\n68\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 50\n6. Rules (continued)\nIt is worth noting that the body of the routine could be written in a portable manner as follows:\nuint32_t read_word_big_endian (void)\n{\nuint32_t word;\nword =         ((uint32_t)read_byte()) << 24;\nword = word | (((uint32_t)read_byte()) << 16);\nword = word | (((uint32_t)read_byte()) << 8);\nword = word |  ((uint32_t)read_byte());\nreturn (word);\n}\nUnfortunately, most compilers produce far less efficient code when faced with the portable\nimplementation. When high execution speed or low program memory usage is more important\nthan portability, the implementation using unions might be preferred.\nVariant records\nUnions are often used to implement variant records. Each variant shares common fields and has\nadditional fields that are specific to the variant. This example is based on the CAN Calibration\nProtocol (CCP), in which each CAN message sent to a CCP client shares two common fields,\neach of one byte. Up to 6 additional bytes may follow, the interpretation of which depends on the\nmessage type stored in the first byte.\nThe assumptions that this particular implementation rely on are:\n• the\nuint16_t type occupies 16 bits\n• the\nuint8_t type occupies 8 bits\n• the alignment and packing rules are such that there is no gap between the\nuint8_t and\nuint16_t members of the structure\nIn the interests of brevity, only two message types are considered in this example. The code that\nis presented here is incomplete and should be viewed merely to illustrate the purpose of variant\nrecords and not as a model implementation of CCP.\n/* The fields common to all CCP messages */\ntypedef struct {\nuint8_t msg_type;\nuint8_t sequence_no;\n} ccp_common_t;\n/* CCP connect message */\ntypedef struct {\nccp_common_t common_part;\nuint16_t station_to_connect;\n} ccp_connect_t;\n/* CCP disconnect message */\ntypedef struct {\nccp_common_t common_part;\nuint8_t   disconnect_command;\nuint8_t   pad;\nuint16_t  station_to_disconnect;\n} ccp_disconnect_t;\n69\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 51\n6. Rules (continued)\n/* The variant */\ntypedef union {\nccp_common_t     common;\nccp_connect_t    connect;\nccp_disconnect_t disconnect;\n} ccp_message_t;\nvoid process_ccp_message (ccp_message_t *msg)\n{\nswitch (msg->common.msg_type)\n{\ncase Ccp_connect:\nif (MY_STATION == msg->connect.station_to_connect)\n{\nccp_connect ();\n}\nbreak;\ncase Ccp_disconnect:\nif (MY_STATION == msg->disconnect.station_to_disconnect)\n{\nif (PERM_DISCONNECT == msg->disconnect.disconnect_command)\n{\nccp_disconnect ();\n}\n}\nbreak;\ndefault:\nbreak;      /* ignore unknown commands */\n}\n}\nPreprocessing directives\n6.19"
+        },
+        {
+            "rule_id": "19.1",
+            "rule": "#include statements in a file should only be preceded by other preprocessor directives or comments.",
+            "rule_category": "advisory",
+            "chapter": "6.19",
+            "rule_type": "Preprocessing directives",
+            "reference": [],
+            "amplification": "preprocessor directives or comments.\nAll the #include statements in a particular code file should be grouped together near the head\nof the file. The rule states that the only items which may precede a #include in a file are other\npreprocessor directives or comments."
+        },
+        {
+            "rule_id": "19.2",
+            "rule": "Non-standard characters should not occur in header file names in #include directives.",
+            "rule_category": "advisory",
+            "chapter": "6.19",
+            "rule_type": "Preprocessing directives",
+            "reference": [
+                "Undefined 14"
+            ],
+            "amplification": "#include directives.\nIf the ', \\, \", or /* characters are used between < and > delimiters or the ', \\, or /* characters\nare used between the \" delimiters in a header name preprocessing token, then the behaviour is\nundefined. Use of the \\ character is permitted in filename paths without the need for a deviation if\nrequired by the host operating system of the development environment.\n70\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 52\n6. Rules (continued)"
+        },
+        {
+            "rule_id": "19.3",
+            "rule": "The #include directive shall be followed by either a <filename> or \"filename\" sequence.",
+            "rule_category": "required",
+            "chapter": "6.19",
+            "rule_type": "Preprocessing directives",
+            "reference": [
+                "Undefined 48"
+            ],
+            "amplification": "\"filename\" sequence.\nFor example, the following are allowed.\n#include \"filename.h\"\n#include <filename.h>\n#define FILE_A \"filename.h\"\n#include FILE_A"
+        },
+        {
+            "rule_id": "19.4",
+            "rule": "C macros shall only expand to a braced initialiser, a constant, a string literal, a parenthesised expression, a type qualifier, a storage class specifier, or a do-while-zero construct.",
+            "rule_category": "required",
+            "chapter": "6.19",
+            "rule_type": "Preprocessing directives",
+            "reference": [
+                "Koenig 82-84",
+                ""
+            ],
+            "amplification": "a string literal, a parenthesised expression, a type qualifier, a\nstorage class specifier, or a do-while-zero construct.\nThese are the only permitted uses of macros. Storage class specifiers and type qualifiers include\nkeywords such as extern, static and const. Any other use of #define could lead to unexpected\nbehaviour when substitution is made, or to very hard-to-read code.\nIn particular macros shall not be used to define statements or parts of statements except the use\nof the do-while construct. Nor shall macros redefine the syntax of the language. All brackets of\nwhatever type ( ) { }  in the macro replacement list shall be balanced.\nThe do-while-zero construct (see example below) is the only permitted mechanism for having\ncomplete statements in a macro body. The do-while-zero construct is used to wrap a series of one\nor more statements and ensure correct behaviour. Note: the semicolon must be omitted from the\nend of the macro body.\nFor example:\n/* The following are compliant */\n#define PI 3.14159F                  /* Constant                      */\n#define XSTAL 10000000               /* Constant                      */\n#define CLOCK (XSTAL/16)             /* Constant expression           */\n#define PLUS2(X) ((X) + 2)           /* Macro expanding to expression */\n#define STOR extern                  /* storage class specifier       */\n#define INIT(value){ (value), 0, 0}  /* braced initialiser            */\n#define CAT (PI)                     /* parenthesised expression      */\n#define FILE_A \"filename.h\"          /* string literal                */\n#define READ_TIME_32() \\\ndo { \\\nDISABLE_INTERRUPTS (); \\\ntime_now = (uint32_t)TIMER_HI << 16; \\\ntime_now = time_now | (uint32_t)TIMER_LO; \\\nENABLE_INTERRUPTS (); \\\n} while (0)   /* example of do-while-zero   */\n/* the following are NOT compliant */\n#define int32_t long       /* use typedef instead                     */\n#define STARTIF if(        /* unbalanced () and language redefinition */\n#define CAT PI             /* non-parenthesised expression            */\n71\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 53\n6. Rules (continued)"
+        },
+        {
+            "rule_id": "19.5",
+            "rule": "Macros shall not be #define'd or #undef'd within a block.",
+            "rule_category": "required",
+            "chapter": "6.19",
+            "rule_type": "Preprocessing directives",
+            "reference": [],
+            "amplification": "While it is legal C to place #define or #undef directives anywhere in a code file, placing them\ninside blocks is misleading as it implies a scope restricted to that block, which is not the case.\nNormally, #define directives will be placed near the start of a file, before the first function definition.\nNormally, #undef directives will not be needed (see Rule 19.6)."
+        },
+        {
+            "rule_id": "19.6",
+            "rule": "#undef shall not be used.",
+            "rule_category": "required",
+            "chapter": "6.19",
+            "rule_type": "Preprocessing directives",
+            "reference": [],
+            "amplification": "#undef should not normally be needed. Its use can lead to confusion with respect to the existence\nor meaning of a macro when it is used in the code."
+        },
+        {
+            "rule_id": "19.7",
+            "rule": "A function should be used in preference to a function-like macro.",
+            "rule_category": "advisory",
+            "chapter": "6.19",
+            "rule_type": "Preprocessing directives",
+            "reference": [
+                "Koenig 78-81"
+            ],
+            "amplification": "While macros can provide a speed advantage over functions, functions provide a safer and more\nrobust mechanism. This is particularly true with respect to the type checking of parameters, and\nthe problem of function-like macros potentially evaluating parameters multiple times."
+        },
+        {
+            "rule_id": "19.8",
+            "rule": "A function-like macro shall not be invoked without all of its arguments.",
+            "rule_category": "required",
+            "chapter": "6.19",
+            "rule_type": "Preprocessing directives",
+            "reference": [
+                "Undefined 49"
+            ],
+            "amplification": "arguments.\nThis is a constraint error, but preprocessors have been known to ignore this problem. Each\nargument in a function-like macro must consist of at least one preprocessing token otherwise the\nbehaviour is undefined."
+        },
+        {
+            "rule_id": "19.9",
+            "rule": "Arguments to a function-like macro shall not contain tokens that look like preprocessing directives.",
+            "rule_category": "required",
+            "chapter": "6.19",
+            "rule_type": "Preprocessing directives",
+            "reference": [
+                "Undefined 50"
+            ],
+            "amplification": "look like preprocessing directives.\nIf any of the arguments act like preprocessor directives, the behaviour when macro substitution is\nmade can be unpredictable."
+        },
+        {
+            "rule_id": "19.10",
+            "rule": "In the definition of a function-like macro each instance of a parameter shall be enclosed in parentheses unless it is used as the operand of # or ##.",
+            "rule_category": "required",
+            "chapter": "6.19",
+            "rule_type": "Preprocessing directives",
+            "reference": [
+                "Koenig 78-81"
+            ],
+            "amplification": "parameter shall be enclosed in parentheses unless it is used as the\noperand of # or ##.\nWithin a definition of a function-like macro, the arguments shall be enclosed in parentheses. For\nexample define an abs function using:\n#define abs(x) (((x) >= 0) ? (x) : -(x))\nand not:\n#define abs(x) ((x >= 0) ? x : -x)\nIf this rule is not adhered to then when the preprocessor substitutes the macro into the code the\noperator precedence may not give the desired results.\n72\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 54\n6. Rules (continued)\nConsider what happens if the second, incorrect, definition is substituted into the expression:\nz = abs( a - b );\ngiving:\nz = ((a - b >= 0) ? a - b : -a - b);\nThe sub-expression -a - b is equivalent to (-a)-b rather than -(a-b) as intended. Putting all the\nparameters in parentheses in the macro definition avoids this problem."
+        },
+        {
+            "rule_id": "19.11",
+            "rule": "All macro identifiers in preprocessor directives shall be defined before use, except in #ifdef and #ifndef preprocessor directives and the defined() operator.",
+            "rule_category": "required",
+            "chapter": "6.19",
+            "rule_type": "Preprocessing directives",
+            "reference": [],
+            "amplification": "before use, except in #ifdef and #ifndef preprocessor directives\nand the defined() operator.\nIf an attempt is made to use an identifier in a preprocessor directive, and that identifier has not\nbeen defined, the preprocessor will sometimes not give any warning but will assume the value\nzero. #ifdef, #ifndef and defined() are provided to test the existence of a macro, and are therefore\nexcluded.\nFor example:\n#if x < 0   /* x assumed to be zero if not defined */\nConsideration should be given to the use of a #ifdef test before an identifier is used.\nNote that preprocessing identifiers may be defined either by use of #define directives or by options\nspecified at compiler invocation. However the use of the #define directive is preferred."
+        },
+        {
+            "rule_id": "19.12",
+            "rule": "There shall be at most one occurrence of the # or ## operators in a single macro definition.",
+            "rule_category": "required",
+            "chapter": "6.19",
+            "rule_type": "Preprocessing directives",
+            "reference": [
+                "Unspecified 12"
+            ],
+            "amplification": "a single macro definition.\nThere is an issue of unspecified order of evaluation associated with the # and ## preprocessor\noperators. To avoid this problem only one occurrence of either operator shall be used in any single\nmacro definition (i.e. one #, or one ## or neither)."
+        },
+        {
+            "rule_id": "19.13",
+            "rule": "The # and ## operators should not be used.",
+            "rule_category": "advisory",
+            "chapter": "6.19",
+            "rule_type": "Preprocessing directives",
+            "reference": [
+                "Unspecified 12"
+            ],
+            "amplification": "There is an issue of unspecified order of evaluation associated with the # and ## preprocessor\noperators. Compilers have been inconsistent in the implementation of these operators. To avoid\nthese problems do not use them."
+        },
+        {
+            "rule_id": "19.14",
+            "rule": "The defined preprocessor operator shall only be used in one of the two standard forms.",
+            "rule_category": "required",
+            "chapter": "6.19",
+            "rule_type": "Preprocessing directives",
+            "reference": [
+                "Undefined 47"
+            ],
+            "amplification": "the two standard forms.\nThe only two permissible forms for the defined preprocessor operator are:\ndefined ( identifier )\ndefined identifier\n73\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 55\n6. Rules (continued)\nAny other form leads to undefined behaviour, for example:\n#if defined(X > Y)   /* not compliant - undefined behaviour */\nGeneration of the token defined during expansion of a #if or #elif preprocessing directive also\nleads to undefined behaviour and shall be avoided, for example:\n#define DEFINED defined\n#if DEFINED(X)       /* not compliant - undefined behaviour */"
+        },
+        {
+            "rule_id": "19.15",
+            "rule": "Precautions shall be taken in order to prevent the contents of a header file being included twice.",
+            "rule_category": "required",
+            "chapter": "6.19",
+            "rule_type": "Preprocessing directives",
+            "reference": [],
+            "amplification": "header file being included twice.\nWhen a translation unit contains a complex hierarchy of nested header files it can happen that a\nparticular header file is included more than once. This can be, at best, a source of confusion. If it\nleads to multiple or conflicting definitions, the result can be undefined or erroneous behaviour.\nMultiple inclusions of a header file can sometimes be avoided by careful design. If this is not\npossible, a mechanism must be in place to prevent the file contents from being included more than\nonce. A common approach is to associate a macro with each file; the macro is defined when the\nfile is included for the first time and used subsequently when the file is included again to exclude\nthe contents of the file.\nFor example a file called \"ahdr.h\" might be structured as follows:\n#ifndef AHDR_H\n#define AHDR_H\n/* The following lines will be excluded by the\npreprocessor if the file is included more\nthan once */\n...\n#endif\nAlternatively, the following may be used:\n#ifdef AHDR_H\n#error Header file is already included\n#else\n#define AHDR_H\n/* The following lines will be excluded by the\npreprocessor if the file is included more\nthan once */\n...\n#endif"
+        },
+        {
+            "rule_id": "19.16",
+            "rule": "Preprocessing directives shall be syntactically meaningful even when excluded by the preprocessor.",
+            "rule_category": "required",
+            "chapter": "6.19",
+            "rule_type": "Preprocessing directives",
+            "reference": [],
+            "amplification": "when excluded by the preprocessor.\nWhen a section of source code is excluded by preprocessor directives, the content of each excluded\nstatement is ignored until a #else, #elif or #endif directive is encountered (depending on the\ncontext). If one of these excluded directives is badly formed, it may be ignored without warning\nby a compiler with unfortunate consequences.\nThe requirement of this rule is that all preprocessor directives shall be syntactically\n74\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 56\n6. Rules (continued)\nvalid even when they occur within an excluded block of code.\nIn particular, ensure that #else and #endif directives are not followed by any characters other than\nwhite-space. Compilers are not always consistent in enforcing this ISO requirement.\n#define AAA 2\n...\nint foo(void)\n{\nint x = 0;\n...\n#ifndef AAA\nx = 1;\n#else1         /* Not compliant */\nx = AAA;\n#endif\n...\nreturn x;\n}"
+        },
+        {
+            "rule_id": "19.17",
+            "rule": "All #else, #elif and #endif preprocessor directives shall reside in the same file as the #if or #ifdef directive to which they are related.",
+            "rule_category": "required",
+            "chapter": "6.19",
+            "rule_type": "Preprocessing directives",
+            "reference": [],
+            "amplification": "in the same file as the #if or #ifdef directive to which they are\nrelated.\nWhen the inclusion and exclusion of blocks of statements is controlled by a series of preprocessor\ndirectives, confusion can arise if all of the relevant directives do not occur within one file. This\nrule requires that all preprocessor directives in a sequence of the form #if / #ifdef ... #elif ... #else\n... #endif shall reside in the same file. Observance of this rule preserves good code structure and\navoids maintenance problems.\nNotice that this does not preclude the possibility that such directives may exist within included\nfiles so long as all directives that relate to the same sequence are located in one file.\nfile.c\n#define A\n...\n#ifdef A\n...\n#include \"file1.h\"\n#\n#endif\n...\n#if 1\n#include \"file2.h\"\n...\nEOF\nfile1.h\n#if 1\n...\n#endif               /* Compliant     */\nEOF\n75\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 57\n6. Rules (continued)\nfile2.h\n...\n#endif               /* Not compliant */\nStandard libraries\n6.20"
+        },
+        {
+            "rule_id": "20.1",
+            "rule": "Reserved identifiers, macros and functions in the standard library, shall not be defined, redefined or undefined.",
+            "rule_category": "required",
+            "chapter": "6.20",
+            "rule_type": "Standard libraries",
+            "reference": [
+                "Undefined 54, 57, 58, 62"
+            ],
+            "amplification": "library, shall not be defined, redefined or undefined.\nIt is generally bad practice to #undef a macro which is defined in the standard library. It is also\nbad practice to #define a macro name which is a C reserved identifier, a C keyword or the name\nof any macro, object or function in the standard library. For example, there are some specific\nreserved words and function names which are known to give rise to undefined behaviour if they\nare redefined or undefined, including defined, _ _LINE_ _, _ _FILE_ _, _ _DATE_ _, _ _TIME_ _,\n_ _STDC_ _, errno and assert.\nSee also Rule 19.6 regarding the use of #undef.\nReserved identifiers are defined by ISO/IEC 9899:1990  Sections 7.1.3 \"Reserved identifiers\"\nand 6.8.8 \"Predefined macro names\". Macros in the standard library are examples of reserved\nidentifiers. Functions in the standard library are examples of reserved identifiers. Any identifier in\nthe standard library is considered a reserved identifier in any context i.e. at any scope or regardless\nof header files.\nThe defining, redefining or undefining of the reserved identifiers defined in 7.13 \"Future library\ndirections\" is advisory.\nRule 20.1 applies regardless of which, if any, header files are included."
+        },
+        {
+            "rule_id": "20.2",
+            "rule": "The names of standard library macros, objects and functions shall not be reused.",
+            "rule_category": "required",
+            "chapter": "6.20",
+            "rule_type": "Standard libraries",
+            "reference": [],
+            "amplification": "shall not be reused.\nWhere new versions of standard library macros, objects or functions are used by the programmer\n(e.g. enhanced functionality or checks of input values) the modified macro, object or function\nshall have a new name. This is to avoid any confusion as to whether a standard macro, object\nor function is being used or whether a modified version of that function is being used. So, for\nexample, if a new version of the sqrt function is written to check that the input is not negative, the\nnew function shall not be named \"sqrt\" but shall be given a new name."
+        },
+        {
+            "rule_id": "20.3",
+            "rule": "The validity of values passed to library functions shall be checked.",
+            "rule_category": "required",
+            "chapter": "6.20",
+            "rule_type": "Standard libraries",
+            "reference": [
+                "Undefined 60, 63",
+                "Implementation 45, 47"
+            ],
+            "amplification": "checked.\nMany functions in the standard C libraries are not required by the ISO standard  to check the\nvalidity of parameters passed to them. Even where checking is required by the standard, or where\ncompiler writers claim to check parameters, there is no guarantee that adequate checking will take\nplace. Therefore the programmer shall provide appropriate checks of input values for all library\n76\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 58\n6. Rules (continued)\nfunctions which have a restricted input domain (standard libraries, other bought in libraries, and\nin-house libraries).\nExamples of functions that have a restricted domain and need checking are:\n• many of the maths functions in\nmath.h, for example:\nnegative numbers must not be passed to the\n-\nsqrt or log functions;\nthe second parameter of\n-\nfmod should not be zero\n• toupper\nand tolower: some implementations can produce unexpected results when the\nfunction toupper is passed a parameter which is not a lower case letter (and similarly for\ntolower)\n• the character testing functions in\nctype.h exhibit undefined behaviour if passed invalid\nvalues.\n• the\nabs function applied to the most negative integer gives undefined behaviour.\nAlthough most of the math library functions in math.h define allowed input domains, the values\nthey return when a domain error occurs may vary from one compiler to another. Therefore pre-\nchecking the validity of the input values is particularly important for these functions.\nThe programmer should identify any domain constraints which should sensibly apply to a function\nbeing used (which may or may not be documented in the standard), and provide appropriate checks\nthat the input value(s) lies within this domain. Of course, the value may be restricted further, if\nrequired, by knowledge of what the parameter represents and what constitutes a sensible range of\nvalues for the parameter.\nThere are a number of ways in which the requirements of this rule might be satisfied, including\nthe following:\nCheck the values before calling the function\n•\nDesign checks into the function. This is particularly applicable for in-house designed\n•\nlibraries, though it could apply to bought-in libraries if the supplier can demonstrate that\nthey have built in the checks.\nProduce \"wrapped\" versions of functions, that perform the checks then call the original\n•\nfunction.\nDemonstrate statically that the input parameters can never take invalid values.\n•\nNote that when checking a floating-point parameter to a function, that has a singularity at zero, it\nmay be appropriate to perform a test of equality to zero. This will require a deviation to Rule 13.3.\nHowever it will usually still be necessary to test to a tolerance around zero (or any other singularity)\nif the magnitude of the value of the function tends to infinity as the parameter tends to zero, so as\nto prevent overflow occurring.\n77\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 59\n6. Rules (continued)"
+        },
+        {
+            "rule_id": "20.4",
+            "rule": "Dynamic heap memory allocation shall not be used.",
+            "rule_category": "required",
+            "chapter": "6.20",
+            "rule_type": "Standard libraries",
+            "reference": [
+                "Unspecified 19",
+                "Undefined 91, 92",
+                "Implementation 69",
+                "Koenig 32"
+            ],
+            "amplification": "This precludes the use of the functions calloc, malloc, realloc and free.\nThere is a whole range of unspecified, undefined and implementation-defined behaviour associated\nwith dynamic memory allocation, as well as a number of other potential pitfalls. Dynamic heap\nmemory allocation may lead to memory leaks, data inconsistency, memory exhaustion, non-\ndeterministic behaviour.\nNote that some implementations may use dynamic heap memory allocation to implement other\nfunctions (for example functions in the library string.h). If this is the case then these functions\nshall also be avoided."
+        },
+        {
+            "rule_id": "20.5",
+            "rule": "The error indicator errno shall not be used.",
+            "rule_category": "required",
+            "chapter": "6.20",
+            "rule_type": "Standard libraries",
+            "reference": [
+                "Implementation 46, Koenig 73"
+            ],
+            "amplification": "errno is a facility of C, which in theory should be useful, but which in practice is poorly defined\nby the standard. A non zero value may or may not indicate that a problem has occurred; as a result\nit shall not be used. Even for those functions for which the behaviour of errno is well defined, it is\npreferable to check the values of inputs before calling the function rather than rely on using errno\nto trap errors (see Rule 16.10)."
+        },
+        {
+            "rule_id": "20.6",
+            "rule": "The macro offsetof, in library <stddef.h>, shall not be used.",
+            "rule_category": "required",
+            "chapter": "6.20",
+            "rule_type": "Standard libraries",
+            "reference": [
+                "Undefined 59"
+            ],
+            "amplification": "Use of this macro can lead to undefined behaviour when the types of the operands are incompatible\nor when bit fields are used."
+        },
+        {
+            "rule_id": "20.7",
+            "rule": "The setjmp macro and the longjmp function shall not be used.",
+            "rule_category": "required",
+            "chapter": "6.20",
+            "rule_type": "Standard libraries",
+            "reference": [
+                "Unspecified 14",
+                "Undefined 64-67, Koenig 74"
+            ],
+            "amplification": "setjmp and longjmp allow the normal function call mechanisms to be bypassed, and shall not be\nused."
+        },
+        {
+            "rule_id": "20.8",
+            "rule": "The signal handling facilities of <signal.h> shall not be used.",
+            "rule_category": "required",
+            "chapter": "6.20",
+            "rule_type": "Standard libraries",
+            "reference": [
+                "Undefined 68, 69",
+                "Implementation 48-52",
+                "Koenig 74"
+            ],
+            "amplification": "Signal handling contains implementation-defined and undefined behaviour."
+        },
+        {
+            "rule_id": "20.9",
+            "rule": "The input/output library <stdio.h> shall not be used in production code.",
+            "rule_category": "required",
+            "chapter": "6.20",
+            "rule_type": "Standard libraries",
+            "reference": [
+                "Unspecified 2-5,16-18",
+                "Undefined 77-89",
+                "Implementation 53-68"
+            ],
+            "amplification": "production code.\nThis includes file and I/O functions fgetpos, fopen, ftell, gets, perror, remove, rename and\nungetc.\n78\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 60\n6. Rules (continued)\nStreams and file I/O have a large number of unspecified, undefined and implementation-defined\nbehaviours associated with them. It is assumed within this document that they will not normally\nbe needed in production code in embedded systems.\nIf any of the features of stdio.h need to be used in production code, then the issues associated with\nthe feature need to be understood."
+        },
+        {
+            "rule_id": "20.10",
+            "rule": "The library functions atof, atoi and atol from library <stdlib.h> shall not be used.",
+            "rule_category": "required",
+            "chapter": "6.20",
+            "rule_type": "Standard libraries",
+            "reference": [
+                "Undefined 90"
+            ],
+            "amplification": "shall not be used.\nThese functions have undefined behaviour associated with them when the string cannot be\nconverted."
+        },
+        {
+            "rule_id": "20.11",
+            "rule": "The library functions abort, exit, getenv and system from library <stdlib.h> shall not be used.",
+            "rule_category": "required",
+            "chapter": "6.20",
+            "rule_type": "Standard libraries",
+            "reference": [
+                "Undefined 93",
+                "Implementation 70-73"
+            ],
+            "amplification": "<stdlib.h> shall not be used.\nThese functions will not normally be required in an embedded system, which does not normally\nneed to communicate with an environment. If the functions are found necessary in an application,\nthen it is essential to check on the implementation-defined behaviour of the function in the\nenvironment in question."
+        },
+        {
+            "rule_id": "20.12",
+            "rule": "The time handling functions of library <time.h> shall not be used.",
+            "rule_category": "required",
+            "chapter": "6.20",
+            "rule_type": "Standard libraries",
+            "reference": [
+                "Unspecified 22",
+                "Undefined 97",
+                "Implementation 75, 76"
+            ],
+            "amplification": "Includes time, strftime. This library is associated with clock times. Various aspects are\nimplementation dependent or unspecified, such as the formats of times. If any of the facilities of\ntime.h are used then the exact implementation for the compiler being used must be determined\nand a deviation raised.\nRun-time failures\n6.21"
+        },
+        {
+            "rule_id": "21.1",
+            "rule": "Minimisation of run-time failures shall be ensured by the use of at least one of static analysis tools/techniques; (a) dynamic analysis tools/techniques; (b) explicit coding of checks to handle run-time faults.",
+            "rule_category": "required",
+            "chapter": "6.21",
+            "rule_type": "Run-time failures",
+            "reference": [
+                "Undefined 19, 26, 94",
+                "MSG_HEADER_SIZE",
+                "MAX_MSG_SIZE"
+            ],
+            "amplification": "at least one of\nstatic analysis tools/techniques;\n(a)\ndynamic analysis tools/techniques;\n(b)\nexplicit coding of checks to handle run-time faults.\n(c)\nRun-time checking is an issue, which is not specific to C, but it is an issue which C programmers\nneed to pay special attention to. This is because the C language is weak in its provision of any\nrun-time checking. C implementations are not required to perform many of the dynamic checks\nthat are necessary for robust software. It is therefore an issue that C programmers need to consider\ncarefully, adding dynamic checks to code wherever there is potential for run-time errors to occur.\n79\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 61\n6. Rules (continued)\nWhere expressions consist only of values within a well-defined range, a run-time check may\nnot be necessary, provided it can be demonstrated that for all values within the defined range\nthe exception cannot occur. Such a demonstration, if used, should be documented along with\nthe assumptions on which it depends. However if adopting this approach, be very careful about\nsubsequent modifications of the code which may invalidate the assumptions, or of the assumptions\nchanging for any other reason.\nThe following notes give some guidance on areas where consideration needs to be given to the\nprovision of dynamic checks.\narithmetic errors\n•\nThis includes errors occurring in the evaluation of expressions, such as overflow,\nunderflow, divide by zero or loss of significant bits through shifting.\nIn considering integer overflow, note that unsigned integer calculations do not strictly\noverflow (producing undefined values), but the values wrap around (producing defined,\nbut possibly wrong, values).\npointer arithmetic\n•\nEnsure that when an address is calculated dynamically the computed address is reasonable\nand points somewhere meaningful. In particular it should be ensured that if a pointer\npoints within a structure or array, then when the pointer has been incremented or otherwise\naltered it still points to the same structure or array. See restrictions on pointer arithmetic -\nRules 17.1, 17.2 and 17.4.\narray bound errors\n•\nEnsure that array indices are within the bounds of the array size before using them to\nindex the array.\nfunction parameters\n•\nSee Rule 20.3.\npointer dereferencing\n•\nWhere a function returns a pointer and that pointer is subsequently de-referenced the\nprogram should first check that the pointer is not NULL. Within a function, it is relatively\nstraightforward to reason about which pointers may or may not hold NULL values. Across\nfunction boundaries, especially when calling functions defined in other source files or\nlibraries, it is much more difficult.\n/* Given a pointer to a message, check the message header and return\na pointer to the body of the message or NULL if the message is\ninvalid. */\nconst char_t *msg_body (const char_t *msg)\n{\nconst char_t *body = NULL;\nif (msg != NULL)\n{\nif (msg_header_valid (msg))\n80\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1\n# Page 62\n6. Rules (continued)\n{\nbody = &msg;\n}\n}\nreturn (body);\n}\n...\nchar_t msg_buffer;\nconst char_t *payload;\n...\npayload = msg_body (msg_buffer);\nif (payload != NULL)\n{\n/* process the message payload */\n}\nThe techniques that will be employed to minimise run-time failures should be planned and\ndocumented, e.g. in design standards, test plans, static analysis configuration files, code review\nchecklists.\n81\nLicensed to: Tyler Doering.\n10 Sep 2008. Copy 1 of 1"
+        }
+    ]
+}

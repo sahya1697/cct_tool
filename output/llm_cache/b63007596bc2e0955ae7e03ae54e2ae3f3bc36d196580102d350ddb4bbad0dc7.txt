@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function get_byte has a parameter list, so the rule does not apply."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function type is explicitly stated as void pack_value(unsigned int v)"
+}

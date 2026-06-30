@@ -1,0 +1,337 @@
+"""
+AST parsing utilities using pycparser.
+Produces a flat list of ASTNode dicts from C source files.
+"""
+
+from __future__ import annotations
+
+import re
+import logging
+from dataclasses import dataclass, field, asdict
+from pathlib import Path
+from typing import Any
+
+logger = logging.getLogger(__name__)
+
+
+@dataclass
+class ASTNode:
+    node_type: str
+    line: int
+    column: int
+    code: str
+    file: str = ""
+    function: str = ""
+    extra: dict[str, Any] = field(default_factory=dict)
+
+    def to_dict(self) -> dict:
+        return asdict(self)
+
+
+# ── pycparser-based parser ───────────────────────────────────────────────────
+
+def _try_pycparser(source: str, filepath: str) -> list[ASTNode]:
+    """Parse with pycparser; raises ImportError if not available."""
+    import pycparser  # type: ignore
+    from pycparser import c_ast  # type: ignore
+
+    fake_libc = Path(__file__).parent.parent / "data" / "fake_libc_include"
+    cpp_args = ["-E", f"-I{fake_libc}"] if fake_libc.exists() else ["-E"]
+
+    try:
+        parser = pycparser.CParser()
+        # Try parsing without fake includes first (works for simple files)
+        try:
+            ast = parser.parse(source, filename=filepath)
+        except Exception:
+            # fall back with cpp if available
+            ast = pycparser.parse_file(filepath, use_cpp=True, cpp_args=cpp_args)
+    except Exception as exc:
+        logger.warning("pycparser failed (%s), falling back to regex.", exc)
+        raise
+
+    nodes: list[ASTNode] = []
+    current_function: list[str] = ["<global>"]
+
+    class Visitor(c_ast.NodeVisitor):
+        def _coord(self, node) -> tuple[int, int]:
+            if node.coord:
+                return node.coord.line, node.coord.column
+            return 0, 0
+
+        def _snippet(self, node) -> str:
+            line, _ = self._coord(node)
+            lines = source.splitlines()
+            if 1 <= line <= len(lines):
+                return lines[line - 1].strip()
+            return ""
+
+        def _node(self, ntype: str, n, extra: dict | None = None) -> ASTNode:
+            l, c = self._coord(n)
+            return ASTNode(
+                node_type=ntype,
+                line=l,
+                column=c,
+                code=self._snippet(n),
+                file=filepath,
+                function=current_function[-1],
+                extra=extra or {},
+            )
+
+        # ── Declaration ──────────────────────────────────────────────────────
+        def visit_Decl(self, node):
+            if isinstance(node.type, c_ast.PtrDecl):
+                nodes.append(self._node("PointerDeclaration", node))
+            elif isinstance(node.type, c_ast.ArrayDecl):
+                nodes.append(self._node("ArrayDeclaration", node))
+            elif isinstance(node.type, c_ast.FuncDecl):
+                nodes.append(self._node("FunctionDeclaration", node))
+            else:
+                nodes.append(self._node("VariableDeclaration", node))
+            self.generic_visit(node)
+
+        # ── Function definition ──────────────────────────────────────────────
+        def visit_FuncDef(self, node):
+            name = node.decl.name if node.decl else "<unknown>"
+            current_function.append(name)
+            nodes.append(self._node("FunctionDefinition", node, {"name": name}))
+            self.generic_visit(node)
+            current_function.pop()
+
+        # ── Function call ────────────────────────────────────────────────────
+        def visit_FuncCall(self, node):
+            name = ""
+            if isinstance(node.name, c_ast.ID):
+                name = node.name.name
+            nodes.append(self._node("FunctionCall", node, {"name": name}))
+            self.generic_visit(node)
+
+        # ── Assignment ───────────────────────────────────────────────────────
+        def visit_Assignment(self, node):
+            nodes.append(self._node("Assignment", node, {"op": node.op}))
+            self.generic_visit(node)
+
+        # ── Control flow ─────────────────────────────────────────────────────
+        def visit_If(self, node):
+            nodes.append(self._node("IfStatement", node))
+            self.generic_visit(node)
+
+        def visit_For(self, node):
+            nodes.append(self._node("ForLoop", node))
+            self.generic_visit(node)
+
+        def visit_While(self, node):
+            nodes.append(self._node("WhileLoop", node))
+            self.generic_visit(node)
+
+        def visit_DoWhile(self, node):
+            nodes.append(self._node("DoWhileLoop", node))
+            self.generic_visit(node)
+
+        def visit_Switch(self, node):
+            nodes.append(self._node("SwitchStatement", node))
+            self.generic_visit(node)
+
+        def visit_Case(self, node):
+            nodes.append(self._node("CaseLabel", node))
+            self.generic_visit(node)
+
+        def visit_Default(self, node):
+            nodes.append(self._node("DefaultLabel", node))
+            self.generic_visit(node)
+
+        def visit_Label(self, node):
+            nodes.append(self._node("LabelStatement", node, {"name": node.name}))
+            self.generic_visit(node)
+
+        def visit_Goto(self, node):
+            nodes.append(self._node("GotoStatement", node, {"target": node.name}))
+            self.generic_visit(node)
+
+        def visit_Continue(self, node):
+            nodes.append(self._node("ContinueStatement", node))
+            self.generic_visit(node)
+
+        def visit_Break(self, node):
+            nodes.append(self._node("BreakStatement", node))
+            self.generic_visit(node)
+
+        def visit_Return(self, node):
+            nodes.append(self._node("ReturnStatement", node))
+            self.generic_visit(node)
+
+        # ── Expressions ──────────────────────────────────────────────────────
+        def visit_UnaryOp(self, node):
+            nodes.append(self._node("UnaryOp", node, {"op": node.op}))
+            self.generic_visit(node)
+
+        def visit_BinaryOp(self, node):
+            nodes.append(self._node("BinaryOp", node, {"op": node.op}))
+            self.generic_visit(node)
+
+        def visit_Cast(self, node):
+            nodes.append(self._node("TypeCast", node))
+            self.generic_visit(node)
+
+        def visit_TernaryOp(self, node):
+            nodes.append(self._node("TernaryOp", node))
+            self.generic_visit(node)
+
+        # ── Struct/Union ─────────────────────────────────────────────────────
+        def visit_Struct(self, node):
+            nodes.append(self._node("StructDeclaration", node, {"name": node.name}))
+            self.generic_visit(node)
+
+        def visit_Union(self, node):
+            nodes.append(self._node("UnionDeclaration", node, {"name": node.name}))
+            self.generic_visit(node)
+
+        def visit_Enum(self, node):
+            nodes.append(self._node("EnumDeclaration", node, {"name": node.name}))
+            self.generic_visit(node)
+        def visit_Typedef(self, node):
+            nodes.append(self._node("TypedefDeclaration", node, {"name": node.name}))
+            self.generic_visit(node)
+        def visit_ID(self, node):
+            nodes.append(self._node("IDDeclaration", node, {"name": node.name}))
+            self.generic_visit(node)
+        def visit_Constant(self, node):
+            nodes.append(self._node("ConstantDeclaration", node, {"name": node.name}))
+            self.generic_visit(node)
+        def visit_InitList(self, node):
+            nodes.append(self._node("InitListDeclaration", node, {"name": node.name}))
+            self.generic_visit(node)
+        def visit_DeclList(self, node):
+            nodes.append(self._node("DeclDeclaration", node, {"name": node.name}))
+            self.generic_visit(node)
+        def visit_ParamList(self, node):
+            nodes.append(self._node("ParamListDeclaration", node, {"name": node.name}))
+            self.generic_visit(node)
+        def visit_StructRef(self, node):
+            nodes.append(self._node("RefDeclaration", node, {"name": node.name}))
+            self.generic_visit(node)
+        def visit_ArrayRef(self, node):
+            nodes.append(self._node("ArrayRefDeclaration", node, {"name": node.name}))
+            self.generic_visit(node)
+
+    Visitor().visit(ast)
+    return nodes
+
+
+# ── Regex-based fallback ─────────────────────────────────────────────────────
+
+def _regex_parse(source: str, filepath: str) -> list[ASTNode]:
+    """Simple regex-based AST extraction as fallback when pycparser fails."""
+    nodes: list[ASTNode] = []
+    lines = source.splitlines()
+    current_function = "<global>"
+
+    FUNC_DEF = re.compile(r'^\s*(?:int|void|char|float|double|long|short|unsigned|static|inline)\s+\**(\w+)\s*\(')
+    PTR_DECL = re.compile(r'\b\w+\s*\*+\s*\w+')
+    ARRAY_DECL = re.compile(r'\b\w+\s+\w+\s*\[')
+    GOTO = re.compile(r'\bgoto\b\s+(\w+)')
+    LABEL = re.compile(r'^(\w+)\s*:')
+    CONTINUE = re.compile(r'\bcontinue\b')
+    BREAK = re.compile(r'\bbreak\b')
+    SWITCH = re.compile(r'\bswitch\s*\(')
+    FOR = re.compile(r'\bfor\s*\(')
+    WHILE = re.compile(r'\bwhile\s*\(')
+    ASSIGN_IN_COND = re.compile(r'if\s*\(\s*\w+\s*=[^=]')
+    FUNC_CALL = re.compile(r'\b(\w+)\s*\(')
+    RETURN = re.compile(r'\breturn\b')
+    CAST = re.compile(r'\(\s*(?:int|char|float|double|void\s*\*|long)\s*\)')
+    FLOAT_LOOP = re.compile(r'for\s*\(\s*float')
+    BINARY_OP = re.compile(r'[+\-*/%&|^]=?\s*\w')
+    
+    # NEW: Rule 2.1 - Assembly language detection
+    INLINE_ASM = re.compile(r'\b(asm|__asm__|__asm)\s*[({]')
+    
+    # NEW: Rule 18.4 - Union detection
+    UNION_DECL = re.compile(r'\bunion\s+\w+\s*{')
+    UNION_USAGE = re.compile(r'\bunion\s+\w+\s+\w+')
+    
+    # NEW: Rule 12.5 - Logical operators (&&, ||)
+    LOGICAL_OP = re.compile(r'(&&|\|\|)')
+    COMPLEX_LOGICAL = re.compile(r'\w+\s*[<>=!+\-*/%]+\s*\w+\s*(&&|\|\|)')
+
+    for i, raw_line in enumerate(lines, 1):
+        ln = raw_line.strip()
+        col = len(raw_line) - len(raw_line.lstrip())
+
+        def node(ntype, extra=None):
+            return ASTNode(ntype, i, col, ln, filepath, current_function, extra or {})
+
+        m = FUNC_DEF.match(raw_line)
+        if m and '{' in raw_line:
+            current_function = m.group(1)
+            nodes.append(node("FunctionDefinition", {"name": current_function}))
+
+        if GOTO.search(ln):
+            m2 = GOTO.search(ln)
+            nodes.append(node("GotoStatement", {"target": m2.group(1) if m2 else ""}))
+        if LABEL.match(ln) and not ln.startswith("//") and "case" not in ln and "default" not in ln:
+            nodes.append(node("LabelStatement"))
+        if CONTINUE.search(ln):
+            nodes.append(node("ContinueStatement"))
+        if BREAK.search(ln):
+            nodes.append(node("BreakStatement"))
+        if SWITCH.search(ln):
+            nodes.append(node("SwitchStatement"))
+        if FOR.search(ln):
+            nodes.append(node("ForLoop"))
+        if WHILE.search(ln):
+            nodes.append(node("WhileLoop"))
+        if ASSIGN_IN_COND.search(ln):
+            nodes.append(node("AssignmentInCondition"))
+        if FLOAT_LOOP.search(ln):
+            nodes.append(node("FloatLoopCounter"))
+        if RETURN.search(ln):
+            nodes.append(node("ReturnStatement"))
+        if CAST.search(ln):
+            nodes.append(node("TypeCast"))
+        if PTR_DECL.search(ln) and "=" not in ln.split("*")[0]:
+            nodes.append(node("PointerDeclaration"))
+        if ARRAY_DECL.search(ln):
+            nodes.append(node("ArrayDeclaration"))
+        
+        # NEW: Rule 2.1 - Inline assembly detection
+        if INLINE_ASM.search(ln):
+            nodes.append(node("InlineAssembly"))
+        
+        # NEW: Rule 18.4 - Union detection
+        if UNION_DECL.search(ln):
+            nodes.append(node("UnionDeclaration"))
+        elif UNION_USAGE.search(ln):
+            nodes.append(node("UnionUsage"))
+        
+        # NEW: Rule 12.5 - Complex logical operators
+        if COMPLEX_LOGICAL.search(ln) or (LOGICAL_OP.search(ln) and ('==' in ln or '!=' in ln or '<' in ln or '>' in ln)):
+            nodes.append(node("ComplexLogicalExpression"))
+        
+        for fc in FUNC_CALL.finditer(ln):
+            fname = fc.group(1)
+            if fname not in {"if", "for", "while", "switch", "return"}:
+                nodes.append(node("FunctionCall", {"name": fname}))
+
+    return nodes
+
+
+# ── Public API ────────────────────────────────────────────────────────────────
+
+def parse_c_file(filepath: str | Path) -> list[ASTNode]:
+    """
+    Parse a C file and return a list of ASTNode objects.
+    Tries pycparser first; falls back to regex extraction.
+    """
+    filepath = str(filepath)
+    source = Path(filepath).read_text(encoding="utf-8", errors="replace")
+
+    try:
+        nodes = _try_pycparser(source, filepath)
+        logger.info("pycparser succeeded for %s (%d nodes)", filepath, len(nodes))
+        return nodes
+    except Exception as exc:
+        logger.info("Falling back to regex parser (%s)", exc)
+        nodes = _regex_parse(source, filepath)
+        logger.info("Regex parser produced %d nodes for %s", len(nodes), filepath)
+        return nodes

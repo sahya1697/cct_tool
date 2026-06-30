@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The expression does not rely on the order of evaluation of sub-expressions."
+}

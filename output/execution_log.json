@@ -1,0 +1,1962 @@
+[
+  {
+    "timestamp": "2026-06-30T04:42:10.438950+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "pipeline_start",
+    "input": "",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.438950+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "load_rules_start",
+    "input": "",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.641031+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "load_rules_complete",
+    "input": "",
+    "output": "142 rules loaded",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.641031+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "parse_start",
+    "input": "['data\\\\sample_c_files\\\\data.c', 'data\\\\sample_c_files\\\\device.c', 'data\\\\sample_c_files\\\\main.c', 'data\\\\sample_c_files\\\\shared.h']",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.670329+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "parse_file",
+    "input": "data\\sample_c_files\\data.c",
+    "output": "5 nodes extracted",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.678158+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "parse_file",
+    "input": "data\\sample_c_files\\device.c",
+    "output": "4 nodes extracted",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.684600+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "parse_file",
+    "input": "data\\sample_c_files\\main.c",
+    "output": "5 nodes extracted",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.692004+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "parse_file",
+    "input": "data\\sample_c_files\\shared.h",
+    "output": "4 nodes extracted",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.693508+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "parse_complete",
+    "input": "",
+    "output": "18 total AST nodes",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.693508+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "analyze_file",
+    "input": "data\\sample_c_files\\data.c: 5 nodes",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.693508+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=UnionUsage line=3",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.695512+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "14 candidate rules",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.695512+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_rules",
+    "input": "node=UnionUsage, candidates=14",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.695512+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_complete",
+    "input": "",
+    "output": "9 rules after matching (target_types=['Structures and unions', 'Types'])",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.696514+00:00",
+    "agent": "ControlFlowAgent",
+    "action": "violations_found",
+    "input": "node=UnionUsage line=3",
+    "output": "1 violations: ['18.4']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.696986+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionDefinition line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.700143+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "20 candidate rules",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.700143+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_rules",
+    "input": "node=FunctionDefinition, candidates=20",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.700143+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_complete",
+    "input": "",
+    "output": "20 rules after matching (target_types=['Functions', 'Declarations and definitions', 'Documentation'])",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.701155+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.702151+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "20 candidate rules",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.702151+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_rules",
+    "input": "node=FunctionCall, candidates=20",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.703150+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_complete",
+    "input": "",
+    "output": "20 rules after matching (target_types=['Functions', 'Standard libraries', 'Expressions'])",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.703150+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=ReturnStatement line=5",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.705120+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "20 candidate rules",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.705120+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_rules",
+    "input": "node=ReturnStatement, candidates=20",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.705120+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_complete",
+    "input": "",
+    "output": "20 rules after matching (target_types=['Functions', 'Control flow'])",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.706296+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=5",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.708296+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "20 candidate rules",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.708801+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_rules",
+    "input": "node=FunctionCall, candidates=20",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.708801+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_complete",
+    "input": "",
+    "output": "20 rules after matching (target_types=['Functions', 'Standard libraries', 'Expressions'])",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.709806+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "analyze_file",
+    "input": "data\\sample_c_files\\device.c: 4 nodes",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.709806+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=InlineAssembly line=3",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.711810+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "9 candidate rules",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.711810+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_rules",
+    "input": "node=InlineAssembly, candidates=9",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.712810+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_complete",
+    "input": "",
+    "output": "9 rules after matching (target_types=['Language extensions', 'Environment'])",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.713680+00:00",
+    "agent": "ControlFlowAgent",
+    "action": "violations_found",
+    "input": "node=InlineAssembly line=3",
+    "output": "1 violations: ['2.1']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.713680+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=3",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.714801+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "20 candidate rules",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.715672+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_rules",
+    "input": "node=FunctionCall, candidates=20",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.716426+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_complete",
+    "input": "",
+    "output": "20 rules after matching (target_types=['Functions', 'Standard libraries', 'Expressions'])",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.716426+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=ReturnStatement line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.717442+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "20 candidate rules",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.718434+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_rules",
+    "input": "node=ReturnStatement, candidates=20",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.718434+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_complete",
+    "input": "",
+    "output": "20 rules after matching (target_types=['Functions', 'Control flow'])",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.718434+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "analyze_file",
+    "input": "data\\sample_c_files\\main.c: 5 nodes",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.719315+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionDefinition line=3",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.719315+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "20 candidate rules",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.720319+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_rules",
+    "input": "node=FunctionDefinition, candidates=20",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.720319+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_complete",
+    "input": "",
+    "output": "20 rules after matching (target_types=['Functions', 'Declarations and definitions', 'Documentation'])",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.720319+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=3",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.721823+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "20 candidate rules",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.721823+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_rules",
+    "input": "node=FunctionCall, candidates=20",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.721823+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_complete",
+    "input": "",
+    "output": "20 rules after matching (target_types=['Functions', 'Standard libraries', 'Expressions'])",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.722861+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=ReturnStatement line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.722861+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "20 candidate rules",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.723867+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_rules",
+    "input": "node=ReturnStatement, candidates=20",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.723867+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_complete",
+    "input": "",
+    "output": "20 rules after matching (target_types=['Functions', 'Control flow'])",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.724422+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=ComplexLogicalExpression line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.725627+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "20 candidate rules",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.725627+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_rules",
+    "input": "node=ComplexLogicalExpression, candidates=20",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.726435+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_complete",
+    "input": "",
+    "output": "20 rules after matching (target_types=['Expressions', 'Control statement expressions'])",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.727498+00:00",
+    "agent": "ControlFlowAgent",
+    "action": "violations_found",
+    "input": "node=ComplexLogicalExpression line=4",
+    "output": "3 violations: ['12.5', '12.5', '12.5']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.727498+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=ReturnStatement line=5",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.728011+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "20 candidate rules",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.729019+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_rules",
+    "input": "node=ReturnStatement, candidates=20",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.729405+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_complete",
+    "input": "",
+    "output": "20 rules after matching (target_types=['Functions', 'Control flow'])",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.730576+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "analyze_file",
+    "input": "data\\sample_c_files\\shared.h: 4 nodes",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.730915+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=ArrayDeclaration line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.732620+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "20 candidate rules",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.733635+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_rules",
+    "input": "node=ArrayDeclaration, candidates=20",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.733635+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_complete",
+    "input": "",
+    "output": "20 rules after matching (target_types=['Pointers and arrays', 'Declarations and definitions', 'Initialisation'])",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.733635+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=UnionDeclaration line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.734635+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "20 candidate rules",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.734635+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_rules",
+    "input": "node=UnionDeclaration, candidates=20",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.734635+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_complete",
+    "input": "",
+    "output": "20 rules after matching (target_types=['Structures and unions', 'Declarations and definitions', 'Types'])",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.734635+00:00",
+    "agent": "ControlFlowAgent",
+    "action": "violations_found",
+    "input": "node=UnionDeclaration line=4",
+    "output": "1 violations: ['18.4']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.734635+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=5",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.737066+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "20 candidate rules",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.737066+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_rules",
+    "input": "node=FunctionCall, candidates=20",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.738071+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_complete",
+    "input": "",
+    "output": "20 rules after matching (target_types=['Functions', 'Standard libraries', 'Expressions'])",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.738071+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=6",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.739084+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "20 candidate rules",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.739084+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_rules",
+    "input": "node=FunctionCall, candidates=20",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.739084+00:00",
+    "agent": "RuleMatcherAgent",
+    "action": "match_complete",
+    "input": "",
+    "output": "20 rules after matching (target_types=['Functions', 'Standard libraries', 'Expressions'])",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.739084+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "parallel_verify_start",
+    "input": "51 (node, rule) pairs to check",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.740083+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=18.1 node=UnionUsage line=3",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.741084+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=18.3 node=UnionUsage line=3",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.743510+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "anchored_violation",
+    "input": "",
+    "output": "data.c:3 rule=18.4 violation=True",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.744516+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=3.5 node=FunctionDefinition line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:10.746687+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=8.2 node=FunctionDefinition line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:29.280038+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:29.280038+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=8.4 node=FunctionDefinition line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:37.528911+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:37.532803+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.1 node=FunctionCall line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:43.669660+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:43.670888+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.2 node=FunctionCall line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:53.349444+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:42:53.359308+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.3 node=FunctionCall line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:43:01.254874+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:43:01.254874+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=14.3 node=ReturnStatement line=5",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:43:09.680487+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:43:09.680487+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=16.5 node=ReturnStatement line=5",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:43:17.755577+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:43:17.757689+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=16.7 node=ReturnStatement line=5",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:43:25.324690+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:43:25.325087+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=20.3 node=FunctionCall line=5",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:43:33.283312+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:43:33.283312+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.8 node=FunctionCall line=5",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:43:39.520304+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:43:39.520304+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.9 node=FunctionCall line=5",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:43:48.026993+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:43:48.026993+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=1.1 node=InlineAssembly line=3",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:43:56.345899+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:43:56.345899+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=1.2 node=InlineAssembly line=3",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:44:04.390613+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:44:04.390613+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=1.3 node=InlineAssembly line=3",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:44:11.143568+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:44:11.143568+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.1 node=FunctionCall line=3",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:44:22.811135+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:44:22.811135+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.2 node=FunctionCall line=3",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:44:29.514683+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:44:29.517842+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.3 node=FunctionCall line=3",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:44:37.791465+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:44:37.791465+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=16.5 node=ReturnStatement line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:44:46.461765+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:44:46.461765+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=16.7 node=ReturnStatement line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:44:54.811527+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:44:54.811527+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=16.8 node=ReturnStatement line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:45:02.491822+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:45:02.493169+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=3.1 node=FunctionDefinition line=3",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:45:09.876151+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:45:09.877420+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=3.2 node=FunctionDefinition line=3",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:45:18.115260+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:45:18.116257+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=3.3 node=FunctionDefinition line=3",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:45:24.243543+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:45:24.249562+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.1 node=FunctionCall line=3",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:45:30.792257+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:45:30.792257+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.2 node=FunctionCall line=3",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:45:38.916166+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:45:38.917354+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.3 node=FunctionCall line=3",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:45:45.815280+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:45:45.817937+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=16.5 node=ReturnStatement line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:45:54.202455+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:45:54.202455+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=16.7 node=ReturnStatement line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:46:01.963034+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:46:01.963034+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=16.8 node=ReturnStatement line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:46:09.505397+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:46:09.506470+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.1 node=ComplexLogicalExpression line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:46:16.936673+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:46:16.938708+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.2 node=ComplexLogicalExpression line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:46:24.873437+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:46:24.873437+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.3 node=ComplexLogicalExpression line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:46:30.587687+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:46:30.588750+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=16.5 node=ReturnStatement line=5",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:46:39.534281+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:46:39.534281+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=16.7 node=ReturnStatement line=5",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:46:47.293045+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:46:47.293662+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=16.8 node=ReturnStatement line=5",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:46:54.452224+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:46:54.453734+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=8.4 node=ArrayDeclaration line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:47:01.103637+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:47:01.103637+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=9.3 node=ArrayDeclaration line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:47:09.507267+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:47:09.508149+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=9.2 node=ArrayDeclaration line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:47:15.344039+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:47:15.344732+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=6.2 node=UnionDeclaration line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:47:22.916530+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:47:22.917716+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=6.3 node=UnionDeclaration line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:47:30.534166+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:47:30.534166+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=6.4 node=UnionDeclaration line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:47:39.382371+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:47:39.383922+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.1 node=FunctionCall line=5",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:47:47.485451+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:47:47.485451+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.2 node=FunctionCall line=5",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:47:57.916127+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:47:57.918348+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.3 node=FunctionCall line=5",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:48:03.860266+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:48:03.860266+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.1 node=FunctionCall line=6",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:48:12.000308+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:48:12.000308+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.2 node=FunctionCall line=6",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:48:20.605152+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:48:20.606276+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.3 node=FunctionCall line=6",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:48:28.812338+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:48:36.874675+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:48:46.064593+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:48:54.125126+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:48:54.128697+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "analyze_complete",
+    "input": "",
+    "output": "1 violations found",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:48:54.128697+00:00",
+    "agent": "ReportGeneratorAgent",
+    "action": "generate_start",
+    "input": "1 violations, 51 checks",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:48:54.194928+00:00",
+    "agent": "ReportGeneratorAgent",
+    "action": "generate_complete",
+    "input": "",
+    "output": "Report: C:\\Users\\sahyasree.mp\\Desktop\\CCT_AGENT\\output\\compliance_report.xlsx",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:48:54.194928+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "metrics_start",
+    "input": "",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:48:54.194928+00:00",
+    "agent": "MetricsAgent",
+    "action": "calculate_start",
+    "input": "output=C:\\Users\\sahyasree.mp\\Desktop\\CCT_AGENT\\output\\compliance_report.xlsx, ground_truth=C:\\Users\\sahyasree.mp\\Desktop\\CCT_AGENT\\data\\violation_groundtruth.xlsx",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:48:54.244719+00:00",
+    "agent": "MetricsAgent",
+    "action": "calculate_complete",
+    "input": "",
+    "output": "TP=1, FP=0, FN=5, Precision=100.00%, Recall=16.67%, F1=28.57%",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:48:54.244719+00:00",
+    "agent": "MetricsAgent",
+    "action": "report_start",
+    "input": "output=C:\\Users\\sahyasree.mp\\Desktop\\CCT_AGENT\\output\\metrics_report.xlsx",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:48:54.306263+00:00",
+    "agent": "MetricsAgent",
+    "action": "report_complete",
+    "input": "",
+    "output": "Report: C:\\Users\\sahyasree.mp\\Desktop\\CCT_AGENT\\output\\metrics_report.xlsx",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-06-30T04:48:54.308394+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "metrics_complete",
+    "input": "",
+    "output": "F1=28.57%, Precision=100.00%, Recall=16.67%",
+    "error": null,
+    "retry": 0,
+    "node": null
+  }
+]

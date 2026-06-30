@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The code uses inline assembly, which is a valid construct in C, and does not violate any rules specific to the ISO/IEC 9899:1990 standard."
+}
