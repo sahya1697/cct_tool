@@ -1,5 +1,0 @@
-{
-  "violation": false,
-  "confidence": 1.0,
-  "reasoning": "The function call does not have any side effects or sub-expressions that rely on the order of evaluation."
-}

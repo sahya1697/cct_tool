@@ -1,5 +1,0 @@
-{
-  "violation": false,
-  "confidence": 1.0,
-  "reasoning": "The code defines a union, not a bit field, so the rule does not apply."
-}

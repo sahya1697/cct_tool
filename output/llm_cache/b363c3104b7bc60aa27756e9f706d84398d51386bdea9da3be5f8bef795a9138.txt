@@ -1,5 +1,0 @@
-{
-  "violation": false,
-  "confidence": 1.0,
-  "reasoning": "The union type 'DataStore' is declared and defined within the same translation unit, making it complete."
-}

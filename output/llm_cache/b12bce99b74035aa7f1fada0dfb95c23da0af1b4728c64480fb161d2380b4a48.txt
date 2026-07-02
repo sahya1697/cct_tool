@@ -1,5 +1,0 @@
-{
-  "violation": false,
-  "confidence": 1.0,
-  "reasoning": "The code node is a return statement with no function parameters, so the rule does not apply."
-}

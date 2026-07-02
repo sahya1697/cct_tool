@@ -1,5 +1,0 @@
-{
-  "violation": false,
-  "confidence": 1.0,
-  "reasoning": "The code does not use multiple compilers or languages, and only uses inline assembly which is a standard feature of the C language."
-}

@@ -1,5 +1,0 @@
-{
-  "violation": false,
-  "confidence": 1.0,
-  "reasoning": "The code does not exhibit any unspecified order of evaluation that could lead to a violation of the rule."
-}

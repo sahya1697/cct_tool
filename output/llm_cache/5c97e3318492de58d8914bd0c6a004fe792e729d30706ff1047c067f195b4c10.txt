@@ -1,5 +1,0 @@
-{
-  "violation": false,
-  "confidence": 1.0,
-  "reasoning": "The rule requires documentation of character sets and encoding, but the provided code snippet does not contain any character-constants or string-literals that would require such documentation."
-}

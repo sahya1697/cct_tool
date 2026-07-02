@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line contains a logical && expression with operands x > 0 and y < 100. According to Rule 12.5, the operands of a logical && or || shall be primary-expressions. In this case, x > 0 is not a primary-expression because it is a comparison expression. Therefore, the code violates Rule 12.5."
+}

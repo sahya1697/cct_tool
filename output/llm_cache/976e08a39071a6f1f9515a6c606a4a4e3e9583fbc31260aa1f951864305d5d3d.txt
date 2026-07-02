@@ -1,5 +1,0 @@
-{
-  "violation": false,
-  "confidence": 1.0,
-  "reasoning": "The code does not contain any expressions that rely on the order of evaluation."
-}

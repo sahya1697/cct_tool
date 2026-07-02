@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line contains a logical expression (x > 0 && y < 100 && x != y) that is not effectively Boolean. The operands of the logical operators && are not guaranteed to be Boolean, as they are integers. This violates the rule that the operands of logical operators should be effectively Boolean."
+}

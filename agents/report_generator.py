@@ -22,9 +22,10 @@ logger = logging.getLogger(__name__)
 
 # Severity colour map
 SEVERITY_COLOURS = {
-    "High":   "FFCCCC",  # light red
-    "Medium": "FFF3CC",  # light yellow
-    "Low":    "CCFFCC",  # light green
+    "High":         "FFCCCC",  # light red
+    "Medium":       "FFF3CC",  # light yellow
+    "Low":          "CCFFCC",  # light green
+    "Needs Review": "E6E6FA",  # lavender (for uncertain cases)
 }
 
 

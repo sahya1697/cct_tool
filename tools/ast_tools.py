@@ -45,7 +45,12 @@ def _try_pycparser(source: str, filepath: str) -> list[ASTNode]:
             ast = parser.parse(source, filename=filepath)
         except Exception:
             # fall back with cpp if available
-            ast = pycparser.parse_file(filepath, use_cpp=True, cpp_args=cpp_args)
+           pycparser.parse_file(
+                filepath,
+                use_cpp=True,
+                cpp_path="gcc",   # or full path
+                cpp_args=cpp_args
+            )
     except Exception as exc:
         logger.warning("pycparser failed (%s), falling back to regex.", exc)
         raise
@@ -59,12 +64,30 @@ def _try_pycparser(source: str, filepath: str) -> list[ASTNode]:
                 return node.coord.line, node.coord.column
             return 0, 0
 
-        def _snippet(self, node) -> str:
+        def _snippet(self, node, context_lines=2) -> str:
+            """
+            Extract code with surrounding context (2 lines above/below by default).
+            Marks the target line with >>> for LLM clarity.
+            """
             line, _ = self._coord(node)
             lines = source.splitlines()
-            if 1 <= line <= len(lines):
-                return lines[line - 1].strip()
-            return ""
+            if not lines or line < 1 or line > len(lines):
+                return ""
+            
+            # Calculate context window (2 lines above and below)
+            start = max(0, line - 1 - context_lines)
+            end = min(len(lines), line + context_lines)
+            
+            # Build snippet with target line marked
+            snippet_lines = []
+            for i in range(start, end):
+                if i == line - 1:
+                    # Mark the actual target line
+                    snippet_lines.append(f">>> {lines[i]}")
+                else:
+                    snippet_lines.append(f"    {lines[i]}")
+            
+            return '\n'.join(snippet_lines)
 
         def _node(self, ntype: str, n, extra: dict | None = None) -> ASTNode:
             l, c = self._coord(n)
@@ -179,39 +202,58 @@ def _try_pycparser(source: str, filepath: str) -> list[ASTNode]:
 
         # ── Struct/Union ─────────────────────────────────────────────────────
         def visit_Struct(self, node):
-            nodes.append(self._node("StructDeclaration", node, {"name": node.name}))
+            nodes.append(self._node("StructDeclaration", node, {"name": getattr(node, "name", None)}))
             self.generic_visit(node)
 
         def visit_Union(self, node):
-            nodes.append(self._node("UnionDeclaration", node, {"name": node.name}))
+            nodes.append(self._node("UnionDeclaration", node, {"name": getattr(node, "name", None)}))
             self.generic_visit(node)
 
         def visit_Enum(self, node):
-            nodes.append(self._node("EnumDeclaration", node, {"name": node.name}))
+            nodes.append(self._node("EnumDeclaration", node, {"name": getattr(node, "name", None)}))
             self.generic_visit(node)
+            
         def visit_Typedef(self, node):
-            nodes.append(self._node("TypedefDeclaration", node, {"name": node.name}))
+            nodes.append(self._node("TypedefDeclaration", node, {"name": getattr(node, "name", None)}))
             self.generic_visit(node)
+            
         def visit_ID(self, node):
             nodes.append(self._node("IDDeclaration", node, {"name": node.name}))
             self.generic_visit(node)
+            
         def visit_Constant(self, node):
-            nodes.append(self._node("ConstantDeclaration", node, {"name": node.name}))
+            # Constant nodes have 'value' and 'type', not 'name'
+            nodes.append(self._node("ConstantDeclaration", node, {
+                "value": getattr(node, "value", None),
+                "type": getattr(node, "type", None)
+            }))
             self.generic_visit(node)
+            
         def visit_InitList(self, node):
-            nodes.append(self._node("InitListDeclaration", node, {"name": node.name}))
+            nodes.append(self._node("InitListDeclaration", node))
             self.generic_visit(node)
+            
         def visit_DeclList(self, node):
-            nodes.append(self._node("DeclDeclaration", node, {"name": node.name}))
+            nodes.append(self._node("DeclDeclaration", node))
             self.generic_visit(node)
+            
         def visit_ParamList(self, node):
-            nodes.append(self._node("ParamListDeclaration", node, {"name": node.name}))
+            nodes.append(self._node("ParamListDeclaration", node))
             self.generic_visit(node)
+            
         def visit_StructRef(self, node):
-            nodes.append(self._node("RefDeclaration", node, {"name": node.name}))
+            # StructRef has 'name' for the field name
+            nodes.append(self._node("RefDeclaration", node, {
+                "name": getattr(node.name, "name", None) if hasattr(node, "name") else None,
+                "type": getattr(node, "type", None)
+            }))
             self.generic_visit(node)
+            
         def visit_ArrayRef(self, node):
-            nodes.append(self._node("ArrayRefDeclaration", node, {"name": node.name}))
+            # ArrayRef has 'name' for the array name and 'subscript' for the index
+            nodes.append(self._node("ArrayRefDeclaration", node, {
+                "name": getattr(node.name, "name", None) if hasattr(node, "name") else None
+            }))
             self.generic_visit(node)
 
     Visitor().visit(ast)
@@ -242,15 +284,9 @@ def _regex_parse(source: str, filepath: str) -> list[ASTNode]:
     CAST = re.compile(r'\(\s*(?:int|char|float|double|void\s*\*|long)\s*\)')
     FLOAT_LOOP = re.compile(r'for\s*\(\s*float')
     BINARY_OP = re.compile(r'[+\-*/%&|^]=?\s*\w')
-    
-    # NEW: Rule 2.1 - Assembly language detection
     INLINE_ASM = re.compile(r'\b(asm|__asm__|__asm)\s*[({]')
-    
-    # NEW: Rule 18.4 - Union detection
     UNION_DECL = re.compile(r'\bunion\s+\w+\s*{')
     UNION_USAGE = re.compile(r'\bunion\s+\w+\s+\w+')
-    
-    # NEW: Rule 12.5 - Logical operators (&&, ||)
     LOGICAL_OP = re.compile(r'(&&|\|\|)')
     COMPLEX_LOGICAL = re.compile(r'\w+\s*[<>=!+\-*/%]+\s*\w+\s*(&&|\|\|)')
 
@@ -259,7 +295,23 @@ def _regex_parse(source: str, filepath: str) -> list[ASTNode]:
         col = len(raw_line) - len(raw_line.lstrip())
 
         def node(ntype, extra=None):
-            return ASTNode(ntype, i, col, ln, filepath, current_function, extra or {})
+            """Create node with 2 lines of context above and below."""
+            # Extract context window
+            context_lines = 2
+            start = max(0, i - 1 - context_lines)
+            end = min(len(lines), i + context_lines)
+            
+            # Build code snippet with context
+            snippet_lines = []
+            for idx in range(start, end):
+                if idx == i - 1:
+                    # Mark the target line
+                    snippet_lines.append(f">>> {lines[idx]}")
+                else:
+                    snippet_lines.append(f"    {lines[idx]}")
+            
+            code_with_context = '\n'.join(snippet_lines)
+            return ASTNode(ntype, i, col, code_with_context, filepath, current_function, extra or {})
 
         m = FUNC_DEF.match(raw_line)
         if m and '{' in raw_line:

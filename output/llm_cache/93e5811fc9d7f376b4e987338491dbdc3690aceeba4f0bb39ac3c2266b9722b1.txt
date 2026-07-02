@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to expressions with unspecified order of evaluation, but the target line does not contain any such expressions. The condition `x > 0 && y < 100 && x != y` is a simple logical expression with no side effects or function calls that could be affected by the order of evaluation."
+}

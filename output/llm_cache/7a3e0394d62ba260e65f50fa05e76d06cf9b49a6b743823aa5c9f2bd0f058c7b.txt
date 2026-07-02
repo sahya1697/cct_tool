@@ -1,5 +1,0 @@
-{
-  "violation": false,
-  "confidence": 1.0,
-  "reasoning": "The rule is not applicable to this code as it does not involve function parameters."
-}

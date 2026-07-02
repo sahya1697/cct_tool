@@ -1,5 +1,6 @@
 """
 Rule retrieval tools: MongoDB primary, JSON fallback, keyword search, optional Chroma vector RAG.
+Enhanced with comprehensive node type to rule type mappings for complete coverage.
 """
 
 from __future__ import annotations
@@ -257,6 +258,57 @@ NODE_TYPE_TO_RULE_TYPES: dict[str, list[str]] = {
         "Expressions",
         "Control statement expressions",
     ],
+    
+    # ── Preprocessing (requires new node types) ───────────────────────────────
+    "PreprocessorDirective": [
+        "Preprocessing directives",
+        "Language extensions",
+    ],
+    "MacroDefinition": [
+        "Preprocessing directives",
+        "Identifiers",
+    ],
+    "Include": [
+        "Preprocessing directives",
+        "Standard libraries",
+    ],
+    "ConditionalCompilation": [
+        "Preprocessing directives",
+    ],
+    
+    # ── Documentation ─────────────────────────────────────────────────────────
+    "Comment": [
+        "Documentation",
+    ],
+    "FunctionComment": [
+        "Documentation",
+        "Functions",
+    ],
+    
+    # ── Character Sets ────────────────────────────────────────────────────────
+    "CharacterLiteral": [
+        "Character sets",
+        "Constants",
+    ],
+    "StringLiteral": [
+        "Character sets",
+        "Constants",
+        "Pointers and arrays",
+    ],
+    
+    # ── Environment ───────────────────────────────────────────────────────────
+    "TranslationUnit": [
+        "Environment",
+        "Declarations and definitions",
+    ],
+    
+    # ── Language Extensions ───────────────────────────────────────────────────
+    "GCCExtension": [
+        "Language extensions",
+    ],
+    "AttributeSpecifier": [
+        "Language extensions",
+    ],
 }
 
 
@@ -264,12 +316,14 @@ def retrieve_rules_for_node(
     all_rules: list[dict],
     node_type: str,
     code_snippet: str = "",
-    max_results: int = 20,
+    max_results: int = 6,
 ) -> list[dict]:
     """
     Return candidate rules for an AST node using category + keyword matching.
+    Enhanced with intelligent fallback for unmapped node types.
     """
-    target_types = NODE_TYPE_TO_RULE_TYPES.get(node_type, [])
+    # Get target rule types with fallback support
+    target_types = get_rule_types_for_node(node_type)
     scored: list[tuple[int, dict]] = []
 
     snippet_lower = code_snippet.lower()
@@ -344,3 +398,127 @@ def vector_retrieve(
     except Exception as exc:
         logger.warning("Chroma query failed: %s", exc)
         return []
+
+
+
+def get_rule_types_for_node(node_type: str) -> list[str]:
+    """
+    Get rule types that apply to a given node type with intelligent fallback.
+    
+    Args:
+        node_type: AST node type (e.g., "FunctionDefinition")
+        
+    Returns:
+        List of applicable MISRA rule types
+    """
+    # Try exact match first
+    if node_type in NODE_TYPE_TO_RULE_TYPES:
+        return NODE_TYPE_TO_RULE_TYPES[node_type]
+    
+    # Fallback based on node name patterns
+    fallbacks = []
+    
+    node_lower = node_type.lower()
+    
+    if "decl" in node_lower or "declaration" in node_lower:
+        fallbacks.extend(["Declarations and definitions", "Types"])
+    
+    if "func" in node_lower or "function" in node_lower:
+        fallbacks.extend(["Functions"])
+    
+    if "loop" in node_lower or "while" in node_lower or "for" in node_lower:
+        fallbacks.extend(["Control flow", "Control statement expressions"])
+    
+    if "statement" in node_lower:
+        fallbacks.extend(["Control flow"])
+    
+    if "expr" in node_lower or "op" in node_lower:
+        fallbacks.extend(["Expressions"])
+    
+    if "ptr" in node_lower or "pointer" in node_lower:
+        fallbacks.extend(["Pointers and arrays", "Pointer type conversions"])
+    
+    if "array" in node_lower:
+        fallbacks.extend(["Pointers and arrays"])
+    
+    if "switch" in node_lower or "case" in node_lower:
+        fallbacks.extend(["Switch statements"])
+    
+    if "struct" in node_lower or "union" in node_lower:
+        fallbacks.extend(["Structures and unions"])
+    
+    if "typedef" in node_lower or "enum" in node_lower:
+        fallbacks.extend(["Types", "Declarations and definitions"])
+    
+    if "preproc" in node_lower or "macro" in node_lower or "include" in node_lower:
+        fallbacks.extend(["Preprocessing directives"])
+    
+    if "comment" in node_lower:
+        fallbacks.extend(["Documentation"])
+    
+    if "char" in node_lower or "string" in node_lower or "literal" in node_lower:
+        fallbacks.extend(["Character sets", "Constants"])
+    
+    # If still no matches, return broad categories
+    if not fallbacks:
+        fallbacks = ["Expressions", "Declarations and definitions", "Control flow"]
+        logger.warning(
+            "No rule type mapping found for node type '%s', using fallback: %s",
+            node_type, fallbacks
+        )
+    
+    return fallbacks
+
+
+def get_coverage_stats() -> dict:
+    """
+    Get statistics on rule type coverage.
+    
+    Returns:
+        Dictionary with coverage statistics
+    """
+    all_rule_types = {
+        "Character sets", "Constants", "Control flow",
+        "Control statement expressions", "Declarations and definitions",
+        "Documentation", "Environment", "Expressions", "Functions",
+        "Identifiers", "Initialisation", "Integer suffixes",
+        "Language extensions", "Pointer type conversions",
+        "Pointers and arrays", "Preprocessing directives",
+        "Run-time failures", "Standard libraries",
+        "Structures and unions", "Switch statements", "Types"
+    }
+    
+    covered_types = set()
+    for rule_types in NODE_TYPE_TO_RULE_TYPES.values():
+        covered_types.update(rule_types)
+    
+    uncovered = all_rule_types - covered_types
+    
+    return {
+        "total_rule_types": len(all_rule_types),
+        "covered_rule_types": len(covered_types),
+        "uncovered_rule_types": list(uncovered),
+        "coverage_percentage": len(covered_types) / len(all_rule_types) * 100,
+        "total_node_types": len(NODE_TYPE_TO_RULE_TYPES),
+    }
+
+
+# Log coverage on module load
+def _log_coverage():
+    """Log coverage statistics on import."""
+    stats = get_coverage_stats()
+    logger.info(
+        "Rule type mapping: %d node types, %d/%d rule types covered (%.1f%%)",
+        stats['total_node_types'],
+        stats['covered_rule_types'],
+        stats['total_rule_types'],
+        stats['coverage_percentage']
+    )
+    if stats['uncovered_rule_types']:
+        logger.debug("Uncovered rule types: %s", ', '.join(stats['uncovered_rule_types']))
+
+# Initialize logging
+try:
+    _log_coverage()
+except Exception:
+    pass  # Don't fail on logging errors

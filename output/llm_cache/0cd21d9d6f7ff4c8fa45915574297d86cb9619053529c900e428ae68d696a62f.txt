@@ -1,5 +1,0 @@
-{
-  "violation": false,
-  "confidence": 1.0,
-  "reasoning": "The code uses inline assembly, which is exempt from MISRA C 2004 rules regarding expression evaluation order."
-}

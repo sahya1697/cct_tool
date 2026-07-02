@@ -1,5 +1,0 @@
-{
-  "violation": false,
-  "confidence": 1.0,
-  "reasoning": "The function has no parameters, but the return statement is within a global scope, not a function declaration or definition."
-}

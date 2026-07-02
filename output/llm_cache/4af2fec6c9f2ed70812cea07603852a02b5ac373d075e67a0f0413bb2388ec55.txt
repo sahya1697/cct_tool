@@ -1,0 +1,9 @@
+CORRECTED:
+union DataStore {
+    unsigned int raw;
+    unsigned char bytes[4];
+};
+union DataStore g_store;
+
+EXPLANATION:
+The union type is now fully defined within the translation unit, ensuring that all members are accessible.

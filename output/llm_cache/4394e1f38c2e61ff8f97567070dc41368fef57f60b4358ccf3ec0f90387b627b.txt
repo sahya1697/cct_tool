@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.1) advises to use parentheses to emphasize the order of operations and avoid relying on C's operator precedence rules. However, the target line does not exhibit any complex expressions that would benefit from additional parentheses. The expression 'x > 0 && y < 100 && x != y' is a simple logical AND operation, and its order of operations is clear without the need for extra parentheses. Therefore, the rule does not apply to this code construct, and there is no violation."
+}

@@ -27,7 +27,6 @@ from dataclasses import dataclass
 
 from agents.log_follower import LogFollowerAgent
 from agents.rule_retrieval import RuleRetrievalAgent
-from agents.rule_matcher import RuleMatcherAgent
 from agents.pattern_detection import PatternDetectionAgent, PatternHit
 from agents.control_flow_agent import ControlFlowAgent, ControlFlowViolation
 from agents.verification_agent import VerificationAgent, VerificationResult
@@ -35,16 +34,21 @@ from agents.conflict_resolver import ConflictResolverAgent
 from agents.correction_agent import CorrectionAgent
 from agents.report_generator import ReportGeneratorAgent
 from agents.metrics_agent import MetricsAgent
+from agents.relevance_filter import RelevanceFilterAgent
 from tools.rag_tools import load_rules
 from tools.ast_tools import ASTNode, parse_c_file
 import config
 
 logger = logging.getLogger(__name__)
 
-# Minimum confidence to include a violation in the final report
-CONFIDENCE_THRESHOLD = 0.45
+# Confidence thresholds for violation categorization
+# High confidence (>=0.90): Confirmed violations (true positives)
+# Medium confidence (0.50-0.89): Needs manual review  
+# Low confidence (<0.50): Likely false positives, excluded
+HIGH_CONFIDENCE_THRESHOLD = 0.90
+LOW_CONFIDENCE_THRESHOLD = 0.50
 # Max rules to verify per node (cost control)
-MAX_RULES_PER_NODE = 3
+MAX_RULES_PER_NODE = 6
 
 
 @dataclass
@@ -75,6 +79,7 @@ class OrchestratorAgent:
         self.log_agent = LogFollowerAgent()
         self.pattern_agent = PatternDetectionAgent(self.log_agent)
         self.control_flow_agent = ControlFlowAgent(self.log_agent)
+        self.relevance_filter = RelevanceFilterAgent(self.log_agent)  # NEW: Pre-LLM filter
         self.verification_agent = VerificationAgent(self.log_agent)
         self.conflict_agent = ConflictResolverAgent(self.log_agent)  # Now includes confidence scoring
         self.correction_agent = CorrectionAgent(self.log_agent)  # Now includes rationale generation
@@ -83,7 +88,6 @@ class OrchestratorAgent:
 
         self.all_rules: list[dict] = []
         self.rule_retrieval: Optional[RuleRetrievalAgent] = None
-        self.rule_matcher: Optional[RuleMatcherAgent] = None
 
     # ── Stage 1: Load rulebook ────────────────────────────────────────────────
 
@@ -91,7 +95,6 @@ class OrchestratorAgent:
         self.log_agent.log("OrchestratorAgent", "load_rules_start")
         self.all_rules = load_rules(rules_path)
         self.rule_retrieval = RuleRetrievalAgent(self.all_rules, self.log_agent)
-        self.rule_matcher = RuleMatcherAgent(self.log_agent)
         self.log_agent.log(
             "OrchestratorAgent",
             "load_rules_complete",
@@ -175,12 +178,26 @@ class OrchestratorAgent:
             rule_match_quality=0.5  # Could be calculated from retrieval
         )
 
-        if not final_result.violation or final_result.confidence < CONFIDENCE_THRESHOLD:
+        # Filter out non-violations and very low confidence results
+        if not final_result.violation:
             return None
+        
+        if final_result.confidence < LOW_CONFIDENCE_THRESHOLD:
+            logger.info(f"Filtering out low-confidence violation: rule={rule.get('rule_id')}, confidence={final_result.confidence:.2f}")
+            return None
+        
+        # Mark medium-confidence violations as needs_review
+        needs_review = final_result.confidence < HIGH_CONFIDENCE_THRESHOLD
+        if needs_review:
+            logger.info(f"Marking as needs_review: rule={rule.get('rule_id')}, confidence={final_result.confidence:.2f}")
 
         # ── Correction + rationale (now in single agent) ──────────────────────
         fix, _ = self.correction_agent.suggest(node, rule)
         rationale = self.correction_agent.generate_rationale(node, rule, final_result)
+        
+        # Prepend [NEEDS REVIEW] tag to rationale if confidence is medium
+        if needs_review:
+            rationale = f"[NEEDS REVIEW - Confidence: {final_result.confidence:.2f}] {rationale}"
 
         # Use control flow fix suggestion if available
         if control_flow_hit and control_flow_hit.fix_suggestion:
@@ -210,7 +227,19 @@ class OrchestratorAgent:
         Create anchored violation (merged from line_anchor agent).
         Maps violation to exact file location.
         """
-        severity = "High" if rule.get("rule_category") == "required" else "Medium"
+        rule_category = rule.get("rule_category", "")
+        
+        # Determine severity based on confidence and category
+        # Use confidence thresholds: <0.50 filtered, 0.50-0.89 needs review, >=0.90 confirmed
+        if confidence < HIGH_CONFIDENCE_THRESHOLD:
+            # Medium confidence - needs manual review
+            severity = "Needs Review"
+        elif rule_category == "required":
+            severity = "High"
+        elif rule_category == "advisory":
+            severity = "Medium"
+        else:
+            severity = "Low"
 
         av = AnchoredViolation(
             file_name=Path(node.file).name if node.file else "unknown",
@@ -219,9 +248,9 @@ class OrchestratorAgent:
             column=node.column,
             code_snippet=node.code,
             rule_id=str(rule.get("rule_id", "")),
-            rule_description=rule.get("rule", "")[:200],
+            rule_description=rule.get("rule", "")[:500],
             severity=severity,
-            rule_category=rule.get("rule_category", ""),
+            rule_category=rule_category,
             violation=violation,
             confidence=confidence,
             suggested_fix=suggested_fix,
@@ -269,11 +298,17 @@ class OrchestratorAgent:
                     continue
                 seen.add(key)
 
-                # Retrieve + match rules for node
-                candidates = self.rule_retrieval.retrieve(node)
-                matched = self.rule_matcher.match(node, candidates)[:MAX_RULES_PER_NODE]
+                # Retrieve + match rules for node (now combined in one step)
+                matched = self.rule_retrieval.retrieve(node, max_results=MAX_RULES_PER_NODE)
 
                 if not matched:
+                    continue
+
+                # ── NEW: Pre-LLM Relevance Filtering ─────────────────────────
+                # Filter out obviously irrelevant rules before expensive LLM calls
+                relevant_rules = self.relevance_filter.filter_rules(node, matched)
+                
+                if not relevant_rules:
                     continue
 
                 # Pattern detection (fast, done before spawning threads)
@@ -290,9 +325,9 @@ class OrchestratorAgent:
                 for cf in control_flow_violations:
                     cf_by_rule[cf.rule_id] = cf
 
-                for rule in matched:
+                for rule in relevant_rules:  # Use filtered rules instead of matched
                     tasks.append((node, rule, phits_by_rule, cf_by_rule))
-                total_checks += len(matched)
+                total_checks += len(relevant_rules)
 
         self.log_agent.log(
             "OrchestratorAgent",

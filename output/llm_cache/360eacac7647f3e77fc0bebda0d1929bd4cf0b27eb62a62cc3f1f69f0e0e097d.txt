@@ -1,5 +1,0 @@
-{
-  "violation": false,
-  "confidence": 1.0,
-  "reasoning": "The code does not perform any integer division operations, thus the rule is not applicable."
-}

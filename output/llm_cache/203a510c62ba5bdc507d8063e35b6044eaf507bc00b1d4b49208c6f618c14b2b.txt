@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The union type 'DataStore' is used in the translation unit, but its declaration is incomplete. The 'pack_value' function writes to the union's 'raw' member, and the 'get_byte' function reads from the union's 'bytes' member. This implies that the union is being used to store data, but its complete declaration is not provided within the translation unit. According to rule 18.1, all structure and union types shall be complete at the end of a translation unit."
+}

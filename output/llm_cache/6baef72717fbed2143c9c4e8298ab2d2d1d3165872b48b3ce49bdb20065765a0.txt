@@ -1,5 +1,0 @@
-{
-  "violation": false,
-  "confidence": 1.0,
-  "reasoning": "The function call 'reset_device(void)' does not have any sub-expressions that rely on the order of evaluation."
-}

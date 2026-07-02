@@ -1,5 +1,0 @@
-{
-  "violation": false,
-  "confidence": 1.0,
-  "reasoning": "The function check_limits has a void return type, so the rule does not apply."
-}

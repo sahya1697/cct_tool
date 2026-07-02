@@ -1,5 +1,0 @@
-{
-  "violation": false,
-  "confidence": 1.0,
-  "reasoning": "The code does not apply the unary minus operator to an expression of type unsigned."
-}

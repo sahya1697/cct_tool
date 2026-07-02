@@ -207,17 +207,19 @@ def main() -> int:
 
 
 def _run_pattern_only(c_files: list[Path], rules_path: Path, calculate_metrics: bool = False, ground_truth_path: str = None) -> None:
-    """Lightweight mode: run only deterministic pattern detection, no LLM."""
+    """Lightweight mode: run only deterministic detection (pattern + control flow), no LLM."""
     from tools.ast_tools import parse_c_file
     from tools.rag_tools import load_rules
     from agents.pattern_detection import PatternDetectionAgent
+    from agents.control_flow_agent import ControlFlowAgent
     from agents.log_follower import LogFollowerAgent
-    from agents.orchestrator import AnchoredViolation  # Import from orchestrator now
+    from agents.orchestrator import AnchoredViolation
     from agents.report_generator import ReportGeneratorAgent
     from agents.metrics_agent import MetricsAgent
 
     log = LogFollowerAgent()
     pattern_agent = PatternDetectionAgent(log)
+    control_flow_agent = ControlFlowAgent(log)
     report_agent = ReportGeneratorAgent(log)
     metrics_agent = MetricsAgent(log)
     all_rules = load_rules(rules_path)
@@ -229,12 +231,12 @@ def _run_pattern_only(c_files: list[Path], rules_path: Path, calculate_metrics: 
     for fp in c_files:
         nodes = parse_c_file(fp)
         for node in nodes:
-            hits = pattern_agent.detect(node)
-            for hit in hits:
+            # Pattern detection
+            pattern_hits = pattern_agent.detect(node)
+            for hit in pattern_hits:
                 for rid in hit.rule_ids:
                     rule = rule_map.get(rid, {"rule_id": rid, "rule": hit.description,
                                               "rule_category": "required"})
-                    # Create anchored violation directly (no agent needed)
                     severity = "High" if rule.get("rule_category") == "required" else "Medium"
                     av = AnchoredViolation(
                         file_name=Path(node.file).name if node.file else "unknown",
@@ -254,6 +256,31 @@ def _run_pattern_only(c_files: list[Path], rules_path: Path, calculate_metrics: 
                     )
                     violations.append(av)
                 total_checks += 1
+            
+            # Control flow detection (NEW - deterministic, high confidence)
+            cf_violations = control_flow_agent.analyze(node)
+            for cf in cf_violations:
+                rule = rule_map.get(cf.rule_id, {"rule_id": cf.rule_id, "rule": cf.description,
+                                                  "rule_category": "required"})
+                severity = "High" if rule.get("rule_category") == "required" else "Medium"
+                av = AnchoredViolation(
+                    file_name=Path(node.file).name if node.file else "unknown",
+                    function=node.function or "<global>",
+                    line=node.line,
+                    column=node.column,
+                    code_snippet=node.code,
+                    rule_id=cf.rule_id,
+                    rule_description=rule.get("rule", "")[:200],
+                    severity=severity,
+                    rule_category=rule.get("rule_category", ""),
+                    violation=True,
+                    confidence=cf.confidence,
+                    suggested_fix=cf.fix_suggestion,
+                    rationale=f"{cf.description}. {cf.evidence}",
+                    detection_source="control_flow",
+                )
+                violations.append(av)
+                total_checks += 1
 
     report_agent.generate(violations, total_checks)
     
@@ -267,7 +294,7 @@ def _run_pattern_only(c_files: list[Path], rules_path: Path, calculate_metrics: 
         metrics_agent.print_summary(result)
     
     log.save()
-    logger.info("Pattern-only analysis complete. %d violations. Report: %s",
+    logger.info("Pattern + control flow analysis complete. %d violations. Report: %s",
                 len(violations), config.REPORT_PATH)
 
 

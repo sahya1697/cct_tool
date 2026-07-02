@@ -1,4 +1,5 @@
 #include "shared.h"
 
-    asm("NOP"); asm("NOP");
+void reset_device(void) {
+    asm("NOP");
     return; }

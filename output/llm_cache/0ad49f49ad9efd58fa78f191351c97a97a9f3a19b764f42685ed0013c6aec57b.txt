@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line does not contain any side effects in the right-hand operand of a logical && operator. The rule applies to && and || operators, but the target line uses &&. However, the right-hand operand does not contain any side effects, such as function calls or volatile object accesses, that would be affected by the conditional evaluation of the left-hand operand."
+}
