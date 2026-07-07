@@ -1,0 +1,1 @@
+The rule applies here because the function `explicit_zero` returns error information (0 or 1) based on the input `z`. The code violates this rule because it does not test the error information returned by the function, specifically the return value of 0, which indicates an error. This is evident from the LLM inference, which notes that the function's return value is not tested.

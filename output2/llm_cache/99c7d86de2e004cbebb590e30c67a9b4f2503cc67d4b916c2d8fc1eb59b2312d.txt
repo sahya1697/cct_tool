@@ -1,0 +1,12 @@
+CORRECTED:
+int default_not_last(int v){int r=0;switch(v){default:r=9;break;case 0:r=1;break;}return r;}
+int switch_bool(int v){switch(v>0){case 0:return 0;case 1:return 1;default:return 2;}}
+int only_default(int v){switch(v){default:v++;break;}return v;}
+int main(void){
+    int x = 5;
+    const int* ptr = &x; // Corrected: added const to the pointer declaration
+    return 0;
+}
+
+EXPLANATION:
+The const keyword was added to the pointer declaration to indicate that the pointer is not used to modify the addressed object.

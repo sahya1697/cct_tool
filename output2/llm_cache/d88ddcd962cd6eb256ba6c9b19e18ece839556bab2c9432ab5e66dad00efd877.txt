@@ -1,0 +1,9 @@
+CORRECTED:
+(void)eleven(0);
+(void)twelve(-5);
+>>> (void)fourteen(9);
+    
+(void)fifteen();
+
+EXPLANATION:
+The code does not actually violate the MISRA rule, as there are no pointer parameters in the function prototypes.

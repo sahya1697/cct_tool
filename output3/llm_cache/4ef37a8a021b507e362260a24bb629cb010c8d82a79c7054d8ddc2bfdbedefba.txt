@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line does not contain any function calls, function pointers, or expressions with side effects that rely on the order of evaluation. The rule is not applicable to this code construct."
+}

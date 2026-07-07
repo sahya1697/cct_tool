@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to implicit conversions between floating and integer types, but the target line is a loop counter declaration, not an expression that involves a floating type. The loop counter 'i' is declared as an integer, and the expression 'i < (n * 2)' is a simple comparison, not a complex expression that involves floating-point arithmetic."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to constant unsigned integer expressions that lead to wrap-around, but the target line is a constant integer expression (-1) which is signed, not unsigned. Therefore, the rule does not apply to this code construct."
+}

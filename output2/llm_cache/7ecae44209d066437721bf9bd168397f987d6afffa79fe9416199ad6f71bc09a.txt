@@ -1,0 +1,5 @@
+CORRECTED:
+int sz(void){int i=0;return sizeof(int);}
+
+EXPLANATION:
+The sizeof operator is applied to the type int instead of the variable i, which has a side effect.

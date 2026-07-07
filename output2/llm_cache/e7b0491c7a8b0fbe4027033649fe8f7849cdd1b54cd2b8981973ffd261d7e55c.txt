@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function assignb has a non-void return type, but the only exit path is the return statement with an expression. However, the expression is a simple assignment (x=y), which does not provide a meaningful return value. According to the rule, all exit paths from a function with a non-void return type shall have an explicit return statement with an expression. Since the assignment does not meet this requirement, the rule is violated."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line does not involve a function prototype. It is a function definition with a return statement. The rule's amplification text also mentions function interfaces, which does not match the context of the target line."
+}

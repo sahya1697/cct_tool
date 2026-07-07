@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is the function declaration of main, which has parameters. The rule applies to functions with no parameters, which is not the case here."
+}

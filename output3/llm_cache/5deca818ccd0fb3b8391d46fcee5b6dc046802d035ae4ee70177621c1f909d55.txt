@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule refers to unreachable code, but the target line is part of a loop (retry) and the variable 'retries' is incremented. This indicates that the code is reachable and can be executed. The rule does not apply to this code construct."
+}

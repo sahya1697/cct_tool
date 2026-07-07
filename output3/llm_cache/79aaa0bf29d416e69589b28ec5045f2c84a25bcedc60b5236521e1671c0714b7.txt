@@ -1,0 +1,24 @@
+CORRECTED:
+```c
+#include <stdbool.h>
+
+int main(void) {
+    if (system_initialisation() == 0) {
+        /* initialization successful */
+    } else {
+        /* initialization failed, handle error */
+    }
+    return 0;
+}
+
+int system_initialisation(void) {
+    /* initialization code here */
+    if (/* initialization failed */) {
+        return -1; /* non-zero return value indicates error */
+    }
+    return 0; /* zero return value indicates success */
+}
+```
+
+EXPLANATION:
+The fix involves checking the return value of the `system_initialisation` function and handling the error case explicitly.

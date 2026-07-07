@@ -1,0 +1,5 @@
+CORRECTED:
+    int explicit_zero(int z){ if (z != 0) return 1; else return 0; }
+
+EXPLANATION:
+The explicit_zero function now explicitly tests the return value for the error case, as required by MISRA rule 16.10.

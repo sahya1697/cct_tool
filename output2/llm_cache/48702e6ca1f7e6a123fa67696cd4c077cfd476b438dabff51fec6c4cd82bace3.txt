@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function onlydef has a parameter list, which is (int v), and does not match the rule's requirement for functions with no parameters to be declared and defined with the parameter list void."
+}

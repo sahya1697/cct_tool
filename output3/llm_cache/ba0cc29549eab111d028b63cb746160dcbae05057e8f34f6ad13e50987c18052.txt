@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to shift operators, but the target line does not contain a shift operator. It is a function declaration."
+}

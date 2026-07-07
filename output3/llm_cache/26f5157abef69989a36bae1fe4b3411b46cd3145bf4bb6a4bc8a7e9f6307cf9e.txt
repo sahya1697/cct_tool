@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule describes the order of evaluation for expressions, but the target line is a function definition, not an expression. The function recursive_sum does not have any side effects that depend on the order of evaluation of its arguments. Therefore, this rule does not apply to this code construct."
+}

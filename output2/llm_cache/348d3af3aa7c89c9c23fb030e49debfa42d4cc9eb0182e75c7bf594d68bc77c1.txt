@@ -1,0 +1,9 @@
+CORRECTED:
+case 0:
+    r = 10;
+case 1:
+    r = 20;
+    break;
+
+EXPLANATION:
+The switch statement was modified to use a single case block for all cases, as MISRA C requires a single switch statement with multiple case labels.

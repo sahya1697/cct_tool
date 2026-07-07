@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to the right-hand operand of a shift operator, but the target line does not contain a shift operator. It appears to be a comment about a potential violation of rule 2.2, which is unrelated to the shift operator rule."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.6,
+  "reasoning": "The target line declares a global variable of type `union DataStore`. Rule 18.1 requires that all structure and union types be complete at the end of a translation unit. The code snippet does not show the definition of `union DataStore`; it may be defined in the included header \"shared.h\" or elsewhere in the same file. Because the completeness of the type is not evident from the provided code, we cannot conclusively determine compliance or violation. Therefore, the appropriate response is \"needs_review\"."
+}

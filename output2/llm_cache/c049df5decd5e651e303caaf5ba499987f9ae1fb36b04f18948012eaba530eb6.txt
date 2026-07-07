@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line does not explicitly declare a pointer parameter. The function h() has multiple parameters, but none of them are pointers. However, the rule's amplification mentions protecting the object pointed to, not the pointer itself. Without explicit evidence of pointer usage or modification, it's uncertain whether the rule applies or not."
+}

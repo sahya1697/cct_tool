@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to function identifiers used without a preceding & or a parenthesised parameter list. However, the target line is a function declaration, not a function identifier used in an expression. The function identifier 'logical_rhs' is used with a preceding & in the parameter list, which is empty, making the code compliant with the rule."
+}

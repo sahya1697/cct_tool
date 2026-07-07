@@ -1,0 +1,13 @@
+CORRECTED:
+```c
+{
+    int i;
+    for (i = 0; i < 3; i++) {
+        printf("Iteration %d\n", i);
+        i++; // increment i here, not in the loop body
+    }
+}
+```
+
+EXPLANATION:
+The loop counter variable `i` is incremented outside the loop body to prevent modification within the loop.

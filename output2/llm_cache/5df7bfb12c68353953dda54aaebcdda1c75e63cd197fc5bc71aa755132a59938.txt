@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to constant unsigned integer expressions that lead to wrap-around. However, the target line `int loops = float_loop(5);` does not contain a constant unsigned integer expression. The function `float_loop(5)` is called, which may or may not return a constant value, but the expression itself is not a constant unsigned integer expression."
+}

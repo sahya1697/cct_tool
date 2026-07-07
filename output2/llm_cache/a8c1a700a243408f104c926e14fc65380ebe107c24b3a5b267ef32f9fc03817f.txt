@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function definition with a goto statement, not a function prototype. Therefore, the rule does not apply to this code construct."
+}

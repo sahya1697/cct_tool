@@ -1,0 +1,8 @@
+CORRECTED:
+uint8_t *p = buf;
+uint8_t *p_end = buf + 10;
+if (p_end <= buf + sizeof(buf)) {
+    *p_end = 0xFFU;
+
+EXPLANATION:
+The fix involves checking the bounds of the array before performing pointer arithmetic to ensure the pointer remains within the array's valid range.

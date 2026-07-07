@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line `assignb(0,1);` calls the function `assignb` with two arguments. The order of evaluation of function arguments is unspecified, which means that the value of the expression `x=y` in the function `assignb` may be different depending on whether `x` or `y` is evaluated first. This violates the rule that the value of an expression shall be the same under any order of evaluation that the standard permits."
+}

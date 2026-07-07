@@ -1,0 +1,15 @@
+CORRECTED:
+    int default_not_last(int v) {
+        int r = 0;
+        switch (v) {
+            case 0:
+                r = 1;
+                break;
+            default:
+                r = 0;
+        }
+        return r;
+    }
+
+EXPLANATION:
+The addition of a default case and a break statement ensures that all case clauses and the default clause are at the same scope, adhering to MISRA rule 15.1.

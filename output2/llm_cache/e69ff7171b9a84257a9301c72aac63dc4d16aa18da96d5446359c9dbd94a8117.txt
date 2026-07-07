@@ -1,0 +1,12 @@
+CORRECTED:
+int r15_5_only_default(int v) {
+    switch (v) {
+        case 0:  // added a case clause
+            v++;
+        default:
+            v++;
+    }
+}
+
+EXPLANATION:
+Added a case clause with a specific value to satisfy the MISRA rule requirement.

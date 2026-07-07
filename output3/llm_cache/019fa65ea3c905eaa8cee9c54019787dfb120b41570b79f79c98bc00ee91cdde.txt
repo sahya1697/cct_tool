@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (14.9) states that an if (expression) construct shall be followed by a compound statement. However, the target line is an if statement with a goto statement, which is not a compound statement. The goto statement is the target of the if condition, and it is not enclosed in a compound statement. This is a valid use of goto in C, and it does not violate the rule."
+}

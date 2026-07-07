@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (17.4) states that array indexing shall be the only allowed form of pointer arithmetic. However, the target line `writable[0] = PKT_FLAG_INIT;` is an array indexing operation, which is allowed by the rule. Therefore, there is no violation."
+}

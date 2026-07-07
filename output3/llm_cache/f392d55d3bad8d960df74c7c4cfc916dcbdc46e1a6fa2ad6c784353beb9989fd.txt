@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The code is not unreachable as there is a control flow path from the relevant entry point to the code. The if statement checks the condition `retries < 3U` and if true, it jumps to the label `retry`. This means the code following the if statement can be reached."
+}

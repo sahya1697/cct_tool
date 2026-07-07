@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that the value of an expression shall be the same under any order of evaluation that the standard permits. In the target line, the expression `read_sensor_raw(i)` is evaluated, and its value is assigned to `raw`. However, the order of evaluation of function arguments is unspecified, as mentioned in the rule's amplification. Therefore, the code may produce different results depending on whether `i` is evaluated before or after `read_sensor_raw(i)`. This matches the example given in the rule's amplification, where the order of evaluation of function arguments can lead to different results."
+}

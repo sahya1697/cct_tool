@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to implicit conversions between integer and floating types, but the target line is an assignment operation (y = 0) rather than an arithmetic operation. The expression 'y = 0' is a simple comparison and does not involve any implicit conversions between integer and floating types."
+}

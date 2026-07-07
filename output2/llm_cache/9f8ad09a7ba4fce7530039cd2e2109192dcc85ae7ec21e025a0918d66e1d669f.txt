@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line contains a switch statement with multiple case labels (case 0 and case 1) without a break statement between them. According to the MISRA C rule, a switch statement shall only contain switch labels and switch clauses, and no other code. The presence of multiple case labels without a break statement between them is a deviation from this normative text, which is considered a non-compliance."
+}

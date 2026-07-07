@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function declaration with a non-pointer parameter 'a'. The rule's amplification text mentions pointer parameters, which suggests it's not directly applicable to this code construct. However, there's ambiguity in whether the rule's intent extends to non-pointer parameters or not. Further review is needed to determine the correct classification."
+}

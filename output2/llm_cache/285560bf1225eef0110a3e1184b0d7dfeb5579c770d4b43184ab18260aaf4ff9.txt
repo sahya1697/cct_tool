@@ -1,0 +1,15 @@
+CORRECTED:
+    int sw_case(int a) {
+        int r = 0;
+        switch (a % 3) {
+            case 0:
+                r = 10;
+                break;
+            default:
+                r = 20;
+                break;
+        }
+    }
+
+EXPLANATION:
+The addition of a default case and a break statement ensures that all case clauses are at the same scope as the switch statement.

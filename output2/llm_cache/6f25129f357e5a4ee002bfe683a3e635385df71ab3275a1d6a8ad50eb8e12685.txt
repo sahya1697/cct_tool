@@ -1,0 +1,14 @@
+CORRECTED:
+int fourteen(int v) {
+    switch (v) {
+        case 0:
+        case 1:
+        case 2:
+        case 13:
+        case 14:
+            v++;
+    }
+}
+
+EXPLANATION:
+Added explicit case clauses for all possible values of v to satisfy the MISRA rule.

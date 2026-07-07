@@ -1,0 +1,5 @@
+CORRECTED:
+int go(void){int n=0;goto L;n=1;L:n+=2;return n;}
+
+EXPLANATION:
+The goto statement was removed to prevent unreachable code, as the label L is unreachable due to the preceding statement.

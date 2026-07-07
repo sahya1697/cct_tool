@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a simple 'if' statement with a condition that is a single identifier 'channel' compared to a constant 'MAX_SENSORS'. The rule requires that operands of a logical && or || shall be primary-expressions. However, in this case, the condition is not a logical operation, but a simple comparison, so the rule does not apply."
+}

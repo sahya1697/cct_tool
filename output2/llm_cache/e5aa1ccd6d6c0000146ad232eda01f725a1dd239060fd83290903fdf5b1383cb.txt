@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function w has an unconditional control transfer to the return statement, making the code following it unreachable. This matches the rule description, which states that code following an unconditional control transfer is unreachable."
+}

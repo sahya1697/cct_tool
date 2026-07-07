@@ -1,0 +1,16 @@
+CORRECTED:
+int sw_case(int a) {
+    int r = 0;
+    switch (a % 3) {
+        case 0:
+            r = 10;
+        case 1:
+            r = 20;
+        default:
+            r = 30;
+    }
+    return r;
+}
+
+EXPLANATION:
+The fix adds a default case to the switch statement to ensure that all possible values of the expression are handled, making the code reachable.

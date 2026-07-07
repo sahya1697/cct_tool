@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to constant unsigned integer expressions that lead to wrap-around. However, the target line is not a constant unsigned integer expression, but rather a function call to `process(-1)`. Therefore, the rule does not apply to this code construct."
+}

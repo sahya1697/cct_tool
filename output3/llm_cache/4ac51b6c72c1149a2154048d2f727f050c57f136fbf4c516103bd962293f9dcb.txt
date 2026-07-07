@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line calls two functions, `build_packet` and `validate_packet`, with the same argument `(uint16_t)(BUFFER_SIZE / 2U)`. The order of evaluation of function arguments is unspecified, which means that the order in which `build_packet` and `validate_packet` are evaluated is not guaranteed. This could lead to different results depending on the order of evaluation, violating the rule."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function call. The function prototypes are not provided in the code snippet, so it's unclear whether the rule applies to the function 'twelve' or 'fourteen'. Further review is needed to determine the correct violation status."
+}

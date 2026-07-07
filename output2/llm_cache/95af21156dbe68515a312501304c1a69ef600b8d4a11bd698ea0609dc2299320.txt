@@ -1,0 +1,12 @@
+CORRECTED:
+int thirteen(int v) {
+    int r = 0;
+    if (v > 0) {
+        r = 0;
+    } else {
+        r = 0;
+    }
+}
+
+EXPLANATION:
+The switch statement was replaced with an if-else statement to ensure that the compound statement is the body of a switch statement.

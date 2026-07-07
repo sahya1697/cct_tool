@@ -1,0 +1,9 @@
+CORRECTED:
+(void)printf("no_effect(3) -> %d\n", inc);
+bad_null(1);                           
+(void)printf("use_goto() -> %d\n", use_goto());
+(void)printf("use_continue() -> %d\n", use_continue());
+return 0;
+
+EXPLANATION:
+The explicit return statement with an expression at the end of the function ensures that all exit paths return a value, as required by MISRA rule 16.8.

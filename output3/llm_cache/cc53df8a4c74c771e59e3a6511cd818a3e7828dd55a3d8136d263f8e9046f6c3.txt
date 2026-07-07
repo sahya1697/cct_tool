@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (5.2) states that identifiers in an inner scope shall not use the same name as an identifier in an outer scope, and therefore hide that identifier. However, in this code, the variable 'retries' is not hiding any outer scope identifier. It is a new variable declared in the current scope, and its name does not conflict with any identifier in an outer scope."
+}

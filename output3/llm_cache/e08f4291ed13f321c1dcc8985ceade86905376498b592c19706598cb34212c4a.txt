@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a pointer declaration, not an array indexing operation. The rule applies to array indexing, which is not present in this code construct."
+}

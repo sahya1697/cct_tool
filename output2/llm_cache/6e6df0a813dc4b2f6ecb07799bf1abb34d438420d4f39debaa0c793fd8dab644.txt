@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function pointer `p` is dereferenced (`*p++`) within the logical expression, which may lead to unspecified behavior due to the order of evaluation. The rule states that the order of evaluation of function arguments is unspecified, and this code construct may rely on the order of evaluation, potentially causing different results depending on which argument is evaluated first."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "Rule 16.7 concerns pointer parameters that are not used to modify the addressed object. The target function 'add' has two integer parameters, not pointers, so the rule does not apply to this construct."
+}

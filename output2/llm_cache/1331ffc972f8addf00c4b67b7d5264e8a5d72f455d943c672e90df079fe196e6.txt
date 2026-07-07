@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function call `printf(\"t\")` has side effects (printing to the console), and its order of evaluation is unspecified. The rule states that no reliance can be placed on the order of evaluation of sub-expressions, and in particular no reliance can be placed on the order in which side effects occur. This is a clear violation of the rule."
+}

@@ -1,0 +1,8 @@
+CORRECTED:
+void trigger_nop(void)
+{
+    __asm__("NOP");
+}
+
+EXPLANATION:
+The fix is to remove the expression that was causing the MISRA rule violation, as the rule requires that the value of an expression be the same under any order of evaluation.

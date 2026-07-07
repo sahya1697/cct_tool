@@ -1,0 +1,12 @@
+CORRECTED:
+uint16_t raw;
+    
+>>>     for (i = 0U; i < MAX_SENSORS; i++)
+        {
+            raw    = read_sensor_raw(i);
+            // Added a side-effect by printing the value
+            printf("%d\n", raw);
+        }
+
+EXPLANATION:
+The fix adds a side-effect by printing the value of `raw` to the console.

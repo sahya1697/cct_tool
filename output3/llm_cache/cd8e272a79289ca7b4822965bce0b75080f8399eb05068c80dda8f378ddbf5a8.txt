@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.2) states that the value of an expression shall be the same under any order of evaluation that the standard permits. However, the target line is a simple comparison (ratio == 0.5f) which does not involve any side effects or unspecified order of evaluation. Therefore, this rule does not apply to this code construct."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to constant unsigned integer expressions that lead to wrap-around, but the expression in the target line is not a constant. The loop variable `i` is incremented, but the expression `buf[i] = (uint8_t)(buf[i] + 1U);` does not lead to wrap-around because `buf[i]` is an unsigned char and the addition of 1U will not cause it to wrap around due to the modulo arithmetic of unsigned char types."
+}

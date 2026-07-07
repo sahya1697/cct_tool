@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The switch statement has at least one case clause (case 0), making it compliant with Rule 15.5. The target line (case 1) is also a case clause, further supporting compliance."
+}

@@ -1,0 +1,8 @@
+CORRECTED:
+ptr = ptr + (++i);   /* i already == len; mixing ++ with pointer add */
+{
+    return len;
+}
+
+EXPLANATION:
+The original code was missing a compound statement, which has been added by enclosing the return statement within braces.

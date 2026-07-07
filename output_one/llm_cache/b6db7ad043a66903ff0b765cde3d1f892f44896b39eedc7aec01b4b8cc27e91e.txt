@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "Rule 16.3 concerns the syntax of function prototype declarations, requiring that all parameters be named. The target line is a function call (`compute_ratio(3.0, 7.0);`), not a prototype declaration. Therefore the rule does not apply to this construct."
+}

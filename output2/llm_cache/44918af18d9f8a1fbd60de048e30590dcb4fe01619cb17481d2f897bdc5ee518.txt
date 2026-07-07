@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch clause in the only_default function is non-empty and does not contain an unconditional break statement. According to rule 15.2, an unconditional break statement shall terminate every non-empty switch clause. The last statement in the switch clause is 'v++', which is not a break statement. Therefore, the code violates this specific rule."
+}

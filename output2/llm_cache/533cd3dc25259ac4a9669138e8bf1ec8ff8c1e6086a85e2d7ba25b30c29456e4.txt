@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.1) is about limiting dependence on C's operator precedence rules in expressions. The target line is a simple `if` statement with a `continue` statement, which does not involve any complex expressions that rely on operator precedence. Therefore, the rule does not apply to this code construct."
+}

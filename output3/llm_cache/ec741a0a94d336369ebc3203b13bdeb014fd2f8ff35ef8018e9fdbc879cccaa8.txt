@@ -1,0 +1,9 @@
+CORRECTED:
+```c
+void my_function(const int* ptr) {
+    // function body
+}
+```
+
+EXPLANATION:
+The pointer parameter in the function prototype was declared as a pointer to const to indicate that the function does not modify the object pointed to by the pointer.

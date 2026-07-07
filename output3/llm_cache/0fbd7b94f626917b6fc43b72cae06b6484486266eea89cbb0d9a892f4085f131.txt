@@ -1,0 +1,5 @@
+CORRECTED:
+>>>     return (uint32_t)n + recursive_sum((uint8_t)(n - 1U));
+
+EXPLANATION:
+The code does not actually violate Rule 16.7, as it is not a function prototype, but rather a function call.

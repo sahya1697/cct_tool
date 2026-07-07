@@ -1,0 +1,5 @@
+CORRECTED:
+    int logical_nonprimary(int a,int b,int c){if((a+b) && (c-1)) return 1; else return 0;}
+
+EXPLANATION:
+The fix is to use parentheses to ensure that the sub-expressions are evaluated in the correct order, as the order of evaluation is unspecified for the && operator.

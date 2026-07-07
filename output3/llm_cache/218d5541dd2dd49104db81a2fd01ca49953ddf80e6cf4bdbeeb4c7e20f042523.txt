@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (11.5) specifically addresses the removal of const or volatile qualification from the type addressed by a pointer. However, the target line is a simple assignment of a complex expression to a variable, not a pointer. Therefore, the rule does not apply to this code construct."
+}

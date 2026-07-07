@@ -1,0 +1,9 @@
+CORRECTED:
+    int m(double x,double y);                 /* prototype with parameter identifiers */
+    int m(double x,double y){return x==y;}
+    int n(int a,int b);                   /* identifiers differ from definition */
+    int n(int x,int y){return x+y;}
+    int f(void);                              /* added 'void' for no-parameter function */
+
+EXPLANATION:
+The fix involves adding parameter identifiers to the function prototype declaration to comply with MISRA rule 16.3.

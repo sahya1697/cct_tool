@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to function prototypes, but the target line is within a function body. The sensor pointer is being used to modify the addressed objects (temperature and pressure), so the const qualification is not required."
+}

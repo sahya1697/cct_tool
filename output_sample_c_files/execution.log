@@ -1,0 +1,3 @@
+2026-07-07 10:06:58,126 | INFO     | [RuleRetrievalAgent] retrieve_rules | in: node=ComplexLogicalExpression line=4
+2026-07-07 10:06:58,127 | INFO     | [RuleRetrievalAgent] retrieve_complete | out: 10 rules matched: ['12.1', '12.2', '12.3', '12.4', '12.5', '12.6', '12.7', '12.8', '12.9', '12.10']
+2026-07-07 10:06:58,134 | INFO     | [RelevanceFilterAgent] filter_complete | in: node=ComplexLogicalExpression line=4 | out: In: 10, Out: 6 ['12.1', '12.2', '12.4', '12.5', '12.6', '12.7'], Filtered: 4 ['12.3', '12.8', '12.9', '12.10']

@@ -1,0 +1,9 @@
+CORRECTED:
+int v = process(-1);
+int s = sw_case(0);
+int loops = float_loop(5);
+int eq = eq_double(0.1 + 0.2, 0.3);
+printf("%d %d %d %d\n", v, s, loops, eq);
+
+EXPLANATION:
+The fix is to ensure that all sub-expressions are evaluated before any operations that rely on their values, by removing the potential for unspecified order of evaluation.

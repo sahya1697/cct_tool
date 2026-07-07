@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule specifically addresses floating-point expressions being tested for equality or inequality. However, the target line contains an integer comparison (i < (n * 2)) rather than a floating-point comparison. While the rule's amplification text mentions indirect tests, the provided code does not explicitly contain such a test. Therefore, I am uncertain whether the rule applies to this code construct and require human review to determine the correct course of action."
+}

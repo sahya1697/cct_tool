@@ -1,0 +1,16 @@
+CORRECTED:
+```c
+/* Log via variable-args function (Rule 16.1 violation in comms.c) */
+if (log_formatted("Total: %d\n", total) != 0) {
+    /* Handle error */
+}
+
+/* Use sensor snapshot pointer — was pointing to incomplete type (Rule 18.1) */
+sensor_snapshot_t *snapshot = get_sensor_snapshot();
+if (snapshot == NULL) {
+    /* Handle error */
+}
+```
+
+EXPLANATION:
+The code now checks the return value of the `log_formatted` function and the result of the `get_sensor_snapshot` function to ensure that errors are properly handled.

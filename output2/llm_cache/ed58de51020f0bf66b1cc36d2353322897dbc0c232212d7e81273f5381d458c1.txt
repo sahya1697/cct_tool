@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to declarations and definitions of objects or functions at file scope. However, the target line is a function call to `process(-1)` and `sw_case(0)`, which are not declarations or definitions. The rule's amplification text also mentions using `static` for variables and functions only used within the same file, but this does not directly apply to the target line. Further review is needed to determine if the functions `process` and `sw_case` are declared or defined elsewhere in the file with external linkage."
+}

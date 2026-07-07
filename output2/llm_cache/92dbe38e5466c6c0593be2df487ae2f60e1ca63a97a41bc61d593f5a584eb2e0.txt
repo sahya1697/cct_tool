@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule requires explicit type declaration for objects or functions. However, in the given code, the function 'm' is declared with explicit type declaration for its parameters 'double c' and 'double d'. The function itself returns an integer value, which is also explicitly declared. Therefore, the rule does not apply to this code construct."
+}

@@ -1,0 +1,15 @@
+CORRECTED:
+```c
+uint16_t compute_checksum(const uint8_t *buffer, size_t size)
+{
+    uint16_t checksum = 0;
+    for (size_t i = 0; i < size; i++)
+    {
+        checksum += buffer[i];
+    }
+    return checksum;
+}
+```
+
+EXPLANATION:
+The function parameter `buffer` was changed to be a pointer to `const uint8_t` to indicate that the function does not modify the data it points to.

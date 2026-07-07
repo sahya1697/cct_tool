@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule states that there shall be no unreachable code. The target line is a goto statement used for error handling in the retry_transmit() function. The goto statement is used to transfer control to a specific label, which is not explicitly shown in the provided code. However, based on the context, it appears that the goto statement is used to handle errors and continue the transmission process. This does not necessarily mean that the code following the goto statement is unreachable. In fact, the code following the goto statement is likely to be executed if the error is handled successfully. Therefore, based on the provided information, there is no evidence to suggest that the code is unreachable, and the rule is not violated."
+}

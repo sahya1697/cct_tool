@@ -1,0 +1,9 @@
+CORRECTED:
+    int tcase(int v){int r=0;switch(v){case 0:r=1;break;case 1:r=2;break;default:r=3;break;}return r;}
+    int sbool(int v){switch(v>0){case 0:return 0;break;case 1:return 1;break;default:return 2;break;}}
+    int onlydef(int v){switch(v){default:v++;break;}return v;}
+    int go(void){int n=0;goto L;n=1;L:n+=2;return n;}
+    int cont(void){int s=0;for(int i=0;i<5;i++){if(i%2) break; s+=i;}return s;}
+
+EXPLANATION:
+The break statement was added after each case to ensure that the code after the break is reachable.

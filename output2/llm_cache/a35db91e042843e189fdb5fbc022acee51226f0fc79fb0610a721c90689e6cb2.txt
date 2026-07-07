@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line 'goto L;' is a standalone statement, not enclosed within braces, which is required by the rule for a for statement. The rule explicitly states that the statement forming the body of a for statement shall be a compound statement, even if that compound statement contains a single statement."
+}

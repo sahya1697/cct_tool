@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to casts between different pointer types, but the target line is a function parameter declaration, not a cast. The function parameter 'pkt' is declared as 'const uint8_t *', and there is no cast performed between different pointer types in this line."
+}

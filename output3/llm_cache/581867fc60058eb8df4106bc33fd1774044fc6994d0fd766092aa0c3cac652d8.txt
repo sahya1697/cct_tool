@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is not a null statement, it is a break statement. The rule applies to null statements, not break statements."
+}

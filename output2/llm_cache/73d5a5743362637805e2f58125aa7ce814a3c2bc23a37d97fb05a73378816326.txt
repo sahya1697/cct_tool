@@ -1,0 +1,10 @@
+CORRECTED:
+int nine(void) {
+    int s = 0;
+    for (int i = 0; i < 5; i++) {
+        if (i % 2 == 0) {
+            s += i;
+        }
+    }
+EXPLANATION:
+The fix replaces the `continue` statement with a conditional block that only adds `i` to `s` when `i` is even.

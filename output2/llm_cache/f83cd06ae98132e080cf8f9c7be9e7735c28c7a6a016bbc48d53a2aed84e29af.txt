@@ -1,0 +1,10 @@
+CORRECTED:
+int total = 0;
+va_start(ap, count);
+for (int i = 0; i < count; i++) {
+    total += va_arg(ap, int);
+}
+va_end(ap);
+
+EXPLANATION:
+The fix is to move the va_end(ap) call outside the loop to prevent modification of the loop counter variable 'i'.

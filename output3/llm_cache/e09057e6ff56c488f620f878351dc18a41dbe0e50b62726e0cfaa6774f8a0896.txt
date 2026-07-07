@@ -1,0 +1,6 @@
+CORRECTED:
+(void)build_packet(data_buf, (uint16_t)(BUFFER_SIZE / 2U));
+(void)validate_packet(g_tx_buffer, (uint16_t)(BUFFER_SIZE / 2U));
+
+EXPLANATION:
+The fix is to remove the parentheses around the sub-expressions, which are not necessary and can lead to unspecified order of evaluation.

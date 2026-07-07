@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function parameter 'buf' is a pointer to uint8_t, but it is not used to modify the addressed object. According to rule 16.7, a pointer parameter in a function prototype should be declared as pointer to const if the pointer is not used to modify the addressed object. The line (void)len; suggests that the function is not modifying the 'buf' parameter, so it should be declared as const uint8_t *buf."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch label is used outside the body of a switch statement. The switch statement is used to control the flow of the program, but the label is used to control the flow of the switch statement itself, which is not allowed according to the rule. The amplification text clarifies that the scope of a case or default label shall be the compound statement, which is the body of a switch statement. In this case, the switch label is used outside this scope."
+}

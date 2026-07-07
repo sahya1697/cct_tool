@@ -1,0 +1,8 @@
+CORRECTED:
+void no_effect(int a){a+1;}
+void bad_null(int y){if(y != 0) printf("after\n");}
+int use_goto(void){int n=0;goto L; n=1; L: n+=2; return n;}
+int use_continue(void){int s=0;for(int i=0;i<5;i++){if(i%2) continue; s+=i;}return s;}
+
+EXPLANATION:
+The fix is to add a condition to the if statement in the bad_null function to ensure that the printf statement is only executed when y is not equal to 0.

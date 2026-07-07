@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement has a case 0, which is unreachable because the switch condition (v == 0) will always be 0, and the case 0 is the first case in the switch statement. This matches the rule description of unreachable code, which refers to code that cannot under any circumstances be reached and can be identified as such at compile time."
+}

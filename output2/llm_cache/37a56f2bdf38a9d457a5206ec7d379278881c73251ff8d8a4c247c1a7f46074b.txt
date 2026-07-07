@@ -1,0 +1,9 @@
+CORRECTED:
+int main(void) {
+    int v = process(-1);
+    int s = sw_case(0);
+    int loops = float_loop(5);
+    int eq = (0.1 + 0.2) == 0.3;
+
+EXPLANATION:
+The fix is to use parentheses to ensure that the addition is evaluated before the comparison.

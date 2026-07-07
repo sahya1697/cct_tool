@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch label 'case 0:' in the function 'bad_scope' is used within a compound statement that is not the body of a switch statement. The label is used within the function's compound statement, which is not the body of a switch statement. This directly violates the rule that a switch label shall only be used when the most closely-enclosing compound statement is the body of a switch statement."
+}

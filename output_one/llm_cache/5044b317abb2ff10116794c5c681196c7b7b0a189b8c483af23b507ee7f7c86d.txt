@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 0.95,
+  "reasoning": "Rule 16.7 concerns pointer parameters in a function prototype. The function `trigger_nop` has no parameters, so the rule does not apply to this construct."
+}

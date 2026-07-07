@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to casts that remove const or volatile qualification from the type addressed by a pointer. However, the target line does not contain any cast that removes such qualification. It only declares a va_list variable, which is not related to the rule."
+}

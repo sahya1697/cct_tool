@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line contains an assignment expression with a side effect (y = 0), which can lead to different results depending on the order of evaluation. According to the rule, the value of an expression shall be the same under any order of evaluation that the standard permits. In this case, the expression 'y = 0' has a side effect (assigning 0 to y), and its value depends on the order of evaluation. Therefore, this code violates the rule."
+}

@@ -1,0 +1,7 @@
+CORRECTED:
+int prec(int a, int b, int c, int d, int e) {
+    return (((a & b) == c) || (d << (1 + e)));
+}
+
+EXPLANATION:
+Parentheses were added to explicitly group the operations and avoid relying on C's operator precedence rules.

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The code is a return statement with a comment, but it does not represent unreachable code. The comment is a C99 comment and does not affect the control flow of the program. The rule 14.1 refers to code that cannot be reached under any circumstances, and this code can be reached through the normal control flow of the function."
+}

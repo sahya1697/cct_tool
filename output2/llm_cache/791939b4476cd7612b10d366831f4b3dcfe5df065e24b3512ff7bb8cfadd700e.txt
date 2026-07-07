@@ -1,0 +1,9 @@
+CORRECTED:
+    int sbool(int v){switch(v>0){case 0:return 0;case 1:return 1;default:return -1;}}
+    int onlydef(int v){switch(v){default:v++;break;}return v;}
+    int go(void){int n=0;goto L;n=1;L:n+=2;return n;}
+    int cont(void){int s=0;for(int i=0;i<5;i++){if(i%2) continue; s+=i;}return s;}
+    int ooe(void){int i=0;int r=i++ + ++i;return r;}
+
+EXPLANATION:
+The default return value in the sbool function has been changed to a negative value to indicate an error, which is then tested in the function.

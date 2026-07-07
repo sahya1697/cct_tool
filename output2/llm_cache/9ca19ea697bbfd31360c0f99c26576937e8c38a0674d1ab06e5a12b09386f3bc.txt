@@ -1,0 +1,12 @@
+CORRECTED:
+int sw_case(int a) {
+    int r = 0;
+    switch (a % 3) {
+        case 0:
+            r = 10;
+            break;
+    }
+}
+
+EXPLANATION:
+The switch statement body was enclosed within braces to meet the MISRA requirement for a compound statement.

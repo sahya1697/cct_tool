@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule requires that error information be tested, but the target line does not explicitly return error information. However, the function `ooe` does not have a clear indication of error handling, and the return value is not explicitly checked for errors. Further review is needed to determine if the rule is applicable and if the function is correctly handling errors."
+}

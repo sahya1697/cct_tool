@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that the value of an expression shall be the same under any order of evaluation that the standard permits. The target line `total += scale_reading(raw, i);` involves function calls and side effects, which can vary depending on the order of evaluation. Specifically, the function `scale_reading` may have side effects, and the order in which its arguments are evaluated is unspecified. This matches the examples provided in the rule's amplification, such as `x = f(a) + g(a);` which could be written as `x = f(a); x += g(a);` to avoid dependence on the order of evaluation."
+}

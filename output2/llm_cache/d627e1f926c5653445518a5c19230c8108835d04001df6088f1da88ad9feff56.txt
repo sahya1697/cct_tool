@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function 'logical_nonprimary' is declared at file scope and does not have internal linkage. According to MISRA C 2004 rule 8.10, all declarations and definitions of objects or functions at file scope shall have internal linkage unless external linkage is required. Since there is no indication that external linkage is required, the function should have internal linkage, which is not the case."
+}

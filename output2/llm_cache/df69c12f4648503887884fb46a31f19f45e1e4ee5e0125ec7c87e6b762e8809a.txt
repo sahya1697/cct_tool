@@ -1,0 +1,10 @@
+CORRECTED:
+    int main(void){
+        int a=1,b=2,c=3,d=4,e=5,x[2]={42,7};int *p=x;
+        prec(a,b,c,d,e); unspecified(); size_effect();
+        logical_rhs(p); logical_nonprimary(1,2,3);
+        return 0;
+    }
+
+EXPLANATION:
+The function parameter 'p' should be declared as 'const int *p' to indicate that it is not used to modify the addressed object.

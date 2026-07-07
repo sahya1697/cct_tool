@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule requires that error information be tested, but the target line does not explicitly return error information. However, the function `eq_double` does not have any error handling or indication of error, making it unclear whether the rule applies. Further review is needed to determine if the rule is applicable and if the function is indeed returning error information that should be tested."
+}

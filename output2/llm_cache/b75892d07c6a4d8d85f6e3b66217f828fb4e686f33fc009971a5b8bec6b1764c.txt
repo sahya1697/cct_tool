@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that the value of an expression shall be the same under any order of evaluation that the standard permits. In the target line, the expression `i % 2` is evaluated before the `if` statement. However, the order of evaluation of the `i % 2` expression is unspecified, as it involves the modulo operator, which does not have a defined order of evaluation. This means that the value of `i % 2` may be different depending on the order in which the sub-expressions are evaluated, violating the rule."
+}

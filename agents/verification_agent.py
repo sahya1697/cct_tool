@@ -20,80 +20,128 @@ if TYPE_CHECKING:
 logger = logging.getLogger(__name__)
 
 VERIFICATION_PROMPT = """\
-You are a MISRA C 2004 compliance expert. Carefully analyze the following C code and Determine whether the rule is:
-- violated
-- compliant
-- not applicable
-- insufficient information
-
-## Decision Policy
-
-1. First determine whether this rule is applicable to the given code construct.
-2. If the rule is not applicable, return `"violation": false`.
-3. Do NOT assume missing information (types, macros, surrounding code, control flow, declarations).
-4. If required information is missing, return `"violation": "needs_review"`.
-5. Only return `"violation": true` when there is direct, explicit evidence in the provided code/context.
-6. Suspicion, possibility, or hypothetical violations are NOT sufficient.
-7. False positives are worse than false negatives; prefer `needs_review` over speculative violations.
-
-## Confidence Policy
-
-* If confidence < 0.8, you MUST return `"needs_review"`
-* Use `true` or `false` only when evidence is strong and unambiguous
-* When uncertain between violation and non-violation, prefer `"needs_review"`
-
+You are a MISRA C 2004 compliance expert. Your task is to determine whether the provided code violates a specific MISRA rule.
 
 ## Code to Analyze
 ```c
 {code}
 ```
 
-**Note:** The line marked with `>>>` is the TARGET LINE being analyzed. Lines indented with 4 spaces provide context (2 lines above and 2 lines below the target).
+**Important:** The line marked with `>>>` is the PRIMARY TARGET LINE. Lines with 4-space indent provide surrounding context (2 lines above and below).
 
-**Context:**
+**Location Context:**
 - Node Type: {node_type}
-- File: {file}, Function: {function}, Line: {line}
+- File: {file}
+- Function: {function}
+- Line Number: {line}
 
-## Rule to Check
+## Rule Being Checked
 **Rule ID:** {rule_id}
+**Category:** {rule_category} ({severity} severity)
 
 **Rule Description:**
 {rule_text}
 
-**Severity:** {severity} | **Category:** {rule_category}
+## Analysis Framework
 
-## Instructions
-1. Read the rule description carefully (including any amplification details provided)
-2. Focus your analysis on the TARGET LINE (marked with >>>)
-3. Use the context lines to understand variable types, function scope, and control flow
-4. Analyze whether the code violates this specific rule
-Pay attention to the details - the amplification text clarifies edge cases
-5. If the rule doesn't apply to this code construct, set violation=false
-6. Be precise and reference specific aspects of the code in your reasoning
+### Step 1: Applicability Check
+- Does this rule apply to the code construct shown (node type: {node_type})?
+- Is the target line relevant to this rule's scope?
+- If NOT applicable → return `{{"violation": false}}`
 
-## Confidence Score Guidelines
-Provide an honest confidence score (0.0 to 1.0) based on:
-- **0.9-1.0:** Certain violation or non-violation, unambiguous
-- **0.7-0.9:** Very confident, clear evidence from the code
-- **0.5-0.7:** Moderately confident, some ambiguity remains
-- **0.3-0.5:** Uncertain, requires human review
-- **0.0-0.3:** Very uncertain, insufficient information
+### Step 2: Evidence Analysis
+Examine the TARGET LINE (marked with >>>) for:
 
-Consider these factors when assessing confidence:
-- How clearly does the target line match the rule criteria?
-- Is there any ambiguity in the rule's application to this context?
-- Are there edge cases or exceptions that might apply?
-- Is the context complete enough to make a determination?
-- Set confidence based on YOUR certainty about the determination, not just whether a violation exists
+**Syntactic Violations:**
+- Incorrect operators, keywords, or language constructs
+- Comment style violations (// vs /* */)
+- Language feature usage (assembly, unions, bit-fields)
+- Type casting or conversions
+
+**Semantic Violations:**
+- Undefined behavior (e.g., modifying variable multiple times without sequence point)
+- Side effects in expressions (++, --, function calls in complex expressions)
+- Operator precedence issues (mixed logical operators without parentheses)
+- Control flow problems (goto, continue, break usage)
+
+**Type and Declaration Issues:**
+- Pointer usage and qualifications (const, volatile)
+- Array declarations and indexing
+- Function parameter types and qualifiers
+- Variable initialization and scope
+
+**Context Clues:**
+Use the surrounding context lines to understand:
+- Variable types and declarations
+- Function signatures and return types
+- Control flow structure (if/for/while blocks)
+- Expression complexity and nesting
+
+### Step 3: Rule Application
+- Read the rule description AND amplification carefully - they contain critical details
+- Match the specific rule requirements against the code evidence
+- Look for EXACT matches to rule criteria, not just similar patterns
+- Consider edge cases mentioned in the amplification text
+
+### Step 4: Decision Policy
+- **violation: true** → Only when there is DIRECT, EXPLICIT evidence in the code
+- **violation: false** → Rule doesn't apply OR code is clearly compliant
+- **violation: "needs_review"** → Missing information, ambiguous case, or confidence < 0.8
+
+**Critical Rules:**
+- Do NOT assume information not visible in the code
+- Do NOT report violations based on possibility or suspicion
+- Do NOT make assumptions about types, macros, or external definitions
+- Prefer `needs_review` over false positives
+
+## Confidence Scoring
+
+Assign confidence (0.0 to 1.0) based on:
+
+**High Confidence (0.9-1.0):** 
+- Rule clearly applies and evidence is unambiguous
+- Violation is explicit in the target line
+- No missing information needed
+
+**Good Confidence (0.7-0.9):**
+- Strong evidence from the code
+- Minor ambiguity but likely correct
+- Context supports the determination
+
+**Medium Confidence (0.5-0.7):**
+- Some ambiguity in rule application
+- Partial evidence, needs interpretation
+- Context incomplete but suggestive
+
+**Low Confidence (0.3-0.5):**
+- Significant uncertainty
+- Rule application unclear
+- Missing critical context
+→ Use `needs_review` instead
+
+**Very Low (0.0-0.3):**
+- Cannot determine compliance
+- Insufficient information
+→ Use `needs_review` instead
+
+**Important:** If confidence < 0.8, you MUST return `"violation": "needs_review"`
 
 ## Response Format
-Respond ONLY with a JSON object (no other text):
+Respond with ONLY a JSON object (no additional text before or after):
+
 {{
-  "violation": true , false or needs_review,
+  "violation": true | false | "needs_review",
   "confidence": 0.0 to 1.0,
-  "reasoning": "specific explanation referencing the rule"
+  "reasoning": "Explain: (1) Why rule applies/doesn't apply, (2) What evidence supports your decision, (3) Reference specific code elements from the target line"
 }}
 
+### Reasoning Quality
+Your reasoning should:
+- Reference the specific rule requirement being checked
+- Quote or describe the relevant code from the target line
+- Explain WHY it's a violation (or not) based on the rule text
+- Be specific and technical, not vague or generic
+- Cite line numbers or variable names when relevant
 
 """
 
@@ -147,7 +195,7 @@ class VerificationAgent:
             "line": node.line,
             "code": node.code,
             "rule_id": rule_id,
-            "rule_text": full_rule_text[:2500],  # Increased from 1500 to 2500 for full context
+            "rule_text": full_rule_text[:4000],  # Increased from 2500 to 4000 to include full amplification
             "severity": severity,
             "rule_category": rule_category,
         }

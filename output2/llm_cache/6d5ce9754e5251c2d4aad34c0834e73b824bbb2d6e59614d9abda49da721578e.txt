@@ -1,0 +1,4 @@
+CORRECTED:
+int default_not_last(int v){int r=0;switch(v){case 0:r=1;break;default:r=9;break;}return r;}
+EXPLANATION:
+Added a case clause for the value 0 to the switch statement in the default_not_last function.

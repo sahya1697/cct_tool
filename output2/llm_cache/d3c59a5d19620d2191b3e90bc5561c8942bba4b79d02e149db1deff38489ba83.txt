@@ -1,0 +1,11 @@
+CORRECTED:
+int r15_3_default_not_final(int v) {
+    int r = 0;
+    switch (v) {
+        case 0:  // added a case clause
+        default: 
+            r = -1;
+    }
+
+EXPLANATION:
+Added a case clause to cover all possible values of v, ensuring the switch statement complies with MISRA rule 15.5.

@@ -1,0 +1,4 @@
+CORRECTED:
+void transmit_packet(const uint8_t *buf, uint32_t len)
+EXPLANATION:
+The pointer parameter 'buf' has been declared as a pointer to const to indicate that it is not used to modify the addressed object.

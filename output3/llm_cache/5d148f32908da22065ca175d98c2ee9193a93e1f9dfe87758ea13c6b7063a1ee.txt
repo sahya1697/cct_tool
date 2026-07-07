@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to constant unsigned integer expressions that lead to wrap-around, but the target line does not involve any arithmetic operations on unsigned integers. The expression 'i' is a loop counter, which is a signed integer, and it does not wrap around in a modular way. Therefore, the rule does not apply to this code construct."
+}

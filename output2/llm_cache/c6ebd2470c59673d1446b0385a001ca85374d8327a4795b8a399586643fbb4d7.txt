@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a pointer declaration with a single level of indirection, which is compliant with the rule. The rule specifies that the declaration of objects should contain no more than 2 levels of pointer indirection, and this line only has one level of indirection."
+}

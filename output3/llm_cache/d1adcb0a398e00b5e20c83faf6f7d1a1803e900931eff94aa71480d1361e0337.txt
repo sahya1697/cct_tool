@@ -1,0 +1,12 @@
+CORRECTED:
+```c
+uint16_t read_sensor_raw(void)
+{
+    uint16_t value;
+    __asm__ volatile("ldr %0, [R0]" : "=r" (value) : "r" (0x1234));
+    return value;
+}
+```
+
+EXPLANATION:
+The fix is to use a function with a volatile asm statement to ensure that the order of evaluation is not relied upon.

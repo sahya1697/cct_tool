@@ -1,0 +1,10 @@
+CORRECTED:
+    int four(void) {
+        int i, count = 0;
+>>>     for (i = 0; i < 3; i++) {
+            printf("tock\n");
+            count++;
+        }
+
+EXPLANATION:
+The loop counter variable 'i' is not modified within the loop body, instead the increment operation is moved outside the loop.

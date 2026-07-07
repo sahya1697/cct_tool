@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line contains a function call `sw_case(0)` which does not have any side effects. The rule applies to logical && or || operators, but this line does not contain such operators. Therefore, the rule is not applicable to this code construct."
+}

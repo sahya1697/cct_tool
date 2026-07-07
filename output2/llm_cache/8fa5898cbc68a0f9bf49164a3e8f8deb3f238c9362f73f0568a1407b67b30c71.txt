@@ -1,0 +1,9 @@
+CORRECTED:
+case 0:
+    r = 10;
+case 1:
+    r = 20;
+    break;
+
+EXPLANATION:
+The break statement was moved to the same scope as the case labels, ensuring that all case clauses are at the same scope.

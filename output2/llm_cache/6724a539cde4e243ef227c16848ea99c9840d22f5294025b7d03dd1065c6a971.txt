@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function call. The function `bad_null` has a parameter `y` which is not a pointer, but rather an integer. The rule's amplification text does not provide clear guidance on how to apply it to this specific context. Further review is needed to determine whether the rule is applicable and whether the function's parameter `y` should be declared as a pointer to const."
+}

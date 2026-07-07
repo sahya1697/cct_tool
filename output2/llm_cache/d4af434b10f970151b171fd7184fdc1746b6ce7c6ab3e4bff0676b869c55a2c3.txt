@@ -1,0 +1,4 @@
+CORRECTED:
+int prec(int a,int b,int c,int d,int e){return (a & b) == c || (d << 1) == e;}
+EXPLANATION:
+The fix is to use parentheses to ensure the correct order of operations, avoiding reliance on the unspecified order of evaluation.

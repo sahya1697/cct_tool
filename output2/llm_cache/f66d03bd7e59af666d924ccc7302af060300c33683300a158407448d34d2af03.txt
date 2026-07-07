@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The code following the unconditional control transfer in the switch statement is unreachable, as per the rule description. The default case sets r to -1, which is unreachable code as there is no control flow path to it."
+}

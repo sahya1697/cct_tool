@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a comment indicating a violation of Rule 3.1, but the actual code is not provided. The rule description and amplification text specify that the operands of a logical && or || shall be primary-expressions, but the target line is a comment and not a code construct. Therefore, the rule does not apply to this code construct."
+}

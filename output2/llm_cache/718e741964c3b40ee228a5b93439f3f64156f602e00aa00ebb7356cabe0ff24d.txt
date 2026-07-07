@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The ternary operator in the target line does not rely on C's operator precedence rules. The expression `(a == b) ? 1 : 0` is clearly structured and does not require additional parentheses to emphasize operator precedence. The rule's amplification text does not apply to this specific code construct."
+}

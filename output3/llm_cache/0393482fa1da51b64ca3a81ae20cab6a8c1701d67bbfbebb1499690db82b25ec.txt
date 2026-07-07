@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.1) is about limited dependence on C's operator precedence rules in expressions. The target line is a function call to vprintf, which is a macro that expands to a call to printf. The printf function is from the <stdio.h> header, and the rule does not apply to function calls. The rule is about expressions, not function calls."
+}

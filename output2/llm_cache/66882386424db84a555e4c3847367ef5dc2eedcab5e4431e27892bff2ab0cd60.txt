@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The second expression in the for statement (f < 3.0f) is not concerned with loop control, as it is testing a floating-point variable (f) rather than the loop counter. This violates the rule that the three expressions of a for statement shall be concerned only with loop control."
+}

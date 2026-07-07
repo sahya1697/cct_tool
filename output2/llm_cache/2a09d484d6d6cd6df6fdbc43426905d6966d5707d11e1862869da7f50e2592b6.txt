@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line `if(y); printf(\"after\\n\");` contains a conditional expression `if(y)` that has no effect on the program flow. The `printf` statement is executed regardless of the value of `y`, which means the order of evaluation of the expression `y` is unspecified. This is a clear violation of the rule, as the standard permits the order of evaluation of sub-expressions to vary."
+}

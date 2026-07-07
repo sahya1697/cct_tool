@@ -1,0 +1,9 @@
+CORRECTED:
+```c
+if (validate_checksum(packet) && validate_sequence(packet)) {
+    // packet is valid
+}
+```
+
+EXPLANATION:
+The fix is to reorder the sub-expressions to ensure that the one without side effects is evaluated first.

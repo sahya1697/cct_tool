@@ -1,0 +1,5 @@
+CORRECTED:
+if ((len > 0U) && (log_error(0) == 1))
+
+EXPLANATION:
+Parentheses were added to ensure the correct order of operations and to avoid relying on C's operator precedence rules.

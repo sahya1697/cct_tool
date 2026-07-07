@@ -1,0 +1,10 @@
+CORRECTED:
+int float_loop(int n) {
+    int count = 0;
+    for (float i = 0.0f; i < (float)n; i += 0.5f) {
+        count++;
+    }
+}
+
+EXPLANATION:
+The code remains unchanged as the issue was a misunderstanding of the rule, and the original code does not actually violate MISRA C 2004 rule 12.2.

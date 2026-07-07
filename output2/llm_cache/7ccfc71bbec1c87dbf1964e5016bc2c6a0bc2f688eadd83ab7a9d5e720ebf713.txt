@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement in the function bad_scope has an unconditional break statement in the default case, which makes the code following it unreachable. This violates rule 14.1, which states that there shall be no unreachable code."
+}

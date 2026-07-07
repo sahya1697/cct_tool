@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to the declaration of objects, but the target line is a function declaration. The function `validate_packet` is declared with a pointer to a constant `uint8_t` as its first parameter, and a `uint16_t` as its second parameter. The rule does not apply to function declarations, so there is no violation."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule specifies that the MISRA C switch syntax shall be used, but the target line is not a switch statement. It is a function declaration with a pointer parameter, and the switch statement is used in a different function (tcase). Therefore, the rule does not apply to this code construct."
+}

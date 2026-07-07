@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function explicit_zero has a non-void return type, but all exit paths have an explicit return statement with an expression. The rule is not applicable to this code construct because it does not match the rule's criteria for a function with non-void return type."
+}

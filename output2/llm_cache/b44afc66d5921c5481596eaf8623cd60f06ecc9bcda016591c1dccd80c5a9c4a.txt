@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule states that assignment operators shall not be used in expressions that yield a Boolean value. The target line is a for loop with an if statement inside the loop. The if statement uses the expression `i%2` which is a comparison and does not involve an assignment operator. However, the loop condition `i<5` is not directly relevant to the rule. The rule's amplification text suggests that assignments in Boolean-valued expressions should be performed separately outside of those operands. In this case, the loop condition is not a Boolean-valued expression in the same sense as the examples provided in the amplification text. Therefore, it is unclear whether the rule applies to this code construct and a human review is necessary to determine the correct course of action."
+}

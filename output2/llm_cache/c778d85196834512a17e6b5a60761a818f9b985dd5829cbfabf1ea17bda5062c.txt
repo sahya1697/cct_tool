@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement in the function default_not_last has only one case clause, which is the default case. The rule requires at least one case clause, and the default case is not considered a case clause in this context. Therefore, the rule is violated."
+}

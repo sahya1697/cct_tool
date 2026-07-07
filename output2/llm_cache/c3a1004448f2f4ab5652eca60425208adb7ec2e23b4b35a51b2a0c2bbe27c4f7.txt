@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function float_for does not return error information, so the rule does not apply. The function's purpose is to increment a counter and return its value, which is a normal function behavior and not related to error handling."
+}

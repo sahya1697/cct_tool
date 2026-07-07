@@ -1,0 +1,13 @@
+CORRECTED:
+    int r15_3_default_not_final(int v) {
+        int r = 0;
+        switch (v) {
+            default: 
+                r = -1;
+                break;
+        }
+        return r;
+    }
+
+EXPLANATION:
+The fix adds a break statement to the default clause to ensure it is the final clause in the switch statement.

@@ -1,0 +1,5 @@
+CORRECTED:
+int w(const int *a){/* function body */}
+
+EXPLANATION:
+The function parameter 'a' was not modified within the function, so it was corrected to be a pointer to const.

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.1) advises to use parentheses to emphasize operator precedence, but it does not require them in this specific case. The expression 'scale_reading(raw, i)' is a function call, and the operator precedence is clear without additional parentheses. The rule's amplification text does not mention function calls as a case where parentheses are required."
+}

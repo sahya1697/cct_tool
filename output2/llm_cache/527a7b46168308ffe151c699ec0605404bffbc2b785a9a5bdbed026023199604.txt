@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule requires functions with no parameters to be declared and defined with the parameter list void. However, the provided code snippet does not explicitly declare the function r14_4_goto with a parameter list void. The context suggests that this function has no parameters, but the rule's amplification text also mentions that functions shall be declared with a return type, which is not explicitly stated in this code snippet. Therefore, I am moderately confident that there might be a violation, but further review is necessary to confirm."
+}

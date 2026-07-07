@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 1.0,
+  "reasoning": "The code below the target line is unreachable because it is not reachable from any control flow path. The function appears to return immediately after setting the total variable to 0, without any further execution of the code below. This matches the rule description of unreachable code, which refers to code that cannot be reached under any circumstances and can be identified at compile time."
+}

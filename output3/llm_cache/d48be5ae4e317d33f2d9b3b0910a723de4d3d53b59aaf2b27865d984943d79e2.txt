@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.2) addresses the order of evaluation of sub-expressions, but the target line (vprintf(fmt, args)) does not involve any sub-expressions with unspecified order of evaluation. The function call operator () is mentioned in the rule as one of the operators where the order of evaluation is unspecified, but it is not applicable in this case because the function arguments are not expressions with side effects. The function vprintf() itself does not have any side effects that depend on the order of evaluation of its arguments."
+}

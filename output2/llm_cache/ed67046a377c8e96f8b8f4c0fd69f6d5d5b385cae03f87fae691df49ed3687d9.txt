@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function eq_double has a non-void return type, and the target line explicitly returns the result of the comparison d < 1e-9. This meets the rule's requirement for an explicit return statement with an expression."
+}

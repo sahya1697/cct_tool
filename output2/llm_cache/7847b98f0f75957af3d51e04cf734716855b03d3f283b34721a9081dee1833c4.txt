@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line does not involve a pointer parameter. The function for_side has an integer parameter i, which is not a pointer."
+}

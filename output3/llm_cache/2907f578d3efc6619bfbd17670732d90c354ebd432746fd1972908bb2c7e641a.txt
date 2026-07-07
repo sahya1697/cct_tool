@@ -1,0 +1,8 @@
+CORRECTED:
+typedef struct {
+    unsigned int flags : 8;
+    unsigned int reserved : 24;
+} flags_t;
+
+EXPLANATION:
+The fix is to explicitly specify the bit width of the bitfield member 'flags' to avoid implementation-defined behavior.

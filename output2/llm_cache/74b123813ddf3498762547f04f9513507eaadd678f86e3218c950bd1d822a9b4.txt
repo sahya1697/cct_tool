@@ -1,0 +1,14 @@
+CORRECTED:
+int thirteen(int v) {
+    int r = 0;
+    switch (v > 0) {
+        case 1:
+            r = 1;
+        case 0:
+            r = 0;
+    }
+    return r;
+}
+
+EXPLANATION:
+The switch statement has been modified to ensure that all cases are reachable by making the first case 1, which is a valid value for the condition.

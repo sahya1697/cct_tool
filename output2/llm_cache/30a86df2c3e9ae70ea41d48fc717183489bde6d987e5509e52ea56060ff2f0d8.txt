@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to null statements appearing on a line by themselves, followed by a comment. The target line does not contain a null statement, so the rule does not apply."
+}

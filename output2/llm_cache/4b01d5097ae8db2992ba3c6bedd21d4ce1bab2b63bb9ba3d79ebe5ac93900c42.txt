@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line uses the ternary operator (?:) to choose between two sub-expressions, which is specifically provided to avoid conditional evaluation of the right-hand operand. The rule applies to logical && and || operators, but not to the ternary operator. Therefore, the rule does not apply to this code construct."
+}

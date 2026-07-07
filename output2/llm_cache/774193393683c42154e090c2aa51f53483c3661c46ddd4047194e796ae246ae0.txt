@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement has a condition `v == 0` which will always evaluate to a boolean value (0 or 1). The switch statement will then jump to the corresponding case, but since there is no case for the value 1, the code following the switch statement is unreachable."
+}

@@ -1,0 +1,7 @@
+CORRECTED:
+int good_scope(int v){int r=0;switch(v){case 0: r=10; break;default: r=1; break;}return r;}
+int good_break(int v){int r=0;switch(v){case 0: r=1;case 1: r=2;break;default: r=3;break;}return r;}
+int good_order(int v){int r=0;switch(v){case 0: r=1;break;default: r=9;break;}return r;}
+
+EXPLANATION:
+The switch statements have been rewritten to follow the MISRA C syntax, with each case label followed by a colon and a statement, and the default label placed last.

@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line does not explicitly declare a pointer parameter. The function 'ooe' takes no parameters, and the rule's amplification text does not provide clear guidance on how to apply it to this context. Further review is necessary to determine whether the rule is applicable and whether the function's behavior violates the rule."
+}

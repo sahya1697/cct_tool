@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a function call, and the rule applies to the right-hand operand of a shift operator. However, the provided code does not contain any shift operators. The context lines show a function call, but the rule is not applicable to this code construct."
+}

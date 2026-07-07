@@ -1,0 +1,5 @@
+CORRECTED:
+int eq_double(double a,double b){ double d = (a > b) ? (a - b) : (b - a); return (a > b) ? (a - b) < 1e-9 : (b - a) < 1e-9; }
+
+EXPLANATION:
+The fix is to break down the ternary operator into two separate conditions to ensure that the order of evaluation does not affect the result.

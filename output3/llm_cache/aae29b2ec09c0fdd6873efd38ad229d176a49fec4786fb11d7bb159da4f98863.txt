@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.2) specifies that the value of an expression shall be the same under any order of evaluation that the standard permits. However, the target line is a comment, not an expression. Therefore, the rule does not apply to this code construct."
+}

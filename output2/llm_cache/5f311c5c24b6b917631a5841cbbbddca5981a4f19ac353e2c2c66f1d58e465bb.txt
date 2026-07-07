@@ -1,0 +1,7 @@
+CORRECTED:
+int rec(int n){if(n<=0) return 0; return rec(n-1)+1;}
+int m(double x,double y){return x==y;}
+int n(int x,int y){return x+y;}
+
+EXPLANATION:
+The original code already meets the MISRA rule, so no changes are necessary.

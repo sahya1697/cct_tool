@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to bitwise operators ~ and << when applied to operands of underlying type unsigned char or unsigned short. However, the target line does not explicitly use these operators. It appears to be a simple increment operation. Without more context or information about the types of variables involved, it is uncertain whether this rule applies."
+}

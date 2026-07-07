@@ -1,0 +1,5 @@
+CORRECTED:
+int m(double x, double y) { return (x == y); }
+
+EXPLANATION:
+The fix is to enclose the comparison in parentheses to ensure the order of evaluation is explicitly defined.

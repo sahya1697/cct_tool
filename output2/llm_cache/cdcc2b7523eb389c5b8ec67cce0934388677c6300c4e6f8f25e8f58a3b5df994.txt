@@ -1,0 +1,5 @@
+CORRECTED:
+int for_side(void){ int c = 0; for (int i = 0; i < 3; i++) { printf("t"); c++; } return c; }
+
+EXPLANATION:
+The order of evaluation of the expression inside the printf function call has been removed to avoid relying on unspecified order of evaluation.

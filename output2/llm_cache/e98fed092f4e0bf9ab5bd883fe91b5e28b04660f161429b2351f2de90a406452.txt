@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to null statements, but the target line contains an expression `i++ + ++i` which is not a null statement. The rule is not applicable to this code construct."
+}

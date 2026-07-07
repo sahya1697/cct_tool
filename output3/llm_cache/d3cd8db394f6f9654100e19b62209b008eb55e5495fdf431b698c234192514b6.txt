@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.3) specifies that the sizeof operator shall not be used on expressions that contain side effects. However, the target line (allocate_buffer()) does not contain the sizeof operator. Therefore, the rule does not apply to this code construct."
+}

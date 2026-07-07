@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The code following the unconditional control transfer (break statement) is unreachable according to Rule 14.1, which states that there shall be no unreachable code. The amplification text explicitly mentions that unlabelled code following an unconditional control transfer is unreachable."
+}

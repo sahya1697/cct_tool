@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line contains the expression `i < 2;` which is a Boolean-valued expression. The assignment operator `=` is used in this expression, which is not allowed according to the rule. This matches the rule's description and amplification, and there is no ambiguity in its application to this context."
+}

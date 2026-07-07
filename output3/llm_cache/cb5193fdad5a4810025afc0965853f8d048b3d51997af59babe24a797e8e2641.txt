@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule refers to unreachable code, but the switch statement has a default case and other cases, indicating that the code is reachable. The amplification text also clarifies that code that can be reached but may never be executed is excluded from the rule."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to the declaration of objects, but the target line is a for loop declaration, not an object declaration. Therefore, the rule does not apply to this code construct."
+}

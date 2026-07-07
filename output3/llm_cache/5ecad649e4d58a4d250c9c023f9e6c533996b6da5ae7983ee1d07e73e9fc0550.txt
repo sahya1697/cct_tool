@@ -1,0 +1,5 @@
+CORRECTED:
+if ((len > 0U) && (log_error(0) == 0))
+
+EXPLANATION:
+The fix is to ensure that the log_error call is evaluated to a boolean value, rather than relying on its return value to determine the overall expression's truth value.

@@ -1,0 +1,13 @@
+CORRECTED:
+int r = 0;
+switch (a % 3) {
+    case 0:
+        r = 10;
+    case 1:
+        break;
+    default:
+        r = 0; // default action
+}
+
+EXPLANATION:
+Added a default case to the switch statement to ensure defensive programming.

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function use_continue has a parameter list, which is void, as per the rule. The rule applies to functions with no parameters, but use_continue has a parameter list, making the rule inapplicable to this code construct."
+}

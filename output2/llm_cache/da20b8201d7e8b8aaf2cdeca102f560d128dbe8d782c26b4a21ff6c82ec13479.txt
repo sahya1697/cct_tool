@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function bad_null has a parameter list, which is int y. The rule states that functions with no parameters shall be declared and defined with the parameter list void. Since bad_null has a parameter, the rule does not apply to this code construct."
+}

@@ -1,0 +1,5 @@
+CORRECTED:
+(void)retry_transmit(data_buf, BUFFER_SIZE);
+
+EXPLANATION:
+The fix is to remove the unnecessary cast to uint16_t, which was causing the order of evaluation to be unspecified.

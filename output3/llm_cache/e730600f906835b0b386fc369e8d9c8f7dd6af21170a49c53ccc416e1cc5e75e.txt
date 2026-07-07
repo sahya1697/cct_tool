@@ -1,0 +1,5 @@
+CORRECTED:
+if ((len > 0U) && (log_error(0) != 0))  /* parenthesised the expression */
+
+EXPLANATION:
+Parenthesised the expression containing the side effect to ensure it is a primary-expression.

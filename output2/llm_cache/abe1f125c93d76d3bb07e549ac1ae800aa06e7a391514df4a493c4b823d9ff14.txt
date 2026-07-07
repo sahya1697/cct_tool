@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The code uses the underlying bit representation of floating-point values by incrementing `i` by a non-integer value (`0.5f`), which is not allowed according to the rule. The rule explicitly states that no floating-point manipulations shall be made which rely directly on the way the values are stored."
+}

@@ -1,0 +1,7 @@
+CORRECTED:
+int unreachable(void) {
+    return 0; // explicit return statement with an expression
+}
+
+EXPLANATION:
+An explicit return statement with an expression was added to the function to ensure it returns a value.

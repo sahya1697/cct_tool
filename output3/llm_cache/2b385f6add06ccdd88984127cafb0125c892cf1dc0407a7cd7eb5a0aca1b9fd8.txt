@@ -1,0 +1,10 @@
+CORRECTED:
+```c
+int validate_packet(void) {
+    int result = check_checksum();  // Evaluate the side effect first
+    return result && is_valid_header();  // Now RHS of && is a simple expression
+}
+```
+
+EXPLANATION:
+The fix is to evaluate the side effect of the function call `check_checksum()` before the logical AND operator `&&`, ensuring that the RHS of the operator does not contain a side effect.

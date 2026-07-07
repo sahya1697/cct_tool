@@ -1,0 +1,5 @@
+CORRECTED:
+int h(int a,int b,int c,int d,int e){return (a&b)==c|(d<<1)+e;}
+
+EXPLANATION:
+The fix is to use parentheses to ensure that the order of operations is explicitly defined, avoiding reliance on the unspecified order of evaluation.

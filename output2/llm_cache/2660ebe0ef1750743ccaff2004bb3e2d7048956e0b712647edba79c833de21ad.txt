@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.1) states that parentheses should be used to override default operator precedence and to emphasize it. However, in the given code, the for loop condition `i < 3` does not involve any complex expressions that require parentheses to avoid ambiguity. The rule's amplification text provides guidelines for when parentheses are required, but this specific case does not match any of the scenarios where parentheses are necessary."
+}

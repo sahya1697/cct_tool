@@ -1,0 +1,8 @@
+CORRECTED:
+if ((result = compute_checksum(g_tx_buffer, len)) != 0)
+{
+    log_error(result);
+}
+
+EXPLANATION:
+The code remains unchanged as the issue was not with the assignment operator in the if condition, but with the rule ID 12.1 which is not applicable to this specific code snippet.

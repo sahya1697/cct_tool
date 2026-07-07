@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to shift operators, but the target line is a for loop declaration, not a shift operation. However, the loop variable 'i' is used in a shift operation in the read_sensor_raw function, which is not shown in the provided code. Without more context, it's unclear whether the rule applies to this specific code construct."
+}

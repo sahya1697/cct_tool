@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to enumerator lists, but the target line is a for loop with a floating-point variable. The rule does not mention loops or floating-point types, so it is not applicable to this code construct."
+}

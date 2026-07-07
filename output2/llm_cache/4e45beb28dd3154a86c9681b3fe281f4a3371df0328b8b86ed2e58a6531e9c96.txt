@@ -1,0 +1,9 @@
+CORRECTED:
+    #include <stdarg.h>
+    
+>>> int varsum(int n,...){va_list ap;int t=0;va_start(ap,n);for(int i=0;i<n;i++)t+=va_arg(ap,int);va_end(ap);return t;}
+    int rec(int n){if(n<=0) return 0; return rec(n-1)+1;}
+    int m(double,double);                 /* prototype with no parameter identifiers */
+
+EXPLANATION:
+The code snippet does not actually violate the MISRA rule, as the rule applies to function prototypes and the given code does not contain a function prototype with a pointer parameter.

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to implicit conversions of floating-point types, but the target line does not involve any floating-point types. The loop variable `i` is an integer, and the increment operation `c++` is also an integer operation. Therefore, there is no implicit conversion of a floating-point type to a different type."
+}

@@ -1,0 +1,9 @@
+CORRECTED:
+case 1U:
+    transmit_packet(NULL);
+    break;
+case 2U:
+    g_system_tick++;
+
+EXPLANATION:
+Added a break statement after the case 1U block to prevent fall-through behavior.

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.13) specifically addresses the mixing of increment/decrement operators with other operators in an expression. However, the target line does not contain any increment or decrement operators, let alone a combination with other operators. Therefore, the rule does not apply to this code construct."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that the value of an expression shall be the same under any order of evaluation that the standard permits. In the target line, the expression `f<3.0f` involves a floating-point comparison, which may have different results depending on the order of evaluation of the sub-expressions. Specifically, the order in which the floating-point values `f` and `3.0f` are evaluated is unspecified. This could lead to different results depending on whether `f` is evaluated before or after `3.0f`. Therefore, the code violates this rule."
+}

@@ -1,0 +1,12 @@
+CORRECTED:
+int ten(int v) {
+    int r = 0;
+    switch (v) {
+        { case 0:
+            { r = 10; } /* added compound statement */
+        }
+    }
+}
+
+EXPLANATION:
+Added compound statement enclosed within braces to the switch statement body.

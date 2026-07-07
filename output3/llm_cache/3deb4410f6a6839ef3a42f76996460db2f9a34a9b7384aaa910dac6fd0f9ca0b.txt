@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (Rule ID: 5.4) specifies that a tag name shall be a unique identifier. However, the target line does not involve a tag name, but rather a label for a goto statement. The rule is not applicable to this code construct."
+}

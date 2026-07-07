@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The code following the unconditional control transfer (break) in the switch statement is unreachable, as per the rule description. The amplification text explicitly mentions that unlabelled code following an unconditional control transfer is unreachable."
+}

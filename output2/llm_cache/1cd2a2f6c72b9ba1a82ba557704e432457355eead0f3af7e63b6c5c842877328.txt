@@ -1,0 +1,17 @@
+CORRECTED:
+```c
+int sw_case(int a)
+{
+    int x = 0;
+    int y = 0;
+    if (a == 1) {
+        x = 1;
+    } else {
+        y = 1;
+    }
+    return y;
+}
+```
+
+EXPLANATION:
+The unreachable code was removed by ensuring that the else clause is always executed when the if condition is false.

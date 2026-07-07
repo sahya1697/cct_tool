@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule states that the statement forming the body of a switch, while, do … while or for statement shall be a compound statement. However, the target line is a break statement, which is not a statement forming the body of a switch, while, do … while or for statement. Therefore, the rule does not apply to this code construct."
+}

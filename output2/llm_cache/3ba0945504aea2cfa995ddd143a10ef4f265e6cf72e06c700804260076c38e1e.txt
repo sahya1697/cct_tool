@@ -1,0 +1,9 @@
+CORRECTED:
+int count = 0;
+for (int i = 0; i < n; i += 1) {
+    count++;
+}
+return count;
+
+EXPLANATION:
+The fix replaces the floating-point variable with an integer variable to avoid relying on the storage layout of floating-point values.

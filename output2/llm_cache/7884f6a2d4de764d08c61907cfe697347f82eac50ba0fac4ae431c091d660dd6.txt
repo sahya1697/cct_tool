@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that the value of an expression shall be the same under any order of evaluation that the standard permits. In the target line, the expression `(float)n` is evaluated, which can lead to different results depending on the order of evaluation. This is because the order of evaluation of function arguments is unspecified, as mentioned in the rule's amplification. Specifically, the expression `i < (float)n` can be evaluated as `i < n` or `n < i` depending on the order of evaluation, leading to different results. This matches the example provided in the rule's amplification, where the order of evaluation of function arguments can lead to different results."
+}

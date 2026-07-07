@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line `(uint16_t)(BUFFER_SIZE / 2U)` does not evaluate to a constant unsigned integer expression that leads to wrap-around. The expression is a simple division of two constants, which will not overflow a 16-bit unsigned integer. The rule applies to constant unsigned integer expressions, and this expression is not constant."
+}

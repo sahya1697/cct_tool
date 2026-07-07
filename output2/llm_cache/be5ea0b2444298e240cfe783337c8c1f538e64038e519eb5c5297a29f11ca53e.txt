@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The for loop's second expression is testing a float variable 'f' instead of a loop control variable, which violates the rule's requirement that the three expressions of a for statement shall be concerned only with loop control."
+}

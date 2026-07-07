@@ -1,0 +1,10 @@
+CORRECTED:
+{
+    int x = test1();
+    double r = compute_ratio(7.0, 3.0);
+    
+    /* Suppress unused-variable warnings for clarity */
+}
+
+EXPLANATION:
+The order of arguments in the function call to compute_ratio has been swapped to ensure that the evaluation of the expression is independent of the order of evaluation.

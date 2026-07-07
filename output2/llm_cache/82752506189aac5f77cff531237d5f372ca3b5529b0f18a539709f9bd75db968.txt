@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to declarations and definitions of objects or functions at file scope. The target line is a function call, not a declaration or definition. However, the function being called is defined in the same file, which might imply internal linkage. Without more context, it's unclear whether the function is intended to be used externally or not. Therefore, I'm uncertain between violation and non-violation, and prefer 'needs_review'."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to functions with no parameters, but the target line is a function declaration with parameters (int z). The function explicit_zero has a parameter list with a single parameter z of type int, which does not match the rule's criteria for a function with no parameters."
+}

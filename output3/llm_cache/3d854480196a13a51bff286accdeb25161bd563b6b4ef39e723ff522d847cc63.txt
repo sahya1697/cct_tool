@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is not a cast, and therefore does not remove any const or volatile qualification from the type addressed by a pointer."
+}

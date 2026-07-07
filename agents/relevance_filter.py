@@ -35,8 +35,14 @@ class RelevanceFilterAgent:
     """
     
     # Minimum relevance score to consider rule relevant
-    # Score combines keyword overlap (0-1) + semantic features (0-1)
-    RELEVANCE_THRESHOLD = 0.8
+    # Lower threshold to ensure important rules aren't filtered prematurely
+    # Especially for Environment (1.x), Language extensions (2.x), Documentation (3.x)
+    RELEVANCE_THRESHOLD = 0.51  # Lowered from 0.7 to 0.10 for better recall
+    
+    # Special rule families that should ALWAYS pass filter (critical compliance rules)
+    # These families check fundamental C standards compliance
+    CRITICAL_RULE_FAMILIES = {'1', '2', '3'}  # Environment, Language extensions, Documentation
+    CRITICAL_THRESHOLD = 0.5  # Extremely low threshold - almost always pass
     
     # Stop words to ignore when extracting keywords
     STOP_WORDS = {
@@ -158,7 +164,7 @@ class RelevanceFilterAgent:
             escaped_ops = [re.escape(op) for op in operators]
             patterns.append('|'.join(escaped_ops))
         
-        # Construct-based patterns
+        # Construct-based patterns - EXPANDED
         construct_patterns = {
             'union': r'\bunion\b',
             'struct': r'\bstruct\b',
@@ -166,14 +172,33 @@ class RelevanceFilterAgent:
             'switch': r'\bswitch\b',
             'case': r'\bcase\b',
             'goto': r'\bgoto\b',
+            'label': r'\w+\s*:',
             'asm': r'\b(asm|__asm__|__asm)\b',
             'pragma': r'#pragma\b',
             'volatile': r'\bvolatile\b',
+            'const': r'\bconst\b',
             'for': r'\bfor\b',
             'while': r'\bwhile\b',
             'do': r'\bdo\b',
+            'if': r'\bif\b',
             'continue': r'\bcontinue\b',
             'break': r'\bbreak\b',
+            'return': r'\breturn\b',
+            'typedef': r'\btypedef\b',
+            'extern': r'\bextern\b',
+            'static': r'\bstatic\b',
+            'sizeof': r'\bsizeof\b',
+            'cast': r'\([^)]*\*?\s*\)',
+            'pointer': r'\*',
+            'array': r'\[',
+            'function': r'\w+\s*\(',
+            'macro': r'#define\b',
+            'include': r'#include\b',
+            'comment': r'//|/\*',
+            'increment': r'\+\+|--',
+            'logical': r'&&|\|\|',
+            'bitwise': r'&|\\||\^|~|<<|>>',
+            'comma': r',',
         }
         
         for construct in constructs:
@@ -183,24 +208,102 @@ class RelevanceFilterAgent:
         # Infer compatible AST node types from rule_type and constructs
         ast_types = set()
         
-        # Map rule_type to AST node types
+        # Map rule_type to AST node types - COMPREHENSIVE mapping
         type_mappings = {
-            'Expressions': {'BinaryOp', 'UnaryOp', 'Assignment', 'TernaryOp', 'ComplexLogicalExpression'},
-            'Control flow': {'IfStatement', 'ForLoop', 'WhileLoop', 'DoWhileLoop', 'SwitchStatement'},
-            'Switch statements': {'SwitchStatement', 'CaseLabel', 'DefaultLabel'},
-            'Functions': {'FunctionDefinition', 'FunctionCall', 'FunctionDeclaration'},
-            'Declarations': {'VariableDeclaration', 'FunctionDeclaration', 'PointerDeclaration', 'ArrayDeclaration'},
-            'Types': {'TypedefDeclaration', 'StructDeclaration', 'UnionDeclaration', 'EnumDeclaration'},
+            'Expressions': {
+                'BinaryOp', 'UnaryOp', 'Assignment', 'TernaryOp', 
+                'ComplexLogicalExpression', 'IncrementInExpression', 
+                'CommaOperator', 'BitwiseOperation', 'SizeofOperator'
+            },
+            'Control flow': {
+                'IfStatement', 'ForLoop', 'WhileLoop', 'DoWhileLoop', 
+                'SwitchStatement', 'GotoStatement', 'LabelStatement',
+                'ContinueStatement', 'BreakStatement', 'ReturnStatement'
+            },
+            'Control statement expressions': {
+                'IfStatement', 'ForLoop', 'WhileLoop', 'DoWhileLoop',
+                'SwitchStatement', 'AssignmentInCondition', 'FloatLoopCounter'
+            },
+            'Switch statements': {
+                'SwitchStatement', 'CaseLabel', 'DefaultLabel', 'BreakStatement'
+            },
+            'Functions': {
+                'FunctionDefinition', 'FunctionCall', 'FunctionDeclaration',
+                'ReturnStatement', 'ParamListDeclaration', 'StaticFunction'
+            },
+            'Declarations and definitions': {
+                'VariableDeclaration', 'FunctionDeclaration', 'FunctionDefinition',
+                'PointerDeclaration', 'ArrayDeclaration', 'DeclDeclaration',
+                'TypedefDeclaration', 'StructDeclaration', 'UnionDeclaration',
+                'EnumDeclaration', 'ExternDeclaration'
+            },
+            'Types': {
+                'TypedefDeclaration', 'StructDeclaration', 'UnionDeclaration', 
+                'EnumDeclaration', 'TypeCast', 'VolatileQualifier', 'ConstQualifier',
+                'BitField'
+            },
+            'Pointers and arrays': {
+                'PointerDeclaration', 'ArrayDeclaration', 'ArrayRefDeclaration',
+                'RefDeclaration', 'StringLiteral'
+            },
+            'Pointer type conversions': {
+                'TypeCast', 'PointerDeclaration'
+            },
+            'Structures and unions': {
+                'StructDeclaration', 'UnionDeclaration', 'UnionUsage', 
+                'RefDeclaration', 'BitField'
+            },
+            'Constants': {
+                'ConstantDeclaration', 'HexConstant', 'OctalConstant',
+                'CharacterLiteral', 'StringLiteral'
+            },
+            'Integer suffixes': {
+                'ConstantDeclaration', 'HexConstant', 'OctalConstant'
+            },
+            'Preprocessing directives': {
+                'PreprocessorDirective', 'MacroDefinition', 'Include',
+                'ConditionalCompilation'
+            },
+            'Language extensions': {
+                'InlineAssembly', 'CPPStyleComment', 'TrigraphSequence',
+                'GCCExtension', 'AttributeSpecifier'
+            },
+            'Character sets': {
+                'CharacterLiteral', 'StringLiteral', 'EscapeSequence',
+                'TrigraphSequence'
+            },
+            'Documentation': {
+                'CPPStyleComment', 'Comment', 'FunctionComment'
+            },
+            'Identifiers': {
+                'IDDeclaration', 'VariableDeclaration', 'FunctionDefinition',
+                'MacroDefinition', 'TypedefDeclaration', 'EnumDeclaration'
+            },
+            'Initialisation': {
+                'InitListDeclaration', 'VariableDeclaration', 
+                'ArrayDeclaration', 'PointerDeclaration'
+            },
+            'Standard libraries': {
+                'FunctionCall', 'Include'
+            },
+            'Run-time failures': {
+                'BinaryOp', 'UnaryOp', 'BitwiseOperation', 'TypeCast'
+            },
+            'Environment': {
+                'TranslationUnit', 'ExternDeclaration', 'InlineAssembly'
+            },
         }
         
         if rule_type in type_mappings:
             ast_types.update(type_mappings[rule_type])
         
-        # Add construct-specific AST types
+        # Add construct-specific AST types - EXPANDED
         if 'union' in constructs:
             ast_types.update({'UnionDeclaration', 'UnionUsage'})
         if 'struct' in constructs:
             ast_types.add('StructDeclaration')
+        if 'enum' in constructs:
+            ast_types.add('EnumDeclaration')
         if 'switch' in constructs:
             ast_types.update({'SwitchStatement', 'CaseLabel', 'DefaultLabel'})
         if 'goto' in constructs or 'label' in constructs:
@@ -208,13 +311,49 @@ class RelevanceFilterAgent:
         if 'asm' in constructs or 'assembly' in constructs:
             ast_types.add('InlineAssembly')
         if 'pointer' in constructs:
-            ast_types.add('PointerDeclaration')
+            ast_types.update({'PointerDeclaration', 'RefDeclaration'})
         if 'array' in constructs:
             ast_types.update({'ArrayDeclaration', 'ArrayRefDeclaration'})
-        if 'cast' in constructs:
+        if 'cast' in constructs or 'conversion' in constructs:
             ast_types.add('TypeCast')
         if 'for' in constructs or 'while' in constructs or 'loop' in constructs:
             ast_types.update({'ForLoop', 'WhileLoop', 'DoWhileLoop'})
+        if 'if' in constructs:
+            ast_types.add('IfStatement')
+        if 'continue' in constructs:
+            ast_types.add('ContinueStatement')
+        if 'break' in constructs:
+            ast_types.add('BreakStatement')
+        if 'return' in constructs:
+            ast_types.add('ReturnStatement')
+        if 'function' in constructs or 'call' in constructs:
+            ast_types.update({'FunctionCall', 'FunctionDefinition', 'FunctionDeclaration'})
+        if 'typedef' in constructs:
+            ast_types.add('TypedefDeclaration')
+        if 'extern' in constructs:
+            ast_types.add('ExternDeclaration')
+        if 'static' in constructs:
+            ast_types.update({'StaticFunction', 'VariableDeclaration'})
+        if 'volatile' in constructs:
+            ast_types.add('VolatileQualifier')
+        if 'const' in constructs:
+            ast_types.add('ConstQualifier')
+        if 'macro' in constructs or 'define' in constructs:
+            ast_types.add('MacroDefinition')
+        if 'include' in constructs:
+            ast_types.add('Include')
+        if 'comment' in constructs:
+            ast_types.update({'CPPStyleComment', 'Comment'})
+        if 'increment' in constructs or 'decrement' in constructs:
+            ast_types.add('IncrementInExpression')
+        if 'logical' in constructs:
+            ast_types.add('ComplexLogicalExpression')
+        if 'bitwise' in constructs:
+            ast_types.add('BitwiseOperation')
+        if 'comma' in constructs:
+            ast_types.add('CommaOperator')
+        if 'sizeof' in constructs:
+            ast_types.add('SizeofOperator')
         
         signature = {
             'keywords': keywords,
@@ -309,14 +448,25 @@ class RelevanceFilterAgent:
         
         logger.debug(f"[Rule {rule_id}] Calculating relevance score for node={node_type}")
         
+        # CRITICAL: Give base score to families 1, 2, 3 (Environment, Language extensions, Documentation)
+        # These are fundamental compliance rules that should be checked against most code
+        rule_family = str(rule_id).split('.')[0] if '.' in str(rule_id) else ''
+        base_score = 0.0
+        if rule_family in self.CRITICAL_RULE_FAMILIES:
+            base_score = 0.50  # Start with high base score to ensure they pass threshold
+            logger.debug(f"[Rule {rule_id}] Critical family {rule_family} - base score 0.50")
+        
         # Get rule signature
         signature = self._extract_rule_signature(rule)
         
         # Extract code features
         code_features = self._extract_code_features(code, node)
         
-        score = 0.0
+        score = base_score  # Start with base score
         reasons = []
+        
+        if base_score > 0:
+            reasons.append(f"critical_family={rule_family}")
         
         # 1. Keyword overlap (0.0 - 1.0)
         rule_keywords = signature['keywords']
@@ -422,12 +572,23 @@ class RelevanceFilterAgent:
         # Calculate comprehensive relevance score
         score, reason = self._calculate_relevance_score(rule, node)
         
+        # Determine appropriate threshold based on rule family
+        # Families 1.x, 2.x, 3.x are critical (Environment, Language extensions, Documentation)
+        rule_family = rule_id.split('.')[0] if '.' in rule_id else rule_id
+        
+        if rule_family in self.CRITICAL_RULE_FAMILIES:
+            threshold = self.CRITICAL_THRESHOLD
+            threshold_label = f"critical threshold {threshold:.2f}"
+        else:
+            threshold = self.RELEVANCE_THRESHOLD
+            threshold_label = f"standard threshold {threshold:.2f}"
+        
         # Filter based on threshold
-        if score < self.RELEVANCE_THRESHOLD:
-            return False, score, f"Low relevance score ({score:.2f} < {self.RELEVANCE_THRESHOLD:.2f}): {reason}"
+        if score < threshold:
+            return False, score, f"Low relevance score ({score:.2f} < {threshold_label}): {reason}"
         
         # Passed filter
-        return True, score, f"Relevant (score={score:.2f}): {reason}"
+        return True, score, f"Relevant (score={score:.2f}, {threshold_label}): {reason}"
     
     def filter_rules(self, node: "ASTNode", rules: list[dict]) -> list[dict]:
         """

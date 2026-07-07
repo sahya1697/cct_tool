@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule states that functions shall not call themselves, either directly or indirectly. However, the target line is a function call to `transmit_packet(NULL)`, which is not a recursive call to the current function. The rule does not apply to this code construct."
+}

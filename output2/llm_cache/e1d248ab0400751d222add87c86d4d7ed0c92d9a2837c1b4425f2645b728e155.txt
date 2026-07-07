@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to bitwise operators ~ and << when applied to operands of underlying type unsigned char or unsigned short. However, the target line does not contain any bitwise operators ~ or <<. It only contains a for loop with a conditional statement i < (n * 2). Therefore, the rule does not apply to this code construct."
+}

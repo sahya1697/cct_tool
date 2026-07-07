@@ -91,20 +91,25 @@ NODE_TYPE_TO_RULE_TYPES: dict[str, list[str]] = {
     "FunctionDefinition": [
         "Functions",
         "Declarations and definitions",
-        "Documentation",
+        "Documentation",  # For Rule 3.x
+        "Environment",  # For Rule 1.x
     ],
     "FunctionDeclaration": [
         "Functions",
         "Declarations and definitions",
+        "Documentation",  # For Rule 3.x
+        "Environment",  # For Rule 1.x
     ],
     "FunctionCall": [
         "Functions",
         "Standard libraries",
         "Expressions",
+        "Environment",  # Added for Rule 1.x
     ],
     "ParamListDeclaration": [
         "Functions",
         "Declarations and definitions",
+        "Environment",  # Added for Rule 1.x
     ],
     
     # ── Control Flow ──────────────────────────────────────────────────────────
@@ -196,14 +201,17 @@ NODE_TYPE_TO_RULE_TYPES: dict[str, list[str]] = {
         "Types",
         "Initialisation",
         "Identifiers",
+        "Environment",  # Added for Rule 1.x
     ],
     "DeclDeclaration": [
         "Declarations and definitions",
+        "Environment",  # Added for Rule 1.x
     ],
     "TypedefDeclaration": [
         "Declarations and definitions",
         "Types",
         "Identifiers",
+        "Environment",  # Added for Rule 1.x
     ],
     
     # ── Structures and Types ──────────────────────────────────────────────────
@@ -241,6 +249,12 @@ NODE_TYPE_TO_RULE_TYPES: dict[str, list[str]] = {
         "Structures and unions",
     ],
     
+    # ── NEW: Increment/Decrement Operations (Rules 12.2, 12.13) ───────────────
+    "IncrementInExpression": [
+        "Expressions",
+        "Control statement expressions",
+    ],
+    
     # ── NEW: Language Extensions (Rule 2.1) ───────────────────────────────────
     "InlineAssembly": [
         "Language extensions",
@@ -257,6 +271,12 @@ NODE_TYPE_TO_RULE_TYPES: dict[str, list[str]] = {
     "ComplexLogicalExpression": [
         "Expressions",
         "Control statement expressions",
+    ],
+    
+    # ── NEW: C++ Style Comments (Rule 2.2) ────────────────────────────────────
+    "CPPStyleComment": [
+        "Documentation",
+        "Language extensions",
     ],
     
     # ── Preprocessing (requires new node types) ───────────────────────────────
@@ -295,6 +315,60 @@ NODE_TYPE_TO_RULE_TYPES: dict[str, list[str]] = {
         "Constants",
         "Pointers and arrays",
     ],
+    "HexConstant": [
+        "Constants",
+        "Integer suffixes",
+    ],
+    "OctalConstant": [
+        "Constants",
+        "Integer suffixes",
+    ],
+    "TrigraphSequence": [
+        "Character sets",
+        "Language extensions",
+    ],
+    "EscapeSequence": [
+        "Character sets",
+        "Constants",
+    ],
+    
+    # ── Operators ─────────────────────────────────────────────────────────────
+    "BitwiseOperation": [
+        "Expressions",
+        "Run-time failures",
+    ],
+    "CommaOperator": [
+        "Expressions",
+    ],
+    "SizeofOperator": [
+        "Expressions",
+        "Types",
+    ],
+    
+    # ── Storage Specifiers and Qualifiers ─────────────────────────────────────
+    "ExternDeclaration": [
+        "Declarations and definitions",
+        "Environment",
+    ],
+    "StaticFunction": [
+        "Declarations and definitions",
+        "Functions",
+    ],
+    "VolatileQualifier": [
+        "Types",
+        "Declarations and definitions",
+    ],
+    "ConstQualifier": [
+        "Types",
+        "Declarations and definitions",
+        "Pointers and arrays",
+    ],
+    
+    # ── Bit-fields ────────────────────────────────────────────────────────────
+    "BitField": [
+        "Structures and unions",
+        "Types",
+    ],
     
     # ── Environment ───────────────────────────────────────────────────────────
     "TranslationUnit": [
@@ -320,7 +394,7 @@ def retrieve_rules_for_node(
 ) -> list[dict]:
     """
     Return candidate rules for an AST node using category + keyword matching.
-    Enhanced with intelligent fallback for unmapped node types.
+    Enhanced with intelligent fallback and more inclusive matching.
     """
     # Get target rule types with fallback support
     target_types = get_rule_types_for_node(node_type)
@@ -328,22 +402,80 @@ def retrieve_rules_for_node(
 
     snippet_lower = code_snippet.lower()
     words = re.findall(r'\w+', snippet_lower)
+    
+    # Extract key tokens from code (identifiers, operators, keywords)
+    code_tokens = set(words)
 
     for rule in all_rules:
         score = 0
         rt = rule.get("rule_type", "")
+        rule_id = str(rule.get("rule_id", ""))
+        
+        # CRITICAL: Boost scores for families 1, 2, 3 (Environment, Language extensions, Documentation)
+        # These rules check fundamental compliance and should be considered for ALL nodes
+        rule_family = rule_id.split('.')[0] if '.' in rule_id else ''
+        if rule_family in {'1', '2', '3'}:
+            score += 50  # Massive boost to ensure they're always in top results
+        
+        # Primary scoring: rule type match
         if rt in target_types:
-            score += 10
-
+            score += 20  # Increased from 10 to prioritize type matches
+        
+        # Secondary scoring: keyword matching in rule text and amplification
         rule_text = (rule.get("rule", "") + " " + rule.get("amplification", "")).lower()
+        
+        # Keyword overlap scoring
         for w in words:
             if len(w) > 3 and w in rule_text:
                 score += 1
+        
+        # Tertiary scoring: Check for common patterns in rule metadata
+        rule_id = str(rule.get("rule_id", ""))
+        
+        # Boost scores for rules that mention specific code constructs
+        code_indicators = {
+            'pointer': ['pointer', 'ptr', '*'],
+            'array': ['array', '[', ']'],
+            'function': ['function', 'call', '(', ')'],
+            'loop': ['loop', 'for', 'while', 'do'],
+            'switch': ['switch', 'case', 'default'],
+            'goto': ['goto', 'label'],
+            'comment': ['comment', '//', '/*'],
+            'assembly': ['asm', 'assembly'],
+            'union': ['union'],
+            'cast': ['cast', 'conversion'],
+            'increment': ['++', '--', 'increment', 'decrement'],
+            'logical': ['&&', '||', 'logical'],
+            'bitwise': ['&', '|', '^', '~', 'bitwise'],
+            'preprocessor': ['#', 'define', 'include', 'macro'],
+            'const': ['const', 'volatile'],
+            'typedef': ['typedef', 'type'],
+            'sizeof': ['sizeof'],
+            'comma': ['comma'],
+        }
+        
+        for pattern_name, keywords in code_indicators.items():
+            if any(kw in snippet_lower for kw in keywords):
+                if any(kw in rule_text for kw in keywords):
+                    score += 2  # Boost for pattern-specific matches
+        
+        # Include rules with ANY score (not just score > 0)
+        # This ensures we don't filter out potentially relevant rules too early
+        scored.append((score, rule))
 
-        if score > 0:
-            scored.append((score, rule))
-
+    # Sort by score descending
     scored.sort(key=lambda x: -x[0])
+    
+    # Return top max_results, but increase the default to be more inclusive
+    # If we have high-scoring rules, take those; otherwise take more rules
+    top_scores = [s for s, _ in scored[:max_results]]
+    avg_top_score = sum(top_scores) / len(top_scores) if top_scores else 0
+    
+    # If top scores are low (avg < 5), expand the result set
+    if avg_top_score < 5 and len(scored) > max_results:
+        expanded_results = max_results * 2  # Double the results when scores are low
+        return [r for _, r in scored[:expanded_results]]
+    
     return [r for _, r in scored[:max_results]]
 
 

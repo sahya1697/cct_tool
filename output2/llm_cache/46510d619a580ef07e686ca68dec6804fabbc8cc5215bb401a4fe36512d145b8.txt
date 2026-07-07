@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule states that a pointer parameter in a function prototype should be declared as pointer to const if the pointer is not used to modify the addressed object. However, the provided code does not explicitly show the function prototype, and the function definition only shows the parameter 'p' being used in an if statement without any modification. Therefore, it is unclear whether the pointer 'p' is used to modify the addressed object or not, and further review is needed to determine the correct classification."
+}

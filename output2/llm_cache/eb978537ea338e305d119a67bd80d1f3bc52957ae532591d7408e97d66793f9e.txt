@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function calls `bad_scope(0)`, `missing_break(0)`, `default_not_last(0)`, `switch_bool(-3)`, and `only_default(7)` have unspecified order of evaluation, as they are function calls with side effects. This violates the rule that the value of an expression shall be the same under any order of evaluation that the standard permits."
+}

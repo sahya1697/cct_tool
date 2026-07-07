@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.12) specifically addresses the use of floating-point values, but the target line is an assignment operation involving integers (ptr + i and pData + i). The rule does not apply to this code construct as it deals with integer pointer arithmetic, not floating-point values."
+}

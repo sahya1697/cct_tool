@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (11.4) specifically addresses casts between pointer to object types, but the target line is a cast between an integer expression and a pointer type (uint32_t). The rule does not apply to this code construct."
+}

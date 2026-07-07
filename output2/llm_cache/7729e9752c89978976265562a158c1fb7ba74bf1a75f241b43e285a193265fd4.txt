@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function f() does not have any pointer parameters, so the rule does not apply."
+}

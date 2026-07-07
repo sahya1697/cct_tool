@@ -1,0 +1,4 @@
+CORRECTED:
+    int missing_break(int v){int r=0;switch(v){case 0:{r=1;break;}case 1:{r=2;break;}default:{r=3;break;}}return r;}
+EXPLANATION:
+Added curly brackets to create a new scope for each case clause, ensuring they are at the same scope as the default clause.

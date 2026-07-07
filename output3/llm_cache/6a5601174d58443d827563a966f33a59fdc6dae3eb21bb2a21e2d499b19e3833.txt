@@ -1,0 +1,5 @@
+CORRECTED:
+>>>     return (uint32_t)n + recursive_sum((uint8_t)(n - 1U));
+
+EXPLANATION:
+The fix is to remove the shift operator, as it was not present in the original code snippet and the rule violation was incorrectly identified.

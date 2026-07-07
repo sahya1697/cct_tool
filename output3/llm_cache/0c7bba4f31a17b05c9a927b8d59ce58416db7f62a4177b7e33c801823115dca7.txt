@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a function call to log_error, which is a primary expression. The operands of the logical && operator are the result of the ternary operator ((code < 0) ? 1U : 0U), which is a constant expression. Therefore, the rule does not apply to this code construct."
+}

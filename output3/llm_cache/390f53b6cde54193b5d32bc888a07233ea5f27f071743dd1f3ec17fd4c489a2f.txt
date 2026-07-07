@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (Rule ID: 12.8) specifies that the right-hand operand of a shift operator shall lie between zero and one less than the width in bits of the underlying type of the left-hand operand. However, the target line does not contain any shift operator, making the rule inapplicable to this code construct."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule states that the sizeof operator shall not be used on expressions that contain side effects. However, the target line is a for loop with an if statement that contains a continue statement. The sizeof operator is used on the variable i, which is incremented in the loop. The rule's application to this context is not entirely clear, and there may be edge cases or exceptions that apply. Further review is needed to determine whether the sizeof operator is used on an expression with side effects."
+}

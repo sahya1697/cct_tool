@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (17.4) specifies that array indexing shall be the only allowed form of pointer arithmetic. However, the target line is a pointer declaration (struct SensorData *g_pSensorSnapshot;) and does not involve any pointer arithmetic. Therefore, the rule does not apply to this code construct."
+}

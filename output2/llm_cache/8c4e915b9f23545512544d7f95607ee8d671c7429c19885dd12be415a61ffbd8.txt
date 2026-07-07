@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function definition with no pointer parameters. However, the function prototype above the target line has no parameter identifiers, which might be relevant to the rule. Further review is needed to determine if the rule applies to this specific context."
+}

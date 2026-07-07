@@ -1,0 +1,5 @@
+Here is the rationale text:
+
+1. This rule applies here because the switch statement in the target line involves a non-constant expression as its controlling expression, which can potentially modify the object being switched on.
+2. The code violates this rule because the switch statement in the target line does not protect the object being switched on, which is the variable "v", from unintended modifications.
+3. The evidence used was LLM inference, as the rule's amplification mentions protecting the object pointed to, which is relevant to the switch statement in the target line.

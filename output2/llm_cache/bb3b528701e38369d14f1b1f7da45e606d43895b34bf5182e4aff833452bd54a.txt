@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a switch statement, not a logical && or || expression. Therefore, Rule 12.5 does not apply to this code construct."
+}

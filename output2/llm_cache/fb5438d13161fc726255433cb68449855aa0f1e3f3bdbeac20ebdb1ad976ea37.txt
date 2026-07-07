@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule requires explicit type declaration for objects or functions. However, the target line is a function definition with explicit type declaration for the function parameters (double a, double b). The function return type is also explicitly stated as int. Therefore, the rule does not apply to this code construct."
+}

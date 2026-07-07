@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that the value of an expression shall be the same under any order of evaluation that the standard permits. In the target line, the expression `i++` has side effects, and its order of evaluation is unspecified. This can lead to different results depending on whether `i++` is evaluated before or after the function call `printf(\"bad\\n\")`. Therefore, the code violates this specific rule."
+}

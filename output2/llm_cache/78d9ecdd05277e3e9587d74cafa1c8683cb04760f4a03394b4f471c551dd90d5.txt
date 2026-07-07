@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch clause in the function default_not_last contains a default label, but it is not the last statement in the clause. The case 0 label is present after the default label, which violates the rule that an unconditional break statement shall terminate every non-empty switch clause."
+}

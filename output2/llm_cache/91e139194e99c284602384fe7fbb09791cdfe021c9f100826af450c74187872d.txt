@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function assignb is defined within the file and does not have external linkage. The rule applies to file scope declarations and definitions, but assignb is a function definition within a function (main). Therefore, the rule does not apply to this code construct."
+}

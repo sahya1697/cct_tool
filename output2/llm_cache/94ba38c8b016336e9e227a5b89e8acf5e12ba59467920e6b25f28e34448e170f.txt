@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that the value of an expression shall be the same under any order of evaluation that the standard permits. In the target line, the expression `count++` has side effects (incrementing the value of `count`) that can occur in a different order depending on the evaluation of the surrounding expressions. Specifically, the order of evaluation of the function arguments in the `for` loop is unspecified, which can lead to different results depending on whether the increment operation is evaluated before or after the loop's condition. This matches the example provided in the rule's amplification text, where the order of evaluation of function arguments can lead to different results."
+}

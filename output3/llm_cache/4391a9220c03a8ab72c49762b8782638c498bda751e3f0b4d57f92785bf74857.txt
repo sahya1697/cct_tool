@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The cast from `pkt` to `uint8_t *` removes the const qualification from the pointed-to type, which is a direct violation of Rule 11.5. The amplification text clarifies that the qualification referred to here is the one associated with the addressed type, not the pointer itself."
+}

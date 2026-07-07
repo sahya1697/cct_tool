@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The second expression in the for statement is not concerned with loop control, as it is testing the loop counter (i) and other loop control variables (n), which is not allowed according to the rule. The rule specifies that the second expression shall include testing the loop counter, but it should not include other loop control variables."
+}

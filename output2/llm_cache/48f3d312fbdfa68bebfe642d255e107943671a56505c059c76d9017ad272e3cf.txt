@@ -1,0 +1,10 @@
+CORRECTED:
+int float_loop(int n) {
+    int count = 0;
+    for (int i = 0; i < n; i += 1) {
+        count++;
+    }
+}
+
+EXPLANATION:
+The fix replaces the floating-point type with an integer type to avoid relying on the storage layout of floating-point values.

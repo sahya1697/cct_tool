@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that assignment operators shall not be used in expressions that yield a Boolean value. In the target line, the expression `i % 2` is used in a conditional statement, but it does not directly assign a value. However, the `continue` statement is used, which is a form of assignment. Although the rule's amplification text does not explicitly mention `continue`, it does state that assignments are not permitted in Boolean-valued expressions. Since the `continue` statement is used in a loop and can be considered an assignment, it can be inferred that this line violates the rule."
+}

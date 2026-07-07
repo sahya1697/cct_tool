@@ -1,0 +1,9 @@
+CORRECTED:
+int assign_bool(int x,int y){ if (x == y) return 1; return 0; }
+int explicit_zero(int z){ if (z != 0) return 1; return 0; }
+int eq_double(double a,double b){ double d = (a > b) ? (a - b) : (b - a); return (int)(d < 1e-9); }
+int float_for(void){ int c = 0; for (int i = 0; i < 6; i++) c++; return c; }
+int for_side(void){ int c = 0; for (int i = 0; i < 3; i++) { printf("t"); c++; } return c; }
+
+EXPLANATION:
+The fix is to explicitly cast the result of the comparison to an integer in the eq_double function.

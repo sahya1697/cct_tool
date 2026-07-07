@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 1.0,
+  "reasoning": "The code uses vprintf, which is part of the stdio.h library, which is banned in production code according to Rule 20.9. The amplification text specifically mentions that file and I/O functions, including printf, should not be used in production code."
+}

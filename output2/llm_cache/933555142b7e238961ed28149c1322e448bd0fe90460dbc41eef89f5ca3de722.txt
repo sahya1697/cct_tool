@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line does not explicitly declare a pointer parameter. The function `unspecified` has a return statement with an expression involving variables `i` and `r`, but the rule's focus is on pointer parameters. Further analysis is required to determine if the rule applies to this code construct."
+}

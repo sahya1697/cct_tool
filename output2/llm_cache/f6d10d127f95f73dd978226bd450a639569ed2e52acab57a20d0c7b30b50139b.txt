@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement body is missing a compound statement (enclosed within braces), as per MISRA C 2004 rule 14.8. The rule requires a compound statement for the body of a switch statement, and the provided code does not meet this requirement."
+}

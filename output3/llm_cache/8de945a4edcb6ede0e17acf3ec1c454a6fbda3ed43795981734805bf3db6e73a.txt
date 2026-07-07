@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a function declaration, not an exit path from a function. The rule applies to exit paths from functions with non-void return types, which is not the case here."
+}

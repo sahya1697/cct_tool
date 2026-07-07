@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The code in the function bad_scope contains an unconditional control transfer (break) in the switch statement, which makes the code following it unreachable. This is in direct violation of the rule 14.1, which states that there shall be no unreachable code."
+}

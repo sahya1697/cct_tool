@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a ternary operator (?:) which is not a logical && or || operation. The rule applies to logical && and || operations, not ternary operators. Therefore, the rule does not apply to this code construct."
+}

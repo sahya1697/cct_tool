@@ -1,0 +1,8 @@
+CORRECTED:
+    {
+        /* Rule 20.4 violation: malloc is prohibited */
+>>>     return (uint8_t *)malloc((size_t)size);
+    }
+
+EXPLANATION:
+The code snippet does not actually violate Rule 16.7, it violates Rule 20.4, which prohibits the use of malloc.

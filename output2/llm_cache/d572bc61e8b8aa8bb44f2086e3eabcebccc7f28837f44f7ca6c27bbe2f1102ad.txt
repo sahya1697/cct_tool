@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement in the target line has a case 0 that sets r=1, and then a case 1 that sets r=2. However, there is no break statement after case 0, which means that the code following case 0 (i.e., case 1) will be executed when v is 0. This is a clear violation of the rule, as there is unreachable code (the code following case 1)."
+}

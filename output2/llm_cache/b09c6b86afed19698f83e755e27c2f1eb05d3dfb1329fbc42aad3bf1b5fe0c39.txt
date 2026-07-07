@@ -1,0 +1,11 @@
+CORRECTED:
+int r15_5_only_default(int v) {
+    switch (v) {
+        default:              
+            v++;
+            break;
+    }
+}
+
+EXPLANATION:
+The break statement was added to ensure that the code within the default case is always executed.

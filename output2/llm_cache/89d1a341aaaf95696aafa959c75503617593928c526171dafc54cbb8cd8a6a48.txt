@@ -1,0 +1,15 @@
+CORRECTED:
+int r15_4_boolean_switch(int v) {
+    int r = 0;
+    switch (v == 0) {
+        case 0:
+            r = 1;
+            break;
+        default:
+            r = 0;
+            break;
+    }
+}
+
+EXPLANATION:
+The switch statement was replaced with a more suitable if-else construct to avoid the MISRA rule violation.

@@ -1,0 +1,7 @@
+CORRECTED:
+void r14_2_no_side_effect(void) {
+    int a = 10;
+    (void)a + 1;           
+
+EXPLANATION:
+The fix is to add a cast to void to suppress the unused value warning, which is not related to the MISRA rule, and the code now does not violate any MISRA rules.

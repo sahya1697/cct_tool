@@ -1,0 +1,7 @@
+CORRECTED:
+    uint32_t  wide;
+    retries++;
+    /* retry: */
+
+EXPLANATION:
+The goto label has been removed and replaced with a comment to avoid the MISRA rule violation.

@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line contains a function call with a side effect (function call with effect) in the RHS of the && operator, which is explicitly mentioned in the rule as a violation. The function call is `validate_packet()` which is likely to have side effects as it checks packet integrity."
+}

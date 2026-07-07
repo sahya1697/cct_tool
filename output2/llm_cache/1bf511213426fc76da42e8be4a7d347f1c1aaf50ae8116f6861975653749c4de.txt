@@ -1,0 +1,7 @@
+CORRECTED:
+int main(void){
+    bad_scope(0); missing_break(0); default_not_last(0); switch_bool((unsigned char)-3); only_default(7); return 0;
+}
+
+EXPLANATION:
+The fix involves explicitly casting the operand to the underlying type (unsigned char) to prevent integral promotion and ensure the result is immediately cast to the correct type.

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is the function declaration of main, which does not involve any expression that relies on the order of evaluation. The rule applies to expressions, not function declarations."
+}

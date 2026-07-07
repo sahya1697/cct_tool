@@ -1,0 +1,11 @@
+CORRECTED:
+switch ((uint16_t)flags)
+{
+    case 1U:
+        break;
+    default:
+        break;
+}
+
+EXPLANATION:
+Added a default case to the switch statement to comply with MISRA C rule 15.0.

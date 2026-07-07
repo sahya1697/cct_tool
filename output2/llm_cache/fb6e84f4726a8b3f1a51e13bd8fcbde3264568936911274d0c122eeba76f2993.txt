@@ -1,0 +1,7 @@
+CORRECTED:
+int bad_scope(int v){int r=0;switch(v){{case 0:r=10;break;}default:r=1;break;}return r;}
+int missing_break(int v){int r=0;switch(v){case 0:r=1;case 1:r=2;break;default:r=3;break;}return r;}
+int default_not_last(int v){int r=0;switch(v){default:r=9;break;case 0:r=1;break;}return r;}
+
+EXPLANATION:
+The original code does not actually violate the MISRA rule, as it does not contain if-else if constructs.

@@ -1,0 +1,5 @@
+CORRECTED:
+    int assignb(int x,int y){if(x=y) return 1; else return 0;}
+
+EXPLANATION:
+The return value of the assignment operation is explicitly tested to ensure that the error information is checked.

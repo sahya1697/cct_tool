@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line contains a function call with side effects, specifically the printf function. The order of evaluation of function arguments is unspecified, which means that the side effects of printf may occur before or after the increment operation in the for loop. This dependence on the order of evaluation is a clear violation of the rule."
+}

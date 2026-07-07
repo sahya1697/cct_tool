@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule 12.3 specifies that the sizeof operator shall not be used on expressions that contain side effects. However, the target line does not use the sizeof operator at all. It is a function declaration for compute_checksum, and the sizeof operator is not present in the function signature or body."
+}

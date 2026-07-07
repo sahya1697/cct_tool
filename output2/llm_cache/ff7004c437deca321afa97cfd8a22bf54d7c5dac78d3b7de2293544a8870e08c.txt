@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The code following the unconditional control transfer in the switch statement is unreachable, as per the rule description. The line marked with >>> is the target line, and the switch statement is the relevant control flow path. The code following the break statement is unreachable, as there is no control flow path from the switch statement to that code."
+}

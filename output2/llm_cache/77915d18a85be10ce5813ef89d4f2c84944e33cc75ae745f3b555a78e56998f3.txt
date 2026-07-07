@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement in the target line does not follow the MISRA C switch syntax. The default label is not followed by a colon (:), which is required by the MISRA C standard. This is a clear violation of the rule, as specified in the amplification text."
+}

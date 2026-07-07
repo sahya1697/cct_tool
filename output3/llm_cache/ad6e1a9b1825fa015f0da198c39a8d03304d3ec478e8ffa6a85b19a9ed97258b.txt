@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to expressions with operator precedence, but the target line is a function declaration. There is no expression in the target line that could potentially violate the rule."
+}

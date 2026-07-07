@@ -1,0 +1,13 @@
+CORRECTED:
+int r15_4_boolean_switch(int v) {
+    int r = 0;
+    switch (v == 0) {
+        case 0:
+        case 1:
+            // switch body
+            break;
+    }
+}
+
+EXPLANATION:
+The switch statement body was enclosed within braces to meet the MISRA requirement for a compound statement.

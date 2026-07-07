@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule states that there shall be no unreachable code. However, the target line is a return statement, which is a valid control flow path. The code is not unreachable, and the rule does not apply to this specific code construct."
+}

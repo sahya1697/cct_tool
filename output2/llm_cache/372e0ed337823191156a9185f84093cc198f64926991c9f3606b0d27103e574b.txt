@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line w(int *p) does not declare a pointer parameter in a function prototype. It is a function definition with a pointer parameter, but the rule does not apply to function definitions."
+}

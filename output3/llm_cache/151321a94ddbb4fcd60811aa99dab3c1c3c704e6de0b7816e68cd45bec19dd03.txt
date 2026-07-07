@@ -1,0 +1,5 @@
+CORRECTED:
+uint8_t checkbyte[len];
+
+EXPLANATION:
+The fix is to declare the `checkbyte` array with a fixed size equal to `len`, allowing array indexing instead of explicit pointer arithmetic.

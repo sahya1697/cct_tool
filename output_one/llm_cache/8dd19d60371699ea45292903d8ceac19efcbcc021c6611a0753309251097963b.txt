@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 0.95,
+  "reasoning": "Rule 12.4 applies only to the right-hand operand of logical && or || operators. The target line is a simple function call assignment and does not involve any logical operators, so the rule is not applicable."
+}

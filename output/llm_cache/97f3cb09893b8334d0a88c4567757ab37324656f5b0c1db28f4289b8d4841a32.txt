@@ -1,0 +1,15 @@
+CORRECTED:
+```c
+/* 
+ * Character set: ISO 10646
+ * Encoding: UTF-8
+ */
+
+#include <stdio.h>
+#include <string.h>
+```
+
+EXPLANATION:
+(1) The stray `>>>` marker was removed and a C‑style comment documenting the character set and encoding was added.  
+(2) This satisfies MISRA C 2004 Rule 3.2, which requires the source code’s character set and encoding to be documented.  
+(3) The includes and program behavior remain unchanged, preserving the original functionality.

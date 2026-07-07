@@ -1,0 +1,13 @@
+CORRECTED:
+int r15_4_boolean_switch(int v) {
+    int r = 0;
+    switch (v == 0) {         
+        case 0:
+            r = 10;
+        default:
+            r = 0;
+    }
+}
+
+EXPLANATION:
+The final case in the switch statement was replaced with a default case to ensure that all possible paths are handled.

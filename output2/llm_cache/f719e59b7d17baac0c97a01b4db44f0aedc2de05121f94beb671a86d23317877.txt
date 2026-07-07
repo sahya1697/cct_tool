@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement has a case for v > 0 being 0, which is unreachable because the switch statement is based on the boolean value of v > 0, and the case for 0 is not reachable due to the unconditional nature of the switch statement."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule requires that error information be tested after a function returns. The function h() returns an integer value, but it is unclear whether this value indicates an error. The function has multiple parameters and operations, making it difficult to determine whether the return value is an error indicator. Further analysis is required to determine whether the rule is applicable and whether the error information is being tested."
+}

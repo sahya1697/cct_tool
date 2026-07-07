@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line does not involve a pointer parameter. The function onlydef takes an integer parameter v, and there is no indication that it is a pointer. However, the rule's amplification text suggests that it is about protecting the object pointed to, not the pointer itself. Without more context, it is unclear whether the rule applies to this specific function."
+}

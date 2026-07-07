@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The code in the function use_goto contains an unconditional goto statement (L:) that transfers control to a label, making the code following it unreachable. This violates rule 14.1, which states that there shall be no unreachable code."
+}

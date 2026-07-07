@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (14.3) specifies that a null statement shall only occur on a line by itself, and may be followed by a comment provided that the first character following the null statement is a white-space character. However, in the given code, the null statement is part of a switch-case statement, and the rule does not apply to this context. The null statement is not on a line by itself, but rather as part of a case label, and the rule's requirements for a null statement followed by a comment do not apply in this situation."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule requires the use of MISRA C switch syntax, but the target line is a goto statement, not a switch statement. However, the context lines show a switch statement in the function, which might be relevant to the rule. Further review is needed to determine if the rule applies to this specific code construct."
+}

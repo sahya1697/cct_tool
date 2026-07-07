@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function parameter list. However, the function parameter list includes a bitwise AND operation (&) and a left shift operation (<<), which may involve pointer arithmetic. Further analysis is required to determine if the pointer parameters are used to modify the addressed objects."
+}

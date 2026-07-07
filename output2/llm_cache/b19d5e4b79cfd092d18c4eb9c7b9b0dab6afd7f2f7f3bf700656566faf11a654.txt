@@ -1,0 +1,1 @@
+The rule applies here because the sizeof operator is used on an expression that contains a side effect, specifically the increment of variable i. The code violates this rule by using sizeof on the expression i++, which increments i before its type is evaluated by sizeof. This is evidenced by the LLM inference that detected the use of sizeof on an expression with a side effect.

@@ -1,0 +1,5 @@
+CORRECTED:
+(void)default_not_last(0, 0);
+
+EXPLANATION:
+The function default_not_last was called with one argument, but it should be called with two arguments to match its parameter list.

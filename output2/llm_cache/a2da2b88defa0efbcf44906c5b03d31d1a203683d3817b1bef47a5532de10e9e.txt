@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line `if(p!=0 && *p++==42) return 1; return 0;` contains a logical AND operation (`&&`) on two sub-expressions. The order of evaluation of these sub-expressions is unspecified, as per the rule description. Specifically, the rule states that apart from a few operators, the order in which sub-expressions are evaluated is unspecified and can vary. This means that no reliance can be placed on the order of evaluation of sub-expressions, and in particular no reliance can be placed on the order in which side effects occur. In this case, the sub-expressions `p!=0` and `*p++==42` have side effects, and their order of evaluation is unspecified. Therefore, the code violates the rule."
+}

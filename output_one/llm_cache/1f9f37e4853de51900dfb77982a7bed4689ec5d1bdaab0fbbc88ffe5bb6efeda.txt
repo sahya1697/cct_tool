@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 0.95,
+  "reasoning": "Rule 16.7 applies only to function prototypes that contain pointer parameters. The target line defines the function `test1` with a `void` parameter list and no pointer arguments. Therefore the rule is not applicable to this construct, and no violation exists."
+}

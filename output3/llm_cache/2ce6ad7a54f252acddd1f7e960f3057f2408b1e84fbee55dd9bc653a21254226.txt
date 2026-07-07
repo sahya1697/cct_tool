@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to constant unsigned integer expressions that lead to wrap-around, but in this case, the expression `i` is not a constant, it's a loop variable. The loop iterates from 0 to BUFFER_SIZE, and the assignment `data_buf[i] = i;` does not cause a wrap-around because `i` is not an unsigned integer constant expression."
+}

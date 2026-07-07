@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that the value of an expression shall be the same under any order of evaluation that the standard permits. In the target line, the expression 'f < 5.0f' involves a floating-point comparison, which is not strictly ordered. The standard does not specify the order of evaluation of floating-point comparisons, making this expression vulnerable to order-of-evaluation issues. This matches the amplification text's warning about function arguments, which also involves unspecified order of evaluation."
+}

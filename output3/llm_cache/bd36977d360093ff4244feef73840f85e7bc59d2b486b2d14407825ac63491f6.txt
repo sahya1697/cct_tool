@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to expressions, not function declarations. The target line is an extern function declaration, which does not contain an expression that could potentially violate the rule."
+}

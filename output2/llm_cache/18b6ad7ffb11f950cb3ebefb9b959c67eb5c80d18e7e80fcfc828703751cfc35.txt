@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function sz has a parameter list, which is not void. The rule applies to functions with no parameters, and sz has a parameter list, so the rule does not apply to this code construct."
+}

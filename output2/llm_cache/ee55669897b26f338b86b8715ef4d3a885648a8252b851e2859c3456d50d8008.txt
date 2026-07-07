@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 1.0,
+  "reasoning": "The switch statement in the target line uses the MISRA C switch syntax, which is compliant with the rule. The switch statement has a single expression, and the case labels and default label are correctly formatted. The rule requires the use of the MISRA C switch syntax, and this code meets that requirement."
+}

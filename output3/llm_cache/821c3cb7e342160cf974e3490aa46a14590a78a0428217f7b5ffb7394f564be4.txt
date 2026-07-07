@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule refers to unreachable code, but the target line is part of a switch statement with a case label (case 2U) that can be reached. The code is not unreachable, and the rule does not apply to this specific code construct."
+}

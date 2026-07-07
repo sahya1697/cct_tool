@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to function prototypes, but the target line is a function call. The function prototypes are not provided in the given code snippet, so it's impossible to determine if the pointer parameters are declared as pointer to const or not. Therefore, the rule is not applicable to this code construct."
+}

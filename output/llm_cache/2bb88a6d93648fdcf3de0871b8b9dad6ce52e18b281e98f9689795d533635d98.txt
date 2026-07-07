@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.95,
+  "reasoning": "Rule 3.2 requires that the character set and its encoding be documented in the source code. The target line is a preprocessor directive `#include <stdio.h>` and there is no accompanying comment or documentation indicating the character set or encoding used. Since the snippet does not provide any evidence of such documentation, the rule is violated. The rule applies to the entire source file, and the absence of documentation in the visible portion constitutes a direct violation."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line does not involve a function prototype or a pointer parameter. The context lines show function calls, but the rule's amplification text suggests it is about function interface definitions, not function calls. Therefore, the rule's applicability is uncertain, and a human review is necessary to determine whether the rule applies to the code construct."
+}

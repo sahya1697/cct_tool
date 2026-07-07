@@ -1,0 +1,7 @@
+CORRECTED:
+if (y == 0) {
+    y = y + 2;
+}
+
+EXPLANATION:
+The comparison operator '==' was used instead of the assignment operator '=' to avoid the unspecified order of evaluation.

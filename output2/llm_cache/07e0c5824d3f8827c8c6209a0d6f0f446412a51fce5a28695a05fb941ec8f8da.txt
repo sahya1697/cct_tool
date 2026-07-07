@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement in the function 'onlydef' has a default case that increments the variable 'v' without any control flow path leading to it. This code is unreachable and violates rule 14.1."
+}

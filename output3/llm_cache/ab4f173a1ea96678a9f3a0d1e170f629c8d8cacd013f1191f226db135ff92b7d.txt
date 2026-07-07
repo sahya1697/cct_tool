@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.1) is about limited dependence on C's operator precedence rules in expressions. The target line is a for loop condition, which does not involve operator precedence rules. The rule does not apply to this code construct."
+}

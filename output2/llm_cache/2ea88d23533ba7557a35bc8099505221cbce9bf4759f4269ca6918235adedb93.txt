@@ -1,0 +1,9 @@
+CORRECTED:
+int varsum(int n,...){va_list ap;int t=0;va_start(ap,n);for(int i=0;i<n;i++)t+=va_arg(ap,int);va_end(ap);return t;}
+>>> int rec(int n){if(n<=0) return 0; return rec(n-1)+1;}
+    int m(double,double);                 /* prototype with no parameter identifiers */
+    int m(double x,double y){return x==y;}
+    int varsum(int n,...){va_list ap;int t=0;va_start(ap,n);for(int i=0;i<n;i++)if(va_arg(ap,int) < 0) return -1; t+=va_arg(ap,int);va_end(ap);return t;}
+
+EXPLANATION:
+The fix involves adding a check for negative values returned by va_arg, returning -1 to indicate an error.

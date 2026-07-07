@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (16.6) states that the number of arguments passed to a function shall match the number of parameters. However, the target line is a function call to `log_formatted` with a variable number of arguments, which is a common pattern in C. The rule amplification mentions that this problem is avoided by the use of function prototypes, but in this case, the function prototype is not provided. Nevertheless, the rule does not explicitly state that it applies to variable-argument functions, and the context does not provide enough information to determine the number of parameters in the `log_formatted` function. Therefore, the rule is not applicable to this code construct."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is `int w(int *p){if(p!=0 && *p++==42) return 1; return 0;}`, which contains a logical && operation. However, the operands of the && are both primary-expressions: `p!=0` and `*p++==42`. The first operand `p!=0` is a comparison of a pointer to zero, which is a primary-expression. The second operand `*p++==42` is also a primary-expression, as it is a parenthesised expression that consists of a dereference (`*p`) and a comparison (`==42`). Therefore, the rule does not apply to this code construct."
+}

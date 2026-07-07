@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "Rule 3.5 concerns the documentation of implementation‑defined behaviour and packing of bit‑fields. The target line is a preprocessor directive (`#include <stdio.h>`), which has no relation to bit‑field declarations or usage. Therefore the rule does not apply to this construct, and no violation exists."
+}

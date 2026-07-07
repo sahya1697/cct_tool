@@ -1,0 +1,1152 @@
+[
+  {
+    "timestamp": "2026-07-06T04:06:12.899314+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "pipeline_start",
+    "input": "",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:12.907977+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "load_rules_start",
+    "input": "",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.189506+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "load_rules_complete",
+    "input": "",
+    "output": "142 rules loaded",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.189506+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "parse_start",
+    "input": "['data\\\\sample_c_files\\\\data.c', 'data\\\\sample_c_files\\\\device.c', 'data\\\\sample_c_files\\\\main.c', 'data\\\\sample_c_files\\\\shared.h']",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.251604+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "parse_file",
+    "input": "data\\sample_c_files\\data.c",
+    "output": "5 nodes extracted",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.260615+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "parse_file",
+    "input": "data\\sample_c_files\\device.c",
+    "output": "5 nodes extracted",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.273511+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "parse_file",
+    "input": "data\\sample_c_files\\main.c",
+    "output": "5 nodes extracted",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.282551+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "parse_file",
+    "input": "data\\sample_c_files\\shared.h",
+    "output": "4 nodes extracted",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.282551+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "parse_complete",
+    "input": "",
+    "output": "19 total AST nodes",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.282551+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "analyze_file",
+    "input": "data\\sample_c_files\\data.c: 5 nodes",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.282551+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=UnionUsage line=3",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.282551+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['18.4', '6.2', '6.3', '6.4', '18.1', '6.1']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.299653+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=UnionUsage line=3",
+    "output": "In: 6, Out: 2 ['18.4', '18.1'], Filtered: 4 ['6.2', '6.3', '6.4', '6.1']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.299653+00:00",
+    "agent": "ControlFlowAgent",
+    "action": "violations_found",
+    "input": "node=UnionUsage line=3",
+    "output": "1 violations: ['18.4']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.299653+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionDefinition line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.303040+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['3.5', '8.4', '16.5', '16.7', '16.8', '3.2']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.316216+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionDefinition line=4",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['3.5', '8.4', '16.5', '16.7', '16.8', '3.2']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.316216+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.319471+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['12.8', '12.9', '12.11', '16.5', '16.7', '16.8']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.334259+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=4",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['12.8', '12.9', '12.11', '16.5', '16.7', '16.8']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.334259+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=ReturnStatement line=5",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.334259+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['16.5', '16.7', '16.8', '14.3', '16.6', '16.10']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.350232+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=ReturnStatement line=5",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['16.5', '16.7', '16.8', '14.3', '16.6', '16.10']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.351171+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=5",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.351171+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['12.8', '12.9', '12.11', '16.5', '16.7', '16.8']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.362176+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=5",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['12.8', '12.9', '12.11', '16.5', '16.7', '16.8']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.362176+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "analyze_file",
+    "input": "data\\sample_c_files\\device.c: 5 nodes",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.363791+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionDefinition line=3",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.365933+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['16.5', '16.7', '16.8', '8.2', '8.7', '8.10']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.375120+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionDefinition line=3",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['16.5', '16.7', '16.8', '8.2', '8.7', '8.10']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.375120+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=3",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.375120+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['12.3', '16.5', '16.7', '16.8', '12.1', '12.2']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.389162+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=3",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['12.3', '16.5', '16.7', '16.8', '12.1', '12.2']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.389162+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=InlineAssembly line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.392596+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['1.2', '1.1', '1.3', '1.4', '1.5', '2.1']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.402904+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=InlineAssembly line=4",
+    "output": "In: 6, Out: 1 ['2.1'], Filtered: 5 ['1.2', '1.1', '1.3', '1.4', '1.5']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.402904+00:00",
+    "agent": "ControlFlowAgent",
+    "action": "violations_found",
+    "input": "node=InlineAssembly line=4",
+    "output": "1 violations: ['2.1']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.402904+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.402904+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['16.5', '16.7', '16.8', '12.1', '12.2', '12.3']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.419276+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=4",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['16.5', '16.7', '16.8', '12.1', '12.2', '12.3']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.419276+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=ReturnStatement line=5",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.419276+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['16.5', '16.7', '16.8', '16.6', '16.10', '14.1']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.444410+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=ReturnStatement line=5",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['16.5', '16.7', '16.8', '16.6', '16.10', '14.1']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.444410+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "analyze_file",
+    "input": "data\\sample_c_files\\main.c: 5 nodes",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.444410+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionDefinition line=3",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.451374+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['8.3', '16.5', '16.7', '16.8', '16.10', '3.5']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.458135+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionDefinition line=3",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['8.3', '16.5', '16.7', '16.8', '16.10', '3.5']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.460786+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=3",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.460786+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['16.5', '16.7', '16.8', '16.10', '20.3', '12.3']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.469879+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=3",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['16.5', '16.7', '16.8', '16.10', '20.3', '12.3']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.469879+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=ReturnStatement line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.473019+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['16.5', '16.7', '16.8', '16.10', '14.1', '14.2']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.479760+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=ReturnStatement line=4",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['16.5', '16.7', '16.8', '16.10', '14.1', '14.2']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.479760+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=ComplexLogicalExpression line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.483236+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['12.1', '12.2', '12.3', '12.4', '12.5', '12.6']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.489440+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=ComplexLogicalExpression line=4",
+    "output": "In: 6, Out: 5 ['12.1', '12.2', '12.4', '12.5', '12.6'], Filtered: 1 ['12.3']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.491421+00:00",
+    "agent": "ControlFlowAgent",
+    "action": "violations_found",
+    "input": "node=ComplexLogicalExpression line=4",
+    "output": "2 violations: ['12.5', '12.5']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.491421+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=ReturnStatement line=5",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.491421+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['16.5', '16.7', '16.8', '16.10', '14.1', '14.2']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.501088+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=ReturnStatement line=5",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['16.5', '16.7', '16.8', '16.10', '14.1', '14.2']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.501088+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "analyze_file",
+    "input": "data\\sample_c_files\\shared.h: 4 nodes",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.501088+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=ArrayDeclaration line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.506940+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['9.3', '8.2', '8.4', '8.7', '17.4', '17.6']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.519365+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=ArrayDeclaration line=4",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['9.3', '8.2', '8.4', '8.7', '17.4', '17.6']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.519365+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=UnionDeclaration line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.526664+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['18.4', '6.2', '6.4', '6.3', '8.2', '8.4']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.540164+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=UnionDeclaration line=4",
+    "output": "In: 6, Out: 1 ['18.4'], Filtered: 5 ['6.2', '6.4', '6.3', '8.2', '8.4']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.540164+00:00",
+    "agent": "ControlFlowAgent",
+    "action": "violations_found",
+    "input": "node=UnionDeclaration line=4",
+    "output": "1 violations: ['18.4']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.540164+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=5",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.540164+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['12.11', '12.1', '12.2', '12.3', '12.8', '12.9']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.557999+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=5",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['12.11', '12.1', '12.2', '12.3', '12.8', '12.9']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.557999+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=6",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.559632+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['12.11', '12.1', '12.2', '12.3', '12.8', '12.9']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.573949+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=6",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['12.11', '12.1', '12.2', '12.3', '12.8', '12.9']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.573949+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "parallel_verify_start",
+    "input": "9 (node, rule) pairs to check",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.573949+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=18.1 node=UnionUsage line=3",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.573949+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "anchored_violation",
+    "input": "",
+    "output": "data.c:3 rule=18.4 violation=True",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.580578+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "anchored_violation",
+    "input": "",
+    "output": "device.c:4 rule=2.1 violation=True",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.580578+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.6 node=ComplexLogicalExpression line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.583372+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.1 node=ComplexLogicalExpression line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:13.583372+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.2 node=ComplexLogicalExpression line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:41.817313+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:06:41.819333+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.4 node=ComplexLogicalExpression line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:07:08.859418+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:07:08.859418+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.5 node=ComplexLogicalExpression line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:07:30.511547+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=True confidence=0.90",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:07:30.511547+00:00",
+    "agent": "CorrectionAgent",
+    "action": "suggest_start",
+    "input": "rule=18.1 line=3",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:07:46.916494+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=True confidence=0.90",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:07:46.916494+00:00",
+    "agent": "CorrectionAgent",
+    "action": "suggest_start",
+    "input": "rule=12.6 line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:10:39.317375+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:10:39.319384+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "anchored_violation",
+    "input": "",
+    "output": "shared.h:4 rule=18.4 violation=True",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:11:00.391939+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=True confidence=0.90",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:11:00.391939+00:00",
+    "agent": "ConflictResolverAgent",
+    "action": "resolved_and_scored",
+    "input": "control_flow=12.5(0.80) llm_violation=True(0.91) node=ComplexLogicalExpression",
+    "output": "final violation=True confidence=0.91 src=control_flow+llm",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:11:00.391939+00:00",
+    "agent": "CorrectionAgent",
+    "action": "suggest_start",
+    "input": "rule=12.5 line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:11:07.456514+00:00",
+    "agent": "CorrectionAgent",
+    "action": "suggest_complete",
+    "input": "",
+    "output": "union DataStore {\n    unsigned int raw;\n    unsigned char bytes[4];\n};\nunion Dat",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:11:07.458526+00:00",
+    "agent": "CorrectionAgent",
+    "action": "generate_rationale_start",
+    "input": "rule=18.1 line=3",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:11:16.332303+00:00",
+    "agent": "CorrectionAgent",
+    "action": "suggest_complete",
+    "input": "",
+    "output": "int check_limits(int x, int y) {\n        if ((x > 0) && (y < 100) && (x != y)) {",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:11:16.332303+00:00",
+    "agent": "CorrectionAgent",
+    "action": "generate_rationale_start",
+    "input": "rule=12.6 line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:13:53.765988+00:00",
+    "agent": "CorrectionAgent",
+    "action": "suggest_complete",
+    "input": "",
+    "output": "int check_limits(int x, int y) {\n        if ((x > 0) && (y < 100) && (x != y)) {",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:13:53.765988+00:00",
+    "agent": "CorrectionAgent",
+    "action": "generate_rationale_start",
+    "input": "rule=12.5 line=4",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:14:06.105763+00:00",
+    "agent": "CorrectionAgent",
+    "action": "generate_rationale_complete",
+    "input": "",
+    "output": "The MISRA C 2004 rule 18.1 applies here because the union type 'DataStore' is used in the translatio",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:14:06.107819+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "anchored_violation",
+    "input": "",
+    "output": "data.c:3 rule=18.1 violation=True",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:14:18.352050+00:00",
+    "agent": "CorrectionAgent",
+    "action": "generate_rationale_complete",
+    "input": "",
+    "output": "The rule applies here because the code uses logical operators (&&) with operands that are not guaran",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:14:18.365804+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "anchored_violation",
+    "input": "",
+    "output": "main.c:4 rule=12.6 violation=True",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:14:56.796660+00:00",
+    "agent": "CorrectionAgent",
+    "action": "generate_rationale_complete",
+    "input": "",
+    "output": "The rule applies here because the code contains a logical && expression with operands that are not p",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:14:56.799303+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "anchored_violation",
+    "input": "",
+    "output": "main.c:4 rule=12.5 violation=True",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:14:56.799303+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "analyze_complete",
+    "input": "",
+    "output": "6 violations found",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:14:56.801583+00:00",
+    "agent": "ReportGeneratorAgent",
+    "action": "generate_start",
+    "input": "6 violations, 9 checks",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:14:56.923532+00:00",
+    "agent": "ReportGeneratorAgent",
+    "action": "generate_complete",
+    "input": "",
+    "output": "Report: C:\\Users\\sahyasree.mp\\Desktop\\CCT_AGENT\\output\\compliance_report.xlsx",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:14:56.923532+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "metrics_start",
+    "input": "",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:14:56.923532+00:00",
+    "agent": "MetricsAgent",
+    "action": "calculate_start",
+    "input": "output=C:\\Users\\sahyasree.mp\\Desktop\\CCT_AGENT\\output\\compliance_report.xlsx, ground_truth=C:\\Users\\sahyasree.mp\\Desktop\\CCT_AGENT\\data\\violation_groundtruth.xlsx",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:14:57.002399+00:00",
+    "agent": "MetricsAgent",
+    "action": "calculate_complete",
+    "input": "",
+    "output": "TP=4, FP=2, FN=2, Precision=66.67%, Recall=66.67%, F1=66.67%",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:14:57.002399+00:00",
+    "agent": "MetricsAgent",
+    "action": "report_start",
+    "input": "output=C:\\Users\\sahyasree.mp\\Desktop\\CCT_AGENT\\output\\metrics_report.xlsx",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:14:57.053128+00:00",
+    "agent": "MetricsAgent",
+    "action": "report_complete",
+    "input": "",
+    "output": "Report: C:\\Users\\sahyasree.mp\\Desktop\\CCT_AGENT\\output\\metrics_report.xlsx",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T04:14:57.061373+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "metrics_complete",
+    "input": "",
+    "output": "F1=66.67%, Precision=66.67%, Recall=66.67%",
+    "error": null,
+    "retry": 0,
+    "node": null
+  }
+]

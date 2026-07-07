@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule requires explicit type declaration for objects or functions. However, the target line is a function definition with an explicit return type, which is sufficient to meet the rule's requirements."
+}

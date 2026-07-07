@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule states that functions shall not call themselves, either directly or indirectly. However, the target line is a function definition (int only_default(int v)) and does not contain a function call to itself. Therefore, the rule does not apply to this code construct."
+}

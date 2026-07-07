@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule requires explicit type declaration for objects or functions. The target line is a function declaration, and the type of the function is explicitly stated as void. The function parameter types (uint8_t *buf and uint32_t len) are also explicitly stated. Therefore, the rule does not apply to this code construct."
+}

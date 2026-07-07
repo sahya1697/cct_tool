@@ -1,0 +1,12 @@
+CORRECTED:
+switch ((uint16_t)flags)
+{
+    case 1U:
+        // ... (rest of the code remains the same)
+    default:
+        // Add a comment or take appropriate action here
+        /* default case: no specific action taken */
+}
+
+EXPLANATION:
+Added a default case to the switch statement to comply with MISRA rule 15.3.

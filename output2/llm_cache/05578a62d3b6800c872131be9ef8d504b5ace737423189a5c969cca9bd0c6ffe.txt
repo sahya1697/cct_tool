@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function m(double c, double d) does not modify the objects pointed to by its parameters, and therefore, the parameters should be declared as const. However, the rule is not applicable to this code construct because the parameters are declared as double, not pointers."
+}

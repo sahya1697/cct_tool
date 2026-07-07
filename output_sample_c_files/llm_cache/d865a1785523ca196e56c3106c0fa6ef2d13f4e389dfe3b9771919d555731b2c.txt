@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 0.95,
+  "reasoning": "The target line contains a logical AND expression where each operand is a simple comparison (`x > 0`, `y < 100`, `x != y`). None of these operands involve side effects such as modifying a variable, accessing a volatile object, calling a function with side effects, or performing I/O. Therefore, the right-hand operands of the logical && operators do not contain side effects, and the code complies with MISRA C 2004 Rule 12.4."
+}

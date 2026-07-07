@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function logical_rhs has a non-void return type, but it does not have an explicit return statement with an expression. However, the rule description states that all exit paths from a function with non-void return type shall have an explicit return statement with an expression. In this case, the function has only one exit path, which is the return statement at the end of the function. This return statement has an expression, which is the result of the if condition. Therefore, the rule does not apply to this code construct."
+}

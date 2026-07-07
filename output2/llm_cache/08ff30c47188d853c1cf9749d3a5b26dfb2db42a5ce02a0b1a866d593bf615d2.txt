@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function m(double, double) has a comparison operation (c == d) which may have side effects due to the unspecified order of evaluation of function arguments. This matches the rule's amplification text, which highlights the order of evaluation problem for function arguments."
+}

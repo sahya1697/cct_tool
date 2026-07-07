@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule requires the use of parentheses to override default operator precedence or to emphasize it. However, in the target line, the expression 'c==d' is a simple equality check between two variables, which does not require parentheses to clarify the operator precedence. The rule's amplification text does not mention equality checks as a scenario where parentheses are required."
+}

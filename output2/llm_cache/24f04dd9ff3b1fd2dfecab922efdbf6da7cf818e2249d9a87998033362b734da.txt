@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule requires that error information be tested after a function returns. The target line is a function call to 'cont', but the function itself is not provided. Without the function body, it's unclear whether the function returns error information that needs to be tested. Additionally, the function name 'cont' does not suggest that it returns error information, but this is not a definitive indicator. Therefore, a human review is necessary to determine whether the rule applies and whether the error information is tested."
+}

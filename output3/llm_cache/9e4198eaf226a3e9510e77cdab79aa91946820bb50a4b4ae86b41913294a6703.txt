@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The switch statement has at least one case clause, which is the case 0: a = b; break; statement. Therefore, Rule 15.5 is not violated."
+}

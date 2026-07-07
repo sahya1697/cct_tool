@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to constant unsigned integer expressions that lead to wrap-around, but the target line is a function call (`log_packet(buf)`), not a constant expression. Therefore, the rule does not apply to this code construct."
+}

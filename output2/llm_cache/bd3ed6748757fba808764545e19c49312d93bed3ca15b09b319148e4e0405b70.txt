@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement has a case with a value of 0, which is unreachable because the switch expression (a % 3) will never be 0. This is a clear violation of the rule, as there is no control flow path from the relevant entry point to the unreachable code."
+}

@@ -1,0 +1,4 @@
+CORRECTED:
+    int missing_break(int v){int r=0;switch(v){case 0:r=1;break;case 1:r=2;break;default:r=3;break;}return r;}
+EXPLANATION:
+Added a break statement after the case 1:r=2; statement to ensure that every non-empty switch clause is terminated by a break statement.

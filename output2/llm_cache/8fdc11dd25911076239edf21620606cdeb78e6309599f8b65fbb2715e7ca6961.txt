@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 1.0,
+  "reasoning": "The switch statement in the target line has multiple case clauses without a break statement between them, which is a clear violation of the rule. The case 0 and case 1 clauses are consecutive without a break, allowing for a fall-through to case 1, which is not allowed according to the rule."
+}

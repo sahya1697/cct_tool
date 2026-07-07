@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.6,
+  "reasoning": "Rule 16.7 concerns the declaration of pointer parameters in a function prototype. The target line is a call to `add(i++, i++)`, which passes integer arguments, not pointers. Without the prototype of `add`, we cannot determine whether its pointer parameters (if any) are correctly qualified as `const`. Therefore the information is insufficient to conclude compliance or violation."
+}

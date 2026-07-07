@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule states that if a function returns error information, that error information shall be tested. The function `explicit_zero` returns 1 if the input `z` is non-zero and 0 otherwise. However, the rule does not explicitly state that the function must return an error code or a special value that needs to be tested. The function's behavior is consistent with the C language's behavior for boolean expressions. Therefore, it is unclear whether the rule applies to this function."
+}

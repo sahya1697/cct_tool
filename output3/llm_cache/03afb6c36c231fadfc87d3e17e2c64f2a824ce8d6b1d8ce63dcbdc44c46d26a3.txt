@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to pointer arithmetic on pointers that do not point to an array or array element. However, in the target line, the pointer 'ptr' is not used for arithmetic, but rather the loop variable 'i' is used in a for loop. The pointer 'ptr' is not used for arithmetic, so the rule does not apply to this code construct."
+}

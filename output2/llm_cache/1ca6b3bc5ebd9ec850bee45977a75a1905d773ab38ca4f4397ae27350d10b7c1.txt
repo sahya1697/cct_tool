@@ -1,0 +1,10 @@
+CORRECTED:
+int three(void) {
+    int count = 0;
+    for (int i = 0; i < 10; i += 1) {
+        count++;
+    }
+}
+
+EXPLANATION:
+The loop counter variable was changed from a float to an integer to prevent modification of the loop counter within the loop body.

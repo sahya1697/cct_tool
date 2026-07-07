@@ -1,0 +1,5 @@
+CORRECTED:
+enum Color {RED = 1, GREEN, BLUE};
+
+EXPLANATION:
+The fix is to explicitly initialize all members of the enumeration list, which is required by MISRA rule 9.3.

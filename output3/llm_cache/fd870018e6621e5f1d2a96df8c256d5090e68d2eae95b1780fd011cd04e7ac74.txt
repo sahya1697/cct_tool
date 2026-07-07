@@ -1,0 +1,11 @@
+CORRECTED:
+```c
+/* Log via variable-args function (Rule 16.1 violation in comms.c) */
+>>>     log_formatted("Total: %d\n", total);
+
+/* Use sensor snapshot pointer — was pointing to incomplete type (Rule 18.1) */
+void log_formatted(const char *format, ...);
+```
+
+EXPLANATION:
+The function prototype for `log_formatted` was modified to include a `const char *` parameter, indicating that the function does not modify the string pointed to by the `format` parameter.

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule states that functions shall not call themselves, either directly or indirectly. However, in the provided code, there are no function calls to the functions themselves. The functions are defined and used, but there is no self-reference or recursion."
+}

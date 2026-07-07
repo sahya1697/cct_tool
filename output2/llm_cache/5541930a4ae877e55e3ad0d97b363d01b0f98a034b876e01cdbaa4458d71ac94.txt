@@ -1,0 +1,14 @@
+CORRECTED:
+int ten(int v) {
+    int r = 0;
+    switch (v) {
+        case 0:
+            r = 10;
+            break;
+        default:
+            break;
+    }
+}
+
+EXPLANATION:
+The fix is to use the MISRA C switch syntax, which requires a default case to be present, even if it does nothing.

@@ -1,0 +1,5 @@
+CORRECTED:
+int sw_case(int * const a)
+
+EXPLANATION:
+The pointer parameter 'a' was declared as a constant pointer to non-constant data, ensuring that the function does not modify the object pointed to.

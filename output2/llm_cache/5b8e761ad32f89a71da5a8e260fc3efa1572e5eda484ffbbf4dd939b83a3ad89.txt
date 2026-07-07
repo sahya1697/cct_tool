@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function definition with a local variable 'a'. The rule's amplification text does not provide clear guidance on how to apply it to this context. Further review is needed to determine whether the rule applies and whether the pointer 'a' is used to modify the addressed object."
+}

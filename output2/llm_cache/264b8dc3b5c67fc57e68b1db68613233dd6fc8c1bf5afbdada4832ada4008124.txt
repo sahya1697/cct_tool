@@ -1,0 +1,9 @@
+CORRECTED:
+    int q(int a,int b,int c){if(a+b && c-1) return 1; else return 0;}
+    int tcase(int v){int r=0;switch(v){case 0:r=1;break;case 1:r=2;break;default:r=3;break;}return r;}
+    int sbool(int v){return v>0;}
+    int onlydef(int v){switch(v){default:v++;break;}return v;}
+    int go(void){int n=0;goto L;n=1;L:n+=2;return n;}
+
+EXPLANATION:
+The goto statement in the go function was removed to prevent unreachable code.

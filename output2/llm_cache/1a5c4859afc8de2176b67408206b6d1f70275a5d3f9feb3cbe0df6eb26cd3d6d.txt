@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The default case in the switch statement has an unconditional increment of v++. This code is unreachable because it will always be executed before the switch statement, making the increment of v++ unreachable."
+}

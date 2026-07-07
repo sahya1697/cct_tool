@@ -1,0 +1,12 @@
+CORRECTED:
+int float_loop(int n) {
+    int count = 0;
+    for (float i = 0.0f; i < (float)n; i += 0.5f) {
+        if (i < (float)n) {
+            count++;
+        }
+    }
+}
+
+EXPLANATION:
+The fix is to replace the inequality comparison with a separate condition that checks if the loop should continue.

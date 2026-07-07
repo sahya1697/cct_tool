@@ -1,0 +1,6 @@
+CORRECTED:
+>>>     if ((len > 0U) && (log_error(0) == 0))
+        {
+            addr++;
+EXPLANATION:
+The fix removes the comma operator and instead uses a comparison to check the return value of log_error.

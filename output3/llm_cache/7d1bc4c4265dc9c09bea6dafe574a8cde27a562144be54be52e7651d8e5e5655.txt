@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function call. The function prototype is not provided in the context, so it's unclear whether the function parameter is a pointer or not. Additionally, the rule requires the pointer to be declared as pointer to const if it's not used to modify the addressed object, but the code does not provide information about the function's behavior or the usage of the parameter."
+}

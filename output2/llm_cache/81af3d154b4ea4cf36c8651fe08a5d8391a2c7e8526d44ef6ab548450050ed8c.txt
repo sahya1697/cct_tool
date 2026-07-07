@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is an assignment statement, not a logical && or || expression, so the rule does not apply to this code construct."
+}

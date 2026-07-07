@@ -1,0 +1,13 @@
+CORRECTED:
+int r = 0;
+switch (a % 3) {
+    case 0:
+        r = 10;
+        break;
+    case 1:
+        r = 20;
+        break;
+}
+
+EXPLANATION:
+The fix is to explicitly specify a value for each case, rather than relying on the implicit value of the previous case.

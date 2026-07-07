@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule prohibits the use of unions for any purpose, but the target line does not contain a union. The function w() uses a pointer to an integer, and the union is not used in this context."
+}

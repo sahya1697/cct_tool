@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.2) states that the value of an expression shall be the same under any order of evaluation that the standard permits. However, the target line is a function call to vprintf, which is a variadic function. The order of evaluation of function arguments is unspecified, but this is not a direct violation of the rule. The rule's amplification text provides guidance on how to avoid dependence on the order of evaluation, but it does not explicitly state that variadic functions are a violation. Therefore, I conclude that the rule does not apply to this code construct."
+}

@@ -1,0 +1,28 @@
+Here is the reasoning and output for the given C code and Rule 12.5:
+
+**Step 1 – Required construct for Rule 12.5:**
+The exact syntactic construct or token that must be PRESENT on the target line for this rule to even apply is a logical `&&` or `||` operator.
+
+**Step 2 – Present on target line?**
+YES
+
+**Step 3 – (if YES) Exact evidence quoted from target line:**
+`&&` (quoted from the target line)
+
+All rule conditions satisfied? YES
+
+**Step 4 – Confidence level and conclusion:**
+Confidence level: 0.95 (unambiguous)
+Conclusion: The target line contains a logical `&&` operator, which is a primary expression. The rule requires that operands of a logical `&&` or `||` shall be primary-expressions. Since the operands `x > 0` and `y < 100` are both primary-expressions, the rule is satisfied.
+
+**OUTPUT JSON:**
+```json
+{
+  "step1_required_construct": "a logical && or || operator",
+  "step2_construct_present": true,
+  "step3_evidence": "&&",
+  "violation": false,
+  "confidence": 0.95,
+  "reasoning": "The target line contains a logical && operator, which is a primary expression, satisfying Rule 12.5."
+}
+```

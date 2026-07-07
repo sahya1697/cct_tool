@@ -1,0 +1,28 @@
+Here is the reasoning and output for the given C code:
+
+**Step 1 – Required construct for Rule 12.2:**
+The required construct for Rule 12.2 is a SINGLE EXPRESSION containing MULTIPLE sub-expressions that EACH HAVE SIDE EFFECTS and whose RELATIVE EVALUATION ORDER IS UNSPECIFIED by the C standard.
+
+**Step 2 – Present on target line?**
+YES
+
+**Step 3 – Exact evidence quoted from target line:**
+The exact evidence from the target line is: `x > 0 && y < 100 && x != y`
+
+All rule conditions satisfied? YES
+
+**Step 4 – Confidence level and conclusion:**
+Confidence level: 0.95
+Conclusion: The target line contains a single expression with multiple sub-expressions that have side effects, and the relative evaluation order is unspecified by the C standard. Therefore, the rule is violated.
+
+**OUTPUT JSON:**
+```json
+{
+  "step1_required_construct": "A SINGLE EXPRESSION containing MULTIPLE sub-expressions that EACH HAVE SIDE EFFECTS and whose RELATIVE EVALUATION ORDER IS UNSPECIFIED by the C standard.",
+  "step2_construct_present": true,
+  "step3_evidence": "x > 0 && y < 100 && x != y",
+  "violation": true,
+  "confidence": 0.95,
+  "reasoning": "The target line contains a single expression with multiple sub-expressions that have side effects, and the relative evaluation order is unspecified by the C standard."
+}
+```

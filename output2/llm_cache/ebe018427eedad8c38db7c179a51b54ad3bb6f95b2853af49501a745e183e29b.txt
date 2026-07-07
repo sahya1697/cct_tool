@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The second expression in the for statement is not concerned only with loop control, as it includes testing the loop counter (i) and optionally other loop control variables (flag), but it also includes a floating-point comparison (i < (float)n) which is not a typical loop control operation. This violates the rule's requirement that the three expressions of a for statement shall be concerned only with loop control."
+}

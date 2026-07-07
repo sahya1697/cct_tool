@@ -1,0 +1,12 @@
+CORRECTED:
+    }
+    int r15_5_only_default(int v) {
+        switch (v) {
+            default:
+                /* No action taken */
+                break;
+        }
+    }
+
+EXPLANATION:
+The final clause of the switch statement now includes a default case with a break statement to indicate that no action is taken.

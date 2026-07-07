@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to implicit conversions between floating-point types, but the target line does not involve any floating-point operations. The loop variable and increment are both integers, and the expression inside the loop is a simple increment operation, which does not involve any implicit conversions between floating-point types."
+}

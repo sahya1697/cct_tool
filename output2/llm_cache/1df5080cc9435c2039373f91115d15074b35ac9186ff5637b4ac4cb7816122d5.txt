@@ -1,0 +1,9 @@
+CORRECTED:
+    int g(void){return 0;}
+    int h(void){return 0;}
+    int v(int n,...){va_list ap;int t=0;va_start(ap,n);for(int i=0;i<n;i++)t+=va_arg(ap,int);va_end(ap);return t;}
+    int s(void){if(0); return 0;}
+    int k(void){int r=0;switch(0){default:r=9;break;}return r;}
+
+EXPLANATION:
+The functions without parameters were declared and defined with the parameter list void to comply with MISRA rule 16.5.

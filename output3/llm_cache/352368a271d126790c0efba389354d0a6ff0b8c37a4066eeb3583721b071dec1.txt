@@ -1,0 +1,8 @@
+CORRECTED:
+if ((len > 0U) && (log_error(0) == 0))
+{
+    addr++;
+}
+
+EXPLANATION:
+The log_error call is now evaluated to a value, which is then used in the logical expression, preventing the side effect from being dependent on the value of the left-hand operand.

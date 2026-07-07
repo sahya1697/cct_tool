@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The sizeof operator is not used on an expression that contains side effects in the target line. The expression (uint16_t)(BUFFER_SIZE / 2U) is a constant expression and does not have any side effects."
+}

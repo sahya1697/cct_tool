@@ -1,0 +1,8 @@
+CORRECTED:
+>>>     for (i = 0U; i < len; i++)
+        {
+            buf[i] = (uint8_t)(buf[i] + 1U);
+        }
+
+EXPLANATION:
+The null statement was removed, as it was not necessary and was violating the MISRA rule.

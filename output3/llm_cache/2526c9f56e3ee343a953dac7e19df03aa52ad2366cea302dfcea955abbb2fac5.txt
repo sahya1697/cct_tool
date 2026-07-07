@@ -1,0 +1,5 @@
+CORRECTED:
+extern uint8_t g_tx_buffer[SIZE_OF_TX_BUFFER];
+
+EXPLANATION:
+The size of the external array g_tx_buffer is explicitly stated to comply with MISRA rule 8.12.

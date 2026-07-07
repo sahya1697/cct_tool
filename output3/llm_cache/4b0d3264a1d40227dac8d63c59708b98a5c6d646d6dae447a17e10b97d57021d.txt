@@ -1,0 +1,8 @@
+CORRECTED:
+{
+    raw    = read_sensor_raw(i);
+    total += scale_reading(raw, i);
+}
+
+EXPLANATION:
+The fix is to remove the unnecessary assignment to 'i' as it is not being used anywhere in the code.

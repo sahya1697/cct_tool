@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line does not contain a pointer parameter. It contains a variable-length argument list (va_list ap) which is not a pointer parameter."
+}

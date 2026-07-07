@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that the value of an expression shall be the same under any order of evaluation that the standard permits. The target line `if ((p != NULL) && (val == 42))` contains a comparison between `val` and 42, which is a side effect of the expression `*p`. The order of evaluation of `*p` and the comparison is unspecified, making it a potential violation of the rule."
+}

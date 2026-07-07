@@ -1,0 +1,1522 @@
+[
+  {
+    "timestamp": "2026-07-06T11:08:17.609736+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "pipeline_start",
+    "input": "",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.609736+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "load_rules_start",
+    "input": "",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.792920+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "load_rules_complete",
+    "input": "",
+    "output": "142 rules loaded",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.793926+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "parse_start",
+    "input": "['data\\\\tests\\\\two.c']",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.815371+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "parse_file",
+    "input": "data\\tests\\two.c",
+    "output": "21 nodes extracted",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.818005+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "parse_complete",
+    "input": "",
+    "output": "21 total AST nodes",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.818005+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "analyze_file",
+    "input": "data\\tests\\two.c: 21 nodes",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.818005+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=6",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.818005+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['12.1', '12.8', '12.2', '12.3', '12.9', '12.11']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.833080+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=6",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['12.1', '12.8', '12.2', '12.3', '12.9', '12.11']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.833080+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=InlineAssembly line=10",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.833080+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['1.1', '1.2', '1.3', '1.4', '1.5', '2.1']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.845264+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=InlineAssembly line=10",
+    "output": "In: 6, Out: 1 ['2.1'], Filtered: 5 ['1.1', '1.2', '1.3', '1.4', '1.5']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.846417+00:00",
+    "agent": "ControlFlowAgent",
+    "action": "violations_found",
+    "input": "node=InlineAssembly line=10",
+    "output": "1 violations: ['2.1']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.846417+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=10",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.847418+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['12.1', '12.2', '12.3', '12.4', '12.5', '12.6']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.858594+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=10",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['12.1', '12.2', '12.3', '12.4', '12.5', '12.6']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.858594+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=InlineAssembly line=15",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.859037+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['1.2', '1.1', '1.3', '1.4', '1.5', '2.1']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.865423+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=InlineAssembly line=15",
+    "output": "In: 6, Out: 1 ['2.1'], Filtered: 5 ['1.2', '1.1', '1.3', '1.4', '1.5']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.865423+00:00",
+    "agent": "ControlFlowAgent",
+    "action": "violations_found",
+    "input": "node=InlineAssembly line=15",
+    "output": "1 violations: ['2.1']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.865423+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=15",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.865423+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['12.1', '12.2', '12.3', '16.5', '16.6', '16.7']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.872562+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=15",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['12.1', '12.2', '12.3', '16.5', '16.6', '16.7']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.872562+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=19",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.878028+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['12.1', '12.2', '12.9', '12.11', '20.3', '20.5']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.884277+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=19",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['12.1', '12.2', '12.9', '12.11', '20.3', '20.5']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.884277+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=ReturnStatement line=27",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.885428+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['14.2', '16.5', '16.7', '16.8', '16.10', '14.1']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.894762+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=ReturnStatement line=27",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['14.2', '16.5', '16.7', '16.8', '16.10', '14.1']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.894762+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=PointerDeclaration line=31",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.894762+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['6.3', '11.4', '17.4', '8.2', '8.7', '8.10']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.902043+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=PointerDeclaration line=31",
+    "output": "In: 6, Out: 3 ['11.4', '17.4', '8.2'], Filtered: 3 ['6.3', '8.7', '8.10']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.902043+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=31",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.903418+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['12.1', '12.2', '12.3', '12.8', '16.5', '16.6']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.911855+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=31",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['12.1', '12.2', '12.3', '12.8', '16.5', '16.6']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.911855+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=ForLoop line=37",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.915240+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['14.3', '12.2', '12.5', '12.8', '12.11', '13.4']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.918033+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=ForLoop line=37",
+    "output": "In: 6, Out: 6 ['14.3', '12.2', '12.5', '12.8', '12.11', '13.4'], Filtered: 0 []",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.920043+00:00",
+    "agent": "ControlFlowAgent",
+    "action": "violations_found",
+    "input": "node=ForLoop line=37",
+    "output": "1 violations: ['13.5']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.920043+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=PointerDeclaration line=44",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.921044+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['17.4', '6.3', '8.2', '8.7', '8.10', '11.2']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.929808+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=PointerDeclaration line=44",
+    "output": "In: 6, Out: 2 ['17.4', '8.2'], Filtered: 4 ['6.3', '8.7', '8.10', '11.2']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.929808+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=44",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.931398+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['12.1', '12.2', '12.3', '16.5', '16.6', '16.7']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.939696+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=44",
+    "output": "In: 6, Out: 1 ['16.7'], Filtered: 5 ['12.1', '12.2', '12.3', '16.5', '16.6']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.939696+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=50",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.941911+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['12.1', '12.13', '20.9', '12.2', '12.5', '12.11']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.945521+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=50",
+    "output": "In: 6, Out: 6 ['12.1', '12.13', '20.9', '12.2', '12.5', '12.11'], Filtered: 0 []",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.947960+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=51",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.947960+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['12.1', '12.13', '20.9', '12.2', '12.5', '12.11']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.952960+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=51",
+    "output": "In: 6, Out: 6 ['12.1', '12.13', '20.9', '12.2', '12.5', '12.11'], Filtered: 0 []",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.953963+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=59",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.955648+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['12.2', '16.5', '16.7', '20.4', '12.1', '12.3']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.962376+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=59",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['12.2', '16.5', '16.7', '20.4', '12.1', '12.3']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.962376+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=ArrayDeclaration line=61",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.962376+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['9.3', '17.4', '8.2', '8.7', '8.10', '9.2']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.977642+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=ArrayDeclaration line=61",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['9.3', '17.4', '8.2', '8.7', '8.10', '9.2']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.977642+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=63",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.979163+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['12.2', '16.5', '16.7', '20.4', '12.1', '12.3']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.982159+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=63",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['12.2', '16.5', '16.7', '20.4', '12.1', '12.3']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.982159+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=64",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.988859+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['12.2', '16.5', '16.7', '20.4', '12.1', '12.3']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.999248+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=64",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['12.2', '16.5', '16.7', '20.4', '12.1', '12.3']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:17.999248+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=65",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:18.001502+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['12.2', '16.5', '16.7', '20.4', '12.1', '12.3']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:18.011414+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=65",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['12.2', '16.5', '16.7', '20.4', '12.1', '12.3']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:18.011414+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=66",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:18.013414+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['16.5', '16.7', '12.2', '20.4', '16.8', '12.1']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:18.022824+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=66",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['16.5', '16.7', '12.2', '20.4', '16.8', '12.1']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:18.022824+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=ReturnStatement line=68",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:18.024981+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['16.5', '16.7', '14.8', '16.8', '16.10', '14.1']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:18.033848+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=ReturnStatement line=68",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['16.5', '16.7', '14.8', '16.8', '16.10', '14.1']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:18.034847+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "parallel_verify_start",
+    "input": "26 (node, rule) pairs to check",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:18.035462+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "anchored_violation",
+    "input": "",
+    "output": "two.c:10 rule=2.1 violation=True",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:18.035462+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "anchored_violation",
+    "input": "",
+    "output": "two.c:15 rule=2.1 violation=True",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:18.037373+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=11.4 node=PointerDeclaration line=31",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:18.037373+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=17.4 node=PointerDeclaration line=31",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:18.037881+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=8.2 node=PointerDeclaration line=31",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:08:18.038896+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.2 node=ForLoop line=37",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:10:03.750273+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=True confidence=0.90",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:10:03.750273+00:00",
+    "agent": "CorrectionAgent",
+    "action": "suggest_start",
+    "input": "rule=12.2 line=37",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:10:24.783336+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=True confidence=0.50",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:10:24.783336+00:00",
+    "agent": "CorrectionAgent",
+    "action": "suggest_start",
+    "input": "rule=17.4 line=31",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:10:36.045697+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:10:36.045697+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.8 node=ForLoop line=37",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:10:51.260881+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:10:51.260881+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=14.3 node=ForLoop line=37",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:11:01.094785+00:00",
+    "agent": "CorrectionAgent",
+    "action": "suggest_complete",
+    "input": "",
+    "output": ">>>     for (i = 0U; i < len; i++)\n        {\n            buf[i] = (uint8_t)((uin",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:11:01.094785+00:00",
+    "agent": "CorrectionAgent",
+    "action": "generate_rationale_start",
+    "input": "rule=12.2 line=37",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:11:11.476680+00:00",
+    "agent": "CorrectionAgent",
+    "action": "suggest_complete",
+    "input": "",
+    "output": "```c\nvoid process_data(uint8_t *buf, uint32_t len)\n{\n    uint32_t i;\n    uint8_t",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:11:11.476680+00:00",
+    "agent": "CorrectionAgent",
+    "action": "generate_rationale_start",
+    "input": "rule=17.4 line=31",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:11:31.162231+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:11:31.170282+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.5 node=ForLoop line=37",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:11:52.359888+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=True confidence=0.50",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:11:52.360335+00:00",
+    "agent": "CorrectionAgent",
+    "action": "suggest_start",
+    "input": "rule=14.3 line=37",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:12:07.532060+00:00",
+    "agent": "CorrectionAgent",
+    "action": "generate_rationale_complete",
+    "input": "",
+    "output": "The MISRA C 2004 compliance rule 12.2 applies here because it addresses the unspecified order of eva",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:12:07.532060+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "anchored_violation",
+    "input": "",
+    "output": "two.c:37 rule=12.2 violation=True",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:12:07.532060+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.11 node=ForLoop line=37",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:12:19.298967+00:00",
+    "agent": "CorrectionAgent",
+    "action": "generate_rationale_complete",
+    "input": "",
+    "output": "The rule applies here because the function parameter `buf` is a pointer to an array, and the code at",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:12:19.298967+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "anchored_violation",
+    "input": "",
+    "output": "two.c:31 rule=17.4 violation=True",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:12:19.298967+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=13.4 node=ForLoop line=37",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:12:40.636681+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:12:40.637705+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=17.4 node=PointerDeclaration line=44",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:12:49.547450+00:00",
+    "agent": "CorrectionAgent",
+    "action": "suggest_complete",
+    "input": "",
+    "output": ">>>     for (i = 0U; i < len; i++)\n        {\n            buf[i] = (uint8_t)(buf[",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:12:49.547450+00:00",
+    "agent": "CorrectionAgent",
+    "action": "generate_rationale_start",
+    "input": "rule=14.3 line=37",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:13:17.612038+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:13:17.613197+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=8.2 node=PointerDeclaration line=44",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:13:31.008773+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:13:31.009828+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=16.7 node=FunctionCall line=44",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:13:49.266821+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:13:49.266821+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.2 node=FunctionCall line=50",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:14:01.893766+00:00",
+    "agent": "CorrectionAgent",
+    "action": "generate_rationale_complete",
+    "input": "",
+    "output": "The rule applies here because the code contains a null statement, which is the empty statement `;` a",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:14:01.893766+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "anchored_violation",
+    "input": "",
+    "output": "two.c:37 rule=14.3 violation=True",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:14:01.893766+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.13 node=FunctionCall line=50",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:14:32.104513+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=True confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:14:32.104513+00:00",
+    "agent": "CorrectionAgent",
+    "action": "suggest_start",
+    "input": "rule=8.2 line=44",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:14:52.434397+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=True confidence=0.90",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:14:52.434397+00:00",
+    "agent": "CorrectionAgent",
+    "action": "suggest_start",
+    "input": "rule=16.7 line=44",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:15:16.788714+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:15:16.788714+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.5 node=FunctionCall line=50",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:15:31.939411+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:15:31.940250+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.11 node=FunctionCall line=50",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:15:39.964840+00:00",
+    "agent": "CorrectionAgent",
+    "action": "suggest_complete",
+    "input": "",
+    "output": "void transmit_packet(uint8_t *buf, uint32_t len)\n{\n    (void)len;\n    uint32_t l",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:15:39.964840+00:00",
+    "agent": "CorrectionAgent",
+    "action": "generate_rationale_start",
+    "input": "rule=8.2 line=44",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:15:46.300655+00:00",
+    "agent": "CorrectionAgent",
+    "action": "suggest_complete",
+    "input": "",
+    "output": "void transmit_packet(const uint8_t *buf, uint32_t len)",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:15:46.300655+00:00",
+    "agent": "CorrectionAgent",
+    "action": "generate_rationale_start",
+    "input": "rule=16.7 line=44",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:16:08.325540+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:16:08.325540+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=20.9 node=FunctionCall line=50",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:16:26.547527+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:16:26.547527+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.1 node=FunctionCall line=50",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:16:38.282710+00:00",
+    "agent": "CorrectionAgent",
+    "action": "generate_rationale_complete",
+    "input": "",
+    "output": "The rule applies here because it requires explicit type declarations for all objects and functions, ",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:16:38.282710+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "anchored_violation",
+    "input": "",
+    "output": "two.c:44 rule=8.2 violation=True",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:16:38.282710+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.2 node=FunctionCall line=51",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:16:51.201425+00:00",
+    "agent": "CorrectionAgent",
+    "action": "generate_rationale_complete",
+    "input": "",
+    "output": "The MISRA C 2004 rule 16.7 applies here because the function parameter 'buf' is a pointer to a non-c",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:16:51.201425+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "anchored_violation",
+    "input": "",
+    "output": "two.c:44 rule=16.7 violation=True",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:16:51.201425+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.13 node=FunctionCall line=51",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:17:12.377384+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:17:12.377384+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.5 node=FunctionCall line=51",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:17:33.576486+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:17:33.576486+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.11 node=FunctionCall line=51",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:17:57.219561+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:17:57.219561+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=20.9 node=FunctionCall line=51",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:18:13.219496+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:18:13.219496+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.1 node=FunctionCall line=51",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:18:30.923008+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:18:48.960422+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:19:04.268971+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:19:24.483016+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:19:24.483016+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "analyze_complete",
+    "input": "",
+    "output": "7 violations found",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:19:24.487622+00:00",
+    "agent": "ReportGeneratorAgent",
+    "action": "generate_start",
+    "input": "7 violations, 26 checks",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-06T11:19:24.582369+00:00",
+    "agent": "ReportGeneratorAgent",
+    "action": "generate_complete",
+    "input": "",
+    "output": "Report: C:\\Users\\sahyasree.mp\\Desktop\\CCT_AGENT\\output\\compliance_report.xlsx",
+    "error": null,
+    "retry": 0,
+    "node": null
+  }
+]

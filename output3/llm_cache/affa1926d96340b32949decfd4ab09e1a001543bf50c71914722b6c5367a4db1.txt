@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a function declaration, not an expression that could be evaluated in a way that depends on the order of evaluation. The rule applies to expressions, not declarations."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line does not explicitly show a function prototype. The function call 'assignb(0,1)' suggests that the function 'assignb' is being called, but the function definition is not provided in the context. Without the function definition, it is unclear whether the function 'assignb' has pointer parameters that should be declared as pointer to const."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule specifies that the sizeof operator shall not be used on expressions that contain side effects. However, the target line does not contain the sizeof operator. It contains a for loop with a null statement and a printf function call. The sizeof operator is not used in this code snippet, so the rule does not apply."
+}

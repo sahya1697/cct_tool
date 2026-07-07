@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to constant unsigned integer expressions that lead to wrap-around, but the target line is a variable declaration, not a constant expression. The variable 'index' is assigned a value of 0U, which is a constant, but it does not lead to wrap-around because it is an unsigned integer expression that does not exceed the maximum value of uint16_t."
+}

@@ -1,0 +1,10 @@
+CORRECTED:
+    int logical_rhs(const int *p) {
+        if (p == NULL) {
+            return 0;
+        }
+        return (int)*p;
+    }
+
+EXPLANATION:
+The pointer parameter in the function prototype was declared as a pointer to const to indicate that the function does not modify the object pointed to.

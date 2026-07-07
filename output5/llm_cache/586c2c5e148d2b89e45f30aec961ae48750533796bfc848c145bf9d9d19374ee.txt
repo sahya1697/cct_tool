@@ -1,0 +1,8 @@
+CORRECTED:
+int check_limits(int x, int y) {
+    if ((x > 0) && (y < 100) && (x != y)) { return 1; }
+    return 0;
+}
+
+EXPLANATION:
+The fix is to enclose each condition in parentheses to ensure that the order of evaluation is well-defined.

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line does not involve a pointer parameter. The function prototypes in the code snippet do not contain any pointer parameters that are not used to modify the addressed object."
+}

@@ -1,0 +1,9 @@
+CORRECTED:
+int r14_4_goto(void) {
+    int i = 0;
+    for (i = 0; i < 2; i++) ; printf("bad\n");    
+    if (i) ; printf("also bad\n");               
+}
+
+EXPLANATION:
+The function declaration was corrected to include the parameter list void, as required by MISRA rule 16.5.

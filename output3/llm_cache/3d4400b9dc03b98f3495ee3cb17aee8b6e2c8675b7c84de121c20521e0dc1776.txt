@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.1) pertains to the use of parentheses to override default operator precedence in expressions. The target line does not contain any expressions that rely on C's operator precedence rules, nor does it contain any potential ambiguities that could be clarified by the use of parentheses. Therefore, the rule does not apply to this code construct."
+}

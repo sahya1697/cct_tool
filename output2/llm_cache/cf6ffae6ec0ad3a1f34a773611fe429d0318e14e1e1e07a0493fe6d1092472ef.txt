@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to functions with no parameters, but the target line is a function definition with a parameter list (int n). The function 'm' is the one without parameters, but it is declared with a parameter list (double x, double y)."
+}

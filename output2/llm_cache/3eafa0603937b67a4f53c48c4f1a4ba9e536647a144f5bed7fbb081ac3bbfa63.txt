@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The default case in the switch statement assigns a value to 'r' (r = 9), but there is no break statement to exit the switch block. This means that the code following the switch statement (in this case, the line after the default case) will be executed regardless of the value of 'v'. Therefore, the code following the switch statement is unreachable, violating rule 14.1."
+}

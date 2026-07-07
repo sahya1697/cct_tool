@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line does not involve a pointer parameter. However, the rule's amplification mentions protecting the object pointed to, which is relevant to the switch statement in the target line. Further review is needed to determine if the switch statement's behavior aligns with the rule's intent."
+}

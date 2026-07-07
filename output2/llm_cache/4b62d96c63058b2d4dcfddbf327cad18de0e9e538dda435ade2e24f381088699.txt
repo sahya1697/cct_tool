@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch label 'case 0:' is used within the function 'bad_scope' and is at the same scope as the switch statement. This matches the rule's requirement that the scope of a case or default label shall be the compound statement, which is the body of a switch statement."
+}

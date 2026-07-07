@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a comment listing violations in the file, and does not contain any code that could be analyzed for compliance with Rule 12.5. The rule requires that the operands of a logical && or || shall be primary-expressions, but the target line is a comment and does not contain any logical operators."
+}

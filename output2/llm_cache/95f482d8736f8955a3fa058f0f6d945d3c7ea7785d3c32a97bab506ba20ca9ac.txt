@@ -1,0 +1,7 @@
+CORRECTED:
+int assign_bool(int a, int b){ return a == b; }
+int explicit_zero(int a){ return a == 0; }
+int eq_double(double a, double b){ return a == b; }
+
+EXPLANATION:
+The function parameters were changed to be passed by value, eliminating the need for pointer parameters and thus adhering to the MISRA rule.

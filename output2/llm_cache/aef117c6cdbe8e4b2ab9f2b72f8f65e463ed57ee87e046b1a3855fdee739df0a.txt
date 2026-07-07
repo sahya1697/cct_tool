@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to assignment operators in expressions that yield a Boolean value. However, the target line is a printf statement, which is not a Boolean-valued expression. The printf statement is inside a for loop, but the loop's control flow does not affect the rule's applicability. The rule is not violated because the assignment operator in the printf statement is not used in a Boolean-valued expression."
+}

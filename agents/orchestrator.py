@@ -48,7 +48,7 @@ logger = logging.getLogger(__name__)
 HIGH_CONFIDENCE_THRESHOLD = 0.90
 LOW_CONFIDENCE_THRESHOLD = 0.50
 # Max rules to verify per node (cost control)
-MAX_RULES_PER_NODE = 6
+MAX_RULES_PER_NODE = 20
 
 
 @dataclass

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The sizeof operator is not used on expressions that contain side effects in the target line. The expressions passed to sizeof are literal values (BUFFER_SIZE / 2U), which do not have side effects."
+}

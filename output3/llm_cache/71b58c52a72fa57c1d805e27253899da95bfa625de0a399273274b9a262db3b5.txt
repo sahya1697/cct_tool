@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to constant unsigned integer expressions that lead to wrap-around, but the target line is a function declaration and does not contain any constant unsigned integer expressions. Therefore, the rule is not applicable to this code construct."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line `if(x=y) return 1; return 0;` contains an assignment within a condition. According to the rule, the value of an expression shall be the same under any order of evaluation that the standard permits. In this case, the order of evaluation of `x` and `y` is unspecified, which can lead to different results depending on whether `x` or `y` is evaluated first. This matches the example provided in the rule amplification, where `x = b + i++` can give different results depending on the order of evaluation of `b` and `i++`. Therefore, this code violates the rule."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a constant definition, which does not involve any expression evaluation that could be affected by the order of evaluation. The rule applies to expressions, not constant definitions."
+}

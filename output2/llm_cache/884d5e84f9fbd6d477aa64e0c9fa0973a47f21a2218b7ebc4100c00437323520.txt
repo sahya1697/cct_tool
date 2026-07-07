@@ -1,0 +1,5 @@
+CORRECTED:
+    int logical_nonprimary(int a,int b,int c){if(a+b && c-1) return 1; else return 0;}
+
+EXPLANATION:
+The code snippet does not contain a pointer parameter that needs to be declared as a pointer to const, so no changes are required to meet the MISRA rule.

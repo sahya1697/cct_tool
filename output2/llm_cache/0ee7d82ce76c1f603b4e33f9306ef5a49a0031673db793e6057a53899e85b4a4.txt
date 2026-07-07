@@ -1,0 +1,5 @@
+CORRECTED:
+int rec(int n){if(n<=0) return 0; return (n-1)+1;}
+
+EXPLANATION:
+The addition operator has a higher precedence than the subtraction operator, so the expression (n-1)+1 is evaluated as intended, avoiding the unspecified order of evaluation.

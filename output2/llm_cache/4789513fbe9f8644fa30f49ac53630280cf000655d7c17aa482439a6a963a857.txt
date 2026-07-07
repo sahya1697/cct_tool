@@ -1,0 +1,17 @@
+CORRECTED:
+int r15_5_only_default(int v) {
+    switch (v) {
+        case 0:
+            // code for v == 0
+            break;
+        case 1:
+            // code for v == 1
+            break;
+        default:
+            // code for default case
+            break;
+    }
+}
+
+EXPLANATION:
+Added a case clause for the first value in the enumeration to satisfy the MISRA rule.

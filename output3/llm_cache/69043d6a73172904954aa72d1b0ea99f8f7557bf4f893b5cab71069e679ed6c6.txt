@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to shift operators, but the target line contains a function call with a recursive call, not a shift operator. The rule's applicability to this code construct is uncertain."
+}

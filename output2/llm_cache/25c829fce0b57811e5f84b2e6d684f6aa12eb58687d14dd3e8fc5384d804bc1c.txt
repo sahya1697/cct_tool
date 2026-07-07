@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch label 'default' in the function 'default_not_last' is not at the same scope as the 'case 0' label. The 'default' label is at the same scope as the 'case 0' label, which is the body of the switch statement, but the 'case 0' label is not at the same scope as the 'default' label. This violates the rule that all case clauses and the default clause shall be at the same scope."
+}

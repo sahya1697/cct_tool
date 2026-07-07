@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule prohibits the use of unions for any purpose, but the target line does not contain a union. The function tcase uses a switch statement to determine the return value, which does not involve the use of unions."
+}

@@ -1,0 +1,9 @@
+CORRECTED:
+#include <stddef.h>
+
+int prec(int a,int b,int c,int d,int e){return a & b == c | d << 1 + e;}
+int unspecified(void){int i=0;int r=i++ + ++i;return r;}
+int size_effect(void){int i=0;return (int)sizeof(i++);}
+
+EXPLANATION:
+The code does not actually violate the MISRA rule, as there are no pointer parameters in the function prototypes.

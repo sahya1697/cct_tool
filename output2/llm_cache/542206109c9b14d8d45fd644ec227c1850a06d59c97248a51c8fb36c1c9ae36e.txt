@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function parameter that is not a pointer. However, the function parameter 'p' is used in a pointer context, and the rule's amplification text suggests that the const qualification should be applied to the object pointed to, not to the pointer. Further review is needed to determine if the function parameter 'p' is used to modify the addressed object."
+}

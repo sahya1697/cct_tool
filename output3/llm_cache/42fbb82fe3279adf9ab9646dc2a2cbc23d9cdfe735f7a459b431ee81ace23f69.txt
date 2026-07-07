@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function process_all_sensors is a global function and does not have any return statements within its body. The comment about Rule 14.1 violation: unreachable code after return is likely a false positive or a mistake in the code analysis. The function does not have any unconditional control transfers or unreachable code."
+}

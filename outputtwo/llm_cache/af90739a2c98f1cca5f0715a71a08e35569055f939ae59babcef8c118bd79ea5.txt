@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to shift operators, but the target line contains a simple increment operation, not a shift operation. Therefore, the rule does not apply to this code construct."
+}

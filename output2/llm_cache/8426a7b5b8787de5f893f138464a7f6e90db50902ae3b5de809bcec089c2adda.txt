@@ -1,0 +1,4 @@
+CORRECTED:
+int float_for(void){int c=0;for(float f=0.0f;f<3.0f;f+=0.5f)c++;return c;}
+EXPLANATION:
+The code snippet does not actually violate the MISRA rule, as the order of evaluation of sub-expressions is not relevant in this case.

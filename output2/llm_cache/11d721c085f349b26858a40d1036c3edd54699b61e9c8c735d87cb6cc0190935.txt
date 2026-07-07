@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line `y = y + 2;` involves an assignment to `y` which is dependent on the order of evaluation of the sub-expression `y`. According to the rule, the value of an expression shall be the same under any order of evaluation that the standard permits. However, in this case, the assignment to `y` is not a sequence point, and the order of evaluation of `y` can affect the result of the expression. This is a clear violation of the rule."
+}

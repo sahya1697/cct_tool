@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line uses the assignment operator (=) in a Boolean expression, which is explicitly mentioned as a violation in the rule description. The code is attempting to assign the result of the compute_checksum function to the variable result, and then check if the result is not equal to 0. This is a clear case of using the assignment operator in a Boolean expression, which is against the rule."
+}

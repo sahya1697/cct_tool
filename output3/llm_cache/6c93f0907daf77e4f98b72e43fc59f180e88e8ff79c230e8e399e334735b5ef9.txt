@@ -1,0 +1,6 @@
+CORRECTED:
+total = process_all_sensors();
+recursive_sum(10U);
+
+EXPLANATION:
+The fix is to separate the function calls into two distinct statements, ensuring that the order of evaluation is no longer dependent on the unspecified order of sub-expressions.

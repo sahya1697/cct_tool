@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to functions with no parameters, but the target line is a function prototype with parameter identifiers, not a function declaration or definition with no parameters. The function 'm' is declared with parameter identifiers, which is compliant with the rule."
+}

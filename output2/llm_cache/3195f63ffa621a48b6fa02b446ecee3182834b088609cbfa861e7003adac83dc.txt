@@ -1,0 +1,9 @@
+CORRECTED:
+    {
+        (void)printf("unreachable() -> %d\n", unreachable());
+>>>     int inc = no_effect(3);                
+        (void)printf("no_effect(3) -> %d\n", inc);
+        bad_null(1);                           
+
+EXPLANATION:
+The function prototype for bad_null should be modified to declare its parameter as a pointer to const.

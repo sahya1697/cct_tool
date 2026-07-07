@@ -1,0 +1,11 @@
+CORRECTED:
+int four(void) {
+    int i, count = 0;
+    for (i = 0; i < 3; i++) {
+        printf("tock\n");
+        count++;
+    }
+}
+
+EXPLANATION:
+The fix is to separate the increment of the loop counter from the printf statement to avoid relying on the order of evaluation.

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a ternary operator (?:) which is explicitly allowed in the rule's amplification as an exception to the effectively Boolean operand requirement. The operands of the ternary operator are not logical operators (&&, ||, !), so the rule does not apply."
+}

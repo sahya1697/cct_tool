@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (17.4) states that array indexing shall be the only allowed form of pointer arithmetic. However, the target line is an external array declaration (g_tx_buffer[]), which does not involve pointer arithmetic. Therefore, the rule does not apply to this code construct."
+}

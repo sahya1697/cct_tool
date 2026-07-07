@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 0.95,
+  "reasoning": "Rule 1.2 prohibits relying on undefined or unspecified behaviour. The target line is a standard preprocessor directive `#include <stdio.h>`, which simply instructs the compiler to include the contents of the standard header file. This directive does not invoke any undefined or unspecified behaviour, nor does it rely on any such behaviour. Therefore, the code complies with Rule 1.2."
+}

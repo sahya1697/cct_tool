@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a function call with a logical && operator. According to the rule, the operands of a logical && or || shall be primary-expressions. In this case, the operands are function calls, which are primary-expressions. Therefore, the rule does not apply to this code construct."
+}

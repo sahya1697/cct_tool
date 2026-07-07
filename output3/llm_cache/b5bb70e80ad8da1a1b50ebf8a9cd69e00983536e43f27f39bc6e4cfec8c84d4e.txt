@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule description specifies that an array must have its size stated explicitly or defined implicitly by initialization. However, the target line is a pointer declaration, not an array declaration. The rule does not explicitly address pointer declarations, so it is unclear whether this rule applies to the given code construct."
+}

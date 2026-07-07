@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line contains a function call `compute_ratio(3.0, 7.0)` which does not contain a logical && or || operator. The rule applies to these operators, and since none are present in the target line, the rule is not applicable to this code construct."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule specifies that the character sequence /* shall not be used within a comment. However, the target line is not a comment, but rather a code snippet with an inline assembly instruction. Therefore, the rule does not apply to this code construct."
+}

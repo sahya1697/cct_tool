@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to object or function declarations, but the target line is a function call. The function 'only_default' is declared with an explicit return type, which is 'int'. The rule does not apply to function calls."
+}

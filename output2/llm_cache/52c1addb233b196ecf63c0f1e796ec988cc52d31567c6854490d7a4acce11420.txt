@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement in the only_default function has only one case clause, which is for the value 0. The rule requires at least one case clause, and since there is only one, the rule is violated. The amplification text in the rule description also supports this conclusion, as it explicitly states that a switch statement shall have at least one case clause."
+}

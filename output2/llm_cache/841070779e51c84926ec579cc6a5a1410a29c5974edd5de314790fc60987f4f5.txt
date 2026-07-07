@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The code violates the rule because it relies on the order of evaluation of sub-expressions in the for loop `for(float f=0;f<5;f+=0.5) a++;`. The expression `f<5` involves a comparison with a floating-point value, which may have side effects due to the increment operation `f+=0.5`. This can lead to different results depending on whether `f` is evaluated before or after the increment operation."
+}

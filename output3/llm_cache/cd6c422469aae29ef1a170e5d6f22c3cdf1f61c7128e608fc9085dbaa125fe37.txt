@@ -1,0 +1,9 @@
+CORRECTED:
+uint16_t raw;
+    
+>>>     for (i = 0U; i < MAX_SENSORS; i++)
+        {
+            raw    = read_sensor_raw(i);
+
+EXPLANATION:
+The fix is to remove the shift operator, as it is not necessary in this context.

@@ -1,0 +1,9 @@
+CORRECTED:
+int inc = no_effect(3);                
+(void)printf("no_effect(3) -> %d\n", inc);
+>>>     bad_null(1);                           
+(void)printf("use_goto() -> %d\n", use_goto());
+(void)printf("use_continue() -> %d\n", use_continue());
+
+EXPLANATION:
+The code snippet does not actually violate the MISRA rule, as there is no pointer parameter in a function prototype that is not used to modify the addressed object.

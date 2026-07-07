@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to the shift operator, but the target line is a function call (allocate_buffer()) and does not contain a shift operator. Therefore, the rule does not apply to this code construct."
+}

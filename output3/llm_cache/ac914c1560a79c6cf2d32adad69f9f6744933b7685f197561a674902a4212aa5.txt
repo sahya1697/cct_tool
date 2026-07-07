@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to enumerator lists, but the target line is an array declaration within a union. The rule does not apply to this code construct."
+}

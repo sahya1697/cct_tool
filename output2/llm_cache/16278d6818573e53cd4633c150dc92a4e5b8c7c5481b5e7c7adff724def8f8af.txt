@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 1.0,
+  "reasoning": "The function has a non-void return type (int) and the target line is the last statement before the return statement. The rule requires an explicit return statement with an expression for all exit paths from a function with a non-void return type. The target line '(void)switch_bool(-3);' is an exit path, and it does not have an explicit return statement with an expression."
+}

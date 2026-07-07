@@ -1,0 +1,11 @@
+CORRECTED:
+uint32_t recursive_sum(uint8_t n) {
+    if (n == 0U) {
+        return 0U;
+    } else {
+        return (uint32_t)n + recursive_sum((uint8_t)(n - 1U));
+    }
+}
+
+EXPLANATION:
+The fix is to add a base case to the recursive function to prevent direct recursion.

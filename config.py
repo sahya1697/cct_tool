@@ -24,8 +24,8 @@ LOG_JSON = OUTPUT_DIR / "execution_log.json"
 
 # ── Ollama / LLM ─────────────────────────────────────────────────────────────
 OLLAMA_HOST: str = os.getenv("OLLAMA_HOST", "http://localhost:11434")
-PRIMARY_MODEL: str = os.getenv("MODEL_NAME", "llama3")
-LIGHT_MODEL: str = os.getenv("LIGHT_MODEL", "mistral")
+PRIMARY_MODEL: str = os.getenv("MODEL_NAME", "gpt-oss:20b")
+LIGHT_MODEL: str = os.getenv("LIGHT_MODEL", "gpt-oss:20b")
 
 # ── MongoDB ───────────────────────────────────────────────────────────────────
 MONGO_URI: str = os.getenv("MONGO_URI", "mongodb://localhost:27017")
@@ -39,7 +39,12 @@ CHROMA_PERSIST_DIR: str = os.getenv("CHROMA_PERSIST_DIR", str(BASE_DIR / ".chrom
 CHROMA_COLLECTION: str = "misra_rules"
 
 # ── Parallelism ───────────────────────────────────────────────────────────────
-MAX_WORKERS: int = int(os.getenv("MAX_WORKERS", "4"))
+# Optimal worker count depends on your LLM server capacity:
+# - Ollama (local): 4-8 workers (CPU/GPU limited)
+# - OpenAI API: 10-50 workers (rate limit dependent)
+# - Claude API: 5-10 workers (rate limit dependent)
+# Too many workers will overwhelm the LLM server and slow things down!
+MAX_WORKERS: int = int(os.getenv("MAX_WORKERS", "8"))  # Reduced from 100 to 8 for optimal local Ollama performance
 
 # ── LLM call behaviour ────────────────────────────────────────────────────────
 LLM_TEMPERATURE: float = float(os.getenv("LLM_TEMPERATURE", "0.0"))  # 0.0 for deterministic

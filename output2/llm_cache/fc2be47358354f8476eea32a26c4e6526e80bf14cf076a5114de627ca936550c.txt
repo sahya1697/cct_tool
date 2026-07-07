@@ -1,0 +1,13 @@
+CORRECTED:
+    int twelve(int v) {
+        int r = 0;
+        switch (v) {
+            default:
+                r = 9;
+                break;
+        }
+        return r;
+    }
+
+EXPLANATION:
+The fix adds a break statement to the default case to ensure that the code is reachable.

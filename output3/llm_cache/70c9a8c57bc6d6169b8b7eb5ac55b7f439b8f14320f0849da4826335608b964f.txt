@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a macro definition, not a logical expression. The rule applies to operands of logical && or ||, which are not present in this code snippet."
+}

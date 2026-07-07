@@ -1,0 +1,10 @@
+CORRECTED:
+int sw_case(int a)
+{
+    int y = a;
+    /* MISRA  */
+    return y;
+}
+
+EXPLANATION:
+The return statement was moved to the end of the function to ensure that the function has at least one side-effect, which is the return of the value of y.

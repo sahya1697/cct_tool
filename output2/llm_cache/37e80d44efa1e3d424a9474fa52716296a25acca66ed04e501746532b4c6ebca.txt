@@ -1,0 +1,25 @@
+CORRECTED:
+    #include <stdarg.h>
+    
+    int varsum(int n,...){
+        va_list ap;
+        int t=0;
+        va_start(ap,n);
+        for(int i=0;i<n;i++){
+            int arg = va_arg(ap,int);
+            if(arg < 0) { va_end(ap); return -1; } // added error checking
+            t+=arg;
+        }
+        va_end(ap);
+        return t;
+    }
+    
+    int rec(int n){
+        if(n<=0) return 0;
+        return rec(n-1)+1;
+    }
+    
+    int m(double,double);
+    
+EXPLANATION:
+The fix involves adding error checking to the varsum function to test the return value and handle potential errors.

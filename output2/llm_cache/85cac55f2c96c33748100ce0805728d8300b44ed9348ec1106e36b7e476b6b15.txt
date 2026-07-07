@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to the function call on the target line, but the number of arguments passed matches the number of parameters in the function declaration. The function `no_effect` is declared elsewhere in the code, and its parameter list is not shown in the provided snippet, but based on the context, it is likely that the number of arguments passed matches the number of parameters."
+}

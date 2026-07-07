@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 0.99,
+  "reasoning": "The target line contains a function call to compute_ratio(3.0, 7.0). The sizeof operator is not used anywhere in this statement, so rule 12.3, which concerns the use of sizeof on expressions with side effects, does not apply to this code construct."
+}

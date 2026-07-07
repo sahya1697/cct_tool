@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to shift operators, but the target line uses the malloc function, which is unrelated to shift operators."
+}

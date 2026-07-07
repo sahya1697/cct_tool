@@ -1,0 +1,5 @@
+CORRECTED:
+int assignb(int x,int y){if(x=y) return 1; else return 0;}
+
+EXPLANATION:
+The corrected code adds an `else` clause to the `if` statement to ensure that the return value is tested when an error occurs.

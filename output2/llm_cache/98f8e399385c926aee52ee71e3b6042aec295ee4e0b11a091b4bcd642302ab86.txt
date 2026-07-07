@@ -1,0 +1,4 @@
+CORRECTED:
+    int m(double c,double d){return (c==d) ? 0 : -1;}
+EXPLANATION:
+The return value of the function m is now explicitly checked for error conditions, as required by MISRA rule 16.10.

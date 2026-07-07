@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule is about floating-point implementations complying with a defined floating-point standard, but the target line contains inline assembly (NOP) instructions, which is unrelated to floating-point arithmetic. Therefore, the rule does not apply to this code construct."
+}

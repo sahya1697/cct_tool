@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 1.0,
+  "reasoning": "The switch statement in the function 'bad_scope' has at least one case clause, which matches the rule's requirement. The rule states that every switch statement shall have at least one case clause, and this code meets that requirement."
+}

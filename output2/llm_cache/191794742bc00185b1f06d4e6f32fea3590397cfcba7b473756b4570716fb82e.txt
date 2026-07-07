@@ -1,0 +1,7 @@
+CORRECTED:
+    int size_effect(void){int i=0;return (int)sizeof((i++));}
+    int logical_rhs(int *p){if((p!=0) && (*p++==42)) return 1; return 0;}
+    int logical_nonprimary(int a,int b,int c){if((a+b) && (c-1)) return 1; else return 0;}
+
+EXPLANATION:
+Parentheses were added to emphasize the intended order of operations and to avoid relying on C's complex operator precedence rules.

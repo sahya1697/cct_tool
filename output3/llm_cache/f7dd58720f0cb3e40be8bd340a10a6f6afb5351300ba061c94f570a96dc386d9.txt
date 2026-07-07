@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule specifies that the sizeof operator shall not be used on expressions that contain side effects. However, the target line is a function call (scale_reading()) and does not involve the sizeof operator. Therefore, the rule does not apply to this code construct."
+}

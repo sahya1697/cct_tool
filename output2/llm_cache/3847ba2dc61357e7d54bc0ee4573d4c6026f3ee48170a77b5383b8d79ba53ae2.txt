@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function call to 'ez' which does not have a pointer parameter. However, the function 'ez' itself is not shown in the provided code, and its parameters are not visible. Therefore, it is uncertain whether the rule applies to this specific function call."
+}

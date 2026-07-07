@@ -1,0 +1,8 @@
+CORRECTED:
+int four(void) {
+    int i, count = 0;
+    for (i = 0; i < 3; i++, printf("tock\n")) {
+}
+
+EXPLANATION:
+The parameter list void was added to the function declaration to comply with MISRA rule 16.5.

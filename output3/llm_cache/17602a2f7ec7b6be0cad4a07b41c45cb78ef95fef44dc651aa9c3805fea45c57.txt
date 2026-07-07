@@ -1,0 +1,5 @@
+CORRECTED:
+recursive_sum(10U);
+
+EXPLANATION:
+The fix is to remove the unnecessary function call operator (void) to ensure the order of evaluation is unspecified.

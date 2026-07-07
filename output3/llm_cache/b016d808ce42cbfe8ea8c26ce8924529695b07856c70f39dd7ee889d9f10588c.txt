@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function compute_checksum() relies on the order of evaluation of the byte buffer, which is unspecified. The rule states that the value of an expression shall be the same under any order of evaluation that the standard permits. In this case, the function call operator () is used, and the order of evaluation of the function arguments is unspecified. This is an example of what the rule amplification text describes as a problem with function arguments."
+}

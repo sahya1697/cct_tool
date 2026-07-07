@@ -1,0 +1,7 @@
+CORRECTED:
+uint8_t *p = buf;
+uint8_t *q = p + 10;
+*q = 0xFFU;
+
+EXPLANATION:
+The fix is to introduce a new pointer q that points to the 11th element of the array, avoiding pointer arithmetic on the original pointer p.

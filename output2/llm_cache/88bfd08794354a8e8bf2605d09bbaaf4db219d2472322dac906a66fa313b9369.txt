@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The default label in the switch statement is not the last case clause, violating the rule. The default label is placed before the case 0 label, which is not allowed according to the rule. This is a clear and unambiguous violation of the rule."
+}

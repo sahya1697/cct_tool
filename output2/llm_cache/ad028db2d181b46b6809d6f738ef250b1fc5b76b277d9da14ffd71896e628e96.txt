@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The code violates the MISRA C switch syntax rule because it contains a case label without a corresponding break statement, allowing unstructured behavior. The rule requires that a switch statement shall only contain switch labels and switch clauses, and no other code. The presence of the case 1 label without a break statement deviates from this normative text, making it a non-compliance."
+}

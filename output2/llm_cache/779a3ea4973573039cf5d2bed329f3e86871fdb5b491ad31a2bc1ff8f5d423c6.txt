@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function definition, not a prototype. However, the function parameter 'v' is not a pointer, so the rule does not directly apply. Further review is needed to determine if the function's behavior violates the rule's intent."
+}

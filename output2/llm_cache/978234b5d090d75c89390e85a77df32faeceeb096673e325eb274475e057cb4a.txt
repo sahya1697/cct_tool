@@ -1,0 +1,8 @@
+CORRECTED:
+void r14_3_null_stmt(void) {
+    int i = 0;
+    for (i = 0; i < 2; i++) ; printf("bad\n");    
+}
+
+EXPLANATION:
+The parameter list was added to the function declaration to match the MISRA rule requirement for functions with no parameters.

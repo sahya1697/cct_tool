@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to function prototypes, but the target line is a function call. The function 'unreachable()' is not a function prototype, so the rule does not apply to this code construct."
+}

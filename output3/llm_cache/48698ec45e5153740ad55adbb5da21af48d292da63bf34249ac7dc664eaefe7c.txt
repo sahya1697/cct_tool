@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line does not contain the increment (++) and decrement (--) operators mixed with other operators in an expression. The rule is not applicable to this code construct."
+}

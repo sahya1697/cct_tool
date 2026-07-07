@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule prohibits the use of unions for any purpose, but the amplification text provides exceptions for packing and unpacking data, and implementing variant records. The target line is a for loop, and there is no explicit use of a union. However, the context lines do not provide enough information to determine whether the code is using a union or not. A more detailed analysis of the code and its context is required to make a definitive determination."
+}

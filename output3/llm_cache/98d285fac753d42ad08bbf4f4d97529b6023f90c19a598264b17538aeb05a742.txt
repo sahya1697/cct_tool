@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to the order of evaluation of sub-expressions, but the target line is a simple 'if' statement with a comparison. The comparison does not involve any sub-expressions that could be evaluated in a different order, and the rule does not apply to the 'if' statement itself."
+}

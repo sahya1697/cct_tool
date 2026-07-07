@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 0.95,
+  "reasoning": "The target expression is a simple function call with constant arguments: `double r = compute_ratio(3.0, 7.0);`. The order of evaluation of the arguments is unspecified, but since both arguments are literals, there are no side effects or dependencies that could alter the result. The value assigned to `r` is solely the return value of `compute_ratio`, which is deterministic regardless of argument evaluation order. Therefore, the expression’s value is the same under any permitted order of evaluation, satisfying MISRA‑C:2004 Rule 12.2."
+}

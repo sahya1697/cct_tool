@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement in the target line has a default case that will always be executed, but the case 0 will never be reached because the switch condition (v > 0) will always be false when v is 0. This is an example of unreachable code, as per the rule description."
+}

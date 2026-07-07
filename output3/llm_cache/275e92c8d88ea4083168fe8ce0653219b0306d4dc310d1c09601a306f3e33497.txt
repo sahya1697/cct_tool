@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.1) pertains to the use of parentheses to override default operator precedence in expressions. However, the target line is a function declaration, not an expression. Therefore, the rule does not apply to this code construct."
+}

@@ -1,0 +1,5 @@
+CORRECTED:
+const int *const p = x;
+
+EXPLANATION:
+The pointer p is declared as a constant pointer to a constant int, ensuring that the pointer itself cannot be modified and the object it points to is not modified.

@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that numeric variables being used within a for loop for iteration counting shall not be modified in the body of the loop. In the given code, the variable 'count' is being incremented in the loop body, which is a numeric variable used for iteration counting. This directly matches the rule's criteria for a violation."
+}

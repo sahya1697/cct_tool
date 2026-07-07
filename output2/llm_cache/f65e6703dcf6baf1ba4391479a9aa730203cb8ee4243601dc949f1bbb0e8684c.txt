@@ -1,0 +1,12 @@
+CORRECTED:
+int thirteen(int v) {
+    int r = 0;
+    switch (v > 0) {
+        case 0:
+            { r = 0; } // added compound statement
+            break;
+    }
+}
+
+EXPLANATION:
+Added a compound statement enclosed within braces to the switch statement body.

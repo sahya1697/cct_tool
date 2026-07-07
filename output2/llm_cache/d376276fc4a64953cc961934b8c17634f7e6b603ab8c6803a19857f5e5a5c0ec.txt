@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to pointer arithmetic, but the target line is a function declaration, not a pointer arithmetic operation. The function `f()` does not contain any pointer arithmetic."
+}

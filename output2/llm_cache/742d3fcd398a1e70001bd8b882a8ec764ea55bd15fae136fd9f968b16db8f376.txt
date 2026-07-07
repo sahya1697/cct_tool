@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement in the target line has a 'default' case that is not the last case. According to the rule, there shall be no unreachable code, and in this case, the code following the 'default' case is unreachable because it is not reachable from the 'default' case. This is a clear violation of the rule."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line does not contain a pointer parameter. The function varsum takes a variable number of arguments using va_list and va_arg, but these are not pointer parameters."
+}

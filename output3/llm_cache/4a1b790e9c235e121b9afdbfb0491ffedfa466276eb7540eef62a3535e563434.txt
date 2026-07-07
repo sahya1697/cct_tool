@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to constant unsigned integer expressions that lead to wrap-around, but the target line is a loop counter variable 'i' being incremented, not a constant expression. The loop counter 'i' is of type uint16_t, which is an unsigned integer type, but the rule does not apply to this context as it is not a constant expression."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function build_packet() has a parameter pData which is not declared as const, but it is not modified within the function. According to Rule 16.7, a pointer parameter should be declared as pointer to const if the pointer is not used to modify the addressed object. Since pData is not modified, it should be declared as const."
+}

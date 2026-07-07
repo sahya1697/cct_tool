@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to implicit conversions between floating-point types, but the target line is an assignment in a condition, where the expression is a simple assignment (x=y). There is no implicit conversion between floating-point types in this case."
+}

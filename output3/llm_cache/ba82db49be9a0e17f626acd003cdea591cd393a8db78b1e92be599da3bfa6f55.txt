@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line 'raw = read_sensor_raw(i);' has a side effect, as it assigns the result of the function call to the variable 'raw'. This assignment changes the value of 'raw', which is a side effect. Therefore, the rule is violated."
+}

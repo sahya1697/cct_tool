@@ -1,0 +1,5 @@
+CORRECTED:
+void bad_null(int y){if(y == 0) printf("after\n");}
+
+EXPLANATION:
+The fix is to replace the semicolon after the if statement with a statement that has a defined effect, in this case a comparison to a constant value.

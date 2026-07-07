@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function g has parameters, so the rule does not apply. The rule is applicable to functions with no parameters, which is not the case here."
+}

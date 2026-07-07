@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the provided code does not show a function prototype. The context suggests a function with a return statement, but the rule's applicability to this specific code construct is unclear without more information about the function's parameters."
+}

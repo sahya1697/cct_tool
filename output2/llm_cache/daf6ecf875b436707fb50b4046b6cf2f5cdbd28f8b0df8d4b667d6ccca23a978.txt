@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line contains multiple function calls without explicit parentheses, which may lead to unexpected behavior due to C's operator precedence rules. Specifically, the calls to `bad_scope`, `missing_break`, `default_not_last`, `switch_bool`, and `only_default` do not have explicit parentheses, which could lead to issues with operator precedence. This matches the rule's amplification, which suggests that parentheses should be used to emphasize the order of operations and avoid potential mistakes."
+}

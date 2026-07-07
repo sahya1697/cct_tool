@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function declaration without any pointer parameters. The function 'f' is declared without any parameters, and the rule does not explicitly mention non-pointer parameters. However, the amplification text mentions that the const qualification should be applied to the object pointed to, not to the pointer. In this case, the function 'f' does not have any pointer parameters, but the rule's applicability to non-pointer parameters is unclear. Therefore, a human review is required to determine the correct interpretation of the rule in this context."
+}

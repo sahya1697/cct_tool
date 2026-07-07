@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "Rule 19.2 applies to #include directives. The target line is `#include <stdio.h>`. The header name `stdio.h` contains only standard characters (letters, period, and extension). It does not include any of the prohibited characters (', \, \", or /*) between the angle brackets. Therefore the directive complies with the rule and no violation occurs."
+}

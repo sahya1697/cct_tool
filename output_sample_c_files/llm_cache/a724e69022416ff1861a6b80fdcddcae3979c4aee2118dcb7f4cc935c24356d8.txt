@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "Rule 12.1 advises that parentheses should be used to emphasize operator precedence in expressions. The target line contains a complex logical expression `x > 0 && y < 100 && x != y` that relies on the default precedence of comparison operators (`>`, `<`, `!=`) over logical AND (`&&`). No parentheses are used to make the grouping explicit, directly contravening the rule’s recommendation."
+}

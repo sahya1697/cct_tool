@@ -1,0 +1,10 @@
+CORRECTED:
+int count = 0;
+int i;
+for (i = 0; i < (2 * n); i++)
+{
+    count++;
+}
+
+EXPLANATION:
+The multiplication operator has been changed to have its operands in a fixed order, avoiding the unspecified order of evaluation that was causing the MISRA rule violation.

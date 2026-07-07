@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to functions with no parameters, but the target line is within a function that takes a parameter 'count'. The function is declared with a parameter list, which is not void. Therefore, the rule does not apply to this code construct."
+}

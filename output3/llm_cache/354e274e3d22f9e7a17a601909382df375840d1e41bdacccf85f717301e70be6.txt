@@ -1,0 +1,6 @@
+CORRECTED:
+struct SensorData { /* struct body */ };
+struct SensorData g_pSensorSnapshot;
+
+EXPLANATION:
+The fix involves declaring the struct body before declaring the pointer to it.

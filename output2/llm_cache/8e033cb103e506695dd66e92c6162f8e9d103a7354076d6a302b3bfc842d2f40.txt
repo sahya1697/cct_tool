@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule requires that error information be tested after a function returns. The function float_for() returns an integer value, but it is unclear whether this value is intended to indicate an error. The function does not appear to have any error flags or special return values that would indicate an error. However, the function does not explicitly check for errors either. Therefore, I am uncertain whether this function violates the rule and require human review to determine the correct interpretation."
+}

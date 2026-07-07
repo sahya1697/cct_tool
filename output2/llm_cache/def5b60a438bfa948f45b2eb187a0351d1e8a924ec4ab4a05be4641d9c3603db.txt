@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement in the target line does not follow the MISRA C switch syntax. The default label is not the last label in the switch statement, which is a deviation from the normative text of the rule. This is a clear violation of the rule, as the default label is placed before a case label, which is not allowed according to the MISRA C switch syntax."
+}

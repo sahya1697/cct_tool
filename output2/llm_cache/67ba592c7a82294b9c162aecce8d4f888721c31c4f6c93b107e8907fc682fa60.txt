@@ -1,0 +1,9 @@
+CORRECTED:
+(void)printf("unreachable() -> %d\n", unreachable());
+int inc = no_effect(3);                
+(void)printf("no_effect(3) -> %d\n", inc);
+bad_null(1);                           
+(void)printf("use_goto() -> %d\n", use_goto());
+
+EXPLANATION:
+The code snippet does not actually contain a pointer parameter in a function prototype, so no changes are needed to comply with MISRA rule 16.7.

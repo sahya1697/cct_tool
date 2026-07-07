@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to if-else if constructs, but the target line is a switch statement, which is not covered by this rule."
+}

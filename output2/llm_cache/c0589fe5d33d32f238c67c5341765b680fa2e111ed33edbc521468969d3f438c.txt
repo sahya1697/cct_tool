@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement in the target line has a case 0 that sets r=1, and then a case 1 that sets r=2. However, the default case sets r=3, which will be executed if the value of v is not 0 or 1. This means that the code following the case 1 label is unreachable, as there is no control flow path from the relevant entry point to that code."
+}

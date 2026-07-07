@@ -1,0 +1,10 @@
+CORRECTED:
+void r14_3_null_stmt(void) {
+    int i = 0;
+    for (i = 0; i < 2; i++) {
+        printf("good\n");
+    }
+}
+
+EXPLANATION:
+The corrected code removes the null statement after the for loop, ensuring that the expression inside the loop is evaluated in a consistent order.

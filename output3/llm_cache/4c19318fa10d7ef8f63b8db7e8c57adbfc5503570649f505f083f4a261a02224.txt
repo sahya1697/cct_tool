@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The code is not unreachable as it is part of a function and can be reached through the control flow. The rule applies to code that cannot be reached under any circumstances, which is not the case here."
+}

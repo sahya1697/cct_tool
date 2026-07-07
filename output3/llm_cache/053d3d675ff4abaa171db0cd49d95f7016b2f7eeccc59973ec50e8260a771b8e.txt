@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to function prototypes, but the provided code snippet appears to be a function implementation. The rule description does not explicitly cover function implementations. However, the amplification text mentions the importance of const qualification in function interfaces, which suggests that the rule might be applicable to function implementations as well. Further review is needed to determine whether the pointer parameter in the function implementation is used to modify the addressed object."
+}

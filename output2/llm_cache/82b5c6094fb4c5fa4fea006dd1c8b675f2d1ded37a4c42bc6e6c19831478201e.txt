@@ -1,0 +1,5 @@
+CORRECTED:
+int for_side(void){int c=0;for(int i=0;i<3;i++,printf("t")) c++;return c;}
+
+EXPLANATION:
+The code does not actually violate the MISRA rule, as it does not contain a pointer parameter in a function prototype.

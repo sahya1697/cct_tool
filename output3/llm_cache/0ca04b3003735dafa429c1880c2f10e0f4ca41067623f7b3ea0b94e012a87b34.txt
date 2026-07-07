@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to functions with non-void return types, but the target line is a function call (read_sensor_raw()) and not the function itself. The function's return statement is not provided, but the rule's amplification text does not imply that the function call itself must have a return statement. Therefore, the rule does not apply to this code construct."
+}

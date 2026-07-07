@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to logical && or || operators, but the target line contains an assignment in a condition, which is not a logical operator. The rule does not apply to this code construct."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement body is not a compound statement, as it does not contain a single statement enclosed within braces. According to the rule, the statement forming the body of a switch statement shall be a compound statement, even if it contains a single statement."
+}

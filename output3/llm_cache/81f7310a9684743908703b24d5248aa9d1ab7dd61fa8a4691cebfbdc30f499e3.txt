@@ -1,0 +1,5 @@
+CORRECTED:
+accum = (char)(accum + (int)buf[i]);
+
+EXPLANATION:
+The fix is to cast the value of buf[i] to an integer type to prevent potential signed char overflow and ensure the expression is evaluated in a well-defined order.

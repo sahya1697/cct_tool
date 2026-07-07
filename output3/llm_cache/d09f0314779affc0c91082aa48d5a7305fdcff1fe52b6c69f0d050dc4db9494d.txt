@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to casts that remove const or volatile qualification from the type addressed by a pointer. However, the target line does not involve any casting or modification of pointer qualifications. It simply declares a pointer variable 'ptr' without any casting or qualification removal."
+}

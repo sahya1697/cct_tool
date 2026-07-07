@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to expressions with unspecified order of evaluation, but the target line is a simple increment operation (i++) within a for loop. The increment operation is not dependent on the order of evaluation of sub-expressions, as it is a single operation that increments the value of i. Therefore, the code is compliant with the rule."
+}

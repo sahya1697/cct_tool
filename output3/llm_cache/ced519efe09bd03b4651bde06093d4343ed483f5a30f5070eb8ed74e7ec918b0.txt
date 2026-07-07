@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a function declaration, not an expression. The rule applies to expressions, not function declarations. Therefore, the rule is not applicable to this code construct."
+}

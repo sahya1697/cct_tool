@@ -1,0 +1,12 @@
+CORRECTED:
+```c
+{
+    int i = 0;
+    int first  = i++;   /* i becomes 1 */
+    int second = i++;   /* i becomes 2 */
+    return add(first, second);
+}
+```
+
+EXPLANATION:
+The original expression `add(i++, i++)` modifies `i` twice without an intervening sequence point, violating MISRA‑C:2004 rule 12.2. By separating the increments into distinct statements, each modification occurs at its own sequence point, preserving the original argument values (`0` and `1`) while complying with the rule.

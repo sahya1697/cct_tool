@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The code following the unconditional control transfer in the switch statement is unreachable, as there is no control flow path from the relevant entry point to that code. This matches the rule description, which states that code is unreachable if there is no control flow path from the relevant entry point to that code."
+}

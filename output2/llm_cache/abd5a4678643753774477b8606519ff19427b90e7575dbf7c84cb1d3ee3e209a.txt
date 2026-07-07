@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.1) states that parentheses should be used to override default operator precedence and to emphasize it. However, in the target line, the expression (p != NULL) && (val == 42) does not require parentheses to override operator precedence. The rule is not applicable to this code construct."
+}

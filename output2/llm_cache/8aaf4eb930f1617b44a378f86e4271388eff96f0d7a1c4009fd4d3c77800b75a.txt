@@ -1,0 +1,4 @@
+CORRECTED:
+int unspecified(void){int i=0;int r=i+1+1;return r;}
+EXPLANATION:
+The order of evaluation of the increment operators ++ has been removed to ensure the expression is evaluated in a predictable manner.

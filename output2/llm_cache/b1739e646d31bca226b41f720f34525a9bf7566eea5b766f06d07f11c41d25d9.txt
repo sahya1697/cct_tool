@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function parameter list. However, the rule's amplification mentions that the const qualification should be applied to the object pointed to, not to the pointer. The target line does not involve a pointer parameter, but the surrounding code does. Further review is needed to determine if the rule applies to the surrounding code and if the const qualification is correctly applied."
+}

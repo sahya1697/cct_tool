@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement has a case for 0, which sets r to 10. However, the switch statement does not have a default case, and the function will not return or exit after the switch statement. Therefore, the code following the switch statement is unreachable, violating rule 14.1."
+}

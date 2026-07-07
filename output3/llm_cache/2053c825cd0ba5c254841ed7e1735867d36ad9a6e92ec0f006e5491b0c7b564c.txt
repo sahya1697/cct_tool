@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to expressions containing increment (++) and decrement (--) operators mixed with other operators. However, the target line does not contain any such expression. It is a macro definition and does not contain any code that would be compiled to an expression containing mixed operators."
+}

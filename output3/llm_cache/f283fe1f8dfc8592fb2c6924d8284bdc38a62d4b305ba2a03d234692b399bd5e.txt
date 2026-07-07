@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function declaration with a non-pointer parameter (uint8_t channel). The rule does not apply to this code construct."
+}

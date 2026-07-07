@@ -1,0 +1,10 @@
+CORRECTED:
+    int main(void)
+    {
+        (void)printf("unreachable() -> %d\n", unreachable());
+        int inc = no_effect(3);                
+        (void)printf("no_effect(3) -> %d\n", inc);
+    }
+
+EXPLANATION:
+The function prototype for `no_effect` should be modified to declare its parameter as `const int` to reflect that it is not used to modify the addressed object.

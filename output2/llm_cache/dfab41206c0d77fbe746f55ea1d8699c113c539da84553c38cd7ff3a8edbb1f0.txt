@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The final clause of the switch statement is not the default clause, but rather a case 1 clause. This violates the rule that the final clause of a switch statement shall be the default clause."
+}

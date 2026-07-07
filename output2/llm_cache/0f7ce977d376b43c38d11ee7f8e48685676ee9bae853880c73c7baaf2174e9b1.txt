@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The code uses a switch statement, but the syntax is not compliant with MISRA C. The rule requires the use of the MISRA C switch syntax, which is not present in this code. The switch statement has a complex structure with multiple case labels and a default label, which is not allowed by the MISRA C switch syntax."
+}

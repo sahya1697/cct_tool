@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line does not contain a logical && or || operator, so the rule does not apply to this code construct."
+}

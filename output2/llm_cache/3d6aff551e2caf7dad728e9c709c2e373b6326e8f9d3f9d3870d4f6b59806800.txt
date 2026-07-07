@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch label is used within a switch statement, and the most closely-enclosing compound statement is indeed the body of the switch statement. This matches the rule's requirement that the scope of a case or default label shall be the compound statement, which is the body of a switch statement."
+}

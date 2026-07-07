@@ -1,0 +1,12 @@
+CORRECTED:
+```c
+/* -----------------------------------------------------------------------
+>>>  * main()
+     * System entry point.
+     * ----------------------------------------------------------------------- */
+
+void main(const char * const ptr);
+```
+
+EXPLANATION:
+The const keyword has been moved to qualify the object pointed to, not the pointer itself, to adhere to the MISRA rule.

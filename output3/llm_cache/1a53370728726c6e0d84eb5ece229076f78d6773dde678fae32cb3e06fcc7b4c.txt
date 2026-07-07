@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (11.5) specifically addresses casts that remove const or volatile qualification from the type addressed by a pointer. However, the target line does not involve any casting that would remove such qualification. The pointer declaration is for a struct type, and there is no indication of any attempt to remove const or volatile qualification."
+}

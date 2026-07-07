@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch label 'case 1:' is used outside the body of a switch statement, violating the rule. The most closely-enclosing compound statement is not the body of a switch statement, as indicated by the indentation and the presence of the 'case 0:' label outside the switch statement."
+}

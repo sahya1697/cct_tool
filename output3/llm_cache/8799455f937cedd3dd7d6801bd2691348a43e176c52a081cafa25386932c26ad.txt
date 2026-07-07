@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to pointer to object type conversions, but the target line is a function parameter declaration, not a pointer conversion. The function parameter 'buf' is of type 'uint8_t *', but it is not being cast to a different pointer type within the function. The rule does not apply to this code construct."
+}

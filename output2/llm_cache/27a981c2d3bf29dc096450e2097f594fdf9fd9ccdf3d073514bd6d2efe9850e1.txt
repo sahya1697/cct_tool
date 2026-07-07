@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to constant unsigned integer expressions that lead to wrap-around, but the target line is not a constant expression. It is a variable assignment and a conditional statement. The variable y is assigned the value of x, which is an integer, and then checked if it's less than 0. If it is, the program jumps to the retry label. There is no constant unsigned integer expression in the target line that could lead to wrap-around."
+}

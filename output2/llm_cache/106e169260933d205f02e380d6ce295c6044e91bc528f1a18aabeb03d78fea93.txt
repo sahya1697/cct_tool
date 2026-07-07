@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule prohibits the use of unions, but the target line does not contain a union. The code uses a switch statement to evaluate the value of `v` and return a value based on its case. There is no union used in this code snippet."
+}

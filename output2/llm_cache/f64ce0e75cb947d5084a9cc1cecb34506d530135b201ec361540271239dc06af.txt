@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement has a case with a constant value (0) that is unreachable because the switch expression (a % 3) will never evaluate to 0 when a is an integer. This is a clear violation of the rule, as there is no control flow path to reach the code following the case 0 label."
+}

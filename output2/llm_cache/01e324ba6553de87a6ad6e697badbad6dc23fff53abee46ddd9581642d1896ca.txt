@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line does not explicitly declare any pointer parameters. The function 'prec' takes five integer parameters, and there is no indication that any of these parameters are pointers. However, the rule's amplification text suggests that the focus is on protecting the objects pointed to, not the pointers themselves. Without more information about the function's behavior or the types of the parameters, it is unclear whether the rule applies. Therefore, a human review is necessary to determine the correct course of action."
+}

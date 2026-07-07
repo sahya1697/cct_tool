@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.3) specifies that the sizeof operator shall not be used on expressions that contain side effects. However, the target line uses sizeof on a constant (10U), which does not have side effects. Therefore, the rule does not apply to this code construct."
+}

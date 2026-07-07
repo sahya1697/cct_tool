@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule states that there shall be no unreachable code. The target line is a BreakStatement, which is a control flow statement. However, the amplification text clarifies that code that can be reached but may never be executed is excluded from the rule. In this case, the BreakStatement is part of a switch statement, and the code following it is not unreachable because it can be reached through the switch statement's control flow path."
+}

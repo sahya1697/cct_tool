@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement in the target line has a case label (case 1) that is unreachable because it is immediately followed by another case label (case 1) without a break statement. This is a clear violation of the rule, as there is no control flow path from the relevant entry point to the unreachable code."
+}

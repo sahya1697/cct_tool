@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to function prototypes, but the provided code snippet is a function call. The rule's amplification text does not directly address function calls, and the context does not provide enough information to determine whether the function prototype is compliant or not. Further review is required to accurately assess the violation."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch label 'case 1:' in the target line is used within the body of a switch statement, but it is not at the same scope as the 'default:' clause. According to the rule, all case clauses and the default clause shall be at the same scope. This is a clear violation of the rule."
+}

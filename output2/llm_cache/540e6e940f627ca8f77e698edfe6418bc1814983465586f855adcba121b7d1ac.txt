@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line contains a floating-point expression being tested for inequality (i.e., `i < (float)n`), which directly matches the rule's criteria. The amplification text also clarifies that indirect tests, such as this one, are forbidden by this rule."
+}

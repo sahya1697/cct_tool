@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function call, not a function prototype. However, the function `logical_nonprimary` is defined earlier in the code, and its parameters are not declared as const. To determine if the rule is violated, further analysis of the function's behavior and the types of the parameters is required."
+}

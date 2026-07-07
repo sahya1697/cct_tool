@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function 'only_default' has a non-void return type and does not have an explicit return statement with an expression at all exit paths. The function returns an integer value, and the 'default' branch in the switch statement does not have an explicit return statement with an expression. This matches the rule description, which states that all exit paths from a function with a non-void return type shall have an explicit return statement with an expression."
+}

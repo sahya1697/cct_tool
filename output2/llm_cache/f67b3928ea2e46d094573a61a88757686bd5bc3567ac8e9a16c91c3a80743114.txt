@@ -1,0 +1,9 @@
+CORRECTED:
+int y = x;
+if (y < 0) goto retry;
+y = y + 1;
+retry:
+if (y == 0) {
+
+EXPLANATION:
+Parentheses were added to the expression in the if statement to explicitly show the intended order of operations.

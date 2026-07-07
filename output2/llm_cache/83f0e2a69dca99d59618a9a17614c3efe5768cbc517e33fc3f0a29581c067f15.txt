@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function m(double c, double d) does not modify the objects pointed to by its parameters, as it only checks for equality. Therefore, the parameters should be declared as const double *c, const double *d, which is not the case here, but the rule does not apply because the function does not modify the objects."
+}

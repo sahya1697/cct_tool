@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line `y = y + 1;` involves an assignment operation, which is not explicitly mentioned in the rule's amplification. However, the rule's description states that the value of an expression shall be the same under any order of evaluation that the standard permits. In this case, the expression `y + 1` is evaluated, and its value depends on the order of evaluation of `y` and `1`. Since the order of evaluation is unspecified, this code violates the rule."
+}

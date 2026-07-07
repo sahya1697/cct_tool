@@ -1,0 +1,5 @@
+CORRECTED:
+    int logical_nonprimary(int a,int b,int c){if(a+b && c-1) return 1; else return 0;}
+
+EXPLANATION:
+The original code already meets the MISRA rule, so no changes are needed.

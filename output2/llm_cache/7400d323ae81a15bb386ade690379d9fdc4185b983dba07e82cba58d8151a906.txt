@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function assignb has an if statement with a condition x=y. The order of evaluation of function arguments is unspecified, which means that the value of x could be different depending on whether y is evaluated before x or vice versa. This could lead to different results depending on the order of evaluation, violating the rule."
+}

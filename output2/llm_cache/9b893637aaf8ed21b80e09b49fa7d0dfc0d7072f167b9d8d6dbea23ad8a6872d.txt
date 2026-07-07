@@ -1,0 +1,5 @@
+CORRECTED:
+return (((a & b) == c) | (d << (1 + e)));
+
+EXPLANATION:
+Parentheses were added to explicitly group the expression and avoid relying on C's operator precedence rules.

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to implicit conversions between floating-point types, but the target line does not involve any floating-point operations. The loop counter 'i' is an integer, and the expression 'n * 2' is also an integer operation. Therefore, there is no implicit conversion between floating-point types, and the rule is not applicable to this code construct."
+}

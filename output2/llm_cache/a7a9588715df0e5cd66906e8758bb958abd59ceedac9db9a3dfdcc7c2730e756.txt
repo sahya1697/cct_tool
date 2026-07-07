@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch label 'case 1:' in the target line is used within the body of a switch statement, but it is not the most closely-enclosing compound statement. The label 'case 1:' is used to modify the value of 'r' when 'v' is 1, which is not the same scope as the switch statement. This violates the rule that a switch label shall only be used when the most closely-enclosing compound statement is the body of a switch statement."
+}

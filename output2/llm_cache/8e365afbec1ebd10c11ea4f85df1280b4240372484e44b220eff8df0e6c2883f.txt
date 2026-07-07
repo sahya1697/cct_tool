@@ -1,0 +1,10 @@
+CORRECTED:
+int count = 0;
+int i;
+for (i = 0; i < (n * 2); i++)
+{
+    count++;
+}
+
+EXPLANATION:
+The code was corrected by removing the floating-point variable from the controlling expression of the for statement.

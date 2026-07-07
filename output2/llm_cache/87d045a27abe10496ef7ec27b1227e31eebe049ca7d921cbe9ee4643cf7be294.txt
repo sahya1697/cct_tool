@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule requires functions with no parameters to be declared and defined with the parameter list void. However, the provided code snippet does not explicitly declare the function r14_3_null_stmt with a parameter list void. The function is declared with a parameter list void in the function definition, but the rule's applicability to this specific code construct is unclear due to the lack of explicit information about the function's parameter list in the function declaration. Therefore, a human review is necessary to determine the correct application of the rule."
+}

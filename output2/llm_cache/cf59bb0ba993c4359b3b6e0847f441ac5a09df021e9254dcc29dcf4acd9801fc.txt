@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 1.0,
+  "reasoning": "The function main has no parameters, and according to Rule 16.5, functions with no parameters shall be declared and defined with the parameter list void. The function main is declared as int main(void), which matches the rule's requirement."
+}

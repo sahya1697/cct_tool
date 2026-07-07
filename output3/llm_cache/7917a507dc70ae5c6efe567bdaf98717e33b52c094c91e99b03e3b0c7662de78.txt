@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line `p = p + 10;` performs pointer arithmetic on a non-array pointer `p`, which is explicitly calculated. This directly violates Rule 17.4, which states that array indexing shall be the only allowed form of pointer arithmetic."
+}

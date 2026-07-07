@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to functions with no parameters, but the target line is a function call, not a function declaration or definition. The function 'main' is declared with the parameter list 'void', which is compliant with the rule."
+}

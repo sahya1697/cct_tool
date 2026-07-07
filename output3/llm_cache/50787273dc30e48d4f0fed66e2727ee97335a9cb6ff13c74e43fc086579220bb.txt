@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.1) is about limited dependence on C's operator precedence rules in expressions. The target line is a function call (`process_all_sensors()`), which does not involve any expressions that could be subject to operator precedence rules. Therefore, the rule does not apply to this code construct."
+}

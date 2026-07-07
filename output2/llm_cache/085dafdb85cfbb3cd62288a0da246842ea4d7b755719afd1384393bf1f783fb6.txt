@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to floating-point expressions tested for equality or inequality, but the target line contains an integer variable 'i' being compared in a for loop, which does not involve floating-point expressions."
+}

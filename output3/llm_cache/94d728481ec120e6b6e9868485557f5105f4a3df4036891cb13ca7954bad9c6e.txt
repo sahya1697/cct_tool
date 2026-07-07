@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (16.7) applies to function prototypes and pointer parameters, but the provided code is a function body, not a function prototype. Therefore, the rule does not apply to this code construct."
+}

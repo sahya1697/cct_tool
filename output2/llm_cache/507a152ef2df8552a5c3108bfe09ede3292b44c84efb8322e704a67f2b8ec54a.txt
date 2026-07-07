@@ -1,0 +1,9 @@
+CORRECTED:
+static int multi_exit(int n)
+{
+    if (n < 0) { return -1; }
+    return 0; // Added explicit return statement with an expression
+}
+
+EXPLANATION:
+An explicit return statement with an expression was added to ensure the function returns a value in all exit paths.

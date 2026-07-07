@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that the value of an expression shall be the same under any order of evaluation that the standard permits. In the target line, `sizeof(i++)` is evaluated, which has side effects due to the increment operator. The order of evaluation of `sizeof` and `i++` is unspecified, making the expression's value dependent on the order of evaluation. This matches the amplification text's example of what can go wrong with increment or decrement operators."
+}

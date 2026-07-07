@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to functions with no parameters, but the target line is not a function declaration. It is a statement within a function. The function r14_3_null_stmt has a parameter list, which is void, as per the rule's amplification."
+}

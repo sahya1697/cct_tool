@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The function 'ez' returns 1 if the input 'z' is true, and 0 otherwise. However, the rule requires that error information be tested. In this case, the function 'ez' does not explicitly indicate an error, but it also does not provide any means of indicating an error. Therefore, it is unclear whether the function is intended to indicate an error or not, and further review is needed to determine whether the rule is applicable."
+}

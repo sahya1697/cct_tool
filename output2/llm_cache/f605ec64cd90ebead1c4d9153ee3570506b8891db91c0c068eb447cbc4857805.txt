@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line contains a function call to printf() within the for loop, which has side effects. The order of evaluation of the expression i++ and the function call printf() is unspecified, as per the rule description. This can lead to different results depending on whether i++ is evaluated before or after the function call. Therefore, the code violates the rule."
+}

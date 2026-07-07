@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to the for statement, but the target line is a function declaration (varsum) and not a for statement. The function varsum uses a va_list and va_arg to iterate over a variable number of arguments, which does not match the for statement structure described in the rule."
+}

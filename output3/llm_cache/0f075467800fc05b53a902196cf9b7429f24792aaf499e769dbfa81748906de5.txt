@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 1.0,
+  "reasoning": "The target line declares an external array 'g_tx_buffer' without explicitly stating its size. According to Rule 8.12, when an array is declared with external linkage, its size shall be stated explicitly or defined implicitly by initialization. Since the size is not explicitly stated or initialized, this code violates the rule."
+}

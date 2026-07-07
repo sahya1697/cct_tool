@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to casts between different pointer types, but the target line does not contain a cast. It is a function parameter declaration."
+}

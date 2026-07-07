@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that the value of an expression shall be the same under any order of evaluation that the standard permits. The target line contains a function call (log_error) with a side effect, which can vary depending on the order of evaluation. This matches the amplification text's example of what can go wrong with function calls, where dependence on order of evaluation could be avoided by invoking the function prior to the expression that uses it. In this case, the log_error function is called within the && expression, which can lead to different results depending on the order of evaluation."
+}

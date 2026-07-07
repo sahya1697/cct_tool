@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The controlling expression of the for statement is the loop counter 'i', which is an integer. The rule specifically mentions that floating-point variables shall not be used for this purpose, but it does not prohibit the use of integer variables. Therefore, the code is compliant with this rule."
+}

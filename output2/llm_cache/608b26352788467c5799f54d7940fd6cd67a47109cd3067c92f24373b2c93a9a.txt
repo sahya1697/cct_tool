@@ -1,0 +1,12 @@
+CORRECTED:
+    {
+        int r = 0;
+        switch (a % 3)
+        {
+            case 0:
+                /* ... */
+        }
+    }
+
+EXPLANATION:
+The switch statement body was enclosed within an additional pair of braces to meet the MISRA requirement for a compound statement.

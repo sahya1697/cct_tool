@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to implicit conversions between integer and floating types, but the target line is an assignment of an integer value to another integer variable, which does not involve any implicit conversion between integer and floating types."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that assignment operators shall not be used in expressions that yield a Boolean value. In the target line, the expression 'a+b && c-1' uses the assignment operator in the operand of a Boolean-valued expression, specifically in the 'c-1' part, which is an assignment. This directly violates the rule."
+}

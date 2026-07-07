@@ -1,0 +1,10 @@
+CORRECTED:
+    int main(void) {
+        (void)bad_scope(0);
+        (void)missing_break(0);
+        (void)default_not_last(0);
+        (void)switch_bool(0);
+    }
+
+EXPLANATION:
+The function call switch_bool was corrected to pass a valid argument, 0, instead of -3.

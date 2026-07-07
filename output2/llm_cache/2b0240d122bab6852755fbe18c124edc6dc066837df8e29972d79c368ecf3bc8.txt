@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function declaration with no pointer parameters. However, the function 'bad_null' has a pointer parameter 'y' which is not used to modify the addressed object. The rule's applicability to this specific context is unclear, and further review is required to determine whether the pointer parameter should be declared as pointer to const."
+}

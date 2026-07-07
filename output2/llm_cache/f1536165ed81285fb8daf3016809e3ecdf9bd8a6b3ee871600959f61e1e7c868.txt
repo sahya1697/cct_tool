@@ -1,0 +1,11 @@
+CORRECTED:
+int r13_5_for_side_effects(void) {
+    int i, ticks = 0;
+    for (i = 0; i < 3; i++) {
+        printf("tick\n");
+        ticks++;
+    }
+}
+
+EXPLANATION:
+The fix is to move the printf statement outside the increment operation to ensure that the order of evaluation is not dependent on the order of the sub-expressions.

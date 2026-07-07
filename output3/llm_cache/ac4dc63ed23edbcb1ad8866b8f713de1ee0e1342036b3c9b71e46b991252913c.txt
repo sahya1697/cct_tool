@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule refers to unreachable code, which cannot be reached under any circumstances at compile time. The target line is a function call to a recursive function, which is reachable and can be executed. The code does not match the rule's criteria for unreachable code."
+}

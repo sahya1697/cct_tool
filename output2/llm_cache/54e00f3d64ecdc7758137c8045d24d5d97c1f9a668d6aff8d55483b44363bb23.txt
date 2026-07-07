@@ -1,0 +1,5 @@
+CORRECTED:
+    int assignb(int x,int y){if((x=y)!=0) return 1; return 0;}
+
+EXPLANATION:
+The fix is to test the return value of the assignment operation, which is the value assigned to x, to determine if an assignment occurred.

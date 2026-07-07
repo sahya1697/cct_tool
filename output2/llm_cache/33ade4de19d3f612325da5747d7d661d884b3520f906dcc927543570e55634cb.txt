@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line does not contain any pointer parameters. The function 'prec' takes four integer parameters, none of which are pointers."
+}

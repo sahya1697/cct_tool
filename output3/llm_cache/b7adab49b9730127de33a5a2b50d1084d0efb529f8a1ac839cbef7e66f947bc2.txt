@@ -1,0 +1,14 @@
+CORRECTED:
+switch (x)
+{
+case 0:
+a = b;
+break;
+case 1:
+case 2:
+a = c;
+break;
+}
+
+EXPLANATION:
+Added a case clause for the value 1 to ensure that every switch statement has at least one case clause.

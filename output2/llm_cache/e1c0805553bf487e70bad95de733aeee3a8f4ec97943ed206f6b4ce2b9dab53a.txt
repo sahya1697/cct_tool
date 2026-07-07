@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 1.0,
+  "reasoning": "The rule states that assignment operators shall not be used in expressions that yield a Boolean value. In the target line, the expression `i++,printf(\"t\")` is used in the for loop condition, which is a Boolean-valued expression. The `++` operator is an assignment operator, which is used in this expression, violating the rule."
+}

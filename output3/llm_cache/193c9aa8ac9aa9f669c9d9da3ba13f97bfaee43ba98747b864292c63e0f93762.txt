@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.2) specifies that the value of an expression shall be the same under any order of evaluation that the standard permits. However, the target line (process_all_sensors()) is a function call, and the rule amplification text explicitly mentions that the order of evaluation of function arguments is unspecified. Nevertheless, the provided code does not demonstrate any dependence on the order of evaluation of function arguments. The function call process_all_sensors() does not have any side effects that would be affected by the order of evaluation. Therefore, the rule does not apply to this code construct, and there is no violation."
+}

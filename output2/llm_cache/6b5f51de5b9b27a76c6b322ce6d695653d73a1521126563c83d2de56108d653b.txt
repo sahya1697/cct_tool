@@ -1,0 +1,13 @@
+CORRECTED:
+int r15_3_default_not_final(int v) {
+    int r = 0;
+    switch (v) {
+        default: 
+            r = -1;
+        case 0: // added a case to make the switch statement complete
+            break;
+    }
+}
+
+EXPLANATION:
+The fix adds a case statement to the switch block to ensure it is complete, thereby satisfying the MISRA rule.

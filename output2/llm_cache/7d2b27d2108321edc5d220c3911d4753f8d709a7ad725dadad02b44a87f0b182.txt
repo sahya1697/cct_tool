@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function declaration (sw_case) rather than a function prototype. However, the function parameter 'a' is declared as 'int', not a pointer. Therefore, the rule's applicability is uncertain, and a human review is required to determine whether the rule is violated or not."
+}

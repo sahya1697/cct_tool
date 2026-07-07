@@ -33,13 +33,13 @@ class RuleRetrievalAgent:
         self.all_rules = all_rules
         self.log = log_agent
 
-    def retrieve(self, node: "ASTNode", max_results: int = 6) -> list[dict]:
+    def retrieve(self, node: "ASTNode", max_results: int = 12) -> list[dict]:
         """
         Retrieve and match rules for a given AST node.
         
         Args:
             node: AST node to analyze
-            max_results: Maximum number of rules to return
+            max_results: Maximum number of rules to return (increased from 6 to 12)
             
         Returns:
             List of matched rule dictionaries
@@ -51,8 +51,9 @@ class RuleRetrievalAgent:
         )
 
         # Step 1: Keyword / category retrieval (already filters by node type)
+        # Retrieve more rules initially to avoid missing relevant ones
         keyword_rules = retrieve_rules_for_node(
-            self.all_rules, node.node_type, node.code, max_results=max_results
+            self.all_rules, node.node_type, node.code, max_results=max_results * 2
         )
 
         # Step 2: Optional vector retrieval

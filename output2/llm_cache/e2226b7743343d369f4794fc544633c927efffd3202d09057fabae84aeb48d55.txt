@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The code uses a switch statement with a case label that is not a constant expression, violating the MISRA C switch syntax rule. The rule requires that case labels be constant expressions, but the code uses a case label with a variable expression (v). This is a clear violation of the rule, as specified in the amplification text."
+}

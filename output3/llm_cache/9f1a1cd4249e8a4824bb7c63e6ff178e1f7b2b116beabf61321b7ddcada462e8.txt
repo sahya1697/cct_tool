@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (14.1) states that there shall be no unreachable code. However, the target line is a goto statement, which is not the focus of this rule. The rule is about unreachable code, not goto statements. The goto statement is actually the target of rule 14.4, which is a separate rule."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule specifies that a switch statement shall only contain switch labels and switch clauses, and no other code. However, the target line is a break statement within a case clause, which is a valid part of a switch statement according to the C standard and the MISRA C switch syntax. Therefore, this code is compliant with the rule."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to the declaration of objects, but the target line is a pointer declaration within a function. The pointer declaration 'uint8_t *writable = (uint8_t *)pkt;' does not exceed two levels of pointer indirection, as it is a single pointer to a uint8_t. The rule does not apply to this code construct."
+}

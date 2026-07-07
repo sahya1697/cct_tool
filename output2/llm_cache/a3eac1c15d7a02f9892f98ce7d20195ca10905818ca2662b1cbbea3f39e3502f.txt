@@ -1,0 +1,11 @@
+CORRECTED:
+int only_default(int v) {
+    switch (v) {
+        case 0:
+            v++;
+            break;
+    }
+}
+
+EXPLANATION:
+The break statement was added to ensure that the switch statement body is properly terminated, thus adhering to the MISRA rule.

@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that pointer subtraction shall only be applied to pointers that address elements of the same array. In the target line, the pointer 'p' is being incremented by 10, which implies pointer subtraction is being used. However, the pointer 'p' is not declared as an array pointer, but rather a pointer to a single element. Therefore, the rule is violated."
+}

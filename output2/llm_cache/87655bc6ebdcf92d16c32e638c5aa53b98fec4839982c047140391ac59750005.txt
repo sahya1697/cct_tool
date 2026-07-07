@@ -1,0 +1,5 @@
+CORRECTED:
+int assign_bool(int a, int b){ return a == b; }
+
+EXPLANATION:
+The function assign_bool was modified to remove the unnecessary pointer parameter, thus eliminating the need for the const qualification.

@@ -1,0 +1,11 @@
+CORRECTED:
+    int r15_3_default_not_final(int v) {
+        int r = 0;
+        switch (v) {
+            default: 
+                r = -1;
+        }
+    }
+
+EXPLANATION:
+The switch statement was missing a closing bracket to define its scope.

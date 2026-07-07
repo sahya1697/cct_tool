@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line `log_formatted(\"Total: %d\\n\", total);` involves a function call with variable arguments, which is a known case where the order of evaluation is unspecified (Rule 12.2). The function call operator () does not guarantee a specific order of evaluation for its arguments, and the use of variable arguments further complicates the situation. This matches the amplification text's guidance on function arguments, where it states that the order of evaluation is unspecified."
+}

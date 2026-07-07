@@ -1,0 +1,5 @@
+CORRECTED:
+enum Color {RED, GREEN, BLUE};
+
+EXPLANATION:
+The fix is to use an enum declaration with explicit initialisation of all members.

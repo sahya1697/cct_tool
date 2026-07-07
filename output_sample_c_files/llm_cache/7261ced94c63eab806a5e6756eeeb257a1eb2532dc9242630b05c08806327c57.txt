@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 0.95,
+  "reasoning": "Rule 12.5 requires operands of && or || to be primary expressions, but it explicitly exempts expressions that consist solely of a sequence of && (or a sequence of ||). The target line contains only && operators, so the exception applies and no additional parentheses are required. Therefore the code is compliant with Rule 12.5."
+}

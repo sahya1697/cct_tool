@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 1.0,
+  "reasoning": "The switch statement in the function 'onlydef' has no case clauses, violating rule 15.5. The rule requires at least one case clause in every switch statement."
+}

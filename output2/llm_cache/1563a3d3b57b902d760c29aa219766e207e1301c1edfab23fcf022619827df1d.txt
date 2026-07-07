@@ -1,0 +1,11 @@
+CORRECTED:
+int count = 0;
+int i;
+for (i = 0; i < (n * 2); i++)
+{
+    count++;
+    // ... rest of the code remains the same
+}
+
+EXPLANATION:
+The modification of the loop counter variable 'i' has been removed, as it is not allowed to modify the loop counter within the loop body according to MISRA rule 13.6.

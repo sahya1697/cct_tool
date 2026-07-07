@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to the order of evaluation of sub-expressions, but the target line is a function declaration, not an expression. The function declaration does not have any sub-expressions that could be evaluated in a different order."
+}

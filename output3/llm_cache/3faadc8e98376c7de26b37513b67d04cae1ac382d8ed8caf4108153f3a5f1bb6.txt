@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to the order of evaluation of sub-expressions, but the target line is a simple loop counter increment (i++) which does not involve any sub-expressions that could be evaluated in a different order. The rule's amplification text highlights specific cases where order of evaluation is a concern, but this is not one of them."
+}

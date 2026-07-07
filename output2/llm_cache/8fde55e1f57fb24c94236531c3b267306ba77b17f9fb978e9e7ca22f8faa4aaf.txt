@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function r14_5_continue has a parameter list, which is not void. The rule applies to functions with no parameters, and since this function has a parameter list, it does not violate the rule."
+}

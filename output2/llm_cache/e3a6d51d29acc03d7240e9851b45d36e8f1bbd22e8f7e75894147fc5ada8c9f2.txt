@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 1.0,
+  "reasoning": "The rule explicitly states that the goto statement shall not be used. The target line contains a goto statement, specifically 'goto retry;'. This directly matches the rule's criteria, indicating a clear violation."
+}

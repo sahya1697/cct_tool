@@ -1,0 +1,11 @@
+CORRECTED:
+    int twelve(int v) {
+        int r = 0;
+        switch (v) {
+            default:
+                r = 9;
+        }
+    }
+
+EXPLANATION:
+The switch statement was missing a closing bracket to define its scope.

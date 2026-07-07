@@ -1,0 +1,193 @@
+/*
+ * doc_violations.c
+ *
+ * Minimal C file violating MISRA-C:2004 Rules 3.1 – 3.6 (Section 6.3 Documentation).
+ *
+ * Rule 3.1 (required): All usage of implementation-defined behaviour shall be documented.
+ * Rule 3.2 (required): The character set and the corresponding encoding shall be documented.
+ * Rule 3.3 (advisory): The implementation of integer division in the chosen compiler
+ *                      should be determined, documented and taken into account.
+ * Rule 3.4 (required): All uses of the #pragma directive shall be documented and explained.
+ * Rule 3.5 (required): If it is being relied upon, the implementation defined behaviour
+ *                      and packing of bitfields shall be documented.
+ * Rule 3.6 (required): All libraries used in production code shall be written to comply
+ *                      with the provisions of this document, and shall have been subject
+ *                      to appropriate validation.
+ */
+
+#include <stdio.h>    /* Rule 3.6 violation: stdio.h is a standard library that has
+                       * NOT been validated for MISRA compliance — see bottom of file */
+#include <string.h>   /* Rule 3.6 violation: string.h likewise unvalidated */
+
+typedef unsigned int   uint32_t;
+typedef unsigned char  uint8_t;
+typedef signed   int   int32_t;
+
+
+/* ── Rule 3.4 violation ───────────────────────────────────────────────────────
+ * All uses of #pragma shall be documented and explained. Each pragma must have
+ * a supporting description demonstrating that its behaviour and implications
+ * for the application are fully understood.
+ *
+ * The two pragmas below have NO accompanying documentation — no comment
+ * explaining what they do, why they are needed, or what their effect is on
+ * the object code layout or compiler behaviour.
+ *
+ * Compliant form would be:
+ *   #pragma pack(push, 1)
+ *   ^ Forces 1-byte struct alignment. Used here to match the hardware
+ *     register map layout defined in HW-REF-001 §4.2. No padding is
+ *     inserted between members. Verified on GCC 9.3 (see DevNote-042).
+ */
+#pragma pack(push, 1)     /* Rule 3.4: #pragma with no documentation or explanation */
+#pragma optimize("s", on) /* Rule 3.4: second undocumented #pragma */
+
+
+/* ── Rule 3.5 violation ───────────────────────────────────────────────────────
+ * If implementation-defined bitfield behaviour is relied upon, it must be
+ * documented. Bitfield layout in C is implementation-defined in three ways:
+ *   (a) Whether bits are allocated from the high or low end of the storage unit.
+ *   (b) Whether a bitfield may straddle a storage-unit boundary.
+ *   (c) The signedness of a plain `int` bitfield.
+ *
+ * The struct below relies on all three without any documentation:
+ *   - `flags` and `mode` are packed into a single byte by the #pragma above,
+ *     but the bit ordering (MSB-first vs LSB-first) is not documented.
+ *   - `status` straddles the 4+3=7 bit boundary in an undefined way.
+ *   - No compiler or platform reference is cited.
+ *
+ * Additional sub-violation: `uint8_t` and `uint16_t` bitfield base types
+ * are used instead of the required `unsigned int` or `signed int` (Rule 6.4),
+ * compounding the implementation-defined behaviour.
+ */
+typedef struct
+{
+    uint8_t  flags  : 4;   /* Rule 3.5: bit ordering not documented */
+    uint8_t  mode   : 3;   /* Rule 3.5: packing behaviour not documented */
+    uint8_t  status : 1;   /* Rule 3.5: straddling behaviour not documented */
+} DeviceRegister_t;        /* Rule 3.5: no compiler reference, no HW-REF cited */
+
+
+/* ── Rule 3.2 violation ───────────────────────────────────────────────────────
+ * The character set and its encoding shall be documented.
+ * This means both:
+ *   (a) Source character set: the encoding of the .c source file itself
+ *       (e.g. ASCII, UTF-8, ISO-8859-1) must be stated.
+ *   (b) Execution character set: the encoding used at runtime for character
+ *       constants and string literals must be stated.
+ *
+ * The string literal below contains a non-ASCII byte (the degree symbol °,
+ * encoded as 0xB0 in ISO-8859-1 or as 0xC2 0xB0 in UTF-8). Using such a
+ * character without documenting either the source or execution character set
+ * is a Rule 3.2 violation — the compiler's interpretation of 0xB0 is
+ * implementation-defined.
+ *
+ * Compliant form requires a project-level document stating:
+ *   "Source files are encoded in UTF-8. The execution character set is ASCII.
+ *    All string literals containing non-ASCII bytes are restricted to [list]."
+ */
+static const char UNIT_LABEL[] = "Temp: 25°C";   /* Rule 3.2: non-ASCII character
+                                                   * used without documented encoding */
+
+
+/* ── Rule 3.1 violation ───────────────────────────────────────────────────────
+ * All usage of implementation-defined behaviour shall be documented by
+ * reference to compiler documentation.
+ *
+ * right-shifting a signed negative integer is implementation-defined in C90:
+ * the standard permits either arithmetic shift (sign bit replicated) or
+ * logical shift (zero filled). The code below relies on arithmetic right
+ * shift to propagate the sign bit — a behaviour that is true on most
+ * mainstream compilers but is NOT guaranteed by the standard and must be
+ * documented with a reference to the specific compiler's behaviour.
+ *
+ * No such documentation is present here.
+ */
+int32_t arithmetic_shift_right(int32_t value, uint32_t bits)
+{
+    /*
+     * Rule 3.1 violation: right-shifting a signed negative value is
+     * implementation-defined (ISO/IEC 9899:1990 §6.3.7). No compiler
+     * reference or deviation is documented to justify this usage.
+     */
+    return value >> bits;   /* implementation-defined for negative value */
+}
+
+
+/* ── Rule 3.3 violation ───────────────────────────────────────────────────────
+ * The implementation of integer division for signed operands shall be
+ * determined, documented, and taken into account.
+ *
+ * For two signed integers where one is negative, ISO C90 permits the compiler
+ * to round either toward zero or toward negative infinity:
+ *   -5 / 3  →  -1 remainder -2  (round toward zero)     — most modern compilers
+ *   -5 / 3  →  -2 remainder +1  (round toward -infinity) — some older compilers
+ *
+ * The function below uses signed division on potentially negative operands.
+ * Neither the rounding direction nor the compiler used is documented.
+ * The result is silently assumed to round toward zero without verification.
+ */
+int32_t divide_signed(int32_t numerator, int32_t denominator)
+{
+    /*
+     * Rule 3.3 violation: signed integer division with a potentially negative
+     * numerator. The rounding direction is implementation-defined and has not
+     * been determined, documented, or verified for this compiler/platform.
+     */
+    return numerator / denominator;   /* e.g. -5/3 = -1 or -2 depending on compiler */
+}
+
+
+/* ── Rule 3.6 violation ───────────────────────────────────────────────────────
+ * All libraries used in production code shall:
+ *   (a) be written to comply with the provisions of this MISRA document, AND
+ *   (b) have been subject to appropriate validation.
+ *
+ * The standard C libraries <stdio.h> and <string.h> are included and used
+ * below. Neither has been validated for MISRA-C:2004 compliance — both
+ * contain functions that violate multiple MISRA rules (e.g. printf uses
+ * variable arguments violating Rule 16.1; gets() has no bounds checking;
+ * string functions rely on null-termination without size guarantees).
+ *
+ * No validation report, MISRA compliance certificate, or deviation record
+ * exists for these libraries in this project.
+ */
+void report_result(int32_t value)
+{
+    char buf[32];
+
+    /* Rule 3.6: sprintf is from <stdio.h> — library not MISRA validated */
+    sprintf(buf, "Result: %d\n", (int)value);
+
+    /* Rule 3.6: strlen is from <string.h> — library not MISRA validated */
+    if (strlen(buf) > 0U)
+    {
+        /* Rule 3.6: printf is from <stdio.h> — library not MISRA validated */
+        printf("%s", buf);
+    }
+}
+
+
+int main(void)
+{
+    DeviceRegister_t reg;
+    int32_t          result;
+
+    reg.flags  = 0x0FU;
+    reg.mode   = 3U;
+    reg.status = 1U;
+    (void)reg;
+
+    /* Rule 3.1: signed right shift on potentially negative value */
+    result = arithmetic_shift_right(-256, 2U);
+
+    /* Rule 3.3: signed division — rounding direction undocumented */
+    result = divide_signed(result, -3);
+
+    /* Rule 3.2: string with undocumented non-ASCII character */
+    (void)UNIT_LABEL;
+
+    report_result(result);
+
+    return 0;
+}

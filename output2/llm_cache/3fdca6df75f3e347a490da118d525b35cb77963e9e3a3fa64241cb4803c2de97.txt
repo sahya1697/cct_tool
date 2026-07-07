@@ -1,0 +1,11 @@
+CORRECTED:
+int fourteen(int v) {
+    switch (v) {
+        default:
+            v++;
+            break; // Added break statement to ensure the switch statement ends
+    }
+}
+
+EXPLANATION:
+The fix adds a break statement to the default clause to ensure the switch statement ends as required by MISRA rule 15.3.

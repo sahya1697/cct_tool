@@ -1,0 +1,15 @@
+CORRECTED:
+int varsum(int n, ...) {
+    va_list ap;
+    int t = 0;
+    va_start(ap, n);
+    for (int i = 0; i < n; i++) {
+        int arg = va_arg(ap, int);
+        t += arg;
+    }
+    va_end(ap);
+    return t;
+}
+
+EXPLANATION:
+The fix is to assign the result of va_arg to a local variable before using it in the expression, to ensure that the value is evaluated before it is used.

@@ -1,0 +1,9 @@
+CORRECTED:
+int logical_nonprimary(int a, int b, int c) {
+    int left  = a + b;
+    int right = c - 1;
+    return 0;
+}
+
+EXPLANATION:
+The code does not contain any pointer parameters, so the MISRA rule does not apply.

@@ -1,0 +1,11 @@
+CORRECTED:
+int r13_4_float_for(void) {
+    int count = 0;
+    for (float f = 0.0f; f < 3.0f; f += 0.5f) { 
+        count++;
+    }
+    return count;
+}
+
+EXPLANATION:
+The fix is to move the increment of the loop counter variable outside the loop body.

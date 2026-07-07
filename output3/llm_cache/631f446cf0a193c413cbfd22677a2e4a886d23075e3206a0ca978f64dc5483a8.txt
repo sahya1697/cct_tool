@@ -1,0 +1,5 @@
+CORRECTED:
+void recursive_sum(const uint8_t *data);
+
+EXPLANATION:
+The function parameter was declared as a pointer to const to indicate that the function does not modify the data pointed to.

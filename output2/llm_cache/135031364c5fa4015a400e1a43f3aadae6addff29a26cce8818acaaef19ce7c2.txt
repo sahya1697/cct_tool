@@ -1,0 +1,4 @@
+CORRECTED:
+int assignb(int x,int y){if((x=y)) return 1; return 0;}
+EXPLANATION:
+Parentheses were added to explicitly define the order of operations in the if condition.

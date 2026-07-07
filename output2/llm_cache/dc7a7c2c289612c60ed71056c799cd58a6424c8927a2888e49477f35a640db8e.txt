@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 1.0,
+  "reasoning": "The function float_for has a non-void return type (int) but lacks an explicit return statement with an expression in all exit paths. The function will implicitly return 0 if the loop completes normally, which is undefined behavior according to the rule."
+}

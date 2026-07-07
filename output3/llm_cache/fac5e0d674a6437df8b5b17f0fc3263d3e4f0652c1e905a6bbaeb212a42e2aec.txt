@@ -1,0 +1,5 @@
+CORRECTED:
+log_formatted("Total: %d\n", total);
+
+EXPLANATION:
+The function parameter was not being modified, so it was declared as a const pointer to avoid Rule 16.7 violation.

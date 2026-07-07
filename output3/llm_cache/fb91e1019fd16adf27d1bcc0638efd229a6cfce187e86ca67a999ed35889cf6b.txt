@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.3) states that the sizeof operator shall not be used on expressions that contain side effects. However, the target line (>>> (void)recursive_sum(10U);) does not use the sizeof operator at all. It is a function call to recursive_sum with an argument of 10U. Therefore, the rule does not apply to this code construct."
+}

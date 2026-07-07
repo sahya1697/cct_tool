@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (11.5) specifically addresses the removal of const or volatile qualification from the type addressed by a pointer, which is not applicable to this code. The target line is performing pointer arithmetic on a non-array pointer, which is addressed by Rule 17.1, not Rule 11.5."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 1.0,
+  "reasoning": "The function call (void)twelve(-5) has 2 arguments, but the function twelve() is not defined in the provided code. However, based on the context, it is likely that the function twelve() is defined elsewhere in the code. Since the rule requires the number of arguments to match the number of parameters, and the function call has more arguments than the function definition (if it exists), this is a clear violation of the rule."
+}

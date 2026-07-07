@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line does not explicitly show a function prototype. The function name is not provided, and the parameters are not declared. Without this information, it is uncertain whether the rule applies to this code construct."
+}

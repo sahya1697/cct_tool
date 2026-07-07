@@ -1,0 +1,10 @@
+CORRECTED:
+int r13_2_explicit_zero_test_ptr(const int *p) {
+    if (p) {                    
+        return *p;
+    }
+    return 0;
+}
+
+EXPLANATION:
+The pointer parameter 'p' was changed to a pointer to const to indicate that the function does not modify the object it points to.

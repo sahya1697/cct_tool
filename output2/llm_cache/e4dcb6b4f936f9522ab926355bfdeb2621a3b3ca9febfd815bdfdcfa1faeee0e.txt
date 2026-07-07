@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function n(int x, int y) has a potential issue with the order of evaluation of its arguments. According to the rule, the order of evaluation of function arguments is unspecified. In this case, the function n is called with two arguments, x and y, which are incremented in the function call. This could lead to different results depending on which argument is evaluated first. The rule requires that the value of an expression shall be the same under any order of evaluation that the standard permits. Therefore, this code violates the rule."
+}

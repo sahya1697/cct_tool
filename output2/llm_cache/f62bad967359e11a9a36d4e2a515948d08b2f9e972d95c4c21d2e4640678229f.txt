@@ -1,0 +1,5 @@
+Here is the rationale text:
+
+1. This rule applies here because the `prec` function is called with a pointer parameter `x`, which is not used to modify the addressed object, but its type is not explicitly declared as `const *`.
+2. The code violates this rule because the pointer parameter `x` in the `prec` function is not declared as `const *`, even though it is not used to modify the addressed object, which is a requirement of this rule.
+3. The evidence used is LLM inference, as indicated by the "Detection source: llm" in the provided details.

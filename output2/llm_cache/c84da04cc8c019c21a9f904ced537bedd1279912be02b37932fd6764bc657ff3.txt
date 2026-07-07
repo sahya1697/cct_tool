@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to the sizeof operator being used on expressions with side effects. However, in the target line, the sizeof operator is not used on an expression with side effects. The sizeof operator is used on the type 'int' which does not have side effects."
+}

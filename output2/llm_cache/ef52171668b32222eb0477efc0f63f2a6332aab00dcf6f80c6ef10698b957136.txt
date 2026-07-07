@@ -1,0 +1,9 @@
+CORRECTED:
+    #include <stdio.h>
+    
+    int unreachable(void){return 1; printf("never\n");}
+    void no_effect(int a){a+1;}
+    void bad_null(int y){if(y); printf("after\n");}
+
+EXPLANATION:
+The original code does not actually violate the MISRA rule, as it does not contain any pointer parameters in function prototypes.

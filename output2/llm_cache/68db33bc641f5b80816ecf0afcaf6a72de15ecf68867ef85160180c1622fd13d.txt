@@ -1,0 +1,10 @@
+CORRECTED:
+int process(int x) {
+    int y = x;
+    if (y < 0) {
+        y = y + 1;
+    }
+}
+
+EXPLANATION:
+The goto statement has been replaced with a conditional block to achieve the same functionality.

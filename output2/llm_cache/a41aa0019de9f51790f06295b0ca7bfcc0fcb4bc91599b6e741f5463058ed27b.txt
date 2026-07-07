@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function call operator () has unspecified order of evaluation, which can lead to different results depending on the order in which sub-expressions are evaluated. In the target line, the function m is called with two arguments, x and y, but the order of evaluation of these arguments is unspecified. This matches the rule's amplification text, which notes that the order of evaluation of function arguments is unspecified."
+}

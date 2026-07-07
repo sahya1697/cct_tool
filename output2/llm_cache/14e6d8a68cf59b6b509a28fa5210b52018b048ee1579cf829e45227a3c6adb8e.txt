@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function logical_nonprimary has a non-void return type, but the rule only applies to functions with void return type. The rule does not apply to this code construct."
+}

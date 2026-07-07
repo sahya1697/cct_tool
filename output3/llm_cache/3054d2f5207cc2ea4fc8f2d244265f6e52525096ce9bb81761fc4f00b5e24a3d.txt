@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.2) addresses the order of evaluation of expressions, which is not applicable to this code construct. The target line is a function declaration, and the rule's amplification text specifically mentions function calls, function arguments, function pointers, and side effects, none of which are relevant to this code snippet."
+}

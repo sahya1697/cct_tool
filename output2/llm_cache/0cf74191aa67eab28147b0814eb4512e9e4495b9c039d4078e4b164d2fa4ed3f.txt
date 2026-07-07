@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch clause is non-empty (it contains a statement) and does not end with a break statement. According to the rule, an unconditional break statement shall terminate every non-empty switch clause. The target line `switch (v == 0)` is the start of a switch clause, and since it's not empty (it contains a statement), it should end with a break statement, which is missing."
+}

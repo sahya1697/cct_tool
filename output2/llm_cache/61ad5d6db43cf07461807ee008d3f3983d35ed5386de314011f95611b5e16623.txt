@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that parentheses should be used to override default operator precedence, especially in expressions with multiple operators. In the target line, the expression 'x = y' is an assignment, and the rule allows no parentheses for the right-hand operand of an assignment operator unless the right-hand side itself contains an assignment expression. However, the expression 'x = y' is not an assignment expression itself, but rather a simple assignment. Therefore, the rule is violated because the assignment operator '=' has a higher precedence than the comparison operator '==', which is not explicitly stated in the code. This could lead to unexpected behavior if the intention is to check if 'x' is equal to 'y' instead of assigning 'y' to 'x'."
+}

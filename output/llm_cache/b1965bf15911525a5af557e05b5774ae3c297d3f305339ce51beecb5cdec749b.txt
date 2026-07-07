@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 0.95,
+  "reasoning": "Rule 19.1 requires that any #include directive be preceded only by other preprocessor directives or comments. The target line is the very first line of the file, so there is no preceding code that could violate the rule. The following line is also a #include, which is allowed. Therefore the code complies with Rule 19.1."
+}

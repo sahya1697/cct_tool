@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function has a non-void return type (int) and the last line of code is a return statement with an expression (return 0). This matches the rule's requirement for an explicit return statement with an expression for all exit paths from a function with a non-void return type."
+}

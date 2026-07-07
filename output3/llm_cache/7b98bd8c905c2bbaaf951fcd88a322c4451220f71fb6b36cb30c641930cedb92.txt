@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line contains a function call (log_error) with a side effect, which is part of the expression on the RHS of the && operator. According to Rule 12.2, the value of an expression shall be the same under any order of evaluation that the standard permits. Since the order of evaluation of the function arguments is unspecified, this code violates the rule."
+}

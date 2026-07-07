@@ -1,0 +1,4 @@
+CORRECTED:
+int eq_double(double a,double b){return (a-b) < 1e-9 && (a-b) > -1e-9;}
+EXPLANATION:
+The comparison is replaced with a check for the absolute difference between the two values being within a small tolerance.

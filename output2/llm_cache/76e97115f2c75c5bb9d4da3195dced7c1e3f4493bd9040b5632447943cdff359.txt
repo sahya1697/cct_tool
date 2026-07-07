@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch label 'default' in the function 'only_default' is used outside the body of a switch statement. According to rule 15.1, a switch label shall only be used when the most closely-enclosing compound statement is the body of a switch statement. In this case, the switch statement is not present, and the default label is used directly in the function. This directly violates the rule."
+}

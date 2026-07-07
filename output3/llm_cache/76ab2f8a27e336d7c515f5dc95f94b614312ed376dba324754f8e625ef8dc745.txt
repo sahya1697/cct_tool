@@ -1,0 +1,5 @@
+CORRECTED:
+return ((uint32_t)n + recursive_sum((uint8_t)(n - 1U)));
+
+EXPLANATION:
+Parentheses were added to explicitly group the addition operation and avoid relying on C's operator precedence rules.

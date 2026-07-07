@@ -1,0 +1,9 @@
+CORRECTED:
+    int main(void) {
+        int a = 1, b = 2, c = 3, d = 4, e = 5, x[2] = {42, 7};
+        const int *p = (const int *)x;
+    
+        (void)prec(a, b, c, d, e);
+
+EXPLANATION:
+The fix is to explicitly cast the type of the pointer p to const int.

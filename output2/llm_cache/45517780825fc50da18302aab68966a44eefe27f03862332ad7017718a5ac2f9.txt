@@ -1,0 +1,4 @@
+CORRECTED:
+void bad_null(int y){if(y != 0) printf("after\n");}
+EXPLANATION:
+The fix is to replace the null pointer constant with a comparison to zero, ensuring the expression's value is always the same regardless of evaluation order.

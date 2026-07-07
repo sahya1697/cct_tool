@@ -1,0 +1,7 @@
+CORRECTED:
+case 3U:
+    log_error(flags);
+    break;
+
+EXPLANATION:
+The break statement was moved above the unreachable code to ensure that the code is reachable.

@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule states that the value of an expression shall be the same under any order of evaluation that the standard permits. The target line is a function call to 'ez' with a single argument 'z'. Without knowing the implementation of the 'ez' function, it's impossible to determine if the function has any side effects or if the order of evaluation affects the result. Therefore, I'm unable to make a definitive determination and require human review."
+}

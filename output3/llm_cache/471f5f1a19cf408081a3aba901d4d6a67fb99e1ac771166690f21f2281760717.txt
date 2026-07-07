@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to the order of evaluation of sub-expressions, but the target line does not involve any sub-expressions with unspecified order of evaluation. The function call `scale_reading` is the only expression, and its arguments are not evaluated in an unspecified order."
+}

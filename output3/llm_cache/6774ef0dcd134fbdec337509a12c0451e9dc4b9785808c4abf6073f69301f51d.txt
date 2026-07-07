@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.2) specifies that the value of an expression shall be the same under any order of evaluation that the standard permits. However, the target line is a function call (`retry_transmit()`), which does not involve any unspecified order of evaluation of sub-expressions. The function call operator (`()`) is one of the operators for which the order of evaluation is specified. Therefore, this rule does not apply to the target line."
+}

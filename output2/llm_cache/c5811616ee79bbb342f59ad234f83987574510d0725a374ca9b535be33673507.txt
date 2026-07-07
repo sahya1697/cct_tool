@@ -1,0 +1,12 @@
+CORRECTED:
+int three(void) {
+    int count = 0;
+    for (float f = 0.0f; f < 5.0f; f += 0.5f) {
+        if (f < 5.0f) {
+            count++;
+        }
+    }
+}
+
+EXPLANATION:
+The fix is to replace the floating-point inequality with a conditional statement that checks the condition separately.

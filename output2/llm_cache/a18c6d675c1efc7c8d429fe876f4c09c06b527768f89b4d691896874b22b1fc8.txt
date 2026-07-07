@@ -1,0 +1,7 @@
+CORRECTED:
+int main(void){
+    bad_scope(0); missing_break(0); default_not_last(0); switch_bool(-3); only_default(7); return 0;
+}
+
+EXPLANATION:
+The corrected code remains the same as the original, as the rule is about functions with non-void return type, but main() is declared as void, so it does not need an explicit return statement.

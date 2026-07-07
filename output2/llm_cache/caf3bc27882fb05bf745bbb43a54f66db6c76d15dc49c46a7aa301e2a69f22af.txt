@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function 'only_default' has a non-void return type (int) and does not have an explicit return statement with an expression in all exit paths. The switch statement in 'only_default' does not have a return statement for all cases, and the default case only increments the value without returning it. This leads to undefined behavior as per the rule description."
+}

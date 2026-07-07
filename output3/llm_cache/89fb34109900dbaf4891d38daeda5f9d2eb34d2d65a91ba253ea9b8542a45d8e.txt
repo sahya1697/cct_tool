@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line `validate_packet()` has a side effect (function call with effect) on the RHS of the `&&` operator, which is not allowed according to Rule 12.2. The rule states that the value of an expression shall be the same under any order of evaluation that the standard permits, and the use of function calls with side effects on the RHS of `&&` can lead to unspecified behavior."
+}

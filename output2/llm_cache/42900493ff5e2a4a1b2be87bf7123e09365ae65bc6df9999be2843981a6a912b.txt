@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to null statements appearing on a line with other text, but the target line is a function definition with a null statement in a for loop, which does not match the rule's criteria."
+}

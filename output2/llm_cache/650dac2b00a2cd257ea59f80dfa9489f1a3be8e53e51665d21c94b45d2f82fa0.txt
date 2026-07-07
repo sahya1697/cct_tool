@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement in the target line has a case label that is not at the same scope as the default label. The switch statement is used to determine the value of the expression v>0, and the case labels are used to specify the values that this expression can take. However, the default label is not at the same scope as the case labels, which is a violation of the rule."
+}

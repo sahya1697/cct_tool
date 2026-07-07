@@ -1,0 +1,4 @@
+CORRECTED:
+int n(const int *x,const int *y){return *x+*y;}
+EXPLANATION:
+The function parameter types were changed to const pointers to integers to indicate that the function does not modify the objects pointed to.

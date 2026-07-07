@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a function definition with a non-void return type. However, the function has an explicit return statement with an expression in all its exit paths. The return statement in the function is either returning 1 or 0, which are explicit expressions."
+}

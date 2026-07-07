@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to constant unsigned integer expressions that lead to wrap-around, but the target line is a function call (build_packet()) and does not contain a constant unsigned integer expression. The context lines do not indicate any relevant code that would trigger this rule."
+}

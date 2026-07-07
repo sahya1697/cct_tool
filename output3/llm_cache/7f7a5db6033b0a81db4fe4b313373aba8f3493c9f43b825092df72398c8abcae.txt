@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to the use of char types for numeric values, but the target line is a function parameter declaration, not a variable declaration or assignment. The parameter type RawPacket_t is not a char type, and the rule does not apply to pointer types."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule refers to unreachable code after an unconditional return, but the target line is a function declaration, not a return statement. Therefore, the rule does not apply to this code construct."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to function prototypes, but the target line is a function definition. The pointer parameter 'p' is not declared as pointer to const, but the rule does not apply to this code construct."
+}

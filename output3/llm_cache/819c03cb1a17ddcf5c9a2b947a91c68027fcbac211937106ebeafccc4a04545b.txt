@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is not a null statement, and the rule specifically addresses null statements. The rule's amplification also clarifies that null statements should appear on a line by themselves, which is not the case here."
+}

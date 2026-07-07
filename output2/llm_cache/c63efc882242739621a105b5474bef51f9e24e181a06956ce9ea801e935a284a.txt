@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule requires the use of parentheses to emphasize the order of operations in expressions. However, the target line does not contain any complex expressions that would benefit from additional parentheses. The expression 'i++' is a simple increment operation, and the use of parentheses around it would not be necessary or beneficial. Therefore, the code is compliant with this rule."
+}

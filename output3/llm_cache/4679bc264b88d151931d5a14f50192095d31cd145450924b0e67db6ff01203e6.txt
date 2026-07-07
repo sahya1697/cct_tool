@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a function call with no side effects, and the rule applies to expressions with side effects. The function call operator () is one of the operators for which the order of evaluation is unspecified, but this does not apply to the target line as it is a simple function call without any side effects."
+}

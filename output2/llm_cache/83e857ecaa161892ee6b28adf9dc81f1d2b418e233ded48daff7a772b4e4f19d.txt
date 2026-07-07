@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement in the target line has an unconditional break statement at the end of each case, which matches the rule's requirement for an unconditional break statement to terminate every non-empty switch clause."
+}

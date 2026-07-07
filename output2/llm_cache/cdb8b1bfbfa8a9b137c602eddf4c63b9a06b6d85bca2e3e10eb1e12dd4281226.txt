@@ -1,0 +1,5 @@
+CORRECTED:
+int tcase(int v){int r=0;switch(v){case 0:r=1;break;case 1:r=2;break;default:r=3;break;}return r;}
+
+EXPLANATION:
+Added a break statement after the case 0 clause to ensure that the switch statement has at least one case clause.

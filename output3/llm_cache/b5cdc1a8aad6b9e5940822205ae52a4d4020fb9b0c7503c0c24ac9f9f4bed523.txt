@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to the function call, but the number of arguments passed to the function (1) matches the number of parameters declared in the function prototype (not shown in the code snippet). The amplification text clarifies that this rule is retained since compilers may not flag this constraint error, and function prototypes are used to avoid this problem."
+}

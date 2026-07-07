@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to iteration statements, but the target line is a for loop with a break statement not present. The amplification text clarifies that one break statement is allowed in a loop for loop termination."
+}

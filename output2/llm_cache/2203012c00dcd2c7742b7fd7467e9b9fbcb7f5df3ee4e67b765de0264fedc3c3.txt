@@ -1,0 +1,9 @@
+CORRECTED:
+(void)bad_scope(0);
+(void)missing_break(0);
+(void)default_not_last(0);
+(void)switch_bool(-3);
+(void)only_default(7);
+
+EXPLANATION:
+The code snippet does not actually violate the MISRA rule, as there are no pointer parameters in the function prototypes.

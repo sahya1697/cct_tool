@@ -1,0 +1,10 @@
+CORRECTED:
+int r15_5_only_default(int v) {
+    switch (v) {
+        default:
+            return 0;
+    }
+}
+
+EXPLANATION:
+The final case in the switch statement was missing a return statement, which is equivalent to an implicit default case.

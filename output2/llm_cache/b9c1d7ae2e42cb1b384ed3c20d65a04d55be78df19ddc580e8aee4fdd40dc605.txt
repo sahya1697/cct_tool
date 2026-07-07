@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to enumerator lists, but the target line is a switch statement. The rule's amplification text does not provide clear guidance on switch statements. Further review is required to determine whether the rule applies to this specific code construct."
+}

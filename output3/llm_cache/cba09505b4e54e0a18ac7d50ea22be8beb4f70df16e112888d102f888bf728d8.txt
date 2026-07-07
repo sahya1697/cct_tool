@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (11.2) specifically addresses conversions between a pointer to object and other types, but the target line is a function declaration with a variable argument list. The function does not perform any pointer conversions that match the rule's criteria."
+}

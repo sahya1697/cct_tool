@@ -1,0 +1,14 @@
+CORRECTED:
+int r15_2_missing_break(int v) {
+    int r = 0;
+    switch (v) {
+        case 0:
+            r = 1;
+        default:
+            r = 2;
+    }
+    return r;
+}
+
+EXPLANATION:
+The final case in the switch statement was added to ensure that an else clause is present, as required by MISRA rule 14.10.

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to functions with no parameters, but the target line is not a function declaration or definition. It is a function call to 'assign_bool', 'explicit_zero', or 'eq_double', which are not the focus of this rule."
+}

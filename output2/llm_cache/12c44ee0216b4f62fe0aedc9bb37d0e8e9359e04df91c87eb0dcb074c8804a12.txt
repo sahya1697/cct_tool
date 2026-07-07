@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function call. The function call does not directly declare a pointer parameter, so it's unclear whether the rule applies. Further review is needed to determine if the function being called has a pointer parameter that should be declared as const."
+}

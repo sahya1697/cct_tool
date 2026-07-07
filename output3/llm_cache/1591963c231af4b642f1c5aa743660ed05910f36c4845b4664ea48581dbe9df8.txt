@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to the declaration of objects, but the target line is a function declaration. The function takes a variable number of arguments, but none of them are pointers to pointers to pointers, which is the focus of the rule."
+}

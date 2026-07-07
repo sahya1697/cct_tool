@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule requires that error information be tested when a function returns it. However, the provided code does not explicitly show a function returning error information. The context mentions a function call, but the target line does not provide enough information to determine if error information is being returned or tested."
+}

@@ -1,0 +1,13 @@
+CORRECTED:
+int r15_1_bad_case_scope(int v) {
+    int r = 0;
+    switch (v) {
+        case 0: 
+            r = 10;
+        default:
+            break;
+    }
+}
+
+EXPLANATION:
+The fix is to add a default case to the switch statement to ensure that all code paths are reachable.

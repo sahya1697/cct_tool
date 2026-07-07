@@ -1,0 +1,942 @@
+[
+  {
+    "timestamp": "2026-07-07T04:50:53.888655+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "pipeline_start",
+    "input": "",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:53.888655+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "load_rules_start",
+    "input": "",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.111357+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "load_rules_complete",
+    "input": "",
+    "output": "142 rules loaded",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.111357+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "parse_start",
+    "input": "['data\\\\tests\\\\one.c']",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.136944+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "parse_file",
+    "input": "data\\tests\\one.c",
+    "output": "16 nodes extracted",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.136944+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "parse_complete",
+    "input": "",
+    "output": "16 total AST nodes",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.136944+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "analyze_file",
+    "input": "data\\tests\\one.c: 16 nodes",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.136944+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=6",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.136944+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['12.2', '12.1', '12.3', '16.5', '16.6', '16.7']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.158349+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=6",
+    "output": "In: 6, Out: 4 ['12.2', '12.1', '12.3', '16.7'], Filtered: 2 ['16.5', '16.6']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.158349+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=InlineAssembly line=8",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.158349+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['1.2', '1.1', '1.3', '1.4', '1.5', '2.1']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.171656+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=InlineAssembly line=8",
+    "output": "In: 6, Out: 1 ['2.1'], Filtered: 5 ['1.2', '1.1', '1.3', '1.4', '1.5']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.171656+00:00",
+    "agent": "ControlFlowAgent",
+    "action": "violations_found",
+    "input": "node=InlineAssembly line=8",
+    "output": "1 violations: ['2.1']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.171656+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=8",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.173006+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['12.1', '12.2', '12.3', '16.5', '16.6', '16.7']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.180687+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=8",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['12.1', '12.2', '12.3', '16.5', '16.6', '16.7']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.182084+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionDefinition line=14",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.183094+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['16.5', '16.7', '16.8', '8.2', '8.3', '8.7']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.189439+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionDefinition line=14",
+    "output": "In: 6, Out: 1 ['16.7'], Filtered: 5 ['16.5', '16.8', '8.2', '8.3', '8.7']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.189439+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=ReturnStatement line=14",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.189439+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['16.5', '16.7', '16.8', '14.9', '16.6', '16.10']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.200631+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=ReturnStatement line=14",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['16.5', '16.7', '16.8', '14.9', '16.6', '16.10']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.201634+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=14",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.202630+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['16.5', '16.7', '16.8', '12.1', '12.2', '12.3']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.206249+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=14",
+    "output": "In: 6, Out: 1 ['16.7'], Filtered: 5 ['16.5', '16.8', '12.1', '12.2', '12.3']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.206249+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=16",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.210251+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['16.5', '16.7', '16.8', '12.1', '12.2', '12.3']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.217944+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=16",
+    "output": "In: 6, Out: 1 ['16.7'], Filtered: 5 ['16.5', '16.8', '12.1', '12.2', '12.3']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.217944+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=ReturnStatement line=19",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.219219+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['16.5', '16.7', '16.8', '16.10', '14.1', '14.2']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.221749+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=ReturnStatement line=19",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['16.5', '16.7', '16.8', '16.10', '14.1', '14.2']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.226203+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=19",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.227397+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['16.5', '16.7', '16.8', '16.10', '20.3', '12.1']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.237404+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=19",
+    "output": "In: 6, Out: 1 ['16.7'], Filtered: 5 ['16.5', '16.8', '16.10', '20.3', '12.1']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.238318+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=22",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.239355+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['16.5', '16.7', '16.8', '16.10', '20.3', '12.1']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.245780+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=22",
+    "output": "In: 6, Out: 1 ['16.7'], Filtered: 5 ['16.5', '16.8', '16.10', '20.3', '12.1']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.245780+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=ReturnStatement line=24",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.247318+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['16.5', '16.7', '16.8', '16.10', '14.1', '14.2']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.256209+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=ReturnStatement line=24",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['16.5', '16.7', '16.8', '16.10', '14.1', '14.2']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.256209+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=28",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.256209+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['12.1', '12.2', '12.3', '16.3', '16.5', '16.6']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.265356+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=28",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['12.1', '12.2', '12.3', '16.3', '16.5', '16.6']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.266372+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=30",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.266372+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['12.1', '12.2', '12.3', '16.3', '16.5', '16.6']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.274605+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=30",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['12.1', '12.2', '12.3', '16.3', '16.5', '16.6']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.274605+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=31",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.276747+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['12.2', '16.1', '16.3', '12.1', '12.3', '12.4']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.280736+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=31",
+    "output": "In: 6, Out: 5 ['12.2', '16.3', '12.1', '12.3', '12.4'], Filtered: 1 ['16.1']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.280736+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=FunctionCall line=39",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.280736+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['16.5', '16.7', '16.8', '12.1', '12.2', '12.3']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.293967+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=FunctionCall line=39",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['16.5', '16.7', '16.8', '12.1', '12.2', '12.3']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.293967+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_rules",
+    "input": "node=ReturnStatement line=40",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.293967+00:00",
+    "agent": "RuleRetrievalAgent",
+    "action": "retrieve_complete",
+    "input": "",
+    "output": "6 rules matched: ['16.5', '16.7', '16.8', '16.10', '14.1', '14.2']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.316417+00:00",
+    "agent": "RelevanceFilterAgent",
+    "action": "filter_complete",
+    "input": "node=ReturnStatement line=40",
+    "output": "In: 6, Out: 0 [], Filtered: 6 ['16.5', '16.7', '16.8', '16.10', '14.1', '14.2']",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.316417+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "parallel_verify_start",
+    "input": "15 (node, rule) pairs to check",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.316417+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=16.7 node=FunctionCall line=6",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.316417+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.2 node=FunctionCall line=6",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.320762+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.1 node=FunctionCall line=6",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:50:54.323435+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.3 node=FunctionCall line=6",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:51:23.547807+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=0.95",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:51:23.547807+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "anchored_violation",
+    "input": "",
+    "output": "one.c:8 rule=2.1 violation=True",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:51:23.556451+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=16.7 node=FunctionDefinition line=14",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:51:48.782344+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:51:48.782344+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=16.7 node=FunctionCall line=14",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:52:29.450258+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=0.95",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:52:29.450258+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=16.7 node=FunctionCall line=16",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:53:01.550581+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:53:01.550581+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=16.7 node=FunctionCall line=19",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:53:27.010872+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=0.95",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:53:27.010872+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=16.7 node=FunctionCall line=22",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:53:51.486459+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:53:51.486459+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=16.3 node=FunctionCall line=31",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:54:32.536330+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=0.95",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:54:32.536330+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.2 node=FunctionCall line=31",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:55:08.813292+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=True confidence=0.50",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:55:08.813292+00:00",
+    "agent": "CorrectionAgent",
+    "action": "suggest_start",
+    "input": "rule=16.7 line=19",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:55:32.457336+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=0.95",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:55:32.457336+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.1 node=FunctionCall line=31",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:55:58.583602+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=1.00",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:55:58.583602+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.3 node=FunctionCall line=31",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:56:52.644796+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=0.95",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:56:52.644796+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_start",
+    "input": "rule=12.4 node=FunctionCall line=31",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:58:21.417513+00:00",
+    "agent": "CorrectionAgent",
+    "action": "suggest_complete",
+    "input": "",
+    "output": "```c\n{\n    int i = 0;\n    int first  = i++;   /* i becomes 1 */\n    int second =",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:58:21.417513+00:00",
+    "agent": "CorrectionAgent",
+    "action": "generate_rationale_start",
+    "input": "rule=16.7 line=19",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:58:51.182362+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=0.95",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:59:08.624514+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=0.99",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T04:59:27.575977+00:00",
+    "agent": "VerificationAgent",
+    "action": "verify_complete",
+    "input": "",
+    "output": "violation=False confidence=0.95",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T05:01:01.960299+00:00",
+    "agent": "CorrectionAgent",
+    "action": "generate_rationale_complete",
+    "input": "",
+    "output": "Rule\u202f16.7 applies because the function `add` is declared with pointer parameters that are not qualif",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T05:01:01.960299+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "anchored_violation",
+    "input": "",
+    "output": "one.c:19 rule=16.7 violation=True",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T05:01:01.960299+00:00",
+    "agent": "OrchestratorAgent",
+    "action": "analyze_complete",
+    "input": "",
+    "output": "2 violations found",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T05:01:01.960299+00:00",
+    "agent": "ReportGeneratorAgent",
+    "action": "generate_start",
+    "input": "2 violations, 15 checks",
+    "output": "",
+    "error": null,
+    "retry": 0,
+    "node": null
+  },
+  {
+    "timestamp": "2026-07-07T05:01:01.996682+00:00",
+    "agent": "ReportGeneratorAgent",
+    "action": "generate_complete",
+    "input": "",
+    "output": "Report: C:\\Users\\sahyasree.mp\\Desktop\\CCT_AGENT\\output\\compliance_report.xlsx",
+    "error": null,
+    "retry": 0,
+    "node": null
+  }
+]

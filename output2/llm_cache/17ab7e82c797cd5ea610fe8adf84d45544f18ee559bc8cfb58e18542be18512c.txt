@@ -1,0 +1,7 @@
+CORRECTED:
+int main(void){
+    bad_scope(0); missing_break(0); default_not_last(0); switch_bool(0); only_default(7); return 0;
+}
+
+EXPLANATION:
+The fix is to remove the integer literal -3 from the switch_bool function call, which was implicitly converting an integer to a different type.

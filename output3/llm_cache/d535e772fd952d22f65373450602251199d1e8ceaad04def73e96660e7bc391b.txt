@@ -1,0 +1,13 @@
+CORRECTED:
+#include <stdarg.h>
+#include <stdio.h>
+
+/* ... */
+
+if (vprintf(fmt, args) == -1) {
+    va_end(args);
+    /* handle error */
+}
+
+EXPLANATION:
+The fix is to include the necessary header file for the va_end function, which is <stdarg.h>, and to use the return value of vprintf to check for errors.

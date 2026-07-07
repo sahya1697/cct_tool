@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule states that the value of an expression shall be the same under any order of evaluation that the standard permits. The target line is a for loop with a conditional continue statement. The expression inside the if statement is 'i%2'. The order of evaluation of 'i' and '2' is unspecified. However, the rule does not explicitly mention the order of evaluation of constants. Therefore, I am uncertain whether this code violates the rule and require human review to determine the correct interpretation."
+}

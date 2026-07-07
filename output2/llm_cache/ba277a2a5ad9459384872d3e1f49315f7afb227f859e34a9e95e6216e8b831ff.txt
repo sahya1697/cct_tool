@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule prohibits assignment operators in expressions that yield a Boolean value. However, the target line is a conditional statement within a for loop, and the assignment operator is used to update the variable 'sum'. The expression 'i % 2' is evaluated first, and if it's true, the 'continue' statement is executed, skipping the rest of the loop body. The assignment operator in this context is not used in an expression that yields a Boolean value, but rather as part of the loop's iteration logic."
+}

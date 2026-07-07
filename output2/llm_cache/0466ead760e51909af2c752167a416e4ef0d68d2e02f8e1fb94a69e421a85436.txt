@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function call. The function `no_effect(3)` is called, and its return value is assigned to an integer variable `inc`. The rule does not explicitly address function calls, but it does imply that the function interface should be defined with const correctness. However, without more context or information about the function `no_effect(3)`, it is unclear whether the rule applies to this specific function call."
+}

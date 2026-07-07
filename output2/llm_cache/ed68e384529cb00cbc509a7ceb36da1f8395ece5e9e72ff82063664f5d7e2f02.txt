@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule requires that error information be tested after a function returns. The target line is a function definition, but it does not explicitly return error information. However, the function does contain a goto statement, which could potentially be used to return error information. Without more context or information about the function's behavior, it is unclear whether the rule applies or whether the function returns error information that needs to be tested."
+}

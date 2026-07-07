@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that the value of an expression shall be the same under any order of evaluation that the standard permits. In the target line, the expression `(float)n` is evaluated before the loop starts. However, the order of evaluation of the function arguments in the `for` loop is unspecified. Specifically, the expression `i < (float)n` may be evaluated before or after the increment `i += 0.5f` is applied, which could lead to different results depending on the order of evaluation. This matches the example given in the amplification text for function arguments."
+}

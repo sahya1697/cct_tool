@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function for_side has a parameter list, which is void, but the rule applies to functions with no parameters. The function for_side has a parameter list, which is void, but the rule applies to functions with no parameters."
+}

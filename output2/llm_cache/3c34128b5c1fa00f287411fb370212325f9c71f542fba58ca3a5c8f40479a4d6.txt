@@ -1,0 +1,6 @@
+CORRECTED:
+int v = process(-1);
+int s = sw_case(0);
+
+EXPLANATION:
+The variables v and s should be declared with static storage-class specifier to ensure internal linkage.

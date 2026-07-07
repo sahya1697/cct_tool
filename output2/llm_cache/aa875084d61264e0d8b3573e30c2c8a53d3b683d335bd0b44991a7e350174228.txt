@@ -1,0 +1,11 @@
+CORRECTED:
+int r = 0;
+switch (a % 3) {
+case 0:
+    r = 10;
+case 1:
+    r = 20;
+}
+
+EXPLANATION:
+Added a case clause for the value 1 to ensure the switch statement has at least one case clause.

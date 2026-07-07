@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to floating-point expressions being tested for equality or inequality, but the target line uses integer types (int) for the variable and the va_arg function, which does not involve floating-point expressions."
+}

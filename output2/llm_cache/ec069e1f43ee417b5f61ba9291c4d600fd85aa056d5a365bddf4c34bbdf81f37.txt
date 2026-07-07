@@ -1,0 +1,4 @@
+CORRECTED:
+int unspecified(void){int i=0;int r=i; r++; return r;}
+EXPLANATION:
+The fix is to ensure that the order of evaluation does not affect the result by avoiding the use of side effects in the expression.

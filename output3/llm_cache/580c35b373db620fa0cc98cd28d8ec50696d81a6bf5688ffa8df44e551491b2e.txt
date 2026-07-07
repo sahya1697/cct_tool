@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to null statements appearing on a line with other text, but the target line is a return statement with a conditional expression. The null statement is not on a line with other text, so the rule does not apply."
+}

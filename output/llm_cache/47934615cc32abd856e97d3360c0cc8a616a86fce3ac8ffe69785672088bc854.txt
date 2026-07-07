@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "Rule 2.3 applies only to comments and prohibits the use of the character sequence /* inside a comment. The target line is a preprocessor directive (#include <stdio.h>) and contains no comment or nested comment syntax. Therefore the rule does not apply and there is no violation."
+}

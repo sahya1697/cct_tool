@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.1) is about limited dependence on C's operator precedence rules in expressions. The target line uses parentheses to override default operator precedence, which is in line with the rule's amplification. The expression `(len > 0U) && (log_error(0), 1)` uses parentheses to ensure the correct order of operations, making it compliant with the rule."
+}

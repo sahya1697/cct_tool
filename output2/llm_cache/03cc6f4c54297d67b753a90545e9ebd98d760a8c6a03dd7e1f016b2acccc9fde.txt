@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function m(double x, double y) has a prototype with no parameter identifiers, which is a clear violation of the rule. The rule states that the value of an expression shall be the same under any order of evaluation that the standard permits. In this case, the order of evaluation of function arguments is unspecified, which can lead to different results depending on which of the function's two parameters is evaluated first."
+}

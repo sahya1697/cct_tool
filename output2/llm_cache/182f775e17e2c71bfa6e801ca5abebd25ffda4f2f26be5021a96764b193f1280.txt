@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.1) states that parentheses should be used to override default operator precedence and to emphasize it. However, in the given code, the expression 'i < 3' does not require parentheses to override operator precedence. The rule's amplification text also suggests that no parentheses are required for the right-hand operand of a comparison operator. Therefore, the code is compliant with the rule."
+}

@@ -1,0 +1,7 @@
+CORRECTED:
+if ((p != NULL) && (val == 42)) {
+    return 1;
+}
+
+EXPLANATION:
+The order of evaluation is not specified, so the condition should be evaluated in a way that does not rely on the order of evaluation.

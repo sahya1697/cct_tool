@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a function call to `validate_checksum(buf, len)`, which is a simple function call without any side effects that depend on the order of evaluation. The rule applies to expressions with side effects that depend on the order of evaluation, but this function call does not meet that criteria."
+}

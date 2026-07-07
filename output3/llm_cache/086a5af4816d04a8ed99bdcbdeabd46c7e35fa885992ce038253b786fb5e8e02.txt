@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule requires a pointer parameter in a function prototype to be declared as pointer to const if the pointer is not used to modify the addressed object. However, the provided code does not explicitly show the function body or the usage of the 'channel' parameter. Therefore, it is uncertain whether the 'channel' parameter is used to modify the addressed object or not."
+}

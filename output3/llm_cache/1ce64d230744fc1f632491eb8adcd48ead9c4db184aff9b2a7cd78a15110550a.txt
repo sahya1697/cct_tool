@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 1.0,
+  "reasoning": "The code uses a goto statement, which is explicitly mentioned in the rule as a violation. The amplification text also clarifies that unreachable code is not considered a violation, but the presence of a goto statement is a clear indication of a violation of this rule."
+}

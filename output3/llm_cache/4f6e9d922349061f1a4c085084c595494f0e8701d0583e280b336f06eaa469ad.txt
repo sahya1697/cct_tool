@@ -1,0 +1,13 @@
+CORRECTED:
+```c
+uint32_t compute_checksum(const uint8_t *buffer, size_t size) {
+    uint32_t checksum = 0;
+    for (size_t i = 0; i < size; i++) {
+        checksum += buffer[i];
+    }
+    return checksum;
+}
+```
+
+EXPLANATION:
+The fix is to use a 32-bit unsigned integer to accumulate the checksum, preventing potential overflow and wrap-around issues.

@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function definition with a for loop. The pointer 'i' is used as an index, not a pointer to an object. However, the printf function is called inside the loop, which might imply that the loop has side effects. Further analysis is required to determine if the rule applies to this specific code construct."
+}

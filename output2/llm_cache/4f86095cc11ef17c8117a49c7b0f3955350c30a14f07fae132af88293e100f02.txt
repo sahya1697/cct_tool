@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that the value of an expression shall be the same under any order of evaluation that the standard permits. In the target line, the expression `s+=i` involves the increment operator `i++` which has side effects. The order of evaluation of `s` and `i` is unspecified, and this can lead to different results depending on whether `s` is evaluated before or after `i++`. This matches the example given in the amplification text, where `x = b + i++` can give different results depending on the order of evaluation."
+}

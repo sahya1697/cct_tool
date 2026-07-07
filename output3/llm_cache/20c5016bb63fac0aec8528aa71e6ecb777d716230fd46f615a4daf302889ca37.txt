@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line does not match the rule criteria. The expression inside the if statement is a comparison between the result of a function call and 0, which is a primary expression. The rule requires that the operands of a logical && or || be primary-expressions, but this is not the case here. The rule is not applicable to this code construct."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to function prototypes, but the target line is within a function body. The pointer 'i' is used as a loop counter and is not a function parameter."
+}

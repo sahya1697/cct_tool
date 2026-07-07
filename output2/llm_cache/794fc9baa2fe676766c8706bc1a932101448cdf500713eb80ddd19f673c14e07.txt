@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line contains the expression `for(float f=0;f<5;f+=0.5) a++;`, which involves a floating-point number and an integer variable `a`. According to the rule, even if all operators are the same, parentheses may be used to control the order of operation. In this case, the expression involves a mix of floating-point and integer operations, which may produce different results due to integral promotions. Therefore, it is recommended to use parentheses to clarify the order of operations and avoid potential issues."
+}

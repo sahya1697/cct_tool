@@ -1,0 +1,8 @@
+CORRECTED:
+```c
+int assignb(int x,int y){if(x==y) return 1; return 0;}
+int ez(int z){if(z) return 1; return 0;}
+```
+
+EXPLANATION:
+The fix replaces the single equals sign (=) with a double equals sign (==) to correctly implement equality comparison.

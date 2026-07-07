@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to casts that remove const or volatile qualification from the type addressed by a pointer. However, the target line is a simple sizeof operation, not a cast that removes any qualification. The (void)i; statement is a suppression of a compiler warning, not relevant to the rule."
+}

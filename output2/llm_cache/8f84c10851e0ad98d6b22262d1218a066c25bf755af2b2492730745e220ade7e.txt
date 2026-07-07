@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to enumerator lists, but the target line is an expression involving integer arithmetic. The rule's amplification text does not provide clear guidance on how to apply it to this context. Further review is required to determine whether the rule is violated."
+}

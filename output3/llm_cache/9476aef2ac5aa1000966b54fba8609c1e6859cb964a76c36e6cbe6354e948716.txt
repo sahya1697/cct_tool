@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to null statements, but the target line is a return statement. The null statement is not present on the target line, and the rule does not address return statements."
+}

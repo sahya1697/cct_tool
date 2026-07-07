@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function call `recursive_sum(10U)` has side effects, as it is a recursive function. The order of evaluation of function arguments is unspecified, and the function's behavior depends on the order in which its parameters are evaluated. This matches the example given in the rule's amplification text, where the order of evaluation of function arguments can lead to different results. Therefore, the code violates Rule 12.2."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule explicitly states that the underlying bit representations of floating-point values shall not be used. The target line uses a floating-point value (i) in a loop condition (i < (float)n), which directly relies on the storage layout of floating-point values. This is a clear violation of the rule."
+}

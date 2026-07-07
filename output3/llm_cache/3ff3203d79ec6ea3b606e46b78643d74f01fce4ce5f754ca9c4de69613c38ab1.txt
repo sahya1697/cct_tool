@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.2) states that the value of an expression shall be the same under any order of evaluation that the standard permits. However, the target line is a function call to log_error with a single argument, which is a simple expression (accum). The order of evaluation of this expression is not specified by the standard, but it does not have any side effects that would be affected by the order of evaluation. Therefore, this code does not violate the rule."
+}

@@ -1,0 +1,1 @@
+The code violates Rule 20.9 because it uses the `vprintf` function, which is part of the `stdio.h` library, in production code. This library is banned in production code due to its unspecified, undefined, and implementation-defined behavior. The evidence used is the LLM inference, which detected the use of `vprintf` and flagged it as a violation of Rule 20.9.

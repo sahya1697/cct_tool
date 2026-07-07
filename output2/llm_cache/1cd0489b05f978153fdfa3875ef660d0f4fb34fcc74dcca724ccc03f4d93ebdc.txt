@@ -1,0 +1,14 @@
+CORRECTED:
+int thirteen(int v) {
+    int r = 0;
+    switch (v > 0) {
+        case 0:
+            r = 0;
+        default:
+            r = 13;
+    }
+    return r;
+}
+
+EXPLANATION:
+The switch statement was replaced with a default case to ensure that all possible paths are handled, thereby satisfying the MISRA rule.

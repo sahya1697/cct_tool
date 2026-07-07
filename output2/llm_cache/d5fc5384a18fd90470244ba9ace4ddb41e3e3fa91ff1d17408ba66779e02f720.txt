@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line contains a function call `float_loop(5)`, which is a function call and does not contain a logical && or || operator. Therefore, the rule does not apply to this code construct."
+}

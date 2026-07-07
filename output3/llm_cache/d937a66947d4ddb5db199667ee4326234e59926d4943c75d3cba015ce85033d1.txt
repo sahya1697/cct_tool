@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.3) specifies that the sizeof operator shall not be used on expressions that contain side effects. However, the target line does not use the sizeof operator on an expression with side effects. Instead, it declares a static variable 'index' with an initial value of 0U. Therefore, this code does not violate the rule."
+}

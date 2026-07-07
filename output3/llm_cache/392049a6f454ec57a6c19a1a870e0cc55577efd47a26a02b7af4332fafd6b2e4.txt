@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to constant unsigned integer expressions that lead to wrap-around, but the expression (uint32_t)n + recursive_sum((uint8_t)(n - 1U)) does not evaluate a constant unsigned integer expression. It is a function call that involves variables and function calls, so the rule does not apply."
+}

@@ -1,0 +1,5 @@
+CORRECTED:
+int missing_break(int v){int r=0;switch(v){case 0:r=1;break;case 1:r=2;break;default:r=3;break;}return r;}
+
+EXPLANATION:
+Added a case clause for the value 1 to ensure the switch statement has at least one case clause.

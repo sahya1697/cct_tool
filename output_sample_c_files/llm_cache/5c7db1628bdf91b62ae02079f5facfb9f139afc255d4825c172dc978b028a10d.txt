@@ -1,0 +1,29 @@
+CORRECTED:
+```c
+#include "shared.h"
+#include <stdint.h>
+
+/* Complete definition of the union used in this translation unit */
+typedef union {
+    unsigned int   raw;                     /* 32‑bit raw value */
+    unsigned char  bytes[sizeof(unsigned int)]; /* byte array view */
+} DataStore;
+
+/* Global instance of the union – now complete */
+static DataStore g_store;
+
+/* Pack an unsigned int into the union */
+void pack_value(unsigned int v)
+{
+    g_store.raw = v;
+}
+
+/* Retrieve a byte from the union */
+unsigned char get_byte(int i)
+{
+    return g_store.bytes[i];
+}
+```
+
+EXPLANATION:
+The union `DataStore` was previously incomplete, violating MISRA‑C:2004 Rule 18.1. The corrected code provides a full definition of the union before any use, ensuring the type is complete at the end of the translation unit while preserving the original functionality.

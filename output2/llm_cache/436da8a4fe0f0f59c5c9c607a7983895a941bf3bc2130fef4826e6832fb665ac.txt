@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function parameter list. However, the function parameter 'a' is used in a conditional expression 'a+b', which might imply that the value of 'a' is not modified. But the rule also mentions that the pointer is not used to modify the addressed object, which is not directly applicable here. Further analysis is required to determine if the function parameter 'a' is intended to be modified or not."
+}

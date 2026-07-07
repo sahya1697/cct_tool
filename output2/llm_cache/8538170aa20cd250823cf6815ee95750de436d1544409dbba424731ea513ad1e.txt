@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 1.0,
+  "reasoning": "The switch statement in the target line has at least one case clause, but the rule description specifically mentions that every switch statement shall have at least one case clause. However, the amplification text clarifies that an empty case clause is allowed, but in this case, the switch statement has a non-empty case clause. Therefore, the rule is violated."
+}

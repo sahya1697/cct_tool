@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement body is not enclosed within braces, violating rule 14.8. The amplification text explicitly states that even a single statement within a switch statement should be enclosed in braces."
+}

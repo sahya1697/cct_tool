@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The operands of the logical && operator in the target line are not primary-expressions. The expression 'a+b' is not a primary-expression because it is a binary operation between two variables, and the expression 'c-1' is also not a primary-expression for the same reason. According to the rule, the operands of a logical && or || shall be primary-expressions, which is not the case here."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to expressions where operator precedence is crucial. However, the target line is a simple increment operation within a for loop, which does not involve complex operator precedence. The expression `c++` is a common idiom in C and does not require additional parentheses to clarify operator precedence."
+}

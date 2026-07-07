@@ -1,0 +1,5 @@
+CORRECTED:
+int checksum = (a + b) % 256;
+
+EXPLANATION:
+The fix is to ensure that the order of evaluation of sub-expressions does not affect the result, by using parentheses to enforce the correct order of operations.

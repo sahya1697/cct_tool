@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to implicit conversions between floating and integer types, but the target line is a simple increment operation (count++) and does not involve any floating-point arithmetic. The loop condition (i < (n * 2)) is also not a floating-point expression. Therefore, there is no implicit conversion between floating and integer types in this code snippet."
+}

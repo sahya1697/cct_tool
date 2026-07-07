@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that assignment operators shall not be used in expressions that yield a Boolean value. In the target line, the expression 'f<5' is a Boolean-valued expression, and the assignment operator 'f+=0.5' is used within it. This directly violates the rule."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.1) is about limiting dependence on C's operator precedence rules in expressions. The target line is the beginning of a function definition, not an expression. Therefore, the rule does not apply to this code construct."
+}

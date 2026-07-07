@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function call `recursive_sum(10U)` has side effects, and the order of evaluation of its arguments is unspecified. According to the rule, no reliance can be placed on the order of evaluation of sub-expressions, and in particular no reliance can be placed on the order in which side effects occur. This matches the example given in the amplification text, where the order of evaluation of function arguments is unspecified, leading to different results depending on which of the function's two parameters is evaluated first."
+}

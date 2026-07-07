@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 1.0,
+  "reasoning": "The goto statement is explicitly used at the target line, which directly matches the rule's criteria. The rule explicitly states that the goto statement shall not be used, and there are no exceptions or edge cases that apply in this context."
+}

@@ -1,0 +1,10 @@
+CORRECTED:
+switch (a % 3) {
+    case 0:
+        r = 10;
+    case 1:
+        r = 20;
+}
+
+EXPLANATION:
+The fix is to remove the unnecessary parentheses, as the code already follows the correct operator precedence rules.

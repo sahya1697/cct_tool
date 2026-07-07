@@ -1,0 +1,6 @@
+CORRECTED:
+(void)build_packet(data_buf, BUFFER_SIZE / 2U);
+(void)validate_packet(g_tx_buffer, BUFFER_SIZE / 2U);
+
+EXPLANATION:
+The fix is to remove the unnecessary cast to uint16_t, which was causing the expression to be evaluated in a way that relied on the order of operations.

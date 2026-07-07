@@ -1,0 +1,10 @@
+CORRECTED:
+int count = 0;
+int i;
+for (i = 0; (i < (n * 2)); i++)
+{
+    count++;
+}
+
+EXPLANATION:
+Parentheses were added to explicitly define the order of operations in the for loop condition.

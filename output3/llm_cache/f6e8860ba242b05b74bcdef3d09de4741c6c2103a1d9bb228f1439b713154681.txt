@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a goto statement, and the rule specifically addresses null statements, which is not applicable to this code construct."
+}

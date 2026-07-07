@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule refers to unreachable code, but the target line is a return statement, which is a valid control flow path. There is no unconditional control transfer or unreachable code in the provided context."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function call and does not declare a function prototype. However, the function `r14_3_null_stmt` is defined nearby, and its parameters should be analyzed for compliance with the rule. Without more information about the function's parameters, it is uncertain whether the rule is violated or not."
+}

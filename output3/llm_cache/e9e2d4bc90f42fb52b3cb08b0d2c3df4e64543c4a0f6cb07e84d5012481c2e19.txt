@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to enumerator lists, but the target line is a goto statement, which is not related to enumerators. Therefore, the rule does not apply to this code construct."
+}

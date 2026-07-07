@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule prohibits the use of unions for any purpose. However, the code does not explicitly use a union. The context lines suggest that the function 'u' is being analyzed, but the target line contains a printf statement, which is not related to the use of unions. Therefore, I am uncertain about the applicability of this rule to the given code construct and require human review to determine the correct outcome."
+}

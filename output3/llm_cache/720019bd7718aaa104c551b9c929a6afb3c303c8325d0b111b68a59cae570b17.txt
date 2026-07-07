@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (11.4) specifies that a cast should not be performed between a pointer to object type and a different pointer to object type. However, the target line is casting from a pointer to a uint8_t to a pointer to a uint8_t, which are the same type. Therefore, the rule does not apply to this code construct."
+}

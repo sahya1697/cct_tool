@@ -1,0 +1,10 @@
+CORRECTED:
+int r15_5_only_default(int v) {
+    switch (v) {
+        default:
+            v++;
+    }
+}
+
+EXPLANATION:
+The switch statement was missing a closing bracket to define its scope, which was causing the violation of the MISRA rule.

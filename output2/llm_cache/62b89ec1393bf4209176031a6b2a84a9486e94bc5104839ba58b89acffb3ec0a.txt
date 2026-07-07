@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function call with a void pointer as an argument. The function prototype is not provided in the code snippet, so it's unclear whether the pointer is used to modify the addressed object. Further review is needed to determine compliance."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function definition with a return statement and a printf statement. The function parameter 'y' is not a pointer, but an integer. The rule's amplification text mentions pointer parameters, which does not match the target line. However, the function 'bad_null' does contain a pointer-like behavior with the 'if(y)' statement, which might be related to the rule's intent. Further review is needed to determine if the rule applies to this specific code construct."
+}

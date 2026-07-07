@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a function call to va_end, which is a standard library function. The rule applies to operands of logical && or ||, but the target line does not involve any logical operators. Therefore, the rule does not apply to this code construct."
+}

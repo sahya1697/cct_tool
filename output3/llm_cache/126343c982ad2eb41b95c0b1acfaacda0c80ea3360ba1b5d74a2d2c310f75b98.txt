@@ -1,0 +1,5 @@
+CORRECTED:
+if ((len > 0U) && (log_error(0) == 0))
+
+EXPLANATION:
+The fix is to remove the comma operator and instead use the return value of log_error to determine the condition of the if statement.

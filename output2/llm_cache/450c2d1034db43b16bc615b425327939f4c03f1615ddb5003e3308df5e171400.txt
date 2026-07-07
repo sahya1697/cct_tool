@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function eq_double has a non-void return type, and the target line does not contain an explicit return statement with an expression. The function returns the result of the comparison d < 1e-9, which is an implicit return statement. According to rule 16.8, all exit paths from a function with a non-void return type shall have an explicit return statement with an expression. This rule is applicable to the given code construct, and there is direct evidence in the provided code/context that the rule is violated."
+}

@@ -1,0 +1,9 @@
+CORRECTED:
+int total = 0;
+va_start(ap, count);
+for (int i = 0; i < count; i++) {
+    total += (int)va_arg(ap, int);
+}
+
+EXPLANATION:
+The fix is to add explicit type casting to the result of va_arg to ensure that the expression is evaluated in a way that is independent of the order of evaluation.

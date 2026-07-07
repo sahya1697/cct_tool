@@ -1,0 +1,8 @@
+CORRECTED:
+#include <stdarg.h>
+int varsum(int n,...){va_list ap;int t=0;va_start(ap,n);for(int i=0;i<n;i++)t+=va_arg(ap,int);va_end(ap);return t;}
+int rec(int n){if(n<=0) return 0; int temp = rec(n-1); return temp + 1;}
+int m(double a,double b);
+
+EXPLANATION:
+The fix introduces a temporary variable to ensure that the order of evaluation is not relied upon, as required by MISRA rule 12.2.

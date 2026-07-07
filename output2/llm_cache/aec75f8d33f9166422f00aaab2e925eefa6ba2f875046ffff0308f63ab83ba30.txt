@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule prohibits assignment operators in expressions that yield a Boolean value. However, the target line is a for loop condition, which is not a Boolean-valued expression. The expression 'i < 3' is a comparison, not an assignment, and the increment 'i++' is a side effect of the loop, not an assignment in a Boolean-valued expression."
+}

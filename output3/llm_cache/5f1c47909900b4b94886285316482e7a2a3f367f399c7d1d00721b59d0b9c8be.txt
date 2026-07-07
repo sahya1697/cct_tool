@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule requires explicit type declaration for objects or functions. However, the target line is a function declaration with an explicit return type (void) and parameter type (RawPacket_t *pkt). The type of the parameter 'pkt' is explicitly stated as RawPacket_t *, which matches the rule's requirement for explicit type declaration."
+}

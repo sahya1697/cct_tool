@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 0.95,
+  "reasoning": "Rule 16.7 applies only to function prototypes that contain pointer parameters. The target line defines a function `compute_ratio` with two `double` parameters, neither of which is a pointer. Therefore the rule is not applicable to this construct."
+}

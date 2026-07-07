@@ -1,0 +1,8 @@
+CORRECTED:
+int r13_5_for_side_effects(void) {
+    int i, ticks = 0;
+    for (i = 0; i < 3; i++, printf("tick\n")) {  
+}
+
+EXPLANATION:
+The code does not contain a pointer parameter, so no changes are needed to comply with the MISRA rule.

@@ -1,0 +1,7 @@
+CORRECTED:
+int a=1,b=2,c=3,d=4,e=5,x[2]={42,7};int *p=x;
+logical_rhs(const int *p); logical_nonprimary(1,2,3);
+return 0;
+
+EXPLANATION:
+The function parameter 'p' was changed to a pointer to const to indicate that it is not used to modify the addressed object.

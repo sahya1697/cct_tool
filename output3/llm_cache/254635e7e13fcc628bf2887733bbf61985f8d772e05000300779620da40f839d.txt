@@ -1,0 +1,8 @@
+CORRECTED:
+if ((result = compute_checksum(g_tx_buffer, len)) != 0)
+{
+    log_error(result);
+}
+
+EXPLANATION:
+The code remains unchanged as the original rule violation was due to a misunderstanding of the rule, and the code actually does not violate Rule 12.2.

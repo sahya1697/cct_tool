@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function definition with a for loop and a printf statement. The pointer parameter 'i' is not used to modify the addressed object, but the rule's amplification text suggests that the focus is on function prototypes, not function bodies. Therefore, I am uncertain about the applicability of this rule to this specific code construct."
+}

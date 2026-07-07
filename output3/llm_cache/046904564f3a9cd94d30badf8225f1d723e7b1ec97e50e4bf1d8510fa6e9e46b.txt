@@ -1,0 +1,5 @@
+CORRECTED:
+accum = (signed char)(accum + (signed char)buf[i]);
+
+EXPLANATION:
+The fix is to explicitly cast to signed char to ensure that the operation is performed on a type that is defined to hold numeric values.

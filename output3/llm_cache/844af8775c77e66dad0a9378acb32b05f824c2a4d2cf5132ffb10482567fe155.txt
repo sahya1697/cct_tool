@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line contains a logical && operation with a side effect (log_error call) on the RHS. According to Rule 12.5, the operands of a logical && or || shall be primary-expressions. The log_error call is not a primary-expression, as it is a function call with a side effect. Therefore, the code violates Rule 12.5."
+}

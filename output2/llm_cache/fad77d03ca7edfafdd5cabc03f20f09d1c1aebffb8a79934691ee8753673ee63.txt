@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (6.2) specifies that signed and unsigned char types shall be used only for the storage and use of numeric values. However, the target line uses a float variable 'i' in the for loop, which is not a char type. Therefore, the rule does not apply to this code construct."
+}

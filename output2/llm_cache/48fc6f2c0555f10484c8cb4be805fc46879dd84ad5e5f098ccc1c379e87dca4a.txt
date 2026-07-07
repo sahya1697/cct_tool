@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement in the target line does not follow the MISRA C switch syntax. The syntax for the switch statement in C is weak, allowing complex, unstructured behaviour. The MISRA C switch syntax requires a specific structure, which is not followed in this code. The switch statement contains a 'case' label followed by a 'break' statement, but it also contains a 'default' label without a 'break' statement. This is not allowed by the MISRA C switch syntax, which requires that a 'break' statement be present at the end of each case clause."
+}

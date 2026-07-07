@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function call with a local variable 'a' that is not a pointer parameter. The rule's amplification text also mentions the importance of const qualification for pointer parameters, which is not directly relevant to this code construct."
+}

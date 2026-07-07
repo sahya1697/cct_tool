@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule requires that error information be tested after a function returns. However, the provided code snippet does not explicitly show the return value of the function being tested. The log_formatted function is called, but its return value is not checked. Without more context or information about the function's behavior, it is uncertain whether the rule is violated."
+}

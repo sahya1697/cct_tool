@@ -1,0 +1,12 @@
+CORRECTED:
+int twelve(int v) {
+    int r = 0;
+    switch (v) {
+        case 0:
+            r = 9;
+        default:
+            r = 9;
+    }
+
+EXPLANATION:
+The fix is to add a case clause with a specific value (in this case, 0) before the default clause.

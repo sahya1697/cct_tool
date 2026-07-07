@@ -1,0 +1,5 @@
+CORRECTED:
+ptr = ptr + (i++);
+
+EXPLANATION:
+The fix is to replace the mixed increment operator (++i) with a post-increment operator (i++), which is a more conventional and MISRA-compliant way to increment the variable i.

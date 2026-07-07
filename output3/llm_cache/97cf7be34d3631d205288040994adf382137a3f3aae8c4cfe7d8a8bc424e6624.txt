@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule specifies that the input/output library <stdio.h> shall not be used in production code. However, the target line is a #pragma directive, which is not related to the use of <stdio.h> or any of its functions. Therefore, the rule does not apply to this code construct."
+}

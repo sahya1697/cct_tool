@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule requires all declarations and definitions of objects or functions at file scope to have internal linkage unless external linkage is required. The target line is a function definition, but the context is not sufficient to determine whether the function is intended to be used externally or not. The function is defined within a file, but there is no explicit indication of whether it is intended to be used externally or not. Therefore, a human review is required to determine the correct linkage for this function."
+}

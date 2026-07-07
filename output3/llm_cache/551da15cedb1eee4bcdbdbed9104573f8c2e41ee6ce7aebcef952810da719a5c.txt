@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "Rule 14.3 is about null statements and comments, but the target line is a return statement with a calculation. The rule does not apply to this code construct."
+}

@@ -1,0 +1,4 @@
+CORRECTED:
+void no_effect(int a){(void)a+1;}
+EXPLANATION:
+The fix is to cast the result of the expression to void to ensure it has no effect on the program.

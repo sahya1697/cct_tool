@@ -1,0 +1,13 @@
+CORRECTED:
+int only_default(int v) {
+    switch (v) {
+        case 0:
+            v++;
+            break;
+        default:
+            break;
+    }
+}
+
+EXPLANATION:
+Added a default case to the switch statement to ensure it has at least one case clause.

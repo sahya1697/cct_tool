@@ -1,0 +1,14 @@
+CORRECTED:
+```c
+int float_loop(int n) {
+    int count = 0;
+    float i = 0.0f;
+    while (i < (float)n) {
+        count++;
+        i += 0.5f;
+    }
+}
+```
+
+EXPLANATION:
+The for loop was replaced with a while loop to separate the initialization of the loop counter from the loop condition, thus adhering to the MISRA rule.

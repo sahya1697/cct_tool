@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to function prototypes, but the target line is a function definition. The rule description specifies that the const qualifier should be applied to the object pointed to, not to the pointer. In this case, the function definition does not declare any pointer parameters, so the rule does not apply."
+}

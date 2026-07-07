@@ -1,0 +1,10 @@
+CORRECTED:
+    int unspecified(void) {
+        int i = 0;
+        int r;
+        const int* p = &i;
+        return ((a & b) == c) | (d << (1 + e));
+    }
+
+EXPLANATION:
+The pointer parameter was declared as a pointer to const to indicate that it does not modify the addressed object.

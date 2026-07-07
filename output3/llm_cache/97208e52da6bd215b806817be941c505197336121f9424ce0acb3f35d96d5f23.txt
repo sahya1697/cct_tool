@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a function call to va_end, which is a standard library function. The rule is about limiting dependence on C's operator precedence rules in expressions, but the target line is not an expression. Therefore, the rule does not apply to this code construct."
+}

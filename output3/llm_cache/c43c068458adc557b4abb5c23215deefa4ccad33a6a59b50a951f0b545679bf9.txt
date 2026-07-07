@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function declaration with a variable argument list (va_list args). The pointer parameter 'fmt' is not used to modify the addressed object, but the rule does not apply to this specific code construct."
+}

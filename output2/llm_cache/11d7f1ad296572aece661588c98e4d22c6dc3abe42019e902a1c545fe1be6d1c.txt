@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to logical && and || operators, but the target line uses a conditional statement with a logical AND operator (&&) to check if p is not NULL and val is equal to 42. However, the right-hand operand of the logical AND operator does not contain side effects, as it is a simple comparison (val == 42). Therefore, the code is compliant with the rule."
+}

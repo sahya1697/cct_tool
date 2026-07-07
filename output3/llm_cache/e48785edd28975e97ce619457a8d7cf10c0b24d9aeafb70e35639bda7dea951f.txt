@@ -1,0 +1,7 @@
+CORRECTED:
+```c
+uint16_t read_sensor_raw(const uint8_t *channel)
+```
+
+EXPLANATION:
+The pointer parameter `channel` was declared as `const` to indicate that it is not used to modify the addressed object.

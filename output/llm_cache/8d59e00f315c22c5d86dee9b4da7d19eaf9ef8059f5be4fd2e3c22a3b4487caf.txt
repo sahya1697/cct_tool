@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "Rule 19.4 applies only to C macros defined with #define. The target line is a preprocessor include directive (#include <stdio.h>), which is not a macro definition. Therefore the rule does not apply, and there is no violation."
+}

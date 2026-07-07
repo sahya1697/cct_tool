@@ -1,0 +1,4 @@
+CORRECTED:
+int sbool(int v){return (v > 0) ? 1 : 0;}
+EXPLANATION:
+The ternary operator is used to simplify the switch statement and adhere to the MISRA C switch syntax.

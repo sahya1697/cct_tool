@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to implicit conversions between floating and integer types, but the target line is an assignment to a variable (y) of type int, not a floating type. The expression y = y + 2 is an integer operation, and there is no implicit conversion between floating and integer types in this context."
+}

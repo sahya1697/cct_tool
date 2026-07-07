@@ -1,0 +1,6 @@
+CORRECTED:
+int v = process(-1);
+int s = sw_case(0);
+
+EXPLANATION:
+The fix is to explicitly declare the types of the variables 'v' and 's' in the main function.

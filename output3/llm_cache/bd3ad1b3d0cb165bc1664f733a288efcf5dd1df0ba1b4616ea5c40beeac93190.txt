@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line does not contain a null statement. The line contains a return statement with a comment, which is not a null statement. The rule applies to null statements, and this code does not contain one."
+}

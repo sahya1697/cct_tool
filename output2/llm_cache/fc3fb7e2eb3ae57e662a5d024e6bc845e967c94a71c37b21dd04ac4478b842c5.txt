@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 1.0,
+  "reasoning": "The code uses the C standard switch syntax, which is not compliant with the MISRA C switch syntax. Specifically, the rule requires the use of the MISRA C switch syntax, which is not used in the target line. The amplification text clarifies that the MISRA C switch syntax shall be used, and the target line does not conform to this requirement."
+}

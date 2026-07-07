@@ -1,0 +1,7 @@
+CORRECTED:
+    }
+    return result;   /* second return point */
+}
+
+EXPLANATION:
+The const keyword was removed from the function parameter to avoid modifying the object pointed to.

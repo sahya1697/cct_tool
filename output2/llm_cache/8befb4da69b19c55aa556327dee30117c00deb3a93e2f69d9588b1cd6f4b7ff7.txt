@@ -1,0 +1,6 @@
+CORRECTED:
+    int assignb(int x,int y){if(x==y) return 1; return 0;}
+    int ez(int z){if(z==0) return 1; return 0;}
+
+EXPLANATION:
+The fix replaces the assignment operators (=) with equality operators (==) to ensure that the expressions yield a Boolean value based on the comparison, not the assignment.

@@ -1,0 +1,8 @@
+CORRECTED:
+    {
+        int i = 0;
+        return add(i++, i++);
+    }
+
+EXPLANATION:
+The code does not actually violate the MISRA rule, as it is not related to pointer parameters in function prototypes.

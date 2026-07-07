@@ -1,0 +1,1 @@
+The rule applies to switch statements as well, as stated in the amplification text. The code violates this rule because the switch statements in the given functions do not have a default case that is the last case in the switch statement, which is a requirement for this rule. The evidence used is the LLM inference, which detected the switch statements and their structure.

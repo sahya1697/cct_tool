@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to functions with no parameters, but the target line is not a function with no parameters. The function explicit_zero has a parameter z, so the rule does not apply to this code construct."
+}

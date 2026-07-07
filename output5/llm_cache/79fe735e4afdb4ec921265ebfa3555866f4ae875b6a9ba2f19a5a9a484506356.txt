@@ -1,0 +1,21 @@
+Here is the completed reasoning:
+
+**Step 1 – Required construct for Rule 12.6:** The target line must contain a logical operator (&&, ||, or !) as the main operator.
+
+**Step 2 – Present on target line?** YES
+
+**Step 3 – Exact evidence quoted from target line:** "&&" (the target line contains the logical operator &&)
+All rule conditions satisfied? YES
+
+**Step 4 – Confidence level and conclusion:** Confidence: 0.95
+The operands of the logical operator && are not effectively Boolean, as they are not limited to 0 and 1. The expression x > 0 && y < 100 && x != y is not a simple Boolean expression, but rather a compound expression with multiple conditions.
+
+**OUTPUT JSON:**
+{
+  "step1_required_construct": "The target line must contain a logical operator (&&, ||, or !) as the main operator.",
+  "step2_construct_present": true,
+  "step3_evidence": "&&",
+  "violation": true,
+  "confidence": 0.95,
+  "reasoning": "The operands of the logical operator && are not effectively Boolean, as they are not limited to 0 and 1."
+}

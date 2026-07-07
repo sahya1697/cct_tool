@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement body is missing a compound statement (braces) as per MISRA C 2004 rule 14.8. The rule requires a compound statement for switch, while, do … while, or for statements, even if the body contains a single statement."
+}

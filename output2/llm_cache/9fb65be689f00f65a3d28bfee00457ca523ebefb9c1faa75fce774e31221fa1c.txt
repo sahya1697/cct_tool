@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement in the target line does not follow the MISRA C switch syntax. The syntax for the switch statement in C is weak, allowing complex, unstructured behaviour, and the MISRA C switch syntax enforces a simple and consistent structure on to the switch statement. The target line contains a case label with a statement list, but the case label is not immediately followed by a colon (:), which is a deviation from the normative text of the rule."
+}

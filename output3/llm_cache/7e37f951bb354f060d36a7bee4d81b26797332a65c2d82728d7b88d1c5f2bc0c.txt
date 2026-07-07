@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.0,
+  "reasoning": "The rule applies to shift operators, but the target line contains a for loop. The loop variable 'i' is used as an index, but it is not clear if it is used as a shift operator. Further review is needed to determine if the rule is applicable."
+}

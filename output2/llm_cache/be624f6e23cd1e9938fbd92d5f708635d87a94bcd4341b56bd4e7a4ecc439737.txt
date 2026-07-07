@@ -1,0 +1,14 @@
+CORRECTED:
+int r15_4_boolean_switch(int v) {
+    int r = 0;
+    switch (v == 0) {
+        case 0:
+            r = 1;
+            break;
+        default:
+            break;
+    }
+}
+
+EXPLANATION:
+The break statement was added to the end of the switch clause to ensure that every non-empty switch clause is terminated by an unconditional break statement.

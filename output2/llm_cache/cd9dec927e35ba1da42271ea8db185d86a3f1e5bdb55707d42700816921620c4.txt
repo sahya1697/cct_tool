@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule states that if a function returns error information, that error information shall be tested. The function float_for() returns an integer value, but it's not clear if this value is intended to indicate an error. The function's purpose is to count the number of iterations, but it's possible that the return value could be used to indicate an error. Without more context or information about the expected behavior of this function, it's difficult to determine if the rule is violated or not."
+}

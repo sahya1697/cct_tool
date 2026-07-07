@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to function prototypes, but the target line is a function call. The function prototype for retry_transmit is not provided in the context, but based on the function call, it is clear that the function is being called with a pointer to a buffer and its size. The rule does not apply to function calls, only to function prototypes."
+}

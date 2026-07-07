@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "Rule 2.2 prohibits the use of // or C++ style comments; it requires only /* … */ style comments. The target line (#include <stdio.h>) contains no comments at all, so there is no violation of the rule. The rule applies to source code, and preprocessor directives are part of the source, but the rule only concerns comment syntax, not include directives."
+}

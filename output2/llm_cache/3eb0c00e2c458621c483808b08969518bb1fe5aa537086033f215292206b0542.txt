@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to file scope declarations and definitions, but the target line is a function definition with external linkage. The function is not declared with the static storage-class specifier, but the rule does not require it for functions with external linkage."
+}

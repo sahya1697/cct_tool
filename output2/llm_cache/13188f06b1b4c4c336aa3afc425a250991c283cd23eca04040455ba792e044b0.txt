@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a function call to `printf` with two arguments, which matches the number of parameters declared in the function prototype. The rule applies to function calls, and the number of arguments passed to `printf` matches the number of parameters it expects."
+}

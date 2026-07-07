@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement in the function r15_5_only_default has no case clauses, directly violating Rule 15.5, which requires every switch statement to have at least one case clause."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function float_loop(5) has a single argument, which matches the number of parameters defined in its prototype (not shown in the code snippet). The rule applies to the target line, and there is no ambiguity in its application."
+}

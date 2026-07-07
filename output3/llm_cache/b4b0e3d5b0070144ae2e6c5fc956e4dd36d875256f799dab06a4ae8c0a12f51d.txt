@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.3) specifies that the sizeof operator shall not be used on expressions that contain side effects. However, in the target line, the sizeof operator is used on the expression 'size', which is a variable of type 'size_t'. The sizeof operator is applied to the type of the expression, not its value, so there are no side effects. Therefore, the rule does not apply to this code construct."
+}

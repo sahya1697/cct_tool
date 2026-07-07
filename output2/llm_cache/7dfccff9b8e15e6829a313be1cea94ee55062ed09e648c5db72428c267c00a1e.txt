@@ -1,0 +1,10 @@
+CORRECTED:
+int r13_4_float_for(void) {
+    int count = 0;
+    float f = 0.0f;
+    for (; f < 3.0f; f += 0.5f) {
+        count++;
+    }
+
+EXPLANATION:
+The loop control variables were moved outside the for statement to comply with the MISRA rule.

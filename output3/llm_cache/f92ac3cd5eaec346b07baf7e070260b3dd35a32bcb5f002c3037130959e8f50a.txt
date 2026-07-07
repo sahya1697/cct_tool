@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule states that array indexing shall be the only allowed form of pointer arithmetic. However, the target line is a function parameter declaration, not an expression involving pointer arithmetic. Therefore, it is unclear whether the rule applies to this code construct. Further analysis is required to determine whether the function's behavior violates the rule."
+}

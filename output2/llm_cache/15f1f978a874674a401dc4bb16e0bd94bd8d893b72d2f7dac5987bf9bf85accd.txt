@@ -1,0 +1,10 @@
+CORRECTED:
+int main(void)
+{
+    (void)printf("unreachable() -> %d\n", unreachable(0));
+    int inc = no_effect(3);                
+    (void)printf("no_effect(3) -> %d\n", inc);
+}
+
+EXPLANATION:
+The fix is to add a parameter to the `unreachable()` function to match the number of arguments passed to it.

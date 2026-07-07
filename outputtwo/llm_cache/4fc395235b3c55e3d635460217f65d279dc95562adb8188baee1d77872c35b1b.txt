@@ -1,0 +1,16 @@
+CORRECTED:
+```c
+void process_data(uint8_t *buf, uint32_t len)
+{
+    uint32_t i;
+    uint8_t *ptr = buf;
+    for (i = 0; i < len; i++)
+    {
+        // process ptr
+        ptr++;
+    }
+}
+```
+
+EXPLANATION:
+The fix replaces the explicit pointer arithmetic with array indexing by incrementing a pointer variable instead of directly modifying the pointer.

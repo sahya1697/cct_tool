@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to function prototypes, but the provided code snippet appears to be a function call, not a function prototype. However, the function name `switch_bool` suggests that it might be a function prototype. Without more context or information about the function definition, it's difficult to determine whether the rule applies. Therefore, a human review is necessary to confirm the function's definition and determine the correct application of the rule."
+}

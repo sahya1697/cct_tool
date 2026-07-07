@@ -1,0 +1,11 @@
+CORRECTED:
+{
+    int s = 0;
+    for (int i = 0; i < 5; i++)
+    {
+        if ((i % 2) == 0 && (i > 0))
+    }
+}
+
+EXPLANATION:
+Parentheses were added around the second operand of the logical && operator to ensure it is a primary expression.

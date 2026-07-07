@@ -1,0 +1,9 @@
+CORRECTED:
+```c
+int eq_double(double a, double b) { return (int)a == (int)b; }
+int float_for(void) { int c = 0; for (int i = 0; i < 3; i++) c++; return c; }
+int for_side(void) { int c = 0; for (int i = 0; i < 3; i++) printf("t"); return 0; }
+```
+
+EXPLANATION:
+The fix is to remove the use of floating-point types and values in the original code, replacing them with integer types and values to avoid relying on the underlying bit representation of floating-point values.

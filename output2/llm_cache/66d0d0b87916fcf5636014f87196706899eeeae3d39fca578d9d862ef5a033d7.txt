@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.1) advises to use parentheses to emphasize operator precedence, but it does not require them in this specific case. The expression `i++` is a common idiom in C, and its precedence is well-defined. The rule's amplification text does not mention this specific case, and the context does not suggest any potential for confusion or ambiguity."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch label 'case 0:' is used outside the body of a switch statement. The most closely-enclosing compound statement is not the body of a switch statement, violating the rule. The amplification text clarifies that all case clauses and the default clause shall be at the same scope, which is not the case here."
+}

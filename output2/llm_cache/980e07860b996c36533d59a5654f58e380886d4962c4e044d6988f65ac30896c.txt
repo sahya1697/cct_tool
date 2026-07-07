@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule requires that error information be tested after a function returns. The function g() returns an integer value, but it is not clear whether this value is intended to indicate an error. The function does not appear to have any error flags or special return values that would indicate an error. However, without more context, it is uncertain whether the function is intended to return an error value or not."
+}

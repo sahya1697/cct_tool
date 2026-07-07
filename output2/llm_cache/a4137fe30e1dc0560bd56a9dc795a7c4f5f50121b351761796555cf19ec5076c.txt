@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to function prototypes, but the provided code snippet appears to be a function call. The function name 'only_default' is not provided, and without its definition, it's unclear whether the function prototype matches the rule's criteria. Therefore, a more detailed review is required to determine the compliance of this code."
+}

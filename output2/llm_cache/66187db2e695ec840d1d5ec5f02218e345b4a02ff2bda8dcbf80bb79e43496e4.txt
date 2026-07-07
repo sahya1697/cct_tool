@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line contains the expression `(n * 2)`, which is a function argument. According to the rule amplification, the order of evaluation of function arguments is unspecified. This means that the value of `(n * 2)` may not be the same under any order of evaluation that the standard permits. Therefore, the code violates this specific rule."
+}

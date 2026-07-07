@@ -1,0 +1,7 @@
+CORRECTED:
+int missing_break(int v){int r=0;switch(v){case 0:r=1;break;case 1:r=2;break;default:r=3;break;}return r;}
+int default_not_last(int v){int r=0;switch(v){case 0:r=1;break;default:r=9;break;}return r;}
+int switch_bool(int v){switch(v>0){case 0:return 0;break;case 1:return 1;break;default:return 2;}}
+
+EXPLANATION:
+Added break statements to the end of each case clause to ensure that the switch statement has at least one case clause.

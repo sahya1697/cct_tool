@@ -1,0 +1,9 @@
+CORRECTED:
+va_start(ap, count);
+for (int i = 0; i < count; i++) {
+total += va_arg(ap, int);
+}
+return total;
+
+EXPLANATION:
+The code does not need to be modified as it does not violate the MISRA rule regarding pointer parameters in function prototypes.

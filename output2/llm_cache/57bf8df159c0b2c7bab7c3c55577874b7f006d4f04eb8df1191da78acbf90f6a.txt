@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule prohibits assignment operators in expressions that yield a Boolean value. However, in the target line, the expression 'if(i%2) continue;' does not contain an assignment operator. The 'continue' statement is used to skip the rest of the current iteration and move on to the next iteration, which is a control flow statement, not an assignment. Therefore, the rule does not apply to this code construct."
+}

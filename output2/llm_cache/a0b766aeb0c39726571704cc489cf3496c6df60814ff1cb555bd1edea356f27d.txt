@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement in the function r15_5_only_default has a default case, but it is empty. According to the rule, every switch statement shall have at least one case clause. The default case is not allowed to be empty, as it does not provide any specific handling for the default value of the switch expression."
+}

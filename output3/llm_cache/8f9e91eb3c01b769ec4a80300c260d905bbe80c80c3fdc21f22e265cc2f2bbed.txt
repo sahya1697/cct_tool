@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.2) states that the value of an expression shall be the same under any order of evaluation that the standard permits. However, the target line is a function call to va_end, which is a standard library function that does not have any side effects that depend on the order of evaluation. The va_end function is used to clean up the variable argument list after it has been used, and its behavior is well-defined regardless of the order in which the function arguments are evaluated."
+}

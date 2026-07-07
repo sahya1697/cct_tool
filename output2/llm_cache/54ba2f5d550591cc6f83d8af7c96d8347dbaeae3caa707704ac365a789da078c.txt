@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule prohibits the use of unions, but the target line does not contain a union. The function onlydef uses a switch statement, which is not a union."
+}

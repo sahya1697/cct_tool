@@ -1,0 +1,7 @@
+CORRECTED:
+s = 1;
+s += 2;
+return s;
+
+EXPLANATION:
+The goto statement has been removed and the code has been rearranged to achieve the same functionality without using a jump statement.

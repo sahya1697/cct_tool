@@ -1,0 +1,11 @@
+CORRECTED:
+    int logical_nonprimary(int a,int b,int c){if(a+b && c-1) return 1; else return 0;}
+    
+>>> int main(void){
+        static int a=1,b=2,c=3,d=4,e=5;
+        static int x[2]={42,7};
+        static int *p=x;
+        prec(a,b,c,d,e); unspecified(); size_effect();
+
+EXPLANATION:
+The fix was to add the static storage-class specifier to the variable declarations to ensure they have internal linkage.

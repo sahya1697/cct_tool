@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The third expression in the for statement is not only concerned with loop control, but also includes a function call (printf(\"tock\\n\")) which is not related to loop control. This violates the rule that the three expressions of a for statement shall be concerned only with loop control."
+}

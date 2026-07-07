@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The array 'bytes' is declared within a union, which is a single unit of storage. The size of the union is explicitly stated as 4 bytes (the size of the uint32_t type), and the array 'bytes' is a member of this union. Therefore, the size of the array is implicitly defined by the size of the union, making this compliant with the rule."
+}

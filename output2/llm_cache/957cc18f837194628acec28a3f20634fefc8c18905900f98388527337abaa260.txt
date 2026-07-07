@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule requires explicit type declaration for objects or functions. However, the target line is declaring an array 'x' with an explicit type, and then a pointer 'p' to that array. The type of 'p' is explicitly stated as 'const int *'. Therefore, the rule does not apply to this code construct."
+}

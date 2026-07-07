@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function declaration with no pointer parameters. However, the function `w` has a pointer parameter, but its usage is unclear. Further review is needed to determine if the pointer is used to modify the addressed object."
+}

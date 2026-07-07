@@ -1,0 +1,7 @@
+CORRECTED:
+uint8_t *p = buf;
+uint8_t *q = buf + 10;
+*q = 0xFFU;
+
+EXPLANATION:
+The fix is to introduce a new pointer variable that points to the desired location, avoiding pointer arithmetic on the original pointer.

@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to function prototypes, but the provided code is a function body. The pointer parameter 'ap' is used to access the 'count' and 'int' values, but it's not clear if the pointer is used to modify the addressed object. The rule's amplification text suggests that the const qualification should be applied to the object pointed to, not to the pointer. However, the context is not sufficient to determine if the pointer is used to modify the object, so a human review is required."
+}

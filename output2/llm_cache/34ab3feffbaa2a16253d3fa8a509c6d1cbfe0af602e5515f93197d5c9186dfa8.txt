@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The code uses a case statement with a constant expression, but it does not follow the MISRA C switch syntax. The rule requires the use of the MISRA C switch syntax, which is not present in this code. The amplification text clarifies that the syntax for the switch statement in C is weak, and the MISRA C switch syntax is enforced to ensure a simple and consistent structure."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch clause in the function default_not_last has a non-empty case 0 with a statement r=1, but it does not end with a break statement. According to rule 15.2, an unconditional break statement shall terminate every non-empty switch clause."
+}

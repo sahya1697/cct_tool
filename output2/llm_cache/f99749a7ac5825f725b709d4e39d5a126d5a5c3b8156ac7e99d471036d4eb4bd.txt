@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to the unary minus operator being applied to an expression whose underlying type is unsigned. However, in the target line, the variable 'i' is of type int, not unsigned. Therefore, the rule does not apply to this code construct."
+}

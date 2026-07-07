@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to null statements, but the target line is an explicit return statement with a conditional expression, not a null statement. The rule's requirement for a null statement to be on a line by itself and possibly followed by a comment does not apply to this code construct."
+}

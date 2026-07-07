@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement in the tcase function has a default case that breaks, which means the code following the break statement (in this case, the default case) is unreachable. This is in violation of rule 14.1, which states that there shall be no unreachable code."
+}

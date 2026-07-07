@@ -1,0 +1,10 @@
+CORRECTED:
+int total = 0;
+va_start(ap, count);
+for (int i = 0; i < count; i++) {
+    total += va_arg(ap, int);
+}
+va_end(ap);
+
+EXPLANATION:
+The va_end macro was added to ensure that the variable argument list is properly cleaned up after use.

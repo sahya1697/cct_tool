@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function logical_rhs has a non-void return type, but it does not have an explicit return statement with an expression. However, the rule is not applicable because the function has an if statement with a return statement in the then branch, which is an explicit return statement with an expression."
+}

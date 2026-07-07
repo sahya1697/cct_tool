@@ -1,0 +1,5 @@
+CORRECTED:
+int bad_null(int y){if(y == 0) return -1; printf("after\n"); return 0;}
+
+EXPLANATION:
+The function now explicitly checks the return value and returns an error code (-1) when the input is 0.

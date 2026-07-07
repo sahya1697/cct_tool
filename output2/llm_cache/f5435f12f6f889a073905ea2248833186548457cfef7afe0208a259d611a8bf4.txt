@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The code in the for loop is unreachable because the continue statement skips the increment of 's' when 'i' is even, making the increment of 's' unreachable. This matches the rule description of unreachable code, which refers to code that cannot be reached under any circumstances and can be identified at compile time."
+}

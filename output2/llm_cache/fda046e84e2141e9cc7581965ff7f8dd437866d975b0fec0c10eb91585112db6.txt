@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to implicit conversions between floating and integer types, but the target line is an assignment of an integer to another integer, which does not involve any floating-point types. The expression 'y = x' is a simple assignment, not a complex expression, and does not involve any function arguments or return expressions."
+}

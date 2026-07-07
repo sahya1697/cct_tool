@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule requires the use of braces to indicate and match the structure in the non-zero initialisation of arrays and structures. However, the target line is a union declaration with two members: raw_word and bytes. The bytes member is an array of 4 uint8_t elements, but it is not being initialised with a non-zero value. Therefore, the rule does not apply to this code construct."
+}

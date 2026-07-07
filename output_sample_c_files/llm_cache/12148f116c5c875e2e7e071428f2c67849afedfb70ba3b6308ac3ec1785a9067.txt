@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 0.95,
+  "reasoning": "Rule 12.2 concerns expressions whose sub‑expressions may be evaluated in an unspecified order. The logical AND operator `&&` has a defined left‑to‑right evaluation order with short‑circuiting, so the order of evaluation of `x > 0`, `y < 100`, and `x != y` is guaranteed by the C standard. Since the expression contains no side‑effects or modifications, the value of the expression is independent of any unspecified order. Therefore the rule is not applicable to this construct and no violation occurs."
+}

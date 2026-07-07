@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function bad_null() returns no value, but it contains a statement that may be executed, printf(\"after\\n\");. According to Rule 16.10, if a function returns error information, then that error information shall be tested. In this case, the function does not return any error information, but it does contain a statement that may be executed. Therefore, the rule is violated."
+}

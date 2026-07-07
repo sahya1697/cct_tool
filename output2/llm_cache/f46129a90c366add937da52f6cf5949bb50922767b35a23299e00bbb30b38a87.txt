@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line does not involve a function prototype or a pointer parameter. The function 'only_default' takes an integer parameter 'v', which is not a pointer."
+}

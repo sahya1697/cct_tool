@@ -1,0 +1,12 @@
+CORRECTED:
+int only_default(int v) {
+    switch (v) {
+        case 0:
+            {
+                v++;
+            }
+    }
+}
+
+EXPLANATION:
+The fix involves adding a compound statement (braces) to enclose the single statement within the switch block.

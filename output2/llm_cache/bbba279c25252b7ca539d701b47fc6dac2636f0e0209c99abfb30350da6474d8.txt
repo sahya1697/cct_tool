@@ -1,0 +1,5 @@
+CORRECTED:
+int only_default(int v){switch(v){default:v++;break;}return v;}
+
+EXPLANATION:
+The code does not actually violate the MISRA rule, as it does not contain a pointer parameter in a function prototype.

@@ -1,0 +1,11 @@
+CORRECTED:
+int r15_5_only_default(int v) {
+    switch (v) {
+        default:              
+            v++;
+            break; // Added break statement to ensure default clause is final
+    }
+}
+
+EXPLANATION:
+The fix adds a break statement to the default clause to ensure it is the final clause in the switch statement.

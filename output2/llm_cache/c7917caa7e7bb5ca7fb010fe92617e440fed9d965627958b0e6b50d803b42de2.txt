@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that parentheses should be used to override default operator precedence and to emphasize it. In the target line, `sizeof(i++)` is used, which relies on the operator precedence rules of C. The expression `sizeof(i++)` is not a simple operand of a unary operator, and it is not a right-hand operand of an assignment operator. Therefore, it is not clear without parentheses that the `sizeof` operator should be applied to the result of `i++` rather than to `i` itself. This ambiguity makes it necessary to use parentheses to ensure the correct order of operations, thus violating the rule."
+}

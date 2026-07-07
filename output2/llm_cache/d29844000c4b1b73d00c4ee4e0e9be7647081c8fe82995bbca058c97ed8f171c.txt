@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 1.0,
+  "reasoning": "The target line 'case 1:' is a switch label used within the body of a switch statement. According to Rule 15.1, a switch label shall only be used when the most closely-enclosing compound statement is the body of a switch statement, which is the case here. The scope of the case label is the compound statement, which is the body of the switch statement."
+}

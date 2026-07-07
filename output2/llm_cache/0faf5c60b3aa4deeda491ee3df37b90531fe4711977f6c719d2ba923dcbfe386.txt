@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The null statement is not on a line by itself, but rather as part of an if statement. The rule applies to null statements that are on a line by themselves, which is not the case here."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line contains a logical && operator, and the right-hand operand of the && operator contains a side effect (the log_error function call). This directly matches the rule description, which states that the right-hand operand of a logical && or || operator shall not contain side effects."
+}

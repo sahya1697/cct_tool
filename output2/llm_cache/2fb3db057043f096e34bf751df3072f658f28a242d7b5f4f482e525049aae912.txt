@@ -1,0 +1,8 @@
+CORRECTED:
+int m(double x,double y){return x==y;}
+int n(int a,int b){return a+b;}
+int f(){return 0;}
+int g(){return 0;} /* added explicit return statement */
+
+EXPLANATION:
+The missing return statement in function g() has been added to ensure that all exit paths from a function with a non-void return type have an explicit return statement with an expression.

@@ -1,0 +1,8 @@
+CORRECTED:
+int no_effect(int * const a)
+{
+    a += 1;
+}
+
+EXPLANATION:
+The pointer parameter 'a' was declared as a constant pointer to an integer, indicating that the pointer itself cannot be modified, but the object it points to can.

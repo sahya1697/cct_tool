@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule prohibits the use of unions for any purpose, but the target line does not contain a union. The function default_not_last uses a switch statement with a default case, but it does not involve a union."
+}

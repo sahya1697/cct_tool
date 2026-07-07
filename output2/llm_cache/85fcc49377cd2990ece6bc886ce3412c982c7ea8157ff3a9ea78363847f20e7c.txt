@@ -1,0 +1,13 @@
+CORRECTED:
+int r = 0;
+switch (a % 3) {
+    case 0:
+        r = 10;
+        break;
+    case 1:
+        r = 20;
+        break;
+}
+
+EXPLANATION:
+The break statement was added after each case label to ensure that the scope of each case clause is the compound statement, which is the body of the switch statement.

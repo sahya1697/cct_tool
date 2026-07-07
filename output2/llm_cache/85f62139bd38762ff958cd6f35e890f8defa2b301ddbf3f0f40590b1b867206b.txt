@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that parentheses should be used to emphasize the order of operations, especially when there are multiple operators with different precedence. In the target line, the expression `a % 3` is evaluated first, and then the result is used in the switch statement. However, the assignment `r = 10;` is not enclosed in parentheses, which could lead to confusion about the order of operations. Although the rule does not explicitly state that parentheses are required in this case, the amplification text suggests that it is a good practice to use parentheses to clarify the order of operations, especially when there are multiple operators involved. Therefore, I consider this a violation of the rule."
+}

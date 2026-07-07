@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that an unconditional break statement shall terminate every non-empty switch clause. The target line is a case label, and the switch clause is not empty since it contains two case labels. However, there is no unconditional break statement at the end of the switch clause, which violates the rule."
+}

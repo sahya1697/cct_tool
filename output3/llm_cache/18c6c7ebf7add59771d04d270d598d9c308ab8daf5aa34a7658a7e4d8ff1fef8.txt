@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a switch statement, but the rule (15.1) specifically refers to the use of switch labels within a switch statement. The context provided does not indicate the use of a switch label, and the rule's amplification text clarifies that the scope of a case or default label shall be the compound statement, which is the body of a switch statement. Since the target line is a switch statement itself, and not a case or default label, the rule does not apply to this code construct."
+}

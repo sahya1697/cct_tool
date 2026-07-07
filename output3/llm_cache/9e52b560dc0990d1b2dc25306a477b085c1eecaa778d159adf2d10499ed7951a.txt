@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule specifies that the sizeof operator shall not be used on expressions that contain side effects. However, the target line does not contain the sizeof operator; instead, it uses a cast to a wider type (uint32_t). Therefore, this rule does not apply to the given code construct."
+}

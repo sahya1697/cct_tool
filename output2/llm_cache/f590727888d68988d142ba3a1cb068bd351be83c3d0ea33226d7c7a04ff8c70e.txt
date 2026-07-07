@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function 'ez' has no parameters, but it is declared with a parameter list 'int z'. However, the rule applies to functions with no parameters, and 'ez' does have a parameter 'z'. Therefore, the rule does not apply to this function."
+}

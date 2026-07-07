@@ -1,0 +1,4 @@
+CORRECTED:
+uint8_t *writable = (uint8_t *)pkt;
+EXPLANATION:
+The const qualifier is not removed from the pointed-to type because the cast is not necessary, as the pointer is already of type uint8_t*.

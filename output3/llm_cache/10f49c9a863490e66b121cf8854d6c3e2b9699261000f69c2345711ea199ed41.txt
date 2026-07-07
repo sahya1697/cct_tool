@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to the function call, but the number of arguments passed to the function (1) matches the number of parameters declared in the function prototype (1)."
+}

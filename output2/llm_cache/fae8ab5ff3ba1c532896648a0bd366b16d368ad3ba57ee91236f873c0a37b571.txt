@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function v does not have a pointer parameter. The rule applies to pointer parameters in function prototypes, which is not the case here."
+}

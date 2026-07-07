@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.1) is about limiting dependence on C's operator precedence rules in expressions. The target line is a function call to log_error with a single argument, which is a cast to int32_t. There is no expression that relies on operator precedence rules, so the rule does not apply to this code construct."
+}

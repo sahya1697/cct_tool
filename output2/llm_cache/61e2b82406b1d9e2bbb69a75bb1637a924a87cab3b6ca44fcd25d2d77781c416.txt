@@ -1,0 +1,7 @@
+CORRECTED:
+default:
+r = 30;
+break;
+
+EXPLANATION:
+Added a break statement to the end of the default case to ensure that every non-empty switch clause is terminated by a break statement.

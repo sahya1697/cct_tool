@@ -1,0 +1,5 @@
+CORRECTED:
+int float_for(void){int c=0;for(float f=0.0f;f<3.0f;f+=0.5f){if(f<3.0f) c++;}return c;}
+
+EXPLANATION:
+The fix involves adding a conditional statement to check if the loop condition is still true before incrementing the counter.

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to logical operators && and ||, but the target line contains a for loop, which does not match the rule's criteria. The rule is not applicable to this code construct."
+}

@@ -1,0 +1,5 @@
+CORRECTED:
+int assignb(const int *x, const int *y){if(*x==*y) return 1; return 0;}
+
+EXPLANATION:
+The function parameters x and y were changed to const pointers to ensure that the function does not modify the objects pointed to.

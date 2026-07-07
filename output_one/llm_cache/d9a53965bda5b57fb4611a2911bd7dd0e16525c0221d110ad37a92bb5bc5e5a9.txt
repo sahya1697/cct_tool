@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "Rule 12.1 concerns the use of parentheses to clarify operator precedence in expressions. The target line and the surrounding code contain no expressions with operators; the function definition and the inline assembly statement do not involve any operator precedence issues. Therefore the rule is not applicable to this construct."
+}

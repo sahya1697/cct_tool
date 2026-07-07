@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function parameter list. However, the rule's amplification mentions that the const qualification should be applied to the object pointed to, not to the pointer. In this case, the function parameter 'c' is not a pointer, but an integer. The rule's applicability is unclear, and further review is needed to determine if the function's logic modifies the object pointed to by 'c'."
+}

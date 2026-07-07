@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to operands of logical && or ||, but the target line is a variable declaration, not an expression with logical operators. Therefore, the rule does not apply to this code construct."
+}

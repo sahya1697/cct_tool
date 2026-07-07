@@ -1,0 +1,4 @@
+CORRECTED:
+int m(double x, double y){return x==y;}
+EXPLANATION:
+The fix is to assign meaningful parameter names to the function prototype to match the function definition.

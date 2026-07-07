@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line contains a floating-point expression being tested for inequality (f < 3.0f), which directly matches the rule's description. The amplification text clarifies that this is a forbidden comparison, and the context lines do not introduce any ambiguity or exceptions."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function parameter declaration without a pointer. The rule's amplification text does not directly address this scenario, and there is ambiguity in its application to this context."
+}

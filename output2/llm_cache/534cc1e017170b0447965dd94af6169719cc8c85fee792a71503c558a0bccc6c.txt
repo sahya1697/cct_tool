@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule specifies that the sizeof operator shall not be used on expressions that contain side effects. However, the target line uses sizeof on a variable 'i' which is being incremented in a for loop. The sizeof operator is not being used on an expression with side effects in this case, but rather on a variable. Therefore, the rule does not apply to this code construct."
+}

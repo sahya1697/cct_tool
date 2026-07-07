@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line dispatch_packet(2, (uint16_t)(BUFFER_SIZE / 2U)); involves function arguments, which are evaluated in an unspecified order. This matches the rule's amplification text, which states that the order of evaluation of function arguments is unspecified. Therefore, the code violates this specific rule."
+}

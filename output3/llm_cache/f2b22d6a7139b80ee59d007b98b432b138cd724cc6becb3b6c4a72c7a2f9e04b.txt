@@ -1,0 +1,10 @@
+CORRECTED:
+```c
+void build_packet(const uint8_t *pData)
+{
+    // ...
+}
+```
+
+EXPLANATION:
+The pointer parameter `pData` was declared as `const` to indicate that it is not modified within the function.

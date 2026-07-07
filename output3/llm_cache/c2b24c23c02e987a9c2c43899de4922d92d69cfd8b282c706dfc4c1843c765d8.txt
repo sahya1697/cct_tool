@@ -1,0 +1,7 @@
+CORRECTED:
+```c
+int32_t process_all_sensors(const sensor_t *sensors)
+```
+
+EXPLANATION:
+The function parameter `sensors` was declared as a non-const pointer, but since it's not used to modify the addressed object, it should be declared as a const pointer to indicate that the function does not modify the data it points to.

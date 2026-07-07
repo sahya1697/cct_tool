@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line contains a binary operator (+) with operands of different types (int and int). According to the rule, parentheses should be used to emphasize the operator precedence, especially when the operands are of different types. In this case, the expression (n * 2) is evaluated first due to the multiplication operator having higher precedence than the addition operator. However, the rule suggests using parentheses to control the order of operation, which is not necessary in this case. Nevertheless, the expression could be made clearer by using parentheses, e.g., (i < (n * 2))."
+}

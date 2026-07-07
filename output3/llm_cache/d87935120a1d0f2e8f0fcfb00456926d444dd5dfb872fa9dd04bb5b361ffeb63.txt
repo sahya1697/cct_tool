@@ -1,0 +1,10 @@
+CORRECTED:
+```c
+/* Recursive sum (Rule 16.2 violation in sensor.c) */
+>>>     (void)recursive_sum(10U);
+    
+/* Retry transmit */
+```
+
+EXPLANATION:
+The original code snippet does not actually violate the MISRA rule, as there is no function parameter that is a pointer and not used to modify the addressed object.

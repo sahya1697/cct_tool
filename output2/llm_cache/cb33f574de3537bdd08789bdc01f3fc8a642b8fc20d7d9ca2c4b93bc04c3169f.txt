@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function definition with no pointer parameters. The function 'ez' takes an integer 'z' as a parameter, which is not a pointer."
+}

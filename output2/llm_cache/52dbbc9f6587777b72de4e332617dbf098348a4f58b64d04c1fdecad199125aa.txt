@@ -1,0 +1,9 @@
+CORRECTED:
+retry:
+    if (y == 0) {
+        y = y + 2;
+    }
+    return y;
+
+EXPLANATION:
+The comparison operator (==) is used instead of the assignment operator (=) to avoid the unspecified order of evaluation.

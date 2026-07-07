@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to the order of evaluation of sub-expressions, but the target line is an assembly instruction (`__asm__(\"NOP\")`). The rule's amplification text does not explicitly address assembly instructions, and it is unclear whether the order of evaluation of sub-expressions applies to assembly code. Further review is needed to determine whether this code violates the rule."
+}

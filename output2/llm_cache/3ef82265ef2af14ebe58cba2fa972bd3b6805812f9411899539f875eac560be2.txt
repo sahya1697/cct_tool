@@ -1,0 +1,13 @@
+CORRECTED:
+int r15_1_bad_case_scope(int v) {
+    int r = 0;
+    switch (v) {
+        case 0: 
+            r = 10;
+        default:
+            r = 0;
+    }
+}
+
+EXPLANATION:
+The final case in the switch statement was missing an associated action, so a default case was added to handle this scenario.

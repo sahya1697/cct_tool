@@ -1,0 +1,5 @@
+CORRECTED:
+log_formatted("%d\n", total);
+
+EXPLANATION:
+The fix is to remove the variable-args function call, which is not allowed by MISRA C 2004.

@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch clause in the target line contains a case 0 statement followed by a case 1 statement without an intervening break statement. This violates the rule that an unconditional break statement shall terminate every non-empty switch clause."
+}

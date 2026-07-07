@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to enumerator lists, but the target line is a comment listing violations in the file, not an enumerator list. The rule does not apply to this code construct."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to if … else if constructs, but the target line is a goto statement used for error handling in the retry_transmit() function. The rule description specifically mentions if statements followed by one or more else if statements, which does not match the code construct in question."
+}

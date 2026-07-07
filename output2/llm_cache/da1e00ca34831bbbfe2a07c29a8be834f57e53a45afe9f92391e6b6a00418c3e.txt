@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 1.0,
+  "reasoning": "The function call (void)default_not_last(0) has one argument, but the function name suggests it should have a parameter list. This matches the rule description, which states that the number of arguments passed to a function shall match the number of parameters."
+}

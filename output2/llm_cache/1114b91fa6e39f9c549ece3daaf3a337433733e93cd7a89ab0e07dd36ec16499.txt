@@ -1,0 +1,11 @@
+CORRECTED:
+    int default_not_last(int v){int r=0;switch(v){default:r=9;break;case 0:r=1;break;}return r;}
+    int switch_bool(int v){switch(v>0){case 0:return 0;case 1:return 1;default:return 2;}}
+    int only_default(int v){switch(v){default:v++;break;case 0:v++;break;}return v;}
+    
+    int main(void){
+        return 0;
+    }
+
+EXPLANATION:
+Added a break statement to the case 0 clause in the only_default function to ensure that every non-empty switch clause is terminated by a break statement.

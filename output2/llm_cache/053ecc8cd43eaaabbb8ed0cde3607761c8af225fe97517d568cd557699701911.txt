@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement body is missing a compound statement (braces) as per Rule 14.8. The rule requires a compound statement for switch, while, do … while, or for statements, and the provided code does not meet this requirement."
+}

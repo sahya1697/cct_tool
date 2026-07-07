@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to enumerator lists, but the target line is a for loop with an if statement inside, which does not match the rule's criteria. The rule is not applicable to this code construct."
+}

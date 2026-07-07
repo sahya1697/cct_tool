@@ -1,0 +1,12 @@
+CORRECTED:
+int r = 0;
+switch (a % 3) {
+    case 0:
+        r = 10;
+        break;
+    case 1:
+        break;
+}
+
+EXPLANATION:
+Added break statements to the end of each case clause to ensure unconditional termination.

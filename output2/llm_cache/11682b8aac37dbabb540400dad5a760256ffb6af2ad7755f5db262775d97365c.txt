@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that parentheses should be used to override default operator precedence and to emphasize it. In the target line, the expression `i < 2;` is a comparison, and the `printf` statement is a side effect. The use of parentheses around the comparison `i < 2` is not strictly necessary, but it does clarify the order of operations and avoids potential confusion. Therefore, this code violates the rule by not using parentheses to emphasize the order of operations."
+}

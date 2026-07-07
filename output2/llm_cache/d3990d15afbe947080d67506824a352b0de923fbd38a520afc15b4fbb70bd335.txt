@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function w has a non-void return type, and the target line contains an explicit return statement with an expression. The expression is '1' when the condition is met, and '0' otherwise, which aligns with the rule's requirement for an explicit return statement with an expression."
+}

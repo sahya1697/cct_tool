@@ -1,0 +1,13 @@
+CORRECTED:
+int twelve(int v) {
+    int r = 0;
+    switch (v) {
+        default:
+            r = 9;
+        case 12:
+            r = 12;
+    }
+}
+
+EXPLANATION:
+The switch statement has been modified to include a case for the value 12, which eliminates the need for an if-else construct.

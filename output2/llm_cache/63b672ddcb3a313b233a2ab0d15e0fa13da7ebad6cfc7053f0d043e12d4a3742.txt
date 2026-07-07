@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to the declaration of objects, but the target line is a function declaration. The function declaration does not contain any object declarations, so the rule is not applicable to this code construct."
+}

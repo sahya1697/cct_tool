@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line contains a logical && operator with operands that are not primary-expressions. The operand 'i % 2' is a parenthesised expression, but the expression 'i % 2 == 0' is not parenthesised. According to the rule, the operands of a logical && or || shall be primary-expressions, which in this case are not met."
+}

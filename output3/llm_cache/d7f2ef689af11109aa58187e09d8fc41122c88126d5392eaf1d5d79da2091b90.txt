@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.2) addresses the order of evaluation of expressions, but the target line does not involve any unspecified order of evaluation. The expression *(ptr + i) is a pointer arithmetic operation, which is well-defined and does not depend on the order of evaluation. The rule is not applicable to this code construct."
+}

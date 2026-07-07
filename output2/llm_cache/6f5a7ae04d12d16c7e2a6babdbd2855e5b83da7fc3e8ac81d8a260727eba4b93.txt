@@ -1,0 +1,11 @@
+CORRECTED:
+int fourteen(int v) {
+    switch (v) {
+        default:
+            v++;
+            break;
+    }
+}
+
+EXPLANATION:
+The break statement was added to ensure that the switch statement terminates after executing the default case.

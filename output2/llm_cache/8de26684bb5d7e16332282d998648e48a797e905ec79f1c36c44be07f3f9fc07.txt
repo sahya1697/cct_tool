@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch label 'case 0:' is used within the function 'default_not_last' and is part of a switch statement. The most closely-enclosing compound statement is indeed the body of a switch statement, which aligns with the rule's requirement. The amplification text also supports this interpretation, emphasizing that all case clauses and the default clause shall be at the same scope, which is the case here."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function bad_null has no parameters, and according to Rule 16.5, functions with no parameters shall be declared and defined with the parameter list void. The function is declared as void bad_null(int y), which does not match the rule's requirement. The parameter list is not declared as void, which is a clear violation of the rule."
+}

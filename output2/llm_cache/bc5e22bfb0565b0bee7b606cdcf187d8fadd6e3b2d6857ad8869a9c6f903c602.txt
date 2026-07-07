@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement has a case for 0, which will be executed when the function is called with v = 0. However, the code following the switch statement is unreachable because the function returns immediately after the switch statement, and there is no control flow path to the unreachable code. This matches the rule description, which states that code is unreachable if there is no control flow path from the relevant entry point to that code."
+}

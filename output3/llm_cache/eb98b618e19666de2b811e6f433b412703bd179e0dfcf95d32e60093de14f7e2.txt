@@ -1,0 +1,12 @@
+CORRECTED:
+#include <stdarg.h>
+#include <string.h>
+#include <stdio.h>
+
+void my_vprintf(const char *fmt, va_list args) {
+    vfprintf(stderr, fmt, args);
+    va_end(args);
+}
+
+EXPLANATION:
+The fix is to replace the use of vprintf with vfprintf, which is allowed in production code and writes to stderr instead of stdout.

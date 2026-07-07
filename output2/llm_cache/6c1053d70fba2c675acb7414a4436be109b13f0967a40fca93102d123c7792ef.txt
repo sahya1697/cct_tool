@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function onlydef has a parameter list, which is (int v), and not void. Therefore, it does not violate Rule 16.5."
+}

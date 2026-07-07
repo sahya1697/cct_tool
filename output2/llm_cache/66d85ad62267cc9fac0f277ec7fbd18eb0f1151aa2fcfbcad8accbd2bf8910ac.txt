@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the function 'f' does not have any pointer parameters. The rule is not applicable to this code construct."
+}

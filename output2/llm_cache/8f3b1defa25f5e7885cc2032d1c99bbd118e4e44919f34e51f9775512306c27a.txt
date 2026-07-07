@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch label 'case 0:' is used outside the body of a switch statement. The amplification text clarifies that the scope of a case or default label shall be the compound statement, which is the body of a switch statement. In this code, the switch label is used within a function, but not within the body of a switch statement, thus violating the rule."
+}

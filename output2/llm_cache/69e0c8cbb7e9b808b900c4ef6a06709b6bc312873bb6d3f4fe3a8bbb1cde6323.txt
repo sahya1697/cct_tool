@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 1.0,
+  "reasoning": "The goto statement is used at line L1, which directly matches the rule description. The rule explicitly states that the goto statement shall not be used, and there is no ambiguity in its application to this context."
+}

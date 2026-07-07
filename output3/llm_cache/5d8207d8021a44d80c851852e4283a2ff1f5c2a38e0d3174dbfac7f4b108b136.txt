@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to the declaration of objects, but the target line is a pointer declaration within a function. The pointer declaration 'uint8_t *p = buf;' does not contain more than 2 levels of pointer indirection."
+}

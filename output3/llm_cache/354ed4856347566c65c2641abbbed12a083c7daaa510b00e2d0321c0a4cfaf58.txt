@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to if … else if constructs, but the target line is a return statement. The code above the target line does not contain an if … else if construct, so the rule does not apply to this code construct."
+}

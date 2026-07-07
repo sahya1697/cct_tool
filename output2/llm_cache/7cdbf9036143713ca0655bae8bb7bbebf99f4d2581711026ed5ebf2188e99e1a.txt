@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to declarations and definitions of objects or functions at file scope, but the target line is a function declaration with external linkage. However, the function is not at file scope, it is within a larger function, so the rule does not apply."
+}

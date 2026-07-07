@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 1.0,
+  "reasoning": "The switch clause in the function bad_scope has an unconditional break statement at the end of the case 0 block, which matches the rule's requirement for an unconditional break statement to terminate every non-empty switch clause."
+}

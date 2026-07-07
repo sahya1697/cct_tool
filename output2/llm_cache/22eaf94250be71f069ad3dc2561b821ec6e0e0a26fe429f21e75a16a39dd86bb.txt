@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function call, not a function prototype. However, the function being called is `prec`, which is not shown in the provided code. Without more information about the `prec` function, it's unclear whether the rule applies."
+}

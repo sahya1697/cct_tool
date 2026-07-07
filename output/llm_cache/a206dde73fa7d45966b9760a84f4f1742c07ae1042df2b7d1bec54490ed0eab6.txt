@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "Rule 2.1 concerns the use of assembly language. The target line is a preprocessor directive that includes the standard header <stdio.h>. No assembly instructions or inline assembly are present in this line or the surrounding context. Therefore the rule does not apply, and there is no violation."
+}

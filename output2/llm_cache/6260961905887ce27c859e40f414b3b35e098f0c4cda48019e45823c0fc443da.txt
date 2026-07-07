@@ -1,0 +1,14 @@
+CORRECTED:
+    int bad_scope(int v) {
+        int r = 0;
+        switch (v) {
+            case 0:
+                r = 10;
+                break;
+            default:
+                break;
+        }
+    }
+
+EXPLANATION:
+The break statement was added to ensure that the case label is only used within the switch statement's compound statement.

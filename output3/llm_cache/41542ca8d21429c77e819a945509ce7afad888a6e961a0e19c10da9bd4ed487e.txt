@@ -1,0 +1,5 @@
+CORRECTED:
+    ptr = ptr + (i++);
+
+EXPLANATION:
+The increment of the variable i was moved to after the addition to avoid modifying the pointer.

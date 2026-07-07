@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to the shift operator's right-hand operand, which in this case is a constant (7). The left-hand operand is a uint8_t, and the shift is by 7 bits, which is less than the width of the underlying type (8 bits). Therefore, the code complies with the rule."
+}

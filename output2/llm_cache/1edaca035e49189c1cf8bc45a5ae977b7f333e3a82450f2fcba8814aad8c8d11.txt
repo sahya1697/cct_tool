@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The line marked with >>> is a goto statement that transfers control to the label L. However, the label L is assigned to the variable n, which is initialized to 0. The code then increments n by 2, but the goto statement transfers control to the label L before the increment operation is executed. Therefore, the code following the label L is unreachable, violating rule 14.1."
+}

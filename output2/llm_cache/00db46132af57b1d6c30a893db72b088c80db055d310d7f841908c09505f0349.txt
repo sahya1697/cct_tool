@@ -1,0 +1,10 @@
+CORRECTED:
+int r15_4_boolean_switch(int v) {
+    int r = 0;
+    switch (v == 0) {
+        case 0:
+            { r = 10; } // added compound statement
+    }
+
+EXPLANATION:
+The fix involves adding a compound statement (enclosed within braces) to the switch statement body, even though it contains a single statement.

@@ -1,0 +1,10 @@
+CORRECTED:
+case 0:
+    r = 10;
+    break;
+case 1:
+    r = 20;
+    break;
+
+EXPLANATION:
+Added unconditional break statements to the end of each switch clause.

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.2) states that the value of an expression shall be the same under any order of evaluation that the standard permits. However, the target line is an assignment statement, not an expression that relies on the order of evaluation. The assignment of the value 0U to the variable index does not depend on the order of evaluation of any sub-expressions, and therefore does not violate this rule."
+}

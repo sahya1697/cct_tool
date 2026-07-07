@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function assignment, not a function prototype. The function assignb takes two integer parameters, x and y, but they are not pointers. Therefore, the rule does not apply to this code construct."
+}

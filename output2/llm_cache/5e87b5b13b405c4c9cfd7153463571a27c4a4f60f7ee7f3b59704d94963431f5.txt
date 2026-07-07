@@ -1,0 +1,12 @@
+CORRECTED:
+int r = 0;
+switch (a % 3) {
+    case 0:
+        r = 10;
+        break;
+    case 1:
+        break;
+}
+
+EXPLANATION:
+The fix adds a break statement to the end of each case to ensure that the switch statement falls through to the next case only when intended.

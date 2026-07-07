@@ -1,0 +1,14 @@
+CORRECTED:
+int bad_scope(int v) {
+    int r = 0;
+    switch (v) {
+        case 0:
+            r = 10;
+        default:
+            r = 20;
+    }
+    return r;
+}
+
+EXPLANATION:
+Added a default case to the switch statement to ensure all code paths are reachable.

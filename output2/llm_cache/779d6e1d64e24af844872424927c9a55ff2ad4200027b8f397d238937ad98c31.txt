@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.1) is about limited dependence on C's operator precedence rules in expressions. The target line is a for loop with a conditional continue statement. The expression inside the if condition does not involve complex operator precedence rules, and the use of continue does not affect the expression's precedence. Therefore, the rule does not apply to this code construct."
+}

@@ -1,0 +1,9 @@
+CORRECTED:
+retry:
+    if ((y = 0) == 0) {
+        y = y + 2;
+    }
+    return y;
+
+EXPLANATION:
+Parentheses were added to explicitly group the assignment and comparison operations, making the code's intent clear and avoiding reliance on C's operator precedence rules.

@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule requires that error information be tested, but the function 'rec' does not explicitly return error information. However, the function 'm' does return an error value (0) when the input values are equal. The context is not clear on whether 'rec' is intended to return an error value or not, and the rule's amplification text suggests that the use of errno is clumsy and should be used with care. Therefore, a human review is necessary to determine the correct course of action."
+}

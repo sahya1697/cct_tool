@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line contains a logical && operator with a side effect on the right-hand operand (log_error call), which is a clear violation of Rule 12.4. The amplification text clarifies that the right-hand operand of a logical && or || operator shall not contain side effects, and the context lines show that log_error is a function call that modifies the state of the execution environment."
+}

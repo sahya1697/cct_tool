@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement has a case for 0, but the code inside this case sets r to 1, which is not the expected behavior for a case that should set r to 0. This indicates that the code is unreachable, as the switch statement will never reach this case."
+}

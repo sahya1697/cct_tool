@@ -1,0 +1,10 @@
+CORRECTED:
+if (y < 0) {
+    y = y + 1;
+    if (y == 0) {
+        y = y + 2;
+    }
+}
+
+EXPLANATION:
+The goto statement has been replaced with a structured approach using if statements to control the flow of the code.

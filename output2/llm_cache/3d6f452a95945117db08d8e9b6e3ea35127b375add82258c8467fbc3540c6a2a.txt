@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line does not involve a function prototype or a pointer parameter. The context lines show a function call, but the rule's amplification text does not provide clear guidance on its application to function calls. Further review is needed to determine whether the rule applies to this specific code construct."
+}

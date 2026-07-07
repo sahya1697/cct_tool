@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to bitwise operators ~ and << when applied to operands of underlying type unsigned char or unsigned short. However, the target line contains multiple function calls (bad_scope, missing_break, default_not_last, switch_bool, only_default) without clear indication of the operand types. Further analysis is required to determine if any of these function calls involve bitwise operators ~ and << with operands of the specified types."
+}

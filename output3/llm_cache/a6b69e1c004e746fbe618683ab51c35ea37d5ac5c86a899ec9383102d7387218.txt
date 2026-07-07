@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule states that the sizeof operator shall not be used on expressions that contain side effects. However, in the given code, the sizeof operator is used on the type of the expression 'pkt', which is a pointer to RawPacket_t. The expression 'pkt != NULL' does not contain any side effects that would be evaluated by sizeof. Therefore, the rule does not apply to this code construct."
+}

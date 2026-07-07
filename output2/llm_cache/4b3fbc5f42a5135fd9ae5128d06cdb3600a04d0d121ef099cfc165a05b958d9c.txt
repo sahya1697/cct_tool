@@ -1,0 +1,5 @@
+CORRECTED:
+int unreachable(void){return 1; printf("never\n");}
+
+EXPLANATION:
+The function parameter list was already declared as void, so no change was needed.

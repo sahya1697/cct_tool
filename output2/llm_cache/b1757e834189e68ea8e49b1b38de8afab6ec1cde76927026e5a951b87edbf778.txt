@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to expressions with unspecified order of evaluation, but the target line does not contain any such expressions. The 'continue' statement is a control flow statement that does not rely on the order of evaluation of sub-expressions."
+}

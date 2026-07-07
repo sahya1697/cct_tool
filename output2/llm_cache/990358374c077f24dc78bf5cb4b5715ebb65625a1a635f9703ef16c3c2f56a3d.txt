@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function 'm' has a non-void return type, and the target line has an explicit return statement with an expression. The rule requires all exit paths from a function with a non-void return type to have an explicit return statement with an expression, which is satisfied in this case."
+}

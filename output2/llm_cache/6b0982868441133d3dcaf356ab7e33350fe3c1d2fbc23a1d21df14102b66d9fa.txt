@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function has a non-void return type, but the rule is not applicable because the function will always return 0, which is an explicit return statement with an expression. The rule is intended to prevent undefined behavior in cases where the function might not return a value, but in this case, the return statement is always executed."
+}

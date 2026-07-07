@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that the value of an expression shall be the same under any order of evaluation that the standard permits. In the target line, the expression `i++` has side effects, as it increments the value of `i` and returns the original value. The order of evaluation of `i++` and `printf(\"tock\\n\")` is unspecified, which could lead to different results depending on the order in which these sub-expressions are evaluated. This matches the example provided in the amplification text, where the order of evaluation of `b` and `i++` in the expression `x = b + i++` could lead to different results."
+}

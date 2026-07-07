@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function definition with integer parameters, not pointers. However, the rule's amplification mentions protecting objects pointed to by pointers, which suggests it might be relevant to pointer arithmetic or object modification. Without more context or information about the function's behavior, it's uncertain whether the rule applies or not."
+}

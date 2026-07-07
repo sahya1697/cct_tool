@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.2) specifies that the value of an expression shall be the same under any order of evaluation that the standard permits. However, the target line is a function call to scale_reading(), which is a function that applies linear scaling to a raw sensor reading. The function call operator () is one of the operators that does not have an unspecified order of evaluation. Therefore, the rule does not apply to this code construct."
+}

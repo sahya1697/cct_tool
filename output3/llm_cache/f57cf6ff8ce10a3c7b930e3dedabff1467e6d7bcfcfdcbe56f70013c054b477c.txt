@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function calls itself directly in the line marked with >>>, which matches the rule description of 'Functions shall not call themselves, either directly or indirectly.' The amplification text also warns about the dangers of recursion, which is present in this code."
+}

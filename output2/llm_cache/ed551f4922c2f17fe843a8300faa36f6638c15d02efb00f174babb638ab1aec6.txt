@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function 'rec' has a non-void return type, and the rule requires an explicit return statement with an expression for all exit paths. The function 'rec' has an explicit return statement with an expression for the base case (return 0), but the recursive case (return rec(n-1)+1) also meets this requirement. Therefore, the rule is violated."
+}

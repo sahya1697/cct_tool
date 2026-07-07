@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to functions with no parameters, but the target line is a function declaration with a parameter list (int n), not a function with no parameters. Therefore, the rule does not apply to this code construct."
+}

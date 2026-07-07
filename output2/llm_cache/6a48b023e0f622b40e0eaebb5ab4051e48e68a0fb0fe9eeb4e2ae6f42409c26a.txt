@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The controlling expression of the for statement does not contain any objects of floating type. The loop counter 'i' is an integer, and the condition 'i < 2' is also an integer comparison. Therefore, the rule does not apply to this code construct."
+}

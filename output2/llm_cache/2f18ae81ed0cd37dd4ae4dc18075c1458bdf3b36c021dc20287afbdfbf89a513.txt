@@ -1,0 +1,9 @@
+CORRECTED:
+    #include <stdio.h>
+    int assign_bool(int x,int y){ if (x == y) return 1; return 0; }
+    int explicit_zero(int z){ if (z != 0) return 1; return 0; }
+    int eq_double(double a,double b){ double d = (a > b) ? (a - b) : (b - a); return d < 1e-9; }
+    int float_for(void){ int c = 0; for (int i = 0; i < 6; i++) c++; return c; }
+
+EXPLANATION:
+The original code does not explicitly test the return values of the functions, which is required by MISRA rule 16.10.

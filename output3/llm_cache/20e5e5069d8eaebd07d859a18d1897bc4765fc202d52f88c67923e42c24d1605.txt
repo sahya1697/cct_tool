@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a function call to `process_all_sensors()`, which is a primary expression. The rule applies to operands of logical && or ||, but this line does not contain any logical operators. Therefore, the rule does not apply to this code construct."
+}

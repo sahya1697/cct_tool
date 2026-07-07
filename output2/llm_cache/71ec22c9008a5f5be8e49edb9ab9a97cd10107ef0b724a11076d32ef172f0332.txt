@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 1.0,
+  "reasoning": "The switch statement in the target line does not follow the MISRA C switch syntax. The rule specifies that a switch statement shall only contain switch labels and switch clauses, and no other code. However, in the target line, there is a statement 'r=10;' between the case label and the break statement, which is not allowed according to the rule."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (13.2) requires explicit tests of a value against zero, unless the operand is effectively Boolean. However, the target line is not testing a value against zero, but rather assigning a value to an array element using pointer arithmetic. The rule does not apply to this code construct."
+}

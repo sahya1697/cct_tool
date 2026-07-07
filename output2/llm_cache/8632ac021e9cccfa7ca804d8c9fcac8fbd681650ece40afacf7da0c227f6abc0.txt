@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to file scope declarations and definitions, but the target line is a function declaration with external linkage, which is explicitly required for functions that need to be called from elsewhere in the program. The function `logical_rhs` is intended to be called from other files, so it has external linkage, making the rule inapplicable to this code construct."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule states that the sizeof operator shall not be used on expressions that contain side effects. However, the target line does not contain the sizeof operator, so the rule does not apply to this code construct."
+}

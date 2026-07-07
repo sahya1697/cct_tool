@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 1.0,
+  "reasoning": "The target line uses explicit pointer arithmetic *(ptr + i) instead of ptr[i], which is in violation of Rule 17.4, which states that array indexing shall be the only allowed form of pointer arithmetic."
+}

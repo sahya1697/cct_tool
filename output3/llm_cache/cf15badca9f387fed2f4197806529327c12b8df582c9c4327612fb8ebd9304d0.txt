@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to null statements appearing on a line by themselves, followed by a comment. However, the target line is a return statement with a conditional expression, not a null statement. Therefore, the rule does not apply to this code construct."
+}

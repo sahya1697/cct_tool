@@ -1,0 +1,5 @@
+CORRECTED:
+int ooe(void){int i=0;int r=(i++) + (++i);return r;}
+
+EXPLANATION:
+The order of evaluation of the increment operators was unspecified, so the corrected code uses parentheses to ensure that the value of i is incremented before it is used in the addition.

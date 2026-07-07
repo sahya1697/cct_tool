@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.13) specifically addresses the mixing of increment/decrement operators with other operators in an expression. However, the target line ((len > 0U) && (log_error(0), 1)) does not contain any increment/decrement operators. It contains a logical AND operation with a function call (log_error) that has a side effect. This is addressed by a different rule (12.4), not 12.13."
+}

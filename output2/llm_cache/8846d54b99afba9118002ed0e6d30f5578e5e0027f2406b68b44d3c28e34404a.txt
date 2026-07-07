@@ -1,0 +1,9 @@
+CORRECTED:
+    int main(void) {
+        (void)bad_scope(0);
+        (void)missing_break(0);
+        (void)default_not_last(0);
+        (void)switch_bool(0);
+
+EXPLANATION:
+The function switch_bool was called with a negative argument, which is likely an error and should be corrected to a valid input.

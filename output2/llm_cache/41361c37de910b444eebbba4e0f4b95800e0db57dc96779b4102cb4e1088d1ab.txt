@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that the value of an expression shall be the same under any order of evaluation that the standard permits. In the target line, the expression `printf(\"t\")` has a side effect (printing to the console) that can occur before or after the increment operation `i++`. This means that the order of evaluation of these sub-expressions is unspecified, and therefore the rule is violated."
+}

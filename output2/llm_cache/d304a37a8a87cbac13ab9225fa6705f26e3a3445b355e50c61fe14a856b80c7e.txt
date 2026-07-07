@@ -1,0 +1,11 @@
+CORRECTED:
+int r15_2_missing_break(int v) {
+    int r = 0;
+    switch (v) {
+        case 0:
+            { r = 1; }  // Added compound statement
+    }
+}
+
+EXPLANATION:
+Added compound statement to the switch body to enclose the single statement.

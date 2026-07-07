@@ -1,0 +1,13 @@
+CORRECTED:
+int r15_1_bad_case_scope(int v) {
+    int r = 0;
+    switch (v) {
+        { case 0: 
+            r = 10;
+            break;
+        }
+    }
+}
+
+EXPLANATION:
+Added enclosing braces to the switch statement body to meet the MISRA requirement for a compound statement.

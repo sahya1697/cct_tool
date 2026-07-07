@@ -1,0 +1,11 @@
+CORRECTED:
+switch (r) {
+    case 20:
+        break;
+    default:
+        r = 30;
+        break;
+}
+
+EXPLANATION:
+The code has been rewritten to use the MISRA C switch syntax, which enforces a consistent and structured switch statement.

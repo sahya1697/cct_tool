@@ -1,0 +1,11 @@
+CORRECTED:
+int process(int x) {
+    int y = x;
+    if (y < 0) goto retry;
+    y = y + 1;
+retry:
+    ;
+}
+
+EXPLANATION:
+Added a null statement (a semicolon on its own) to the label to make it a compound statement.

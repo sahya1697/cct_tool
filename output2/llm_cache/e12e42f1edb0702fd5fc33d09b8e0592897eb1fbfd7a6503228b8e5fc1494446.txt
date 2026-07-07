@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line contains an expression with a unary operator (+) applied to a variable (y), which is not a cast-expression. According to the rule, parentheses should be used to emphasize the operator precedence in such cases. The expression y = y + 2; does not follow this guideline, as it does not use parentheses to clarify the order of operations."
+}

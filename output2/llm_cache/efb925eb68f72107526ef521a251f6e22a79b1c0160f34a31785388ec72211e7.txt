@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function 'ez' has a parameter 'z', which means it does not meet the criteria of having no parameters. Therefore, the rule does not apply to this function."
+}

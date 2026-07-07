@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to functions with no parameters, but the target line is a function definition with a parameter list (void). The function r13_5_for_side_effects has a parameter list, so it does not match the rule's criteria for functions with no parameters."
+}

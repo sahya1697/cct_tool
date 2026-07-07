@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The code uses a switch statement with a complex case label clause, which deviates from the normative text of the MISRA C switch syntax. The rule specifies that a switch statement shall only contain switch labels and switch clauses, and no other code. The presence of the statement `r = 10;` between the case label and the break statement violates this rule."
+}

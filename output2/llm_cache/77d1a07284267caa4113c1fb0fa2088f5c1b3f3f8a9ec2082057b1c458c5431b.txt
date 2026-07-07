@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to null statements, but the target line is an if statement with a condition. The null statement is not present on a line by itself, and the rule does not apply to this context."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The sizeof operator is used on an expression (i++) that contains a side effect, which is a direct violation of the rule. The expression i++ increments the value of i, which is a side effect. The sizeof operator should only be applied to an operand which is a type or an object, not an expression with side effects."
+}

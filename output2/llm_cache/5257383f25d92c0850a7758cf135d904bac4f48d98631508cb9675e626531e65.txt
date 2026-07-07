@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line does not involve a function prototype. The function 'only_default' is defined, but it is not a function prototype. The rule's amplification text does not provide clear guidance on how to apply it to this context. Further review is needed to determine whether the rule applies and whether the function's parameter 'v' is a pointer that should be declared as pointer to const."
+}

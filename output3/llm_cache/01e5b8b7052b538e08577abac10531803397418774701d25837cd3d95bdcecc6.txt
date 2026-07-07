@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line contains a goto statement, which is not a null statement. However, the rule description specifically mentions that a null statement shall only occur on a line by itself. The goto statement is not a null statement, but it is on a line by itself, which is the key aspect of the rule. The rule does not explicitly mention goto statements, but the amplification text does not exclude them either. Given the context and the rule description, it is reasonable to conclude that the goto statement is a violation of the rule."
+}

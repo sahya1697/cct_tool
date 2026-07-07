@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line does not contain a shift operator, which is the specific construct the rule is designed to address. Therefore, the rule does not apply to this code construct."
+}

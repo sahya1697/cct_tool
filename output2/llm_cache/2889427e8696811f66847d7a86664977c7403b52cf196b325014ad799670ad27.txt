@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch label 'case 0:' is used within a switch statement, but the most closely-enclosing compound statement is not the body of a switch statement. The switch statement is missing a 'break' statement at the end of the case clause, which is a clear indication that the rule is violated."
+}

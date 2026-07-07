@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line does not explicitly declare a pointer parameter. The function 'bad_null' has a parameter 'y' which is not a pointer, but the function itself does not modify the object it addresses. However, the rule's amplification text suggests that the focus is on pointer parameters, and the context provided does not clearly indicate whether 'y' is a pointer or not. Therefore, a human review is necessary to determine the applicability of the rule to this specific code construct."
+}

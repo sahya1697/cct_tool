@@ -289,6 +289,36 @@ def _regex_parse(source: str, filepath: str) -> list[ASTNode]:
     UNION_USAGE = re.compile(r'\bunion\s+\w+\s+\w+')
     LOGICAL_OP = re.compile(r'(&&|\|\|)')
     COMPLEX_LOGICAL = re.compile(r'\w+\s*[<>=!+\-*/%]+\s*\w+\s*(&&|\|\|)')
+    CPP_COMMENT = re.compile(r'//.*')  # C++ style comments (Rule 2.2)
+    INCREMENT_IN_EXPR = re.compile(r'(\w+\+\+|\+\+\w+|\w+--|--\w+).*[,\+\-\*/]')  # ++ or -- with other operators
+    
+    # Additional patterns for comprehensive coverage
+    PREPROCESSOR = re.compile(r'^\s*#\s*(include|define|undef|if|ifdef|ifndef|elif|else|endif|pragma|error|warning|line)')
+    MACRO_DEFINE = re.compile(r'^\s*#\s*define\s+(\w+)')
+    INCLUDE = re.compile(r'^\s*#\s*include\s*[<"]([^>"]+)[>"]')
+    CONDITIONAL_COMPILE = re.compile(r'^\s*#\s*(if|ifdef|ifndef|elif|else|endif)')
+    CHAR_LITERAL = re.compile(r"'[^']*'")
+    STRING_LITERAL = re.compile(r'"[^"]*"')
+    HEX_CONSTANT = re.compile(r'\b0[xX][0-9a-fA-F]+[uUlL]*\b')
+    OCTAL_CONSTANT = re.compile(r'\b0[0-7]+[uUlL]*\b')
+    BITWISE_OP = re.compile(r'[&|^~]|<<|>>')
+    COMMA_OP = re.compile(r'\([^)]*,\s*\w+[^)]*\)')  # Comma operator in expressions
+    SIZEOF = re.compile(r'\bsizeof\s*\(')
+    TYPEDEF = re.compile(r'\btypedef\s+')
+    ENUM = re.compile(r'\benum\s+\w+\s*{')
+    STRUCT = re.compile(r'\bstruct\s+\w+\s*{')
+    EXTERN = re.compile(r'\bextern\s+')
+    STATIC = re.compile(r'\bstatic\s+')
+    VOLATILE = re.compile(r'\bvolatile\s+')
+    CONST = re.compile(r'\bconst\s+')
+    BITFIELD = re.compile(r'\b\w+\s*:\s*\d+\s*;')  # Bit-field
+    TRIGRAPH = re.compile(r'\?\?[=/()\'\<\>!-]')  # Trigraph sequences
+    ESCAPE_SEQ = re.compile(r'\\[0-7]{1,3}|\\x[0-9a-fA-F]+')  # Octal/hex escape sequences
+    DO_WHILE = re.compile(r'\bdo\s*\{')
+    IF_STMT = re.compile(r'\bif\s*\(')
+    COMPLEX_LOGICAL = re.compile(r'\w+\s*[<>=!+\-*/%]+\s*\w+\s*(&&|\|\|)')
+    CPP_COMMENT = re.compile(r'//.*$')  # NEW: C++ style comments (Rule 2.2)
+    INCREMENT_IN_EXPR = re.compile(r'(\w+\+\+|\+\+\w+|\w+--|--\w+).*[,\+\-\*/]')  # NEW: ++ or -- with other operators
 
     for i, raw_line in enumerate(lines, 1):
         ln = raw_line.strip()
@@ -346,6 +376,11 @@ def _regex_parse(source: str, filepath: str) -> list[ASTNode]:
         if ARRAY_DECL.search(ln):
             nodes.append(node("ArrayDeclaration"))
         
+        # NEW: Rule 2.2 - C++ style comments
+        if CPP_COMMENT.search(ln) and not ln.strip().startswith('#'):
+            # Ignore preprocessor directives with // in them
+            nodes.append(node("CPPStyleComment"))
+        
         # NEW: Rule 2.1 - Inline assembly detection
         if INLINE_ASM.search(ln):
             nodes.append(node("InlineAssembly"))
@@ -360,9 +395,75 @@ def _regex_parse(source: str, filepath: str) -> list[ASTNode]:
         if COMPLEX_LOGICAL.search(ln) or (LOGICAL_OP.search(ln) and ('==' in ln or '!=' in ln or '<' in ln or '>' in ln)):
             nodes.append(node("ComplexLogicalExpression"))
         
+        # NEW: Rules 12.2, 12.13 - Increment/decrement in complex expressions
+        if INCREMENT_IN_EXPR.search(ln):
+            nodes.append(node("IncrementInExpression"))
+        
+        # Preprocessor directives
+        if PREPROCESSOR.search(raw_line):
+            nodes.append(node("PreprocessorDirective"))
+        if MACRO_DEFINE.search(raw_line):
+            m_def = MACRO_DEFINE.search(raw_line)
+            nodes.append(node("MacroDefinition", {"name": m_def.group(1) if m_def else ""}))
+        if INCLUDE.search(raw_line):
+            m_inc = INCLUDE.search(raw_line)
+            nodes.append(node("Include", {"file": m_inc.group(1) if m_inc else ""}))
+        if CONDITIONAL_COMPILE.search(raw_line):
+            nodes.append(node("ConditionalCompilation"))
+        
+        # Constants and literals
+        if CHAR_LITERAL.search(ln):
+            nodes.append(node("CharacterLiteral"))
+        if STRING_LITERAL.search(ln):
+            nodes.append(node("StringLiteral"))
+        if HEX_CONSTANT.search(ln):
+            nodes.append(node("HexConstant"))
+        if OCTAL_CONSTANT.search(ln) and not ln.strip().startswith('0'):  # Avoid false positives with just 0
+            nodes.append(node("OctalConstant"))
+        
+        # Operators
+        if BITWISE_OP.search(ln) and not LOGICAL_OP.search(ln):  # Avoid overlap with logical ops
+            nodes.append(node("BitwiseOperation"))
+        if COMMA_OP.search(ln):
+            nodes.append(node("CommaOperator"))
+        if SIZEOF.search(ln):
+            nodes.append(node("SizeofOperator"))
+        
+        # Type declarations
+        if TYPEDEF.search(ln):
+            nodes.append(node("TypedefDeclaration"))
+        if ENUM.search(ln):
+            nodes.append(node("EnumDeclaration"))
+        if STRUCT.search(ln):
+            nodes.append(node("StructDeclaration"))
+        
+        # Storage specifiers
+        if EXTERN.search(ln):
+            nodes.append(node("ExternDeclaration"))
+        if STATIC.search(ln) and FUNC_DEF.search(ln):
+            nodes.append(node("StaticFunction"))
+        if VOLATILE.search(ln):
+            nodes.append(node("VolatileQualifier"))
+        if CONST.search(ln):
+            nodes.append(node("ConstQualifier"))
+        
+        # Bit-fields and special cases
+        if BITFIELD.search(ln):
+            nodes.append(node("BitField"))
+        if TRIGRAPH.search(ln):
+            nodes.append(node("TrigraphSequence"))
+        if ESCAPE_SEQ.search(ln):
+            nodes.append(node("EscapeSequence"))
+        
+        # Control flow
+        if DO_WHILE.search(ln):
+            nodes.append(node("DoWhileLoop"))
+        if IF_STMT.search(ln):
+            nodes.append(node("IfStatement"))
+        
         for fc in FUNC_CALL.finditer(ln):
             fname = fc.group(1)
-            if fname not in {"if", "for", "while", "switch", "return"}:
+            if fname not in {"if", "for", "while", "switch", "return", "sizeof"}:
                 nodes.append(node("FunctionCall", {"name": fname}))
 
     return nodes

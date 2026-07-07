@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line contains a conditional expression with a side effect (log_error call) on the RHS of the && operator. According to Rule 12.1, Limited dependence should be placed on C's operator precedence rules in expressions. The amplification text suggests that parentheses should be used to emphasize the order of operations, especially when there are multiple operators with different precedence. In this case, the log_error call is a side effect that could potentially change the behavior of the expression, making it unclear what the intended order of operations is. Therefore, the code violates Rule 12.1."
+}

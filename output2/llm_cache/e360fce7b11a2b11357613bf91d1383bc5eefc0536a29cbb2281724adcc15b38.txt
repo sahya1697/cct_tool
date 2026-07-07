@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that an unconditional break statement shall terminate every non-empty switch clause. The target line is a case label with a break statement, but it is not unconditional because it is not the last statement in the switch clause. However, the amplification text clarifies that if the switch clause is a compound statement, then the last statement in the compound statement shall be a break statement. In this case, the last statement in the switch clause is a break statement, making the rule applicable. Therefore, the code is in violation of the rule because the break statement is not unconditional."
+}

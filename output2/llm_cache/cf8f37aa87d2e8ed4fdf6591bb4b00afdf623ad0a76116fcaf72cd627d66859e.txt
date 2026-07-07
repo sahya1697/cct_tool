@@ -1,0 +1,10 @@
+CORRECTED:
+int nine(void) {
+    int s = 0;
+    for (int i = 0; i < 5; i++) {
+        // code here
+    }
+}
+
+EXPLANATION:
+The function parameter list was corrected to include the keyword "void" to indicate that the function takes no parameters.

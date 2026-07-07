@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to function prototypes, but the provided code snippet does not show a function prototype. The recursive_sum function is called, but its declaration is not shown in the context. Therefore, it is unclear whether the function parameter is declared as a pointer to const or not."
+}

@@ -1,0 +1,4 @@
+CORRECTED:
+dispatch_packet(2, (uint16_t)((BUFFER_SIZE + 1U) / 2U));
+EXPLANATION:
+The fix adds 1 to BUFFER_SIZE to ensure that the division does not result in a wrap-around, thus avoiding the potential overflow.

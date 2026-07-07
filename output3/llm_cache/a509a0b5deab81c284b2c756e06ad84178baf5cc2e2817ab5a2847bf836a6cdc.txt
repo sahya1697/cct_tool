@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 1.0,
+  "reasoning": "The function recursive_sum() calls itself recursively, directly violating Rule 16.2, which states that functions shall not call themselves, either directly or indirectly."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The code is not unreachable as it is part of an if statement that can be reached. The if condition (n == 0U) is a valid control flow path that can lead to the return statement."
+}

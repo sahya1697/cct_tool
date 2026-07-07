@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch label is used within the body of a switch statement, which matches the rule's requirement. The amplification text also supports this, stating that the scope of a case or default label shall be the compound statement, which is the body of a switch statement."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The code violates Rule 15.0 because it uses a switch statement with a fall-through case (case 1U) without a break statement before the next case (case 2U). This is explicitly mentioned in the amplification text as a deviation from the normative text, which requires a switch statement to only contain switch labels and switch clauses, and no other code."
+}

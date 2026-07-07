@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to function prototypes, but the target line is a function call. The function prototypes are not provided in the given code snippet, so it's impossible to determine if the rule is violated or not."
+}

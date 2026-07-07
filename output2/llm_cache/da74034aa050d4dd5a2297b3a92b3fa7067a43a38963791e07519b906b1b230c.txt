@@ -1,0 +1,4 @@
+CORRECTED:
+(void)switch_bool((int)-3);
+EXPLANATION:
+The integer literal -3 is explicitly cast to int to avoid the implicit conversion to a pointer type.

@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function declaration with double parameters, not pointers. However, the rule's amplification mentions protecting the object pointed to, not the pointer itself. Since the parameters are doubles, not pointers, the rule's applicability is unclear, and further review is needed to determine if the rule is violated or not."
+}

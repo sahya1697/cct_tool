@@ -1,0 +1,10 @@
+CORRECTED:
+uint16_t read_sensor_raw(uint8_t channel)
+{
+    uint16_t raw_val;
+    // ... rest of the function remains the same ...
+    return raw_val;
+}
+
+EXPLANATION:
+Added an explicit return statement with an expression to ensure the function returns a value on all exit paths.

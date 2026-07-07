@@ -1,0 +1,123 @@
+2026-07-06 09:36:12,907 | INFO     | [OrchestratorAgent] pipeline_start
+2026-07-06 09:36:12,907 | INFO     | [OrchestratorAgent] load_rules_start
+2026-07-06 09:36:13,189 | INFO     | [OrchestratorAgent] load_rules_complete | out: 142 rules loaded
+2026-07-06 09:36:13,189 | INFO     | [OrchestratorAgent] parse_start | in: ['data\\sample_c_files\\data.c', 'data\\sample_c_files\\device.c', 'data\\sample_c_files\\main.c', 'data\\sample_c_files
+2026-07-06 09:36:13,251 | INFO     | [OrchestratorAgent] parse_file | in: data\sample_c_files\data.c | out: 5 nodes extracted
+2026-07-06 09:36:13,260 | INFO     | [OrchestratorAgent] parse_file | in: data\sample_c_files\device.c | out: 5 nodes extracted
+2026-07-06 09:36:13,273 | INFO     | [OrchestratorAgent] parse_file | in: data\sample_c_files\main.c | out: 5 nodes extracted
+2026-07-06 09:36:13,282 | INFO     | [OrchestratorAgent] parse_file | in: data\sample_c_files\shared.h | out: 4 nodes extracted
+2026-07-06 09:36:13,282 | INFO     | [OrchestratorAgent] parse_complete | out: 19 total AST nodes
+2026-07-06 09:36:13,282 | INFO     | [OrchestratorAgent] analyze_file | in: data\sample_c_files\data.c: 5 nodes
+2026-07-06 09:36:13,282 | INFO     | [RuleRetrievalAgent] retrieve_rules | in: node=UnionUsage line=3
+2026-07-06 09:36:13,282 | INFO     | [RuleRetrievalAgent] retrieve_complete | out: 6 rules matched: ['18.4', '6.2', '6.3', '6.4', '18.1', '6.1']
+2026-07-06 09:36:13,299 | INFO     | [RelevanceFilterAgent] filter_complete | in: node=UnionUsage line=3 | out: In: 6, Out: 2 ['18.4', '18.1'], Filtered: 4 ['6.2', '6.3', '6.4', '6.1']
+2026-07-06 09:36:13,299 | INFO     | [ControlFlowAgent] violations_found | in: node=UnionUsage line=3 | out: 1 violations: ['18.4']
+2026-07-06 09:36:13,299 | INFO     | [RuleRetrievalAgent] retrieve_rules | in: node=FunctionDefinition line=4
+2026-07-06 09:36:13,303 | INFO     | [RuleRetrievalAgent] retrieve_complete | out: 6 rules matched: ['3.5', '8.4', '16.5', '16.7', '16.8', '3.2']
+2026-07-06 09:36:13,316 | INFO     | [RelevanceFilterAgent] filter_complete | in: node=FunctionDefinition line=4 | out: In: 6, Out: 0 [], Filtered: 6 ['3.5', '8.4', '16.5', '16.7', '16.8', '3.2']
+2026-07-06 09:36:13,316 | INFO     | [RuleRetrievalAgent] retrieve_rules | in: node=FunctionCall line=4
+2026-07-06 09:36:13,319 | INFO     | [RuleRetrievalAgent] retrieve_complete | out: 6 rules matched: ['12.8', '12.9', '12.11', '16.5', '16.7', '16.8']
+2026-07-06 09:36:13,334 | INFO     | [RelevanceFilterAgent] filter_complete | in: node=FunctionCall line=4 | out: In: 6, Out: 0 [], Filtered: 6 ['12.8', '12.9', '12.11', '16.5', '16.7', '16.8']
+2026-07-06 09:36:13,334 | INFO     | [RuleRetrievalAgent] retrieve_rules | in: node=ReturnStatement line=5
+2026-07-06 09:36:13,334 | INFO     | [RuleRetrievalAgent] retrieve_complete | out: 6 rules matched: ['16.5', '16.7', '16.8', '14.3', '16.6', '16.10']
+2026-07-06 09:36:13,350 | INFO     | [RelevanceFilterAgent] filter_complete | in: node=ReturnStatement line=5 | out: In: 6, Out: 0 [], Filtered: 6 ['16.5', '16.7', '16.8', '14.3', '16.6', '16.10']
+2026-07-06 09:36:13,351 | INFO     | [RuleRetrievalAgent] retrieve_rules | in: node=FunctionCall line=5
+2026-07-06 09:36:13,351 | INFO     | [RuleRetrievalAgent] retrieve_complete | out: 6 rules matched: ['12.8', '12.9', '12.11', '16.5', '16.7', '16.8']
+2026-07-06 09:36:13,362 | INFO     | [RelevanceFilterAgent] filter_complete | in: node=FunctionCall line=5 | out: In: 6, Out: 0 [], Filtered: 6 ['12.8', '12.9', '12.11', '16.5', '16.7', '16.8']
+2026-07-06 09:36:13,363 | INFO     | [OrchestratorAgent] analyze_file | in: data\sample_c_files\device.c: 5 nodes
+2026-07-06 09:36:13,363 | INFO     | [RuleRetrievalAgent] retrieve_rules | in: node=FunctionDefinition line=3
+2026-07-06 09:36:13,365 | INFO     | [RuleRetrievalAgent] retrieve_complete | out: 6 rules matched: ['16.5', '16.7', '16.8', '8.2', '8.7', '8.10']
+2026-07-06 09:36:13,375 | INFO     | [RelevanceFilterAgent] filter_complete | in: node=FunctionDefinition line=3 | out: In: 6, Out: 0 [], Filtered: 6 ['16.5', '16.7', '16.8', '8.2', '8.7', '8.10']
+2026-07-06 09:36:13,375 | INFO     | [RuleRetrievalAgent] retrieve_rules | in: node=FunctionCall line=3
+2026-07-06 09:36:13,375 | INFO     | [RuleRetrievalAgent] retrieve_complete | out: 6 rules matched: ['12.3', '16.5', '16.7', '16.8', '12.1', '12.2']
+2026-07-06 09:36:13,389 | INFO     | [RelevanceFilterAgent] filter_complete | in: node=FunctionCall line=3 | out: In: 6, Out: 0 [], Filtered: 6 ['12.3', '16.5', '16.7', '16.8', '12.1', '12.2']
+2026-07-06 09:36:13,389 | INFO     | [RuleRetrievalAgent] retrieve_rules | in: node=InlineAssembly line=4
+2026-07-06 09:36:13,392 | INFO     | [RuleRetrievalAgent] retrieve_complete | out: 6 rules matched: ['1.2', '1.1', '1.3', '1.4', '1.5', '2.1']
+2026-07-06 09:36:13,402 | INFO     | [RelevanceFilterAgent] filter_complete | in: node=InlineAssembly line=4 | out: In: 6, Out: 1 ['2.1'], Filtered: 5 ['1.2', '1.1', '1.3', '1.4', '1.5']
+2026-07-06 09:36:13,402 | INFO     | [ControlFlowAgent] violations_found | in: node=InlineAssembly line=4 | out: 1 violations: ['2.1']
+2026-07-06 09:36:13,402 | INFO     | [RuleRetrievalAgent] retrieve_rules | in: node=FunctionCall line=4
+2026-07-06 09:36:13,402 | INFO     | [RuleRetrievalAgent] retrieve_complete | out: 6 rules matched: ['16.5', '16.7', '16.8', '12.1', '12.2', '12.3']
+2026-07-06 09:36:13,419 | INFO     | [RelevanceFilterAgent] filter_complete | in: node=FunctionCall line=4 | out: In: 6, Out: 0 [], Filtered: 6 ['16.5', '16.7', '16.8', '12.1', '12.2', '12.3']
+2026-07-06 09:36:13,419 | INFO     | [RuleRetrievalAgent] retrieve_rules | in: node=ReturnStatement line=5
+2026-07-06 09:36:13,419 | INFO     | [RuleRetrievalAgent] retrieve_complete | out: 6 rules matched: ['16.5', '16.7', '16.8', '16.6', '16.10', '14.1']
+2026-07-06 09:36:13,444 | INFO     | [RelevanceFilterAgent] filter_complete | in: node=ReturnStatement line=5 | out: In: 6, Out: 0 [], Filtered: 6 ['16.5', '16.7', '16.8', '16.6', '16.10', '14.1']
+2026-07-06 09:36:13,444 | INFO     | [OrchestratorAgent] analyze_file | in: data\sample_c_files\main.c: 5 nodes
+2026-07-06 09:36:13,444 | INFO     | [RuleRetrievalAgent] retrieve_rules | in: node=FunctionDefinition line=3
+2026-07-06 09:36:13,451 | INFO     | [RuleRetrievalAgent] retrieve_complete | out: 6 rules matched: ['8.3', '16.5', '16.7', '16.8', '16.10', '3.5']
+2026-07-06 09:36:13,458 | INFO     | [RelevanceFilterAgent] filter_complete | in: node=FunctionDefinition line=3 | out: In: 6, Out: 0 [], Filtered: 6 ['8.3', '16.5', '16.7', '16.8', '16.10', '3.5']
+2026-07-06 09:36:13,460 | INFO     | [RuleRetrievalAgent] retrieve_rules | in: node=FunctionCall line=3
+2026-07-06 09:36:13,460 | INFO     | [RuleRetrievalAgent] retrieve_complete | out: 6 rules matched: ['16.5', '16.7', '16.8', '16.10', '20.3', '12.3']
+2026-07-06 09:36:13,469 | INFO     | [RelevanceFilterAgent] filter_complete | in: node=FunctionCall line=3 | out: In: 6, Out: 0 [], Filtered: 6 ['16.5', '16.7', '16.8', '16.10', '20.3', '12.3']
+2026-07-06 09:36:13,469 | INFO     | [RuleRetrievalAgent] retrieve_rules | in: node=ReturnStatement line=4
+2026-07-06 09:36:13,473 | INFO     | [RuleRetrievalAgent] retrieve_complete | out: 6 rules matched: ['16.5', '16.7', '16.8', '16.10', '14.1', '14.2']
+2026-07-06 09:36:13,479 | INFO     | [RelevanceFilterAgent] filter_complete | in: node=ReturnStatement line=4 | out: In: 6, Out: 0 [], Filtered: 6 ['16.5', '16.7', '16.8', '16.10', '14.1', '14.2']
+2026-07-06 09:36:13,479 | INFO     | [RuleRetrievalAgent] retrieve_rules | in: node=ComplexLogicalExpression line=4
+2026-07-06 09:36:13,483 | INFO     | [RuleRetrievalAgent] retrieve_complete | out: 6 rules matched: ['12.1', '12.2', '12.3', '12.4', '12.5', '12.6']
+2026-07-06 09:36:13,489 | INFO     | [RelevanceFilterAgent] filter_complete | in: node=ComplexLogicalExpression line=4 | out: In: 6, Out: 5 ['12.1', '12.2', '12.4', '12.5', '12.6'], Filtered: 1 ['12.3']
+2026-07-06 09:36:13,491 | INFO     | [ControlFlowAgent] violations_found | in: node=ComplexLogicalExpression line=4 | out: 2 violations: ['12.5', '12.5']
+2026-07-06 09:36:13,491 | INFO     | [RuleRetrievalAgent] retrieve_rules | in: node=ReturnStatement line=5
+2026-07-06 09:36:13,491 | INFO     | [RuleRetrievalAgent] retrieve_complete | out: 6 rules matched: ['16.5', '16.7', '16.8', '16.10', '14.1', '14.2']
+2026-07-06 09:36:13,501 | INFO     | [RelevanceFilterAgent] filter_complete | in: node=ReturnStatement line=5 | out: In: 6, Out: 0 [], Filtered: 6 ['16.5', '16.7', '16.8', '16.10', '14.1', '14.2']
+2026-07-06 09:36:13,501 | INFO     | [OrchestratorAgent] analyze_file | in: data\sample_c_files\shared.h: 4 nodes
+2026-07-06 09:36:13,501 | INFO     | [RuleRetrievalAgent] retrieve_rules | in: node=ArrayDeclaration line=4
+2026-07-06 09:36:13,506 | INFO     | [RuleRetrievalAgent] retrieve_complete | out: 6 rules matched: ['9.3', '8.2', '8.4', '8.7', '17.4', '17.6']
+2026-07-06 09:36:13,519 | INFO     | [RelevanceFilterAgent] filter_complete | in: node=ArrayDeclaration line=4 | out: In: 6, Out: 0 [], Filtered: 6 ['9.3', '8.2', '8.4', '8.7', '17.4', '17.6']
+2026-07-06 09:36:13,519 | INFO     | [RuleRetrievalAgent] retrieve_rules | in: node=UnionDeclaration line=4
+2026-07-06 09:36:13,526 | INFO     | [RuleRetrievalAgent] retrieve_complete | out: 6 rules matched: ['18.4', '6.2', '6.4', '6.3', '8.2', '8.4']
+2026-07-06 09:36:13,540 | INFO     | [RelevanceFilterAgent] filter_complete | in: node=UnionDeclaration line=4 | out: In: 6, Out: 1 ['18.4'], Filtered: 5 ['6.2', '6.4', '6.3', '8.2', '8.4']
+2026-07-06 09:36:13,540 | INFO     | [ControlFlowAgent] violations_found | in: node=UnionDeclaration line=4 | out: 1 violations: ['18.4']
+2026-07-06 09:36:13,540 | INFO     | [RuleRetrievalAgent] retrieve_rules | in: node=FunctionCall line=5
+2026-07-06 09:36:13,540 | INFO     | [RuleRetrievalAgent] retrieve_complete | out: 6 rules matched: ['12.11', '12.1', '12.2', '12.3', '12.8', '12.9']
+2026-07-06 09:36:13,557 | INFO     | [RelevanceFilterAgent] filter_complete | in: node=FunctionCall line=5 | out: In: 6, Out: 0 [], Filtered: 6 ['12.11', '12.1', '12.2', '12.3', '12.8', '12.9']
+2026-07-06 09:36:13,557 | INFO     | [RuleRetrievalAgent] retrieve_rules | in: node=FunctionCall line=6
+2026-07-06 09:36:13,559 | INFO     | [RuleRetrievalAgent] retrieve_complete | out: 6 rules matched: ['12.11', '12.1', '12.2', '12.3', '12.8', '12.9']
+2026-07-06 09:36:13,573 | INFO     | [RelevanceFilterAgent] filter_complete | in: node=FunctionCall line=6 | out: In: 6, Out: 0 [], Filtered: 6 ['12.11', '12.1', '12.2', '12.3', '12.8', '12.9']
+2026-07-06 09:36:13,573 | INFO     | [OrchestratorAgent] parallel_verify_start | in: 9 (node, rule) pairs to check
+2026-07-06 09:36:13,573 | INFO     | [VerificationAgent] verify_start | in: rule=18.1 node=UnionUsage line=3
+2026-07-06 09:36:13,573 | INFO     | [OrchestratorAgent] anchored_violation | out: data.c:3 rule=18.4 violation=True
+2026-07-06 09:36:13,580 | INFO     | [OrchestratorAgent] anchored_violation | out: device.c:4 rule=2.1 violation=True
+2026-07-06 09:36:13,580 | INFO     | [VerificationAgent] verify_start | in: rule=12.6 node=ComplexLogicalExpression line=4
+2026-07-06 09:36:13,583 | INFO     | [VerificationAgent] verify_start | in: rule=12.1 node=ComplexLogicalExpression line=4
+2026-07-06 09:36:13,583 | INFO     | [VerificationAgent] verify_start | in: rule=12.2 node=ComplexLogicalExpression line=4
+2026-07-06 09:36:41,817 | INFO     | [VerificationAgent] verify_complete | out: violation=False confidence=1.00
+2026-07-06 09:36:41,819 | INFO     | [VerificationAgent] verify_start | in: rule=12.4 node=ComplexLogicalExpression line=4
+2026-07-06 09:37:08,859 | INFO     | [VerificationAgent] verify_complete | out: violation=False confidence=1.00
+2026-07-06 09:37:08,859 | INFO     | [VerificationAgent] verify_start | in: rule=12.5 node=ComplexLogicalExpression line=4
+2026-07-06 09:37:30,511 | INFO     | [VerificationAgent] verify_complete | out: violation=True confidence=0.90
+2026-07-06 09:37:30,511 | INFO     | [CorrectionAgent] suggest_start | in: rule=18.1 line=3
+2026-07-06 09:37:46,916 | INFO     | [VerificationAgent] verify_complete | out: violation=True confidence=0.90
+2026-07-06 09:37:46,916 | INFO     | [CorrectionAgent] suggest_start | in: rule=12.6 line=4
+2026-07-06 09:40:39,317 | INFO     | [VerificationAgent] verify_complete | out: violation=False confidence=1.00
+2026-07-06 09:40:39,319 | INFO     | [OrchestratorAgent] anchored_violation | out: shared.h:4 rule=18.4 violation=True
+2026-07-06 09:41:00,391 | INFO     | [VerificationAgent] verify_complete | out: violation=True confidence=0.90
+2026-07-06 09:41:00,391 | INFO     | [ConflictResolverAgent] resolved_and_scored | in: control_flow=12.5(0.80) llm_violation=True(0.91) node=ComplexLogicalExpression | out: final violation=True confidence=0.91 src=control_flow+llm
+2026-07-06 09:41:00,391 | INFO     | [CorrectionAgent] suggest_start | in: rule=12.5 line=4
+2026-07-06 09:41:07,456 | INFO     | [CorrectionAgent] suggest_complete | out: union DataStore {
+    unsigned int raw;
+    unsigned char bytes[4];
+};
+union Dat
+2026-07-06 09:41:07,458 | INFO     | [CorrectionAgent] generate_rationale_start | in: rule=18.1 line=3
+2026-07-06 09:41:16,332 | INFO     | [CorrectionAgent] suggest_complete | out: int check_limits(int x, int y) {
+        if ((x > 0) && (y < 100) && (x != y)) {
+2026-07-06 09:41:16,332 | INFO     | [CorrectionAgent] generate_rationale_start | in: rule=12.6 line=4
+2026-07-06 09:43:53,765 | INFO     | [CorrectionAgent] suggest_complete | out: int check_limits(int x, int y) {
+        if ((x > 0) && (y < 100) && (x != y)) {
+2026-07-06 09:43:53,765 | INFO     | [CorrectionAgent] generate_rationale_start | in: rule=12.5 line=4
+2026-07-06 09:44:06,107 | INFO     | [CorrectionAgent] generate_rationale_complete | out: The MISRA C 2004 rule 18.1 applies here because the union type 'DataStore' is used in the translatio
+2026-07-06 09:44:06,107 | INFO     | [OrchestratorAgent] anchored_violation | out: data.c:3 rule=18.1 violation=True
+2026-07-06 09:44:18,352 | INFO     | [CorrectionAgent] generate_rationale_complete | out: The rule applies here because the code uses logical operators (&&) with operands that are not guaran
+2026-07-06 09:44:18,365 | INFO     | [OrchestratorAgent] anchored_violation | out: main.c:4 rule=12.6 violation=True
+2026-07-06 09:44:56,796 | INFO     | [CorrectionAgent] generate_rationale_complete | out: The rule applies here because the code contains a logical && expression with operands that are not p
+2026-07-06 09:44:56,799 | INFO     | [OrchestratorAgent] anchored_violation | out: main.c:4 rule=12.5 violation=True
+2026-07-06 09:44:56,799 | INFO     | [OrchestratorAgent] analyze_complete | out: 6 violations found
+2026-07-06 09:44:56,801 | INFO     | [ReportGeneratorAgent] generate_start | in: 6 violations, 9 checks
+2026-07-06 09:44:56,923 | INFO     | [ReportGeneratorAgent] generate_complete | out: Report: C:\Users\sahyasree.mp\Desktop\CCT_AGENT\output\compliance_report.xlsx
+2026-07-06 09:44:56,923 | INFO     | [OrchestratorAgent] metrics_start
+2026-07-06 09:44:56,923 | INFO     | [MetricsAgent] calculate_staFrt | in: output=C:\Users\sahyasree.mp\Desktop\CCT_AGENT\output\compliance_report.xlsx, ground_truth=C:\Users\sahyasree.mp\Desktop
+2026-07-06 09:44:57,002 | INFO     | [MetricsAgent] calculate_complete | out: TP=4, FP=2, FN=2, Precision=66.67%, Recall=66.67%, F1=66.67%
+2026-07-06 09:44:57,002 | INFO     | [MetricsAgent] report_start | in: output=C:\Users\sahyasree.mp\Desktop\CCT_AGENT\output\metrics_report.xlsx
+2026-07-06 09:44:57,053 | INFO     | [MetricsAgent] report_complete | out: Report: C:\Users\sahyasree.mp\Desktop\CCT_AGENT\output\metrics_report.xlsx
+2026-07-06 09:44:57,061 | INFO     | [OrchestratorAgent] metrics_complete | out: F1=66.67%, Precision=66.67%, Recall=66.67%
+2026-07-06 09:44:57,086 | INFO     | Execution log saved (115 entries)
+2026-07-06 09:44:57,087 | INFO     | [OrchestratorAgent] pipeline_complete | out: 6 violations | Report: C:\Users\sahyasree.mp\Desktop\CCT_AGENT\output\compliance_report.xlsx

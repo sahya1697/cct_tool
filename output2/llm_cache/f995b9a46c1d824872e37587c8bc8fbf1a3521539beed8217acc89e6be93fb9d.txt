@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to enumerator lists, but the target line is a function declaration (ez) and does not contain an enumerator list. Therefore, the rule is not applicable to this code construct."
+}

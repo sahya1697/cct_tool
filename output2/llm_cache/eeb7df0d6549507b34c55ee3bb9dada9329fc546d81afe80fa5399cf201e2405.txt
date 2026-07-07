@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.1) states that parentheses should be used to override default operator precedence and to emphasize it. However, in the given code, the assignment `r = 20;` does not involve any complex expressions that require parentheses to avoid confusion about operator precedence. The rule's amplification text does not mention assignment statements as a specific case where parentheses are required. Therefore, the code is compliant with this rule."
+}

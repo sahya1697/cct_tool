@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a return statement, which does have a side effect (returning a value) and causes control flow to change (terminating the function execution). The rule applies to non-null statements that have no side effect and do not change control flow, but the return statement in this context meets the criteria for compliance."
+}

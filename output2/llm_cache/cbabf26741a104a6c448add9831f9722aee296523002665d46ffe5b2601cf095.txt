@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line `if(x=y) return 1; return 0;` violates the rule because it relies on C's operator precedence rules in the expression `x=y`. The rule suggests that parentheses should be used to override default operator precedence and emphasize the expression. In this case, the expression `x=y` is not clearly defined, and the use of `=` in an assignment context may lead to confusion. The rule's amplification text also suggests that parentheses should be used to control the order of operation, which is not the case here."
+}

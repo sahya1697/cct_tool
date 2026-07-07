@@ -1,0 +1,5 @@
+CORRECTED:
+int rec(int n){if(n<=0) return 0; return rec(n-1)+1; return 0;} /* added explicit return statement */
+
+EXPLANATION:
+An explicit return statement with an expression was added to the function to ensure that the function returns a value in all possible exit paths.

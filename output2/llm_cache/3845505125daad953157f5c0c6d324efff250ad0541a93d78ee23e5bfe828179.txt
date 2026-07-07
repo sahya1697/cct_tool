@@ -1,0 +1,15 @@
+CORRECTED:
+    int r15_4_boolean_switch(int v) {
+        int r = 0;
+        switch (v) {
+            case 0:
+                break;
+            default:
+                r = 1;
+                break;
+        }
+        return r;
+    }
+
+EXPLANATION:
+The switch statement now correctly checks the value of 'v' and assigns the correct value to 'r'.

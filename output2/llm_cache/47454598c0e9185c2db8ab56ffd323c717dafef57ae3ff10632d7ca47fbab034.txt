@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.1) advises to use parentheses to emphasize operator precedence, but it does not require them in this specific case. The expression 'i % 2' is a simple binary operation that does not require parentheses to clarify its precedence. The rule's amplification text does not mention the use of 'continue' in a loop, which is the main focus of this code snippet."
+}

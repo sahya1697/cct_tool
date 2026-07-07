@@ -1,0 +1,13 @@
+CORRECTED:
+void r14_3_null_stmt(void) {
+    int i = 0;
+    for (i = 0; i < 2; i++) {
+        printf("good\n");
+    }
+    if (i) {
+        printf("also good\n");
+    }
+}
+
+EXPLANATION:
+The fix is to remove the semicolons at the end of the for and if statements, which were causing the MISRA violation by relying on the order of evaluation.

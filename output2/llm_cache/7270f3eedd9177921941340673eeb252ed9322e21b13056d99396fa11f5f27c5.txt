@@ -1,0 +1,5 @@
+CORRECTED:
+    int only_default(int v){switch(v){default:v++;return v;break;}return v;}
+
+EXPLANATION:
+The explicit return statement with an expression was added to ensure that the function returns a value in all exit paths.

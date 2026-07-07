@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function h has parameters (a, b, c, d, e), so it does not match the rule's criteria for functions with no parameters. The rule is not applicable to this code construct."
+}

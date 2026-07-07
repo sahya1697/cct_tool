@@ -1,0 +1,5 @@
+Here is the rationale:
+
+1. This rule applies here because the function `logical_nonprimary` is defined earlier in the code and has pointer parameters, which are not declared as const. Although the rule specifically mentions function prototypes, its intent is to ensure that pointer parameters are declared as const if they are not used to modify the addressed object, and this intent is still relevant for function definitions.
+2. The code violates this rule because the function `logical_nonprimary` has pointer parameters `a`, `b`, and `c` that are not declared as const, even though they are not used to modify the addressed objects. This omission makes the function interface less precise than it could be.
+3. The evidence used was LLM (Language Model) inference, which detected the rule violation based on the function definition and its parameters.

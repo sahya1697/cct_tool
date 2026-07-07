@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (14.9) states that an if (expression) construct shall be followed by a compound statement. However, the target line is a goto statement, which is not an if (expression) construct. Therefore, the rule does not apply to this code construct."
+}

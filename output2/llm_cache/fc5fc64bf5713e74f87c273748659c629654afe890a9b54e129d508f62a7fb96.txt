@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement is used within the function r15_5_only_default, and the default label is used within the switch statement. This matches the rule description, which states that a switch label shall only be used when the most closely-enclosing compound statement is the body of a switch statement."
+}

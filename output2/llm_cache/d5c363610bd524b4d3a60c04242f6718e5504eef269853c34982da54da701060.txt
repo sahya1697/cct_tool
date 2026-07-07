@@ -1,0 +1,5 @@
+CORRECTED:
+void bad_null(int *y){if(*y); printf("after\n");}
+
+EXPLANATION:
+The pointer parameter 'y' was declared as a non-const pointer, but since it is not used to modify the object it points to, it should be declared as a pointer to const.

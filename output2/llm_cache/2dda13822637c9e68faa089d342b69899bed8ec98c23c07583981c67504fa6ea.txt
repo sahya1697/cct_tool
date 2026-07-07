@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The expression 'd < 1e-9' in the target line is a function argument and a return expression, which are both considered complex expressions according to the rule. The expression is also a floating-point comparison, which is not a conversion to a wider floating type. Therefore, the rule is violated."
+}

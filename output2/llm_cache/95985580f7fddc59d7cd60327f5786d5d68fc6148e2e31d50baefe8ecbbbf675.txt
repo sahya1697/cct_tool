@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The expression 'a+b && c-1' in the target line is a complex logical expression. According to the rule, the order of evaluation of sub-expressions is unspecified and can vary. In this case, the order of evaluation of 'a+b' and 'c-1' can affect the result of the expression. Therefore, the code violates the rule."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a function call to dispatch_packet with two arguments, a constant 2 and a right-hand operand of (uint16_t)(BUFFER_SIZE / 2U). The rule applies to shift operators, but there is no shift operator in the target line. The rule is not applicable to this code construct."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a conditional expression with a logical && operator. The operands of the && operator are primary-expressions, specifically the pointer p and the constant 42. The rule does not apply to this code construct because the operands are either constants or primary-expressions, which are allowed according to the rule's amplification."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line `int loops = float_loop(5);` does not evaluate a constant unsigned integer expression. The function `float_loop` is called with an argument `5`, which is a constant integer expression, but the result of this function call is assigned to a variable `loops` of type `int`, not an unsigned integer type. Therefore, the rule does not apply to this code construct."
+}

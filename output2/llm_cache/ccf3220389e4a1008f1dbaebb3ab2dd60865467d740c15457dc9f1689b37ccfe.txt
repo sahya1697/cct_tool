@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The code in the default branch of the switch statement will never be executed because the switch statement will always match one of the case labels (E_wakeup, E_shutdown, etc.) due to the nature of the switch statement. This code is unreachable and therefore violates rule 14.1."
+}

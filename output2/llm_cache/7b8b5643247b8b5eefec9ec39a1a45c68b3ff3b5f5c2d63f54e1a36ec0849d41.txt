@@ -1,0 +1,9 @@
+CORRECTED:
+    int logical_nonprimary(int a,int b,int c){if(a+b && c-1) return 1; else return 0;}
+    
+>>> int main(void){
+        int a=1,b=2,c=3,d=4,e=5,x[2]={42,7};int *p=x;
+        prec(a,b,c,d,e); unspecified(); size_effect();
+
+EXPLANATION:
+The pointer parameter in the function prototype should be declared as a pointer to const to indicate that it is not used to modify the addressed object.

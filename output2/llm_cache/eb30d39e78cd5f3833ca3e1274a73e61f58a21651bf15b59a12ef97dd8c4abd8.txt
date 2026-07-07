@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 1.0,
+  "reasoning": "The function 'n' has a non-void return type, but the target line does not have an explicit return statement with an expression. The function definition is provided above the target line, and it explicitly returns the sum of 'x' and 'y'. However, the function call in the target line does not have an explicit return statement, which is a clear violation of the rule."
+}

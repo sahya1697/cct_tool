@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function call 'unreachable()' in the target line has no arguments passed to it, but the function itself is not defined in the provided code. However, based on the context, it seems that 'unreachable' is a function that returns an integer value. The rule states that the number of arguments passed to a function shall match the number of parameters. Since 'unreachable' is not defined, we cannot determine its parameter count, but based on the function call, it seems to expect no arguments. Therefore, the rule is violated."
+}

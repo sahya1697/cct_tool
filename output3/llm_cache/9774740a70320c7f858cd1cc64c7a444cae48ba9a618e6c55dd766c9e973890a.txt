@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (16.6) checks if the number of arguments passed to a function matches the number of parameters. However, the target line is a function declaration (void log_formatted(const char *fmt, ...)) and does not contain a function call. Therefore, the rule does not apply to this code construct."
+}

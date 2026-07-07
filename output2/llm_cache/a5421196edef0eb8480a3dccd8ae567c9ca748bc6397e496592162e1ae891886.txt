@@ -1,0 +1,10 @@
+CORRECTED:
+    #include <stdarg.h>
+    
+    int varsum(int n,...){va_list ap;int t=0;va_start(ap,n);for(int i=0;i<n;i++)t+=va_arg(ap,int);va_end(ap);return t;}
+    int rec(int n){if(n<=0) return 0; return rec(n-1)+1;}
+    int m(double,double);                 /* prototype with no parameter identifiers */
+    int main(){return 0;}
+
+EXPLANATION:
+The fix is to add a return statement with an expression at the end of the main function, which is the entry point of a C program and must have an explicit return statement.

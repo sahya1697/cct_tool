@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to constant unsigned integer expressions that lead to wrap-around, but the target line does not contain any such expressions. The code snippet provided does not contain any relevant code that would trigger this rule."
+}

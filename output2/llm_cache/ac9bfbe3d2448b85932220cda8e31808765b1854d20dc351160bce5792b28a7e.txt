@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function call. The function `missing_break` is called with a single integer argument, but its parameter type is not specified. Without more information about the function's signature, it's unclear whether the rule applies."
+}

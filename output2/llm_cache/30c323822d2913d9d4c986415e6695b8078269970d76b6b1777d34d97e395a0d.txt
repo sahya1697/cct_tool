@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule requires checking for error information after a function returns. However, the provided code does not return any error information. It simply calculates a total value using the `va_arg` macro and returns it. There is no indication of an error occurring, and the function does not provide any means of indicating an error. Therefore, the rule does not apply to this code construct."
+}

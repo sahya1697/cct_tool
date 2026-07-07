@@ -1,0 +1,13 @@
+CORRECTED:
+```c
+uint16_t compute_checksum(const uint8_t *buffer, size_t size) {
+    uint16_t checksum = 0;
+    for (size_t i = 0; i < size; i++) {
+        checksum += buffer[i];
+    }
+    return checksum;
+}
+```
+
+EXPLANATION:
+The fix is to use an unsigned integer type (uint16_t) to store the checksum, preventing the possibility of signed integer overflow.

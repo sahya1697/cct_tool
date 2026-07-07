@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to the order of evaluation of sub-expressions, but the target line is a function call to log_error with a single argument. The order of evaluation of function arguments is unspecified, but in this case, the argument is a constant (flags) and not a sub-expression that could have side effects. Therefore, there is no dependence on the order of evaluation that could lead to a violation of the rule."
+}

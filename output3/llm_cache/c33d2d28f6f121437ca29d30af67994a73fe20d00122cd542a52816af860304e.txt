@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The code uses a switch statement with case labels and a default label, which matches the MISRA C switch syntax. The rule does not specify any restrictions on the use of break statements, and the code does not contain any complex, unstructured behavior. Therefore, the code is compliant with the rule."
+}

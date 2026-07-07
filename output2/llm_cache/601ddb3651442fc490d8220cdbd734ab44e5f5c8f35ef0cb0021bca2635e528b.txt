@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule states that every switch statement shall have at least one case clause. However, the provided code is not a switch statement, but rather a block of code with a break statement. Therefore, the rule does not apply to this code construct."
+}

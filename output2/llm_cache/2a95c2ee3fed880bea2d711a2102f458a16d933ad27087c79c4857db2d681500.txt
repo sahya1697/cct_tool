@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function logical_nonprimary has a non-void return type, and the rule requires an explicit return statement with an expression for all exit paths. The function has two exit paths: one where it returns 1 and another where it returns 0. Both of these paths have an explicit return statement with an expression, satisfying the rule."
+}

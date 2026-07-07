@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule refers to unreachable code, which cannot be reached under any circumstances at compile time. The target line is part of a switch statement with a default clause, and the code following the unconditional control transfer is not unreachable because it is part of the switch statement and can be reached through the default case."
+}

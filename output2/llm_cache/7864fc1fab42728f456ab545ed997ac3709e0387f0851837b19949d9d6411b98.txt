@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 1.0,
+  "reasoning": "The switch statement in the function default_not_last has at least one case clause, which is the case 0. Therefore, the rule that every switch statement shall have at least one case clause is complied with."
+}

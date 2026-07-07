@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that the value of an expression shall be the same under any order of evaluation that the standard permits. The target line `for (int i = 0; i < 5; i++)` contains a loop variable `i` which is used in the expression `i % 2`. The order of evaluation of `i` and `2` is unspecified, as per the rule's amplification. This could lead to different results depending on whether `i` is evaluated before or after `2`. Therefore, the code violates this specific rule."
+}

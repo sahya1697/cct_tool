@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule prohibits the use of unions for any purpose, but the amplification text mentions exceptions for packing and unpacking data, and implementing variant records. The code in question is a switch statement, not a union. However, the amplification text does not explicitly cover switch statements, and the rule's applicability to this code construct is unclear. Further review is needed to determine whether this rule applies to the given code."
+}

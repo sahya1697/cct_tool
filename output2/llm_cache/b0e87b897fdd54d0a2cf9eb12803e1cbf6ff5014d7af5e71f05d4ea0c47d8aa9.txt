@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement in the target line is within a function (r15_5_only_default) and has a default label. The amplification text clarifies that the scope of a case or default label shall be the compound statement, which is the body of a switch statement. In this case, the default label is used within the switch statement, meeting the rule's criteria."
+}

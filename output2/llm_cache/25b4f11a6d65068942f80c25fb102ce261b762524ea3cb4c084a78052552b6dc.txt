@@ -1,0 +1,11 @@
+CORRECTED:
+    }
+    int r15_5_only_default(int v) {
+        switch (v) {
+            default:
+                return 0; // Added a return statement to make the code reachable
+        }
+    }
+
+EXPLANATION:
+The fix adds a return statement to the default case, ensuring that the code is reachable under all circumstances.

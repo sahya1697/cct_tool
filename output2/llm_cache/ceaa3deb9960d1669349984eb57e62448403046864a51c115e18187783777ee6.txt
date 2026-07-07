@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule prohibits the use of unions for any purpose, but the amplification text mentions exceptions for packing and unpacking data, and implementing variant records. The code does not explicitly use a union, but the context suggests that the function `bad_scope` might be related to variant records or packing/unpacking data. However, without more information about the function's purpose and the surrounding code, it is uncertain whether the rule applies to this specific code construct."
+}

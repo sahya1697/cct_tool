@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.3) states that the sizeof operator shall not be used on expressions that contain side effects. However, the target line does not use the sizeof operator at all. It is simply assigning values to sensor.temperature and sensor.pressure."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (16.3) requires identifiers for all parameters in a function prototype declaration. However, the target line is not a function prototype declaration, but rather a function call. Therefore, the rule does not apply to this code construct."
+}

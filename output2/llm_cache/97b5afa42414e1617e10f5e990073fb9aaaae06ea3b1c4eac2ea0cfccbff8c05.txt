@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function declaration with integer parameters, not pointers. However, the rule's amplification mentions that the const qualification should be applied to the object pointed to, not the pointer. In this case, the parameters are integers, not pointers, so the rule's application is unclear. Further review is needed to determine if the rule is violated or not."
+}

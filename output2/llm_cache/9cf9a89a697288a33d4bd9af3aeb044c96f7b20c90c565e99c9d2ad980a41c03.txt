@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement's default label 'v++' is used within the most closely-enclosing compound statement, which is the body of the switch statement. This matches the rule's requirement that a switch label shall only be used when the most closely-enclosing compound statement is the body of a switch statement."
+}

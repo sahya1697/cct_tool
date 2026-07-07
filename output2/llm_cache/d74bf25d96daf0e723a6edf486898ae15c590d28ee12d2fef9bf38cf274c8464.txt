@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that identifiers shall be given for all of the parameters in a function prototype declaration. The target line is a function prototype declaration with no parameter identifiers, which directly matches the rule's criteria. This is a clear violation of the rule."
+}

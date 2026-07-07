@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule states that functions shall not call themselves, either directly or indirectly. However, the target line is the main() function entry point, and there is no indication that it calls itself. The context does not provide any information about recursive function calls within the main() function."
+}

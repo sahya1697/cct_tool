@@ -1,0 +1,11 @@
+CORRECTED:
+void myFunction() {
+    if (/* some condition */) {
+        /* some code */
+    } else {
+        /* some code */
+    }
+}
+
+EXPLANATION:
+The goto statement was removed, replacing it with a structured control flow using an if-else statement.

@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a function parameter declaration, not a pointer arithmetic operation. The rule applies to pointer arithmetic operations, which is not present in this code construct."
+}

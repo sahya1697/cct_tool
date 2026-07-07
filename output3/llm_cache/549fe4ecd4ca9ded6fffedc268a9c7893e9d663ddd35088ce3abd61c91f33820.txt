@@ -1,0 +1,8 @@
+CORRECTED:
+if ((len > 0U) && (log_error(0) == 0))
+{
+    addr++;
+}
+
+EXPLANATION:
+The log_error call is now evaluated first, and its return value is used in the && expression, avoiding the side effect.

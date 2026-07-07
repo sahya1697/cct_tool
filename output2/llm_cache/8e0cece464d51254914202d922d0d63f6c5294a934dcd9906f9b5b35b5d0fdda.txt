@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function definition, not a prototype. However, the function prototype `m(double,double);` is declared with no parameter identifiers, which might be related to the rule. Further analysis is needed to determine if the rule applies to this specific context."
+}

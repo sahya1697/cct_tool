@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line contains a floating-point expression being tested for equality (f<3.0f), which directly matches the rule's prohibition on testing floating-point expressions for equality or inequality."
+}

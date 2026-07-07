@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement in the only_default function has a default case that increments the variable v, but there is no break statement after the default case. This means that the code following the default case will be executed, making it reachable. However, the rule states that there shall be no unreachable code, and in this case, the code following the default case is unreachable because it will not be executed due to the unconditional increment of v. This is a clear violation of the rule."
+}

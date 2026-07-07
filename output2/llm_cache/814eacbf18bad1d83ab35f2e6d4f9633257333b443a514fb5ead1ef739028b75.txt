@@ -1,0 +1,14 @@
+CORRECTED:
+int r15_1_bad_case_scope(int v) {
+    int r = 0;
+    switch (v) {
+        case 0:
+            r = 10;
+            break;
+        default:
+            break;
+    }
+}
+
+EXPLANATION:
+The switch statement was corrected to use the MISRA C switch syntax, which requires a default case to be present.

@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The function `logical_nonprimary` has a non-void return type, but not all exit paths have an explicit return statement with an expression. The function returns 1 when `a+b` is true and `c-1` is true, and returns 0 otherwise. However, there is no explicit return statement with an expression in the function. According to MISRA C 2004 rule 16.8, all exit paths from a function with a non-void return type shall have an explicit return statement with an expression."
+}

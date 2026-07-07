@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line calls the function `log_formatted` with a variable-args function, which implies that the order of evaluation of its arguments is unspecified. According to the rule, the order of evaluation of function arguments is unspecified, which can lead to different results depending on which argument is evaluated first. This matches the example provided in the rule's amplification text, where the order of evaluation of function arguments can cause different results."
+}

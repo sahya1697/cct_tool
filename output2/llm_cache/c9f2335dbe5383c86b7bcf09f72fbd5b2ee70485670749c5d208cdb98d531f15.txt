@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement in the target line has a case with a value of 1, which is unreachable because the previous case (0) does not fall through to it. This matches the rule description of unreachable code, which refers to code that cannot be reached under any circumstances and can be identified at compile time."
+}

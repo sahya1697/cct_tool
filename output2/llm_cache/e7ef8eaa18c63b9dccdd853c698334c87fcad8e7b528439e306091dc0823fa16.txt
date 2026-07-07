@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function call. The function `for_side` has a pointer parameter, but its declaration is not provided in the context. Without the function declaration, it's unclear whether the pointer is used to modify the addressed object or not."
+}

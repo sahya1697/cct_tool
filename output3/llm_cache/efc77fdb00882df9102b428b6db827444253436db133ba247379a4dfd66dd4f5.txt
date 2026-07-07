@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule refers to unreachable code, but the target line is an if statement with a condition. This condition can be true or false, making the code reachable. The amplification text also clarifies that code that can be reached but may never be executed is excluded from the rule."
+}

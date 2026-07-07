@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule prohibits the use of unions, but the target line does not contain a union. The code uses a switch statement with multiple cases, which is not related to the use of unions."
+}

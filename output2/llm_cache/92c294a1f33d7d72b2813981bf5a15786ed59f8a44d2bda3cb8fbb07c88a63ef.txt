@@ -1,0 +1,5 @@
+Here is the rationale:
+
+1. This rule applies here because the function `r14_3_null_stmt` is defined nearby, and its parameters should be analyzed for compliance with the rule, even though the target line is a function call.
+2. The code violates the rule because the function `r14_3_null_stmt` has a parameter `i` which is not used to modify the addressed object, but is not declared as a pointer to const, indicating that the rule's intent is to ensure that the function interface accurately reflects the usage of its parameters.
+3. The evidence used is LLM inference, as the rule's detection source is listed as "llm", indicating that the rule was applied based on the analysis of the function's parameters.

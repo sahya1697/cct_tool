@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule applies to the right-hand operand of a shift operator, but the target line is a typedef declaration for uint8_t, which does not involve a shift operator. The rule is not applicable to this code construct."
+}

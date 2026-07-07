@@ -1,0 +1,9 @@
+CORRECTED:
+for (i = 0; i < (n * 2); i++)
+{
+    count++;
+}
+return count;
+
+EXPLANATION:
+The original code does not actually use the bitwise operators ~ and <<, so no correction is needed.

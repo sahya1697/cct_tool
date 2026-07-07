@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.2) specifies that the value of an expression shall be the same under any order of evaluation that the standard permits. However, the target line is a function call to `compute_checksum` with arguments `buf` and `len`. The function call operator `()` is one of the operators for which the order of evaluation is unspecified. However, the amplification text specifically mentions that function calls are an example of what can go wrong due to dependence on order of evaluation. But in this case, the function `compute_checksum` does not have any side effects that depend on the order of evaluation of its arguments. Therefore, the rule does not apply to this code construct."
+}

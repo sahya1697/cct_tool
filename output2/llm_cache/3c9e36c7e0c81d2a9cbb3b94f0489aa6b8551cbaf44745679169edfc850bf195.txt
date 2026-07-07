@@ -1,0 +1,5 @@
+CORRECTED:
+    int logical_nonprimary(int a,int b,int c){if(a+b && c-1==0) return 1; else return 0;}
+
+EXPLANATION:
+The fix is to ensure that the right-hand operand of the logical && operator does not contain side effects by changing the condition to a constant value.

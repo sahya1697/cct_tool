@@ -1,0 +1,6 @@
+CORRECTED:
+    int assignb(int x,int y){if(x=y) return 1; if(x!=y) return -1; return 0;}
+    int ez(int z){if(z) return 1; if(!z) return -1; return 0;}
+
+EXPLANATION:
+The original code did not test the return values of the functions assignb and ez, which are supposed to indicate errors, and added error checking to return -1 in case of an error.

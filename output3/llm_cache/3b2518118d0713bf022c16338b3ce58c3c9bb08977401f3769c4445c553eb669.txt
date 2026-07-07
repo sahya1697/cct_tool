@@ -1,0 +1,6 @@
+CORRECTED:
+dispatch_packet(2, (uint16_t)(BUFFER_SIZE / 2U));
+total = process_all_sensors();
+
+EXPLANATION:
+The fix is to remove the unnecessary parentheses around the expression BUFFER_SIZE / 2U, which does not affect the order of evaluation.

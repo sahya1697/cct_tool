@@ -1,0 +1,13 @@
+CORRECTED:
+    int ten(int v) {
+        int r = 0;
+        switch (v) {
+            case 0:
+                r = 10;
+            default:
+                break;
+        }
+    }
+
+EXPLANATION:
+The default label was added to ensure that all case clauses are at the same scope as the default clause.

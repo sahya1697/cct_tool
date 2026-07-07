@@ -1,0 +1,9 @@
+CORRECTED:
+    #include <stdio.h>
+    
+    int assign_bool(int x,int y){if((x=y)) return 1; return 0;}
+    int explicit_zero(int z){if((z)) return 1; return 0;}
+    int eq_double(double a,double b){return (a==b);}
+
+EXPLANATION:
+Parentheses were added to emphasize the intended operator precedence in each expression.

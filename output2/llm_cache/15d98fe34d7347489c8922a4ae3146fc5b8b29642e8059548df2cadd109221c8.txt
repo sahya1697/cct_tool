@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch expression in the target line represents a value that is effectively Boolean, as it is a comparison (a % 3) which can only be true or false. This matches the rule description, which states that a switch expression shall not represent a value that is effectively Boolean."
+}

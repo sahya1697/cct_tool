@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The target line `int s = sw_case(0);` involves a function call `sw_case(0)` which may have side effects. According to the rule, the order of evaluation of function arguments is unspecified. Therefore, the code may depend on the order of evaluation of the function arguments, which is a violation of the rule."
+}

@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function declaration with no pointer parameters. However, the function has a local variable 's' and a loop that iterates over an array, which might imply pointer usage. Further analysis is required to determine if the function modifies the addressed objects."
+}

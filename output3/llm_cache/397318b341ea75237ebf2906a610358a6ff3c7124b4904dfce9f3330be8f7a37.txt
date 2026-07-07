@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.13) specifies that the increment (++) and decrement (--) operators should not be mixed with other operators in an expression. However, the target line 'retry_transmit()' does not contain any expression that mixes increment/decrement operators with other operators. The rule is not applicable to this code construct."
+}

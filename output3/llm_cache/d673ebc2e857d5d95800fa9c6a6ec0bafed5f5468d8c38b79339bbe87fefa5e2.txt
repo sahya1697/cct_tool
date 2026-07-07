@@ -1,0 +1,6 @@
+CORRECTED:
+dispatch_packet(2, (uint16_t)(BUFFER_SIZE / 2U));
+total = process_all_sensors();
+
+EXPLANATION:
+The fix is to remove the subexpression that was causing the order of evaluation to be unspecified, thus ensuring that the value of the expression is the same under any order of evaluation.

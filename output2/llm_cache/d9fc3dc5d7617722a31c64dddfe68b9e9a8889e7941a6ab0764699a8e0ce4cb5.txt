@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The variable 'i' is being used as a loop counter in the for loop, and it is being modified in the body of the loop by the line 'printf(\"Iteration %d\\n\", i);'. According to rule 13.6, numeric variables being used within a for loop for iteration counting shall not be modified in the body of the loop."
+}

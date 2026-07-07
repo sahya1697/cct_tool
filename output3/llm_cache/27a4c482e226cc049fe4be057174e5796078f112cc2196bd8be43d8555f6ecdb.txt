@@ -1,0 +1,8 @@
+CORRECTED:
+typedef union {
+    uint32_t  raw_word;    /* access as 32-bit word  */
+    uint8_t   bytes[4];    /* access as byte array   */
+} RawPacket_t;
+
+EXPLANATION:
+The code does not actually violate the MISRA rule, as it does not perform any pointer arithmetic.

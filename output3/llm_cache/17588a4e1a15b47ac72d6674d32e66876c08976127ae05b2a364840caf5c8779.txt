@@ -1,0 +1,5 @@
+CORRECTED:
+accum = (accum + (unsigned char)buf[i]) & 0xFF;
+
+EXPLANATION:
+The fix prevents potential overflow by casting to an unsigned type and then masking the result to the least significant 8 bits.

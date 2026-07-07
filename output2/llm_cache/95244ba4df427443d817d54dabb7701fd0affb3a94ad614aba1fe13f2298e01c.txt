@@ -1,0 +1,14 @@
+CORRECTED:
+int count = 0;
+int i;
+for (i = 0; i < n; i++)
+{
+    count++;
+    if (i < (n * 2 - 1)) // added conditional statement to control loop
+    {
+        // additional code here
+    }
+}
+
+EXPLANATION:
+The for loop condition was moved to a conditional statement within the loop body to comply with the MISRA rule.

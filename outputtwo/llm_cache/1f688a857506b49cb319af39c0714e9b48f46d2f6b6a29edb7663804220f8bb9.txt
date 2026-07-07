@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The target line is a function call to log_packet(buf), which is a primary expression. The operands of the function call are not logical && or ||, so the rule does not apply."
+}

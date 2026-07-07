@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.0,
+  "reasoning": "The rule description and amplification text specify that a pointer parameter in a function prototype should be declared as pointer to const if the pointer is not used to modify the addressed object. However, the provided code snippet does not contain any function prototype or pointer parameter declaration. Therefore, it is not possible to determine whether the rule is violated or not without more information."
+}

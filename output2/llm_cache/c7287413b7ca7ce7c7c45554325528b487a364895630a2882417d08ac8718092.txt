@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The rule states that the value of an expression shall be the same under any order of evaluation that the standard permits. In the target line, the expression `n=1; L: n+=2; return n;` has a side effect in the label `L` where `n` is incremented. The order of evaluation of the expression `n=1` and the label `L` is unspecified, which means that the value of `n` can be different depending on the order of evaluation. This violates the rule."
+}

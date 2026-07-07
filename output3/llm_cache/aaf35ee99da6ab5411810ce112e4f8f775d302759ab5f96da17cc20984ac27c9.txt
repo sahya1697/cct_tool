@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule refers to unreachable code, but the provided code is a function declaration and does not contain any unreachable code. The function body is not shown, but based on the function declaration alone, there is no indication of unreachable code."
+}

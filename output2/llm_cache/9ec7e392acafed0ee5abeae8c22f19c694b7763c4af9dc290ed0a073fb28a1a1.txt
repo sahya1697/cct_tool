@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The controlling expression of the for statement does not contain any objects of floating type. The loop counter 'i' is of type 'int', which is an integer type, not a floating-point type."
+}

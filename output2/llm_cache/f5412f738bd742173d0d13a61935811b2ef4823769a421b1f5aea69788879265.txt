@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The controlling expression of the for statement contains a floating-point operation (n * 2), which is a violation of Rule 13.4. The amplification text specifically warns against using floating-point variables in the controlling expression of a loop, as it can lead to rounding and truncation errors."
+}

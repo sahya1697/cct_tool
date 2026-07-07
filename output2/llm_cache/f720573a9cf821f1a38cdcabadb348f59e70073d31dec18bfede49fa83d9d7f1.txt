@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The default label in the switch statement is not the last case, which is a clear violation of the rule. The rule states that there shall be no unreachable code, and in this case, the code following the default label is unreachable because it is not the last case in the switch statement."
+}

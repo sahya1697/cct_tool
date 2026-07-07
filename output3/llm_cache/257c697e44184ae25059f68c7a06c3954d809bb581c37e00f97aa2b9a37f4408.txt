@@ -1,0 +1,7 @@
+CORRECTED:
+uint8_t *p = buf;
+uint8_t *p_end = buf + 10;
+*p = 0xFFU;
+
+EXPLANATION:
+The fix is to ensure that the pointer arithmetic is done on a pointer that points to an array or array element, by introducing a new pointer `p_end` that points to the desired location.

@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to function prototypes, but the provided code is a function body. The pointer `ptr` is being modified, but the rule's focus is on function prototypes, not function bodies. However, the rule's amplification mentions protecting the object pointed to, which is relevant in this case. Further review is needed to determine if the pointer `ptr` is used to modify the addressed object in a way that would require the `const` qualification."
+}

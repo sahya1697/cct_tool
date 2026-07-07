@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The function 'cont' has a parameter list, which is 'void'. The rule applies to functions with no parameters, but 'cont' has a parameter list, so the rule does not apply."
+}

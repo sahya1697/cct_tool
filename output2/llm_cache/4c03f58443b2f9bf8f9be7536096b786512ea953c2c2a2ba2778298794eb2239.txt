@@ -1,0 +1,9 @@
+CORRECTED:
+int y = x;
+if (y < 0) goto retry;
+y = y + 1;
+retry:
+if (y == 0) {
+
+EXPLANATION:
+The fix is to replace the single equals sign (=) with a double equals sign (==) in the if condition to ensure a comparison, not an assignment.

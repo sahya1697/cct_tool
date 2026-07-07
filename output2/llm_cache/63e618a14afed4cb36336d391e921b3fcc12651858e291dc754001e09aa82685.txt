@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 1.0,
+  "reasoning": "The function 'unspecified' has a return type of 'int' but the return statement is 'r=i++ + ++i', which does not explicitly state the type of 'r'. According to rule 8.2, the type of 'r' should be explicitly stated."
+}

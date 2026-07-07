@@ -1,0 +1,5 @@
+{
+  "violation": true,
+  "confidence": 0.9,
+  "reasoning": "The switch statement in the only_default function has only a default case, which does not contain any code. According to MISRA C 2004 rule 15.5, every switch statement shall have at least one case clause. The default case is not considered a case clause for the purpose of this rule."
+}

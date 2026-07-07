@@ -1,0 +1,7 @@
+CORRECTED:
+} else {
+    return total;
+}
+
+EXPLANATION:
+The code was unreachable because it was not part of any control flow path, so an else clause was added to make it reachable.

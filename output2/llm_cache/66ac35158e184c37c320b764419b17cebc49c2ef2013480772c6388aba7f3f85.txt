@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to pointer parameters in function prototypes, but the target line is a function call. The function itself is not shown, so it's unclear whether the function prototype matches the rule's criteria. Additionally, the function name 'for_side' suggests it might be related to a loop, but the rule's focus is on pointer parameters, not loop variables."
+}

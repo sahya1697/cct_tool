@@ -1,0 +1,11 @@
+CORRECTED:
+{
+    int v = process(-1);
+    int s = sw_case(0);
+    int loops = float_loop(5);
+    double sum = 0.1 + 0.2;
+    int eq = eq_double(sum, 0.3);
+}
+
+EXPLANATION:
+The fix is to break down the expression into separate sub-expressions to avoid relying on the order of evaluation.

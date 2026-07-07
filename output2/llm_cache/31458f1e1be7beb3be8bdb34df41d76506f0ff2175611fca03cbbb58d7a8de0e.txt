@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The function sz() returns the size of the variable i, which is incremented before the sizeof() operator is applied. However, the rule requires that error information be tested, but in this case, the sizeof() operator is not typically used to indicate an error. The rule's applicability to this code construct is uncertain, and further review is needed to determine whether the function's return value should be tested for errors."
+}

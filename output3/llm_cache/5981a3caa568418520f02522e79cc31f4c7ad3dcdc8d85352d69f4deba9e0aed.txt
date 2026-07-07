@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 1.0,
+  "reasoning": "The rule (12.3) specifies that the sizeof operator shall not be used on expressions that contain side effects. However, the target line (allocate_buffer()) does not use the sizeof operator at all. It is a function declaration for a function named allocate_buffer that takes a uint16_t size as an argument and returns a pointer to a uint8_t. Therefore, this rule does not apply to this code construct."
+}

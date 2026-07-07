@@ -1,0 +1,5 @@
+{
+  "violation": false,
+  "confidence": 0.95,
+  "reasoning": "The target line contains only a function call and an assignment operator. There are no binary or ternary operators whose precedence could be ambiguous, so Rule 12.1, which concerns the use of parentheses to clarify operator precedence, does not apply to this construct."
+}

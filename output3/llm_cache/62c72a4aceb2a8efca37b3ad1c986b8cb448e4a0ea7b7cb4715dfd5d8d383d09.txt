@@ -1,0 +1,5 @@
+{
+  "violation": "needs_review",
+  "confidence": 0.5,
+  "reasoning": "The rule applies to function prototypes, but the provided code is a function return statement. The rule description does not explicitly cover return statements, and the amplification text provides examples of function prototypes. Therefore, it is uncertain whether the rule applies to this specific code construct."
+}
